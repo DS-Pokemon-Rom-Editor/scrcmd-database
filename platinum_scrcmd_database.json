@@ -7208,7 +7208,6 @@
       "description": "Activates a roaming Pokemon depending on the ID"
     },
     "0x021D": {
-    "0x021D": {
       "name": "UnionGroup",
       "decomp_name": "ScrCmd_21D",
       "parameters": [
@@ -9234,17 +9233,35 @@
     "0x02C7": {
       "name": "CMD_711",
       "decomp_name": "ScrCmd_2C7",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: ???"
+      ],
       "description": "nan"
     },
     "0x02C8": {
       "name": "CMD_712",
       "decomp_name": "ScrCmd_2C8",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
+      "parameter_values": [
+        "Flex: ???",
+        "Flex: ???",
+        "Flex: ???"
+      ],
       "description": "nan"
     },
     "0x02C9": {
@@ -9283,9 +9300,21 @@
     "0x02CC": {
       "name": "CMD_716",
       "decomp_name": "ScrCmd_2CC",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX",
+        "INTEGER"
+      ],
+      "parameter_values": [
+        "u16: ???",
+        "Flex: ???",
+        "u16: ???"
+      ],
       "description": "nan"
     },
     "0x02CD": {
@@ -9395,17 +9424,35 @@
     "0x02D4": {
       "name": "CMD_724",
       "decomp_name": "ScrCmd_2D4",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: ???",
+        "Var: ???",
+        "Var: ???"
+      ],
       "description": "nan"
     },
     "0x02D5": {
       "name": "CMD_725",
       "decomp_name": "ScrCmd_2D5",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
+      "parameter_values": [
+        "Flex: ???"
+      ],
       "description": "nan"
     },
     "0x02D6": {
@@ -9419,49 +9466,103 @@
     "0x02D7": {
       "name": "CMD_727",
       "decomp_name": "ScrCmd_2D7",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x02D8": {
       "name": "CMD_728",
       "decomp_name": "PokeMartFrontier",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        1
+      ],
+      "parameter_types": [
+        "INTEGER"
+      ],
+      "parameter_values": [
+        "u8: Mart ID"
+      ],
       "description": "nan"
     },
     "0x02D9": {
       "name": "CMD_729",
       "decomp_name": "ScrCmd_2D9",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX",
+        "INTEGER"
+      ],
+      "parameter_values": [
+        "u16: ???",
+        "Flex: ???",
+        "u16: ???"
+      ],
       "description": "nan"
     },
     "0x02DA": {
       "name": "CMD_730",
       "decomp_name": "ScrCmd_2DA",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Flex: ???",
+        "Flex: ???",
+        "Var: ???"
+      ],
       "description": "nan"
     },
     "0x02DB": {
       "name": "CMD_731",
       "decomp_name": "ScrCmd_2DB",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: ???",
+        "Var: ???",
+        "Var: ???"
+      ],
       "description": "nan"
     },
     "0x02DC": {
       "name": "CMD_732",
       "decomp_name": "ScrCmd_2DC",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
+      "parameter_values": [
+        "Flex: ???"
+      ],
       "description": "nan"
     },
     "0x02DD": {
@@ -9484,33 +9585,75 @@
     "0x02DE": {
       "name": "CMD_734",
       "decomp_name": "ScrCmd_2DE",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER"
+      ],
+      "parameter_values": [
+        "Flex: ???",
+        "Flex: ???",
+        "u16: ???",
+        "u16: ???",
+        "u16: ???"
+      ],
       "description": "nan"
     },
     "0x02DF": {
       "name": "CMD_735",
       "decomp_name": "CalcAmitySquareBerryAndAccessoryManOptionID",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x02E0": {
       "name": "CMD_736",
       "decomp_name": "CheckAmitySquareManGiftIsAccesory",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Flex: giftID",
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x02E1": {
       "name": "CMD_737",
       "decomp_name": "GetAmitySquareBerryOrAccessoryIDFromMan",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Flex: berryAndAccessoryManOptionID",
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x02E2": {
@@ -9532,9 +9675,21 @@
     "0x02E4": {
       "name": "CMD_740",
       "decomp_name": "ScrCmd_2E4",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Flex: ???",
+        "Flex: ???",
+        "Var: ???"
+      ],
       "description": "nan"
     },
     "0x02E5": {
@@ -9633,18 +9788,15 @@
       "decomp_name": "CheckCanAffordMove",
       "parameters": [
         2,
-        2,
         2
       ],
       "parameter_types": [
         "FLEX",
-        "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
-        "Flex: Move",
-        "Flex: Move Slot",
-        "Flex: New Move ID"
+        "Flex: selectedMove",
+        "Var: canTeach"
       ],
       "description": "Check if the player has enough shards to pay a Move Tutor to teach the given Move. Assigns 1 to Answer if yes, 0 otherwise."
     },
@@ -9696,9 +9848,24 @@
     "0x02EE": {
       "name": "CMD_750",
       "decomp_name": "JudgeStats",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Flex: Party Position",
+        "Var: totalIVs",
+        "Var: highestIVIndex",
+        "Var: highestIVValue"
+      ],
       "description": "nan"
     },
     "0x02EF": {
@@ -9745,9 +9912,18 @@
     "0x02F3": {
       "name": "CMD_755",
       "decomp_name": "ScrCmd_2F3",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        1,
+        2
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX"
+      ],
+      "parameter_values": [
+        "u8: ???",
+        "Flex: ???"
+      ],
       "description": "nan"
     },
     "0x02F4": {
@@ -9761,25 +9937,58 @@
     "0x02F5": {
       "name": "CMD_757",
       "decomp_name": "BufferNumberPaddingDigits",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
+      "parameters": [
+        1,
+        4,
+        1,
+        1
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER"
+      ],
+      "parameter_values": [
+        "u8: templateArg",
+        "u32: value",
+        "u8: paddingMode",
+        "u8: maxDigits"
+      ],
+      "description": "StringTemplate_SetNumber(*strTemplate, templateArg, value, maxDigits, paddingMode, 1); see pokeplatinum for details"
     },
     "0x02F6": {
       "name": "CMD_758",
       "decomp_name": "ScrCmd_2F6",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Flex: ???",
+        "Flex: ???",
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x02F7": {
       "name": "CMD_759",
       "decomp_name": "ScrCmd_2F7",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "INTEGER"
+      ],
+      "parameter_values": [
+        "u16: ???"
+      ],
       "description": "nan"
     },
     "0x02F8": {
@@ -9829,33 +10038,66 @@
     "0x02FC": {
       "name": "CMD_764",
       "decomp_name": "ScrCmd_2FC",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x02FD": {
       "name": "CMD_765",
       "decomp_name": "ScrCmd_2FD",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        1,
+        2
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX"
+      ],
+      "parameter_values": [
+        "u8: ???",
+        "Flex: ???"
+      ],
       "description": "nan"
     },
     "0x02FE": {
       "name": "CMD_766",
       "decomp_name": "GetItemQuantity",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Flex: Item",
+        "Var: Quantity"
+      ],
+      "description": "FLEX as param0 could be wrong, might be u16 instead"
     },
     "0x02FF": {
       "name": "CMD_767",
       "decomp_name": "ScrCmd_2FF",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Flex: ???",
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x0300": {
@@ -9903,42 +10145,90 @@
     "0x0303": {
       "name": "CMD_771",
       "decomp_name": "GetPartyRotomCountAndFirst",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Count",
+        "Var: PartySlot"
+      ],
       "description": "nan"
     },
     "0x0304": {
       "name": "CMD_772",
       "decomp_name": "SetRotomForm",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Party Slot",
+        "Var: move Slot",
+        "Var: ???",
+        "Var: form"
+      ],
       "description": "nan"
     },
     "0x0305": {
       "name": "CMD_773",
       "decomp_name": "GetPartyMonForm2",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Flex: Party Slot",
+        "Var: Form"
+      ],
       "description": "nan"
     },
     "0x0306": {
       "name": "CMD_774",
       "decomp_name": "ShowListMenuRememberCursor",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: rememberedListOffset",
+        "Var: Cursor Position"
+      ],
       "description": "nan"
     },
     "0x0307": {
       "name": "CMD_775",
       "decomp_name": "ScrCmd_307",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Variable"
+      ],
+      "description": "returns PoffinCase_CountEmptySlots"
     },
     "0x0308": {
       "name": "CMD_776",
@@ -9959,9 +10249,15 @@
     "0x030A": {
       "name": "CMD_778",
       "decomp_name": "IncrementTrainerScore",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "INTEGER"
+      ],
+      "parameter_values": [
+        "u16: Score"
+      ],
       "description": "nan"
     },
     "0x030B": {
@@ -9983,25 +10279,46 @@
     "0x030D": {
       "name": "CMD_781",
       "decomp_name": "ScrCmd_30D",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
+      "parameter_values": [
+        "Flex: ???"
+      ],
       "description": "nan"
     },
     "0x030E": {
       "name": "CMD_782",
       "decomp_name": "ScrCmd_30E",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x030F": {
       "name": "CMD_783",
       "decomp_name": "ScrCmd_30F",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Flex: ???",
+        "Var: ???"
+      ],
       "description": "nan"
     },
     "0x0310": {
@@ -10015,17 +10332,29 @@
     "0x0311": {
       "name": "CMD_785",
       "decomp_name": "ScrCmd_311",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
+      "parameter_values": [
+        "Flex: ???"
+      ],
       "description": "nan"
     },
     "0x0312": {
       "name": "CMD_786",
       "decomp_name": "ScrCmd_312",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
+      "parameter_values": [
+        "Flex: ???"
+      ],
       "description": "nan"
     },
     "0x0313": {
@@ -10143,25 +10472,46 @@
     "0x031B": {
       "name": "CMD_795",
       "decomp_name": "ScrCmd_31B",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: ???"
+      ],
+      "description": "something to do with TVBroadcast"
     },
     "0x031C": {
       "name": "CMD_796",
       "decomp_name": "CheckPartyHasFatefulEncounter",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE",
+        "FLEX"
+      ],
+      "parameter_values": [
+        "Var: Variable",
+        "Flex: species"
+      ],
       "description": "nan"
     },
     "0x031D": {
       "name": "CMD_797",
       "decomp_name": "ScrCmd_31D",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x031E": {
@@ -10216,41 +10566,86 @@
     "0x0323": {
       "name": "CMD_803",
       "decomp_name": "ScrCmd_323",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x0324": {
       "name": "CMD_804",
       "decomp_name": "ScrCmd_324",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "VARIABLE",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "u8: ???",
+        "u8: ???",
+        "u8: ???",
+        "u8: ???",
+        "Var: ???",
+        "Var: ???"
+      ],
       "description": "nan"
     },
     "0x0325": {
       "name": "CMD_805",
       "decomp_name": "ScrCmd_325",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x0326": {
       "name": "CMD_806",
       "decomp_name": "ScrCmd_326",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x0327": {
       "name": "CMD_807",
       "decomp_name": "ShowListMenuSetWidth",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
+      "parameter_values": [
+        "Flex: Width"
+      ],
       "description": "nan"
     },
     "0x0328": {
@@ -10264,17 +10659,38 @@
     "0x0329": {
       "name": "CMD_809",
       "decomp_name": "ScrCmd_329",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
+      "parameters": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: ???",
+        "Var: ???",
+        "Var: ???",
+        "Var: ???"
+      ],
+      "description": "something about TVBroadcast"
     },
     "0x032A": {
       "name": "CMD_810",
       "decomp_name": "ScrCmd_32A",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x032B": {
@@ -10294,9 +10710,24 @@
     "0x032C": {
       "name": "CMD_812",
       "decomp_name": "ScrCmd_32C",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE",
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
+      "parameter_values": [
+        "Var: ???",
+        "Flex: ???",
+        "Flex: ???",
+        "Flex: ???"
+      ],
       "description": "nan"
     },
     "0x032D": {
@@ -10318,9 +10749,18 @@
     "0x032F": {
       "name": "CMD_815",
       "decomp_name": "CheckPartyHasHeldItem",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
+      "parameter_values": [
+        "Flex: Item",
+        "Var: Variable"
+      ],
       "description": "nan"
     },
     "0x0330": {
