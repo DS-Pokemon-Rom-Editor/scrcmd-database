@@ -11114,6 +11114,206 @@
         "u8: Floor"
       ],
       "description": "Stores Floor's name in String Buffer"
+    },
+    "0x0348": {
+      "name": "CMD_840",
+      "decomp_name": "ScrCmd_348",
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "INTEGER"
+      ],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0349": {
+      "name": "CMD_841",
+      "decomp_name": "ScrCmd_349",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x034A": {
+      "name": "CMD_842",
+      "decomp_name": "ScrCmd_34A",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x034B": {
+      "name": "CMD_843",
+      "decomp_name": "ScrCmd_34B",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x034C": {
+      "name": "CMD_844",
+      "decomp_name": "ScrCmd_34C",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x034D": {
+      "name": "CMD_845",
+      "decomp_name": "ScrCmd_34D",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x034E": {
+      "name": "CMD_846",
+      "decomp_name": "ScrCmd_34E",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x034F": {
+      "name": "CMD_847",
+      "decomp_name": "ScrCmd_34F",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0350": {
+      "name": "CMD_848",
+      "decomp_name": "ScrCmd_350",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0351": {
+      "name": "CMD_849",
+      "decomp_name": "ScrCmd_351",
+      "parameters": [
+          2
+      ],
+      "parameter_types": [
+        "INTEGER"
+      ],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0352": {
+      "name": "CMD_850",
+      "decomp_name": "ScrCmd_352",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0353": {
+      "name": "CMD_851",
+      "decomp_name": "ScrCmd_353",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0354": {
+      "name": "CMD_852",
+      "decomp_name": "ScrCmd_354",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0355": {
+      "name": "CMD_853",
+      "decomp_name": "ScrCmd_355",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0356": {
+      "name": "CMD_854",
+      "decomp_name": "ScrCmd_356",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0357": {
+      "name": "CMD_855",
+      "decomp_name": "ScrCmd_357",
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0358": {
+      "name": "CMD_856",
+      "decomp_name": "ScrCmd_358",
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0359": {
+      "name": "CMD_857",
+      "decomp_name": "ScrCmd_359",
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x035A": {
+      "name": "CMD_858",
+      "decomp_name": "ScrCmd_35A",
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX"
+      ],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x035B": {
+      "name": "CMD_859",
+      "decomp_name": "ScrCmd_35B",
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x035C": {
+      "name": "CMD_860",
+      "decomp_name": "ScrCmd_35C",
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
+      "parameter_values": [],
+      "description": ""
     }
   }
 }
