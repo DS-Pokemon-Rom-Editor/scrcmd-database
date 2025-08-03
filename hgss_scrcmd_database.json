@@ -393,7 +393,7 @@
       ],
       "parameter_types": [
         "VARIABLE",
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -5704,11 +5704,14 @@
       "name": "Strength",
       "decomp_name": "strength_flag_action",
       "parameters": [
-        1
+        255,
+        1,
+        0,
+        0,
+        1,
+        2
       ],
-      "parameter_types": [
-        "INTEGER"
-      ],
+      "parameter_types": [],
       "parameter_values": [
         "Command format depends on the first parameter:\nu8: 0\nu8: 1\nu8: 2",
         "Var: Variable"
@@ -5719,11 +5722,14 @@
       "name": "Flash",
       "decomp_name": "flash_action",
       "parameters": [
-        1
+        255,
+        1,
+        0,
+        0,
+        1,
+        2
       ],
-      "parameter_types": [
-        "INTEGER"
-      ],
+      "parameter_types": [],
       "parameter_values": [
         "Command format depends on the first parameter:\n u8: 0\n u8: 1\n u8: 2",
         "Var: Variable"
@@ -5734,11 +5740,14 @@
       "name": "DefogAction",
       "decomp_name": "defog_action",
       "parameters": [
-        1
+        255,
+        1,
+        0,
+        0,
+        1,
+        2
       ],
-      "parameter_types": [
-        "INTEGER"
-      ],
+      "parameter_types": [],
       "parameter_values": [
         "Command format depends on the first parameter:\n u8: 0\n u8: 1\n u8: 2",
         "Var: Variable"
@@ -6584,7 +6593,17 @@
     "0x01CF": {
       "name": "EnableMassOutbreaks",
       "decomp_name": "enable_mass_outbreaks",
-      "parameters": [],
+      "parameters": [
+        255,
+        1,
+        0,
+        0,
+        1,
+        0,
+        2,
+        1,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -6607,11 +6626,29 @@
       "name": "UnionGroup",
       "decomp_name": "scrcmd_465",
       "parameters": [
+        255,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        1,
+        2,
+        1,
+        2,
+        0,
+        1,
         2
       ],
-      "parameter_types": [
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [
         "Command format depends on the first parameter:\nu16: 0",
         "Flex: ID",
@@ -6954,11 +6991,26 @@
       "name": "MysteryGiftGive",
       "decomp_name": "mystery_gift",
       "parameters": [
-        2
+        255,
+        2,
+        0,
+        1,
+        2,
+        1,
+        2,
+        1,
+        2,
+        0,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        0,
+        0
       ],
-      "parameter_types": [
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [
         "Command format depends on the first parameter:\nu16: 0\nu16: 1",
         "Var: Variable\nu16: 2",
@@ -10524,9 +10576,9 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
         "FLEX",
-        "VARIABLE"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Text Slot",
