@@ -6593,17 +6593,7 @@
     "0x01CF": {
       "name": "EnableMassOutbreaks",
       "decomp_name": "enable_mass_outbreaks",
-      "parameters": [
-        255,
-        1,
-        0,
-        0,
-        1,
-        0,
-        2,
-        1,
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
