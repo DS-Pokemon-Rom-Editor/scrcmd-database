@@ -154,7 +154,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
+        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -189,7 +189,7 @@
       ],
       "parameter_types": [
         "INTEGER",
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u8: Script Register",
@@ -239,7 +239,7 @@
         1
       ],
       "parameter_types": [
-        "INTEGER",
+        "FLEX",
         "INTEGER"
       ],
       "parameter_values": [
@@ -273,8 +273,8 @@
         4
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [
         "u32: Address 1",
@@ -325,7 +325,7 @@
       ],
       "parameter_types": [
         "INTEGER",
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u8: Script Register",
@@ -341,7 +341,7 @@
         1
       ],
       "parameter_types": [
-        "INTEGER",
+        "FLEX",
         "INTEGER"
       ],
       "parameter_values": [
@@ -358,7 +358,7 @@
         1
       ],
       "parameter_types": [
-        "INTEGER",
+        "FLEX",
         "INTEGER"
       ],
       "parameter_values": [
@@ -375,8 +375,8 @@
         4
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [
         "u32: Address 1",
@@ -393,7 +393,7 @@
       ],
       "parameter_types": [
         "VARIABLE",
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -425,7 +425,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: ???"
@@ -439,7 +439,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Global Script ID"
@@ -461,7 +461,7 @@
         4
       ],
       "parameter_types": [
-        "INTEGER"
+        "FUNCTION_ID"
       ],
       "parameter_values": [
         "u32: Relative Jump"
@@ -472,12 +472,12 @@
       "name": "JumpIfObjID",
       "decomp_name": "objectgoto",
       "parameters": [
-        1,
+        2,
         4
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER"
+        "FLEX",
+        "FUNCTION_ID"
       ],
       "parameter_values": [
         "u8: Event ID",
@@ -494,7 +494,7 @@
       ],
       "parameter_types": [
         "INTEGER",
-        "INTEGER"
+        "FUNCTION_ID"
       ],
       "parameter_values": [
         "u8: ???",
@@ -511,7 +511,7 @@
       ],
       "parameter_types": [
         "INTEGER",
-        "INTEGER"
+        "FUNCTION_ID"
       ],
       "parameter_values": [
         "u8: Player Direction",
@@ -526,7 +526,7 @@
         4
       ],
       "parameter_types": [
-        "INTEGER"
+        "FUNCTION_ID"
       ],
       "parameter_values": [
         "u32: Relative Jump"
@@ -545,12 +545,12 @@
       "name": "JumpIf",
       "decomp_name": "goto_if",
       "parameters": [
-        1,
+        2,
         4
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER"
+        "FLEX",
+        "FUNCTION_ID"
       ],
       "parameter_values": [
         "u8: Condition",
@@ -562,12 +562,12 @@
       "name": "CallIf",
       "decomp_name": "call_if",
       "parameters": [
-        1,
+        2,
         4
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER"
+        "FLEX",
+        "FUNCTION_ID"
       ],
       "parameter_values": [
         "u8: Condition",
@@ -582,7 +582,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Flag"
@@ -596,7 +596,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Flag"
@@ -610,7 +610,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Flag"
@@ -624,7 +624,6 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -654,7 +653,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Flag",
@@ -697,7 +697,6 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
         "FLEX"
       ],
       "parameter_values": [
@@ -714,7 +713,7 @@
       ],
       "parameter_types": [
         "VARIABLE",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -731,7 +730,7 @@
       ],
       "parameter_types": [
         "VARIABLE",
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -748,7 +747,7 @@
       ],
       "parameter_types": [
         "VARIABLE",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -765,7 +764,7 @@
       ],
       "parameter_types": [
         "VARIABLE",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable 1",
@@ -781,7 +780,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -810,7 +810,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: Text Slot"
@@ -838,7 +838,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Text Slot"
@@ -851,7 +851,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: Text Slot"
       ],
@@ -901,12 +903,7 @@
       "name": "FreezeMessage",
       "decomp_name": "holdmsg",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "???"
     },
@@ -921,7 +918,9 @@
       ],
       "parameter_types": [
         "INTEGER",
-        "INTEGER"
+        "INTEGER",
+        "FLEX",
+        "VARIABLE"
       ],
       "parameter_values": [
         "u8: Text Slot",
@@ -939,7 +938,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "INTEGER",
+        "FLEX"
       ],
       "parameter_values": [
         "u8: Type",
@@ -953,7 +953,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: Process"
       ],
@@ -963,10 +965,7 @@
       "name": "WaitBoard",
       "decomp_name": "scrcmd_058",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER",
-        "INTEGER"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Waits the board last process to end"
     },
@@ -978,6 +977,7 @@
         2
       ],
       "parameter_types": [
+        "INTEGER",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -992,7 +992,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -1002,14 +1004,7 @@
       "name": "Menu",
       "decomp_name": "scrcmd_061",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -1025,7 +1020,12 @@
         1
       ],
       "parameter_types": [
-        "VARIABLE"
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: ???",
@@ -1043,7 +1043,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -1294,7 +1296,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Sound"
@@ -1316,7 +1318,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Music"
@@ -1330,7 +1332,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Unused"
@@ -1352,7 +1354,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Music"
@@ -1367,8 +1369,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Volume",
@@ -1383,7 +1385,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Time"
@@ -1414,7 +1416,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Music ID"
@@ -1496,7 +1498,7 @@
       ],
       "parameter_types": [
         "FLEX",
-        "INTEGER"
+        "ACTION_ID"
       ],
       "parameter_values": [
         "Flex: Event ID",
@@ -1535,7 +1537,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Event ID"
@@ -1549,7 +1551,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Event ID"
@@ -1592,8 +1594,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: X",
@@ -1699,8 +1701,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "INTEGER"
+        "VARIABLE",
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Event ID",
@@ -1714,7 +1716,9 @@
       "parameters": [
         4
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "u32: Money"
       ],
@@ -1727,7 +1731,7 @@
         4
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u32: Money"
@@ -1742,7 +1746,8 @@
         4
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE",
+        "FLEX"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -1758,8 +1763,8 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
-        "INTEGER"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: X",
@@ -1771,10 +1776,7 @@
       "name": "HideMoney",
       "decomp_name": "hide_money_box",
       "parameters": [],
-      "parameter_types": [
-        "FLEX",
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Hides the money box"
     },
@@ -1794,7 +1796,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "u8: Currency",
         "Flex: X Coord",
@@ -1806,10 +1812,7 @@
       "name": "HideSpecialCurrency",
       "decomp_name": "scrcmd_117",
       "parameters": [],
-      "parameter_types": [
-        "FLEX",
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Hides the currently displayed special currency box."
     },
@@ -1819,7 +1822,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u16: Currency"
       ],
@@ -1831,7 +1836,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -1858,7 +1865,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Coins"
@@ -1872,7 +1879,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Amount"
@@ -1886,9 +1893,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Amount"
@@ -1903,9 +1908,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "VARIABLE"
+        "VARIABLE",
+        "FLEX"
       ],
       "parameter_values": [
         "Var: Result",
@@ -1923,7 +1927,7 @@
       ],
       "parameter_types": [
         "FLEX",
-        "FLEX",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -1943,7 +1947,7 @@
       ],
       "parameter_types": [
         "FLEX",
-        "FLEX",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -1963,6 +1967,7 @@
       ],
       "parameter_types": [
         "FLEX",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -1982,6 +1987,7 @@
       ],
       "parameter_types": [
         "FLEX",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -1998,7 +2004,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Item",
         "Var: Variable"
@@ -2012,7 +2021,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Item",
         "Var: Variable"
@@ -2026,8 +2038,6 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "INTEGER",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2044,8 +2054,7 @@
       ],
       "parameter_types": [
         "INTEGER",
-        "INTEGER",
-        "VARIABLE"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: Male Text",
@@ -2061,8 +2070,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2079,8 +2087,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2098,8 +2105,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "INTEGER",
+        "VARIABLE",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2117,9 +2124,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Party Position",
@@ -2139,8 +2145,11 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
+        "FLEX",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2161,8 +2170,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
+        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2180,9 +2188,9 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE"
+        "VARIABLE",
+        "VARIABLE",
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Party Slot",
@@ -2200,8 +2208,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
+        "VARIABLE",
+        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2219,9 +2227,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE"
+        "VARIABLE",
+        "FLEX"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -2237,8 +2244,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
+        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2254,8 +2260,6 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2270,8 +2274,6 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2286,9 +2288,7 @@
         1
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: Module"
@@ -2302,9 +2302,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: ???"
@@ -2332,12 +2330,12 @@
       "name": "CMD_148",
       "decomp_name": "scrcmd_148",
       "parameters": [
-        2,
-        2
+        1,
+        1
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX"
+        "INTEGER",
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -2349,8 +2347,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE"
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -2359,42 +2356,23 @@
       "name": "ReturnScreen",
       "decomp_name": "restore_overworld",
       "parameters": [],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX",
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Restores the normal overworld screen"
     },
     "0x0097": {
       "name": "CMD_151",
       "decomp_name": "scrcmd_151",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x0098": {
       "name": "CMD_152",
       "decomp_name": "scrcmd_152",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -2402,13 +2380,9 @@
       "name": "DressPokemon",
       "decomp_name": "scrcmd_153",
       "parameters": [
-        2,
-        2,
         2
       ],
       "parameter_types": [
-        "VARIABLE",
-        "FLEX",
         "FLEX"
       ],
       "parameter_values": [],
@@ -2424,7 +2398,8 @@
       ],
       "parameter_types": [
         "VARIABLE",
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -2436,7 +2411,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -2462,7 +2440,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -2504,7 +2484,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "u16: Location"
       ],
@@ -2513,12 +2495,7 @@
     "0x00A4": {
       "name": "HallOfFameData",
       "decomp_name": "scrcmd_164",
-      "parameters": [
-        2,
-        2,
-        2,
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -2530,7 +2507,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "???"
       ],
@@ -2543,9 +2523,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "???"
@@ -2556,10 +2534,7 @@
       "name": "StarterSelectionScreen",
       "decomp_name": "choose_starter",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER",
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Opens the starter Pok\u00e9mon selection screen"
     },
@@ -2570,8 +2545,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: ???"
@@ -2585,7 +2559,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: ???",
         "Var: Variable"
@@ -2598,7 +2575,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -2612,7 +2591,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: ???",
@@ -2623,8 +2603,12 @@
     "0x00AC": {
       "name": "ChoosePlayerName",
       "decomp_name": "name_player",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -2637,7 +2621,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Party Position",
         "Var: Variable"
@@ -2653,7 +2640,12 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "u16: Frame Count",
         "u16: Duration",
@@ -2680,7 +2672,13 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "VARIABLE",
+        "VARIABLE",
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Map",
         "u16: Door",
@@ -2696,7 +2694,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Party Position"
       ],
@@ -2708,7 +2708,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Party Position"
       ],
@@ -2720,7 +2722,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Party Position"
       ],
@@ -2734,7 +2738,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "u16: Map",
         "Flex: X",
@@ -2757,7 +2765,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Party Position"
@@ -2771,7 +2779,6 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2800,8 +2807,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: Action"
@@ -2815,7 +2821,7 @@
         1
       ],
       "parameter_types": [
-        "VARIABLE"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: Action"
@@ -2829,7 +2835,6 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -2844,10 +2849,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Form"
@@ -2869,11 +2871,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX",
-        "INTEGER",
-        "FLEX",
-        "FLEX",
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: String Buffer"
@@ -2887,7 +2885,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: String Buffer"
@@ -2901,7 +2899,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: String Buffer"
@@ -2916,7 +2914,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER",
+        "VARIABLE"
       ],
       "parameter_values": [
         "u8: String Buffer",
@@ -2933,7 +2932,6 @@
       ],
       "parameter_types": [
         "INTEGER",
-        "FLEX",
         "FLEX"
       ],
       "parameter_values": [
@@ -2949,7 +2947,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Pocket"
@@ -2963,7 +2964,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Item"
@@ -2978,6 +2982,7 @@
         2
       ],
       "parameter_types": [
+        "INTEGER",
         "FLEX"
       ],
       "parameter_values": [
@@ -2993,7 +2998,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Number"
@@ -3008,6 +3016,7 @@
         2
       ],
       "parameter_types": [
+        "INTEGER",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -3024,7 +3033,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "INTEGER",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -3053,7 +3063,10 @@
         1
       ],
       "parameter_types": [
-        "VARIABLE"
+        "INTEGER",
+        "FLEX",
+        "FLEX",
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: String Buffer",
@@ -3083,7 +3096,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: String Buffer"
       ],
@@ -3110,7 +3125,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -3121,10 +3136,12 @@
       "name": "DummyTextGoods",
       "decomp_name": "buffer_decoration_name",
       "parameters": [
-        1
+        1,
+        2
       ],
       "parameter_types": [
-        "INTEGER"
+        "INTEGER",
+        "VARIABLE"
       ],
       "parameter_values": [
         "u8: String Buffer",
@@ -3141,7 +3158,7 @@
       ],
       "parameter_types": [
         "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "u8: Unused",
@@ -3158,7 +3175,7 @@
       ],
       "parameter_types": [
         "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "u8: Unused",
@@ -3175,7 +3192,7 @@
       ],
       "parameter_types": [
         "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "u8: String Buffer",
@@ -3187,11 +3204,11 @@
       "name": "GetSwarmInfo",
       "decomp_name": "scrcmd_211",
       "parameters": [
-        1,
+        2,
         2
       ],
       "parameter_types": [
-        "INTEGER",
+        "FLEX",
         "FLEX"
       ],
       "parameter_values": [
@@ -3207,8 +3224,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -3225,8 +3241,10 @@
         1
       ],
       "parameter_types": [
+        "FLEX",
+        "VARIABLE",
         "INTEGER",
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [
         "Flex: Trainer 1",
@@ -3244,8 +3262,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "FLEX",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Trainer ID",
@@ -3262,8 +3280,9 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Noticing",
@@ -3281,8 +3300,9 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Noticing",
@@ -3298,7 +3318,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -3312,10 +3332,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX",
-        "INTEGER",
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Trainer"
@@ -3326,9 +3343,7 @@
       "name": "LostBattle",
       "decomp_name": "white_out",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Return to Pok\u00e9mon Center or player's house after being defeated"
     },
@@ -3339,7 +3354,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -3354,6 +3369,7 @@
         1
       ],
       "parameter_types": [
+        "VARIABLE",
         "INTEGER"
       ],
       "parameter_values": [
@@ -3380,10 +3396,7 @@
       "name": "DummyTrainerBattle",
       "decomp_name": "scrcmd_223",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Starts a battle against trainer with ID 1"
     },
@@ -3391,10 +3404,7 @@
       "name": "DummyTrainerFlag",
       "decomp_name": "scrcmd_224",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Sets the trainer flag with the same ID as the invoking event"
     },
@@ -3405,8 +3415,7 @@
         4
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "FUNCTION_ID"
       ],
       "parameter_values": [
         "u32: Relative Jump"
@@ -3423,8 +3432,10 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -3440,6 +3451,8 @@
       ],
       "parameter_types": [
         "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -3452,7 +3465,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -3461,11 +3474,9 @@
       "name": "CMD_229",
       "decomp_name": "scrcmd_229",
       "parameters": [
-        2,
         2
       ],
       "parameter_types": [
-        "FLEX",
         "FLEX"
       ],
       "parameter_values": [],
@@ -3474,30 +3485,16 @@
     "0x00E6": {
       "name": "CMD_230",
       "decomp_name": "scrcmd_230",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x00E7": {
       "name": "CMD_231",
       "decomp_name": "scrcmd_231",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -3505,14 +3502,10 @@
       "name": "CMD_232",
       "decomp_name": "scrcmd_232",
       "parameters": [
-        2,
-        2,
         2
       ],
       "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -3524,7 +3517,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -3539,7 +3532,10 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -3550,7 +3546,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3558,14 +3556,10 @@
       "name": "CMD_236",
       "decomp_name": "scrcmd_236",
       "parameters": [
-        2,
-        2,
-        2,
-        2,
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -3573,12 +3567,8 @@
     "0x00ED": {
       "name": "CMD_237",
       "decomp_name": "scrcmd_237",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -3603,7 +3593,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Party Position",
         "Var: Variable"
@@ -3620,7 +3613,13 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -3633,7 +3632,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -3649,7 +3648,12 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "INTEGER",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: X",
         "u8: Y",
@@ -3664,7 +3668,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -3676,7 +3682,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -3688,7 +3696,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -3700,7 +3710,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -3722,7 +3734,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: Mode",
         "Var: Message",
@@ -3737,7 +3753,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Pok\u00e9mon",
         "Flex: Level"
@@ -3751,7 +3770,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Pok\u00e9mon",
         "Flex: Level"
@@ -3780,7 +3802,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -3803,7 +3827,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3813,7 +3840,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3823,17 +3852,16 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x0102": {
       "name": "CMD_258",
       "decomp_name": "scrcmd_258",
-      "parameters": [
-        2,
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -3842,10 +3870,11 @@
       "name": "CMD_259",
       "decomp_name": "scrcmd_259",
       "parameters": [
-        1,
-        1
+        2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3855,7 +3884,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3865,7 +3896,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3891,7 +3924,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3918,7 +3953,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3928,7 +3966,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3936,21 +3976,18 @@
       "name": "CMD_269",
       "decomp_name": "scrcmd_269",
       "parameters": [
-        2,
-        2,
-        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x010E": {
       "name": "CMD_270",
       "decomp_name": "scrcmd_270",
-      "parameters": [
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -3962,7 +3999,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3972,7 +4012,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3982,7 +4024,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -3993,7 +4037,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -4003,7 +4050,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Unused"
       ],
@@ -4015,7 +4064,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Mart ID"
       ],
@@ -4027,7 +4078,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Mart ID"
       ],
@@ -4039,7 +4092,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Mart ID"
       ],
@@ -4059,7 +4114,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Warp ID"
       ],
@@ -4083,42 +4140,23 @@
       "name": "HealPokemon",
       "decomp_name": "heal_party",
       "parameters": [],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Heals every Pok\u00e9mon in the player's party"
     },
     "0x011B": {
       "name": "EndWirelessComms",
       "decomp_name": "scrcmd_283",
-      "parameters": [
-        2,
-        2,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX",
-        "FLEX",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x011C": {
       "name": "EnterBattleRoom",
       "decomp_name": "scrcmd_284",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -4126,13 +4164,9 @@
       "name": "SetPlayerDirComm",
       "decomp_name": "scrcmd_285",
       "parameters": [
-        2,
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE",
         "FLEX"
       ],
       "parameter_values": [],
@@ -4141,25 +4175,16 @@
     "0x011E": {
       "name": "UnionMapChange",
       "decomp_name": "scrcmd_286",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x011F": {
       "name": "TextUnionRoomTrainerClassOptions",
       "decomp_name": "buffer_union_room_avatar_choices",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Generates the four Union Room Trainer class options based on Trainer ID and gender into String Buffers 0, 1, 2, and 3"
     },
@@ -4171,6 +4196,7 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -4199,7 +4225,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -4209,10 +4237,7 @@
       "name": "GivePokedex",
       "decomp_name": "give_pokedex",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER",
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Gives the Pok\u00e9dex to the player"
     },
@@ -4223,7 +4248,6 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
         "FLEX"
       ],
       "parameter_values": [
@@ -4235,9 +4259,7 @@
       "name": "GiveShoes",
       "decomp_name": "give_running_shoes",
       "parameters": [],
-      "parameter_types": [
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Gives the running shoes to the player"
     },
@@ -4248,7 +4270,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Badge ID",
         "Var: Variable"
@@ -4261,7 +4286,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Badge ID"
       ],
@@ -4274,7 +4301,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -4287,7 +4314,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -4307,7 +4336,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -4317,9 +4348,7 @@
       "name": "SetPartner",
       "decomp_name": "set_escort_mode",
       "parameters": [],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Activates the following event flag, so you can no longer use the bike, surf, rock climb..."
     },
@@ -4327,9 +4356,7 @@
       "name": "ClearPartner",
       "decomp_name": "clear_escort_mode",
       "parameters": [],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Deactivates the following event flag, so you can use the bike, surf, rock climb... again"
     },
@@ -4337,12 +4364,10 @@
       "name": "CheckStepFlag",
       "decomp_name": "scrcmd_302",
       "parameters": [
-        2,
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -4350,23 +4375,15 @@
     "0x012F": {
       "name": "SetStepFlag",
       "decomp_name": "scrcmd_303",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x0130": {
       "name": "ClearStepFlag",
       "decomp_name": "scrcmd_304",
-      "parameters": [
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -4377,7 +4394,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -4386,12 +4405,8 @@
     "0x0132": {
       "name": "DummyGameCompleted",
       "decomp_name": "scrcmd_306",
-      "parameters": [
-        0
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Sets flag 0x964"
     },
@@ -4406,7 +4421,11 @@
         1
       ],
       "parameter_types": [
-        "FLEX"
+        "FLEX",
+        "FLEX",
+        "VARIABLE",
+        "VARIABLE",
+        "INTEGER"
       ],
       "parameter_values": [
         "u16: Matrix X",
@@ -4424,8 +4443,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: Door ID"
@@ -4438,7 +4456,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: Door ID"
       ],
@@ -4450,7 +4470,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: Door ID"
       ],
@@ -4462,7 +4484,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: Door ID"
       ],
@@ -4482,7 +4506,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -4518,7 +4544,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": "In 953 trainer scripts."
     },
@@ -4536,16 +4564,16 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x0140": {
       "name": "VermilionGymInit",
       "decomp_name": "vermilion_gym_init",
-      "parameters": [
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -4554,9 +4582,13 @@
       "name": "VermillionGymAnimation",
       "decomp_name": "vermilion_gym_lock_action",
       "parameters": [
-        2
+        1,
+        1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -4567,17 +4599,17 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x0143": {
       "name": "ResetVermilionGymCans",
       "decomp_name": "resample_vermilion_gym_cans",
-      "parameters": [
-        2,
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -4613,7 +4645,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -4625,7 +4657,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -4633,24 +4665,16 @@
     "0x0149": {
       "name": "BlackthornGymInit",
       "decomp_name": "blackthorn_gym_init",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x014A": {
       "name": "FuchsiaGymInit",
       "decomp_name": "fuchsia_gym_init",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -4669,7 +4693,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -4680,10 +4704,10 @@
       "name": "BagScreen",
       "decomp_name": "scrcmd_333",
       "parameters": [
-        2
+        1
       ],
       "parameter_types": [
-        "VARIABLE"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: Bag Pocket"
@@ -4693,32 +4717,56 @@
     "0x014E": {
       "name": "BagScreenSelection",
       "decomp_name": "scrcmd_334",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x014F": {
       "name": "CheckPocketItems",
       "decomp_name": "scrcmd_335",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x0150": {
       "name": "DummyTextBerry",
       "decomp_name": "buffer_berry_name",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        1,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x0151": {
       "name": "TextNature?",
       "decomp_name": "buffer_nature_name",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        1,
+        2
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -4731,7 +4779,9 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX",
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Event ID",
@@ -4750,7 +4800,13 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Event ID",
         "Flex: X",
@@ -4767,7 +4823,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Event ID",
         "Flex: Movement ID"
@@ -4781,7 +4840,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Event ID",
         "Flex: Direction ID"
@@ -4796,7 +4858,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Warp ID",
         "Flex: X",
@@ -4813,7 +4879,9 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX",
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Spawnable ID",
@@ -4829,7 +4897,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Event ID",
         "Flex: Direction ID"
@@ -4839,12 +4910,8 @@
     "0x0159": {
       "name": "AddWaitingIcon",
       "decomp_name": "add_waiting_icon",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -4860,11 +4927,9 @@
       "name": "ReturnScriptWkSet",
       "decomp_name": "scrcmd_347",
       "parameters": [
-        2,
         2
       ],
       "parameter_types": [
-        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -4887,24 +4952,16 @@
     "0x015D": {
       "name": "ChoosePokemonSelection",
       "decomp_name": "party_select_ui",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Opens up the UI to select a Pok\u00e9mon from the party"
     },
     "0x015E": {
       "name": "UnionChoosePKMNSelection",
       "decomp_name": "scrcmd_350",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -4914,7 +4971,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -4929,6 +4988,8 @@
         2
       ],
       "parameter_types": [
+        "INTEGER",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -4945,7 +5006,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: ???",
         "Var: Variable"
@@ -4959,7 +5023,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Party Position",
         "Var: Variable"
@@ -4974,6 +5041,7 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -4988,7 +5056,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -5001,7 +5071,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable",
         "Flex: Party Position"
@@ -5028,7 +5101,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -5041,11 +5116,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "FLEX",
-        "FLEX",
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Money"
@@ -5060,7 +5131,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -5069,11 +5141,14 @@
       "name": "GiveLoanPokemon",
       "decomp_name": "give_loan_mon",
       "parameters": [
-        2,
+        1,
+        1,
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "INTEGER",
+        "INTEGER",
+        "FLEX"
       ],
       "parameter_values": [
         "u8: Pok\u00e9mon",
@@ -5091,7 +5166,9 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "INTEGER",
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -5103,7 +5180,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Party Position"
@@ -5121,12 +5198,8 @@
     "0x016E": {
       "name": "GiveDayCareEgg",
       "decomp_name": "give_day_care_egg",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -5137,7 +5210,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5148,7 +5224,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable",
         "Flex: Money"
@@ -5166,8 +5245,12 @@
     "0x0172": {
       "name": "CMD_370",
       "decomp_name": "scrcmd_370",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        1
+      ],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5178,7 +5261,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable",
         "Flex: Position"
@@ -5189,10 +5275,11 @@
       "name": "GetDayCareSpeciesandNick",
       "decomp_name": "get_tail_day_care_mon_species_and_nick",
       "parameters": [
-        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5203,7 +5290,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -5215,7 +5302,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Event ID"
@@ -5229,7 +5316,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Event ID"
@@ -5240,9 +5327,7 @@
       "name": "MailScreen",
       "decomp_name": "scrcmd_376",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Opens the mail screen"
     },
@@ -5281,9 +5366,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -5298,7 +5381,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
+        "VARIABLE",
         "FLEX"
       ],
       "parameter_values": [
@@ -5315,7 +5398,8 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -5331,6 +5415,7 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -5347,6 +5432,7 @@
         2
       ],
       "parameter_types": [
+        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -5363,7 +5449,8 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Happiness",
@@ -5381,7 +5468,10 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX",
+        "FLEX",
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -5393,7 +5483,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -5407,7 +5497,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -5419,7 +5509,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -5431,7 +5521,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Variable",
         "Var: Pok\u00e9mon"
@@ -5446,9 +5539,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -5463,11 +5555,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX",
-        "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Party Position"
@@ -5483,8 +5571,9 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Integer String Buffer",
@@ -5502,7 +5591,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
+        "VARIABLE",
+        "VARIABLE",
         "FLEX"
       ],
       "parameter_values": [
@@ -5519,9 +5609,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -5533,9 +5621,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -5548,8 +5634,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -5564,7 +5650,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Party Position",
         "Flex: Move Slot"
@@ -5579,7 +5668,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable",
         "Flex: Party Position",
@@ -5595,7 +5688,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Party Position",
@@ -5607,15 +5704,10 @@
       "name": "Strength",
       "decomp_name": "strength_flag_action",
       "parameters": [
-        255,
-        1,
-        0,
-        0,
-        1,
-        2
+        1
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [
         "Command format depends on the first parameter:\nu8: 0\nu8: 1\nu8: 2",
@@ -5627,14 +5719,11 @@
       "name": "Flash",
       "decomp_name": "flash_action",
       "parameters": [
-        255,
-        1,
-        0,
-        0,
-        1,
-        2
+        1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "Command format depends on the first parameter:\n u8: 0\n u8: 1\n u8: 2",
         "Var: Variable"
@@ -5645,14 +5734,11 @@
       "name": "DefogAction",
       "decomp_name": "defog_action",
       "parameters": [
-        255,
-        1,
-        0,
-        0,
-        1,
-        2
+        1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "Command format depends on the first parameter:\n u8: 0\n u8: 1\n u8: 2",
         "Var: Variable"
@@ -5667,6 +5753,7 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -5680,7 +5767,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5689,9 +5780,14 @@
       "decomp_name": "scrcmd_405",
       "parameters": [
         2,
+        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5701,7 +5797,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Background"
       ],
@@ -5714,7 +5812,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5735,14 +5836,8 @@
     "0x0199": {
       "name": "CMD_409",
       "decomp_name": "scrcmd_409",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -5754,7 +5849,8 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -5762,14 +5858,8 @@
     "0x019B": {
       "name": "CMD_411",
       "decomp_name": "scrcmd_411",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -5782,6 +5872,8 @@
         2
       ],
       "parameter_types": [
+        "FLEX",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -5797,6 +5889,9 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
+        "FLEX",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -5808,7 +5903,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5818,7 +5915,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5830,7 +5929,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5841,7 +5944,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5852,7 +5958,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5863,7 +5972,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -5874,23 +5983,43 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x01A5": {
       "name": "CMD_421",
       "decomp_name": "scrcmd_421",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x01A6": {
       "name": "CMD_422",
       "decomp_name": "scrcmd_422",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        1
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX",
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5900,7 +6029,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -5912,7 +6043,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -5924,7 +6057,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5932,11 +6067,15 @@
       "name": "CheckPokemonMail",
       "decomp_name": "kenya_check",
       "parameters": [
-        1,
         2,
-        2
+        2,
+        1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5944,11 +6083,9 @@
       "name": "CMD_427",
       "decomp_name": "scrcmd_427",
       "parameters": [
-        2,
         2
       ],
       "parameter_types": [
-        "VARIABLE",
         "FLEX"
       ],
       "parameter_values": [],
@@ -5960,7 +6097,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -5987,8 +6126,9 @@
         2
       ],
       "parameter_types": [
+        "FLEX",
         "VARIABLE",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Caller ID",
@@ -6012,7 +6152,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable",
         "Flex: Item ID"
@@ -6028,7 +6171,9 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Position",
@@ -6045,6 +6190,7 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
         "FLEX"
       ],
       "parameter_values": [
@@ -6060,7 +6206,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable",
         "Flex: Party Position"
@@ -6071,9 +6220,7 @@
       "name": "FinishOverworldScreen",
       "decomp_name": "scrcmd_436",
       "parameters": [],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -6083,7 +6230,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -6095,6 +6244,7 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -6112,7 +6262,7 @@
       ],
       "parameter_types": [
         "VARIABLE",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -6126,7 +6276,7 @@
       ],
       "parameter_types": [
         "VARIABLE",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Archive Number, Flex: Message ID"
@@ -6138,10 +6288,14 @@
       "decomp_name": "scrcmd_441",
       "parameters": [
         2,
+        2,
+        2,
         2
       ],
       "parameter_types": [
-        "VARIABLE",
+        "FLEX",
+        "FLEX",
+        "FLEX",
         "FLEX"
       ],
       "parameter_values": [],
@@ -6152,9 +6306,13 @@
       "decomp_name": "scrcmd_442",
       "parameters": [
         2,
+        2,
+        2,
         2
       ],
       "parameter_types": [
+        "FLEX",
+        "FLEX",
         "FLEX",
         "FLEX"
       ],
@@ -6165,12 +6323,10 @@
       "name": "CMD_443",
       "decomp_name": "scrcmd_443",
       "parameters": [
-        2,
-        2
+        1
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -6185,10 +6341,10 @@
         1
       ],
       "parameter_types": [
+        "INTEGER",
         "FLEX",
         "FLEX",
-        "FLEX",
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -6228,7 +6384,10 @@
         1,
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: Flag",
         "u8: Mode"
@@ -6247,7 +6406,10 @@
       ],
       "parameter_types": [
         "FLEX",
-        "VARIABLE"
+        "FLEX",
+        "VARIABLE",
+        "VARIABLE",
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -6255,14 +6417,8 @@
     "0x01C1": {
       "name": "ExitBattleRoom",
       "decomp_name": "scrcmd_449",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -6270,9 +6426,7 @@
       "name": "GeonetScreen",
       "decomp_name": "scrcmd_450",
       "parameters": [],
-      "parameter_types": [
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Opens the Geonet screen"
     },
@@ -6283,9 +6437,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -6298,7 +6450,6 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
         "FLEX",
         "FLEX"
       ],
@@ -6327,9 +6478,7 @@
     "0x01C7": {
       "name": "CMD_455",
       "decomp_name": "scrcmd_455",
-      "parameters": [
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -6338,12 +6487,10 @@
       "name": "CMD_456",
       "decomp_name": "scrcmd_456",
       "parameters": [
-        2,
-        2
+        1
       ],
       "parameter_types": [
-        "VARIABLE",
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -6370,11 +6517,9 @@
       "decomp_name": "get_party_slot_with_nature",
       "parameters": [
         2,
-        2,
         2
       ],
       "parameter_types": [
-        "VARIABLE",
         "FLEX",
         "FLEX"
       ],
@@ -6387,16 +6532,8 @@
     "0x01CB": {
       "name": "CMD_459",
       "decomp_name": "scrcmd_459",
-      "parameters": [
-        1,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -6407,7 +6544,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -6420,11 +6560,9 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX",
-        "FLEX",
-        "FLEX"
+        "INTEGER",
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -6435,7 +6573,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Phone Contact"
       ],
@@ -6444,17 +6584,7 @@
     "0x01CF": {
       "name": "EnableMassOutbreaks",
       "decomp_name": "enable_mass_outbreaks",
-      "parameters": [
-        255,
-        1,
-        0,
-        0,
-        1,
-        0,
-        2,
-        1,
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -6465,7 +6595,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: ID"
       ],
@@ -6475,29 +6607,11 @@
       "name": "UnionGroup",
       "decomp_name": "scrcmd_465",
       "parameters": [
-        255,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        1,
-        2,
-        1,
-        2,
-        0,
-        1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Command format depends on the first parameter:\nu16: 0",
         "Flex: ID",
@@ -6521,7 +6635,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable",
         "Flex: Party Slot"
@@ -6534,7 +6651,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -6545,7 +6664,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -6555,7 +6677,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -6565,7 +6689,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: Trade ID"
       ],
@@ -6577,7 +6703,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -6589,7 +6717,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -6602,8 +6732,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Party Position"
@@ -6622,10 +6751,7 @@
       "name": "DummyInternationalDex",
       "decomp_name": "scrcmd_475",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER",
-        "INTEGER"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Nothing"
     },
@@ -6646,7 +6772,6 @@
       ],
       "parameter_types": [
         "INTEGER",
-        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -6664,8 +6789,6 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
         "VARIABLE",
         "VARIABLE"
       ],
@@ -6698,7 +6821,9 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "VARIABLE",
+        "VARIABLE",
+        "FLEX"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -6715,9 +6840,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "VARIABLE"
+        "VARIABLE",
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Party Position",
@@ -6733,8 +6857,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE"
+        "INTEGER",
+        "FLEX"
       ],
       "parameter_values": [
         "u8: String Buffer",
@@ -6780,7 +6904,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -6791,11 +6915,7 @@
       "name": "DummyGetPokemonFootprint",
       "decomp_name": "dummy_486",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER",
-        "VARIABLE",
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Nothing"
     },
@@ -6806,10 +6926,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Pok\u00e9Balls"
@@ -6824,6 +6941,7 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -6836,27 +6954,10 @@
       "name": "MysteryGiftGive",
       "decomp_name": "mystery_gift",
       "parameters": [
-        255,
-        2,
-        0,
-        1,
-        2,
-        1,
-        2,
-        1,
-        2,
-        0,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        0,
-        0
+        2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "Command format depends on the first parameter:\nu16: 0\nu16: 1",
@@ -6876,7 +6977,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -6886,7 +6989,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -6898,7 +7003,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -6910,7 +7019,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Result",
         "Var: Option 1",
@@ -6925,7 +7038,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -6935,7 +7051,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -6947,7 +7065,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -6962,6 +7082,8 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -6981,7 +7103,13 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Result",
         "Flex: Response 1",
@@ -7001,7 +7129,13 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Result",
         "Flex: Response 1",
@@ -7018,8 +7152,7 @@
         1
       ],
       "parameter_types": [
-        "VARIABLE",
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -7031,9 +7164,7 @@
         1
       ],
       "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -7042,12 +7173,10 @@
       "name": "ClosePCAnimation",
       "decomp_name": "scrcmd_502",
       "parameters": [
-        2,
-        2
+        1
       ],
       "parameter_types": [
-        "VARIABLE",
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -7059,8 +7188,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -7076,7 +7204,12 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: MatchPos",
         "Var: Digits",
@@ -7089,9 +7222,7 @@
       "name": "InitLotto",
       "decomp_name": "loto_id_set",
       "parameters": [],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Generates two random numbers and assigns them to two system lottery variables."
     },
@@ -7103,8 +7234,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX"
+        "INTEGER",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -7116,8 +7247,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -7131,10 +7261,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -7146,10 +7273,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -7157,12 +7281,8 @@
     "0x01FE": {
       "name": "PalParkBoxPokemonCaught",
       "decomp_name": "scrcmd_510",
-      "parameters": [
-        1
-      ],
-      "parameter_types": [
-        "INTEGER"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -7174,10 +7294,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "VARIABLE",
-        "INTEGER",
-        "INTEGER"
+        "FLEX",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -7185,26 +7303,16 @@
     "0x0200": {
       "name": "PlayerMovementSavingSet",
       "decomp_name": "player_movement_saving_set",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x0201": {
       "name": "PlayerMovementSavingClear",
       "decomp_name": "player_movement_saving_clear",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -7215,7 +7323,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -7227,11 +7335,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "FLEX",
-        "FLEX",
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: Score"
@@ -7245,7 +7349,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Accesory"
@@ -7259,7 +7366,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Pok\u00e9mon",
         "Var: Variable"
@@ -7272,7 +7382,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Form"
       ],
@@ -7284,7 +7396,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -7293,14 +7407,8 @@
     "0x0208": {
       "name": "CMD_520",
       "decomp_name": "scrcmd_520",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "???"
     },
@@ -7318,7 +7426,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -7334,7 +7444,13 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Event ID",
         "Flex: Count",
@@ -7350,11 +7466,13 @@
       "parameters": [
         2,
         2,
-        2,
-        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: ???",
         "Flex: ???",
@@ -7371,8 +7489,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -7382,8 +7499,12 @@
     "0x020E": {
       "name": "CMD_526",
       "decomp_name": "scrcmd_526",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -7394,8 +7515,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Text Slot"
@@ -7409,7 +7529,6 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -7424,7 +7543,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -7439,8 +7558,8 @@
         1
       ],
       "parameter_types": [
-        "VARIABLE",
-        "FLEX"
+        "FLEX",
+        "INTEGER"
       ],
       "parameter_values": [
         "Flex: Alternative ID",
@@ -7456,8 +7575,8 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
-        "FLEX"
+        "INTEGER",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -7467,11 +7586,11 @@
       "decomp_name": "check_coins_immediate",
       "parameters": [
         2,
-        2,
-        2
+        4
       ],
       "parameter_types": [
-        "VARIABLE"
+        "VARIABLE",
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -7481,10 +7600,12 @@
       "decomp_name": "checkgivecoins",
       "parameters": [
         2,
-        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -7495,7 +7616,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -7508,7 +7629,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
+        "FLEX",
         "FLEX"
       ],
       "parameter_values": [
@@ -7521,9 +7642,13 @@
       "name": "CMD_536",
       "decomp_name": "scrcmd_536",
       "parameters": [
+        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -7542,15 +7667,22 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x021B": {
       "name": "CMD_539",
       "decomp_name": "scrcmd_539",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -7561,7 +7693,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -7575,7 +7707,12 @@
         1,
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE",
+        "INTEGER",
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Number",
@@ -7587,8 +7724,16 @@
     "0x021E": {
       "name": "MonGetContestValue",
       "decomp_name": "mon_get_contest_value",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -7598,7 +7743,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -7611,7 +7758,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [
         "Flex: Music ID",
         "Flex: Volume"
@@ -7625,7 +7775,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -7639,7 +7789,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -7658,14 +7811,8 @@
     "0x0224": {
       "name": "CMD_548",
       "decomp_name": "scrcmd_548",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -7685,10 +7832,10 @@
       "name": "CountHallOfFameEntries",
       "decomp_name": "scrcmd_550",
       "parameters": [
-        1
+        2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -7713,6 +7860,7 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -7726,7 +7874,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -7734,8 +7883,12 @@
     "0x022A": {
       "name": "CMD_554",
       "decomp_name": "scrcmd_554",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -7745,7 +7898,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -7755,7 +7910,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u16: BP Amount"
       ],
@@ -7769,7 +7926,6 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
         "VARIABLE",
         "VARIABLE"
       ],
@@ -7788,7 +7944,7 @@
       ],
       "parameter_types": [
         "VARIABLE",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Choice",
@@ -7800,10 +7956,12 @@
       "name": "CMD_559",
       "decomp_name": "scrcmd_559",
       "parameters": [
+        2,
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -7816,9 +7974,8 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
         "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "u16: Effect",
@@ -7836,6 +7993,8 @@
         2
       ],
       "parameter_types": [
+        "FLEX",
+        "FLEX",
         "FLEX",
         "FLEX"
       ],
@@ -7857,8 +8016,10 @@
         1
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "FLEX",
+        "FLEX",
+        "FLEX",
+        "INTEGER"
       ],
       "parameter_values": [
         "Flex: Partner Trainer ID",
@@ -7873,10 +8034,12 @@
       "decomp_name": "scrcmd_563",
       "parameters": [
         2,
+        2,
         2
       ],
       "parameter_types": [
-        "VARIABLE",
+        "FLEX",
+        "FLEX",
         "FLEX"
       ],
       "parameter_values": [],
@@ -7900,7 +8063,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: ???"
       ],
@@ -7910,9 +8075,7 @@
       "name": "PartyPokemonTradeScreen",
       "decomp_name": "scrcmd_566",
       "parameters": [],
-      "parameter_types": [
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Opens the party Pok\u00e9mon screen for a trade"
     },
@@ -7922,14 +8085,9 @@
       "parameters": [
         2,
         2,
-        2,
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX",
-        "VARIABLE",
-        "VARIABLE",
         "FLEX",
         "FLEX",
         "FLEX"
@@ -7946,7 +8104,7 @@
       ],
       "parameter_types": [
         "FLEX",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -7958,7 +8116,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -7968,13 +8126,11 @@
       "decomp_name": "check_coins_var",
       "parameters": [
         2,
-        2,
         2
       ],
       "parameter_types": [
         "VARIABLE",
-        "VARIABLE",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -7983,9 +8139,17 @@
       "name": "CMD_571",
       "decomp_name": "scrcmd_571",
       "parameters": [
+        2,
+        2,
+        2,
+        2,
         2
       ],
       "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX",
+        "FLEX",
         "FLEX"
       ],
       "parameter_values": [],
@@ -7998,8 +8162,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -8007,20 +8170,8 @@
     "0x023D": {
       "name": "DummyActivateMysteryGift",
       "decomp_name": "scrcmd_573",
-      "parameters": [
-        1,
-        1,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -8032,33 +8183,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
         "VARIABLE",
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE",
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE",
-        "VARIABLE",
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE",
-        "VARIABLE",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Result",
@@ -8069,8 +8195,14 @@
     "0x023F": {
       "name": "CMD_575",
       "decomp_name": "scrcmd_575",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8080,7 +8212,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8115,7 +8249,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Seal ID"
@@ -8125,10 +8262,7 @@
     "0x0245": {
       "name": "DummyLockAll",
       "decomp_name": "lock_last_talked",
-      "parameters": [
-        2,
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -8142,6 +8276,8 @@
         2
       ],
       "parameter_types": [
+        "FLEX",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -8151,10 +8287,12 @@
       "name": "CMD_583",
       "decomp_name": "scrcmd_583",
       "parameters": [
-        2
+        2,
+        1
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX",
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -8166,9 +8304,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "var: Result"
@@ -8189,7 +8325,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8207,7 +8345,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var ???"
       ],
@@ -8221,7 +8361,11 @@
         2,
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE",
+        "INTEGER"
+      ],
       "parameter_values": [
         "Flex: Pok\u00e9mon",
         "Flex: Level",
@@ -8247,12 +8391,7 @@
       "name": "DummyRideBike",
       "decomp_name": "scrcmd_591",
       "parameters": [],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE",
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Nothing"
     },
@@ -8262,7 +8401,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8278,9 +8419,7 @@
       "name": "HideSaveBox",
       "decomp_name": "hide_save_stats",
       "parameters": [],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Hides the save data box"
     },
@@ -8290,7 +8429,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: Mode"
       ],
@@ -8302,7 +8443,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -8322,7 +8465,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "u16: ???"
       ],
@@ -8358,7 +8503,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "u16: Operation"
       ],
@@ -8378,7 +8525,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "u16: Move Code"
       ],
@@ -8392,6 +8541,7 @@
         1
       ],
       "parameter_types": [
+        "INTEGER",
         "INTEGER"
       ],
       "parameter_values": [
@@ -8428,10 +8578,7 @@
       "name": "MecScript",
       "decomp_name": "scrcmd_609",
       "parameters": [],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "???"
     },
@@ -8439,12 +8586,10 @@
       "name": "CMD_610",
       "decomp_name": "scrcmd_610",
       "parameters": [
-        2,
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -8453,7 +8598,8 @@
       "name": "Pokeathlon",
       "decomp_name": "pokeathlon",
       "parameters": [
-        2,
+        1,
+        1,
         2,
         2,
         2,
@@ -8461,7 +8607,13 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER",
+        "INTEGER",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -8473,7 +8625,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -8484,7 +8636,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8494,7 +8648,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8502,7 +8658,6 @@
       "name": "TakePhoto",
       "decomp_name": "cameron_photo",
       "parameters": [
-        2,
         2
       ],
       "parameter_types": [
@@ -8528,20 +8683,8 @@
     "0x0269": {
       "name": "CMD_617",
       "decomp_name": "open_photo_album",
-      "parameters": [
-        2,
-        2,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX",
-        "FLEX",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -8552,9 +8695,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -8566,7 +8707,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -8577,19 +8718,17 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x026D": {
       "name": "UpdateStarterSelectionMachine",
       "decomp_name": "place_starter_balls_in_elms_lab",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "INTEGER"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [
         "u8: Number of Poke Balls"
       ],
@@ -8603,6 +8742,7 @@
         2
       ],
       "parameter_types": [
+        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -8617,7 +8757,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -8630,8 +8772,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -8647,6 +8788,8 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -8664,7 +8807,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "INTEGER",
+        "VARIABLE"
       ],
       "parameter_values": [
         "u8: String Buffer",
@@ -8678,7 +8822,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8689,16 +8835,17 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x0275": {
       "name": "CMD_629",
       "decomp_name": "scrcmd_629",
-      "parameters": [
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -8709,7 +8856,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8721,7 +8870,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8747,7 +8900,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8758,7 +8915,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8769,7 +8929,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8779,7 +8942,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8791,7 +8956,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8803,7 +8972,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8815,7 +8988,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8826,10 +9003,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX",
-        "INTEGER",
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -8837,11 +9011,7 @@
     "0x0281": {
       "name": "SaveWipeExtraChunks",
       "decomp_name": "save_wipe_extra_chunks",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -8870,7 +9040,8 @@
       ],
       "parameter_types": [
         "FLEX",
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -8884,6 +9055,8 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -8897,7 +9070,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8907,7 +9084,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8918,7 +9097,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "FLEX"
+      ],
       "parameter_values": [
         "Var: Slot",
         "u16 or Flex(???): Pokemon ID"
@@ -8929,9 +9111,19 @@
       "name": "CMD_648",
       "decomp_name": "scrcmd_648",
       "parameters": [
+        2,
+        2,
+        2,
+        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX",
+        "FLEX",
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -8960,7 +9152,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
+        "FLEX",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -8974,7 +9167,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Party Slot",
         "Flex: Tutor",
@@ -8991,7 +9188,12 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Party Slot",
         "Flex: Tutor",
@@ -9008,7 +9210,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9020,6 +9226,7 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -9035,7 +9242,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Party Slot",
         "Var: Variable"
@@ -9051,7 +9261,12 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9062,7 +9277,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9070,9 +9288,13 @@
       "name": "SetMonForme",
       "decomp_name": "set_mon_form",
       "parameters": [
+        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9080,17 +9302,31 @@
       "name": "TextTrainerName",
       "decomp_name": "buffer_trainer_name",
       "parameters": [
+        1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x0295": {
       "name": "CMD_661",
       "decomp_name": "scrcmd_661",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        1,
+        4,
+        1,
+        1
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX",
+        "INTEGER",
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9102,7 +9338,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9121,12 +9361,8 @@
     "0x0298": {
       "name": "CMD_664",
       "decomp_name": "scrcmd_664",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -9146,12 +9382,10 @@
       "name": "GetCurrentMusic",
       "decomp_name": "scrcmd_666",
       "parameters": [
-        2,
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -9162,12 +9396,11 @@
       "name": "CMD_667",
       "decomp_name": "scrcmd_667",
       "parameters": [
-        2,
-        2,
-        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9178,7 +9411,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9189,7 +9425,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Item",
         "Var: Result"
@@ -9204,7 +9443,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -9213,12 +9452,8 @@
     "0x029F": {
       "name": "SetFavoriteMon",
       "decomp_name": "set_favorite_mon",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -9248,7 +9483,13 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9259,7 +9500,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9272,7 +9516,12 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9283,15 +9532,24 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x02A5": {
       "name": "CMD_677",
       "decomp_name": "scrcmd_677",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9300,20 +9558,19 @@
       "decomp_name": "scrcmd_678",
       "parameters": [
         2,
-        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x02A7": {
       "name": "CMD_679",
       "decomp_name": "scrcmd_679",
-      "parameters": [
-        2,
-        2
-      ],
+      "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
       "description": ""
@@ -9322,10 +9579,11 @@
       "name": "CMD_680",
       "decomp_name": "add_special_game_stat_2",
       "parameters": [
-        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9335,7 +9593,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9345,7 +9605,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9367,7 +9629,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -9382,7 +9646,8 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
+        "FLEX",
+        "FLEX",
         "FLEX"
       ],
       "parameter_values": [],
@@ -9396,8 +9661,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "VARIABLE"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -9408,7 +9673,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9416,9 +9683,13 @@
       "name": "CheckFatefulEncounter",
       "decomp_name": "get_party_slot_with_fateful_encounter",
       "parameters": [
+        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9428,7 +9699,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9439,7 +9712,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9450,8 +9726,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -9459,8 +9734,22 @@
     "0x02B4": {
       "name": "TextBattleHallStreak",
       "decomp_name": "buffer_battle_hall_streak",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        1,
+        1,
+        1,
+        1,
+        2,
+        2
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9470,7 +9759,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9480,7 +9771,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9490,7 +9783,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9500,15 +9795,21 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x02B9": {
       "name": "CMD_697",
       "decomp_name": "scrcmd_697",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9520,7 +9821,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: Event",
         "Flex: Party Position",
@@ -9539,12 +9844,8 @@
     "0x02BC": {
       "name": "CMD_700",
       "decomp_name": "scrcmd_700",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -9552,8 +9853,6 @@
       "name": "PokemonHasItem",
       "decomp_name": "mon_has_item",
       "parameters": [
-        2,
-        2,
         2,
         2
       ],
@@ -9567,12 +9866,8 @@
     "0x02BE": {
       "name": "BattleTowerSetUpMultiBattle",
       "decomp_name": "battle_tower_setup_multi_battle",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -9582,7 +9877,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9590,17 +9887,27 @@
       "name": "CMD_704",
       "decomp_name": "scrcmd_704",
       "parameters": [
+        2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x02C1": {
       "name": "CMD_705",
       "decomp_name": "scrcmd_705",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2,
+        4
+      ],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9610,7 +9917,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9622,7 +9931,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -9633,7 +9943,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": "Triggers Team Rocket HQ trap-floor's graphical effect in the player's current position"
     },
@@ -9657,9 +9969,7 @@
       "name": "TalkFollowingPoke",
       "decomp_name": "follow_mon_interact",
       "parameters": [],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "The following Pok\u00e9mon triggers a random movement, and then a random following message"
     },
@@ -9670,9 +9980,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [],
       "description": ""
@@ -9683,7 +9991,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: Puzzle ID"
       ],
@@ -9695,7 +10005,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: Room ID"
       ],
@@ -9704,30 +10016,16 @@
     "0x02CB": {
       "name": "UpdateDayCareMonOverworlds",
       "decomp_name": "update_day_care_mon_objects",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x02CC": {
       "name": "CMD_716",
       "decomp_name": "scrcmd_716",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX",
-        "INTEGER"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -9737,7 +10035,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9748,7 +10048,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -9760,7 +10063,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -9773,7 +10076,6 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -9786,7 +10088,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -9803,8 +10105,10 @@
       ],
       "parameter_types": [
         "INTEGER",
+        "INTEGER",
         "FLEX",
-        "INTEGER"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [
         "u8: ???",
@@ -9826,9 +10130,11 @@
         2
       ],
       "parameter_types": [
+        "INTEGER",
+        "INTEGER",
         "FLEX",
         "FLEX",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "u8: Animation",
@@ -9847,8 +10153,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
+        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -9862,6 +10167,7 @@
         2
       ],
       "parameter_types": [
+        "INTEGER",
         "FLEX"
       ],
       "parameter_values": [],
@@ -9897,6 +10203,7 @@
         1
       ],
       "parameter_types": [
+        "INTEGER",
         "INTEGER"
       ],
       "parameter_values": [
@@ -9912,9 +10219,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX",
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -9928,8 +10233,6 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -9940,16 +10243,8 @@
     "0x02DB": {
       "name": "CMD_731",
       "decomp_name": "scrcmd_731",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "???"
     },
@@ -9960,7 +10255,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [
         "s8: Mood"
@@ -9975,7 +10270,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
+        "INTEGER",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -9991,10 +10286,6 @@
         1
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "INTEGER",
-        "INTEGER",
         "INTEGER"
       ],
       "parameter_values": [
@@ -10019,14 +10310,8 @@
     "0x02E0": {
       "name": "ClearKurtApricornData",
       "decomp_name": "clear_kurt_apricorn",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -10037,7 +10322,6 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -10051,7 +10335,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Count"
       ],
@@ -10070,12 +10356,10 @@
       "decomp_name": "scrcmd_740",
       "parameters": [
         2,
-        2,
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -10091,8 +10375,9 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -10109,7 +10394,7 @@
       "parameter_types": [
         "FLEX",
         "FLEX",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -10121,8 +10406,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -10130,12 +10414,8 @@
     "0x02E8": {
       "name": "CreatePokeathlonFriendshipRoomStatues",
       "decomp_name": "create_friendship_room_statues",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -10147,9 +10427,8 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX"
+        "INTEGER",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -10158,10 +10437,7 @@
       "name": "OpenTouchScreen",
       "decomp_name": "touchscreen_menu_hide",
       "parameters": [],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Changes the low screen design to the green Pok\u00e9ball background"
     },
@@ -10169,9 +10445,7 @@
       "name": "CloseTouchScreen",
       "decomp_name": "touchscreen_menu_show",
       "parameters": [],
-      "parameter_types": [
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Sets the default low screen design"
     },
@@ -10182,9 +10456,6 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -10202,7 +10473,13 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: ???",
         "u8: ???",
@@ -10223,9 +10500,10 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE",
-        "VARIABLE",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -10245,7 +10523,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "FLEX",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Text Slot",
         "Flex: Top Screen Text",
@@ -10270,8 +10552,9 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX"
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Following Poke Status",
@@ -10286,7 +10569,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -10295,14 +10580,8 @@
     "0x02F3": {
       "name": "CMD_755",
       "decomp_name": "legend_cutscene_clear_bell_anim_begin",
-      "parameters": [
-        1,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -10317,16 +10596,8 @@
     "0x02F5": {
       "name": "CMD_757",
       "decomp_name": "legend_cutscene_clear_bell_rise_from_bag",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -10334,14 +10605,10 @@
       "name": "CMD_758",
       "decomp_name": "legend_cutscene_clear_bell_shimmer",
       "parameters": [
-        2,
-        2,
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -10349,12 +10616,8 @@
     "0x02F7": {
       "name": "CMD_759",
       "decomp_name": "legend_cutscene_lugia_eye_glimmer_effect",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "INTEGER"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -10385,7 +10648,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -10401,54 +10664,32 @@
     "0x02FC": {
       "name": "CMD_764",
       "decomp_name": "legend_cutscene_bird_final_approach",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x02FD": {
       "name": "CMD_765",
       "decomp_name": "legend_cutscene_waves_or_leaves_effect_begin",
-      "parameters": [
-        1,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x02FE": {
       "name": "CMD_766",
       "decomp_name": "legend_cutscene_waves_or_leaves_effect_end",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x02FF": {
       "name": "CMD_767",
       "decomp_name": "legend_cutscene_lugia_arrives_effect_begin",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "???"
     },
@@ -10475,10 +10716,6 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -10487,32 +10724,16 @@
     "0x0303": {
       "name": "CMD_771",
       "decomp_name": "scrcmd_771",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x0304": {
       "name": "CMD_772",
       "decomp_name": "scrcmd_772",
-      "parameters": [
-        2,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -10523,8 +10744,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "???: ???"
@@ -10535,12 +10755,10 @@
       "name": "ShowLegendaryWing",
       "decomp_name": "show_legendary_wing",
       "parameters": [
-        2,
         2
       ],
       "parameter_types": [
-        "VARIABLE",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "u16: Wing"
@@ -10555,7 +10773,8 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -10575,19 +10794,18 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "FLEX",
+        "FLEX"
+      ],
       "parameter_values": [],
       "description": ""
     },
     "0x030A": {
       "name": "GiveSpikyEaredPichu",
       "decomp_name": "give_spiky_ear_pichu",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "INTEGER"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Gives the player a Pichu in Spiky-Eared form"
     },
@@ -10598,7 +10816,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Seq",
         "Var: Result"
@@ -10612,7 +10833,10 @@
         1,
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -10623,7 +10847,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -10631,12 +10855,8 @@
     "0x030E": {
       "name": "MartSell",
       "decomp_name": "mart_sell",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "???"
     },
@@ -10647,8 +10867,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: Status"
@@ -10662,7 +10881,10 @@
         1,
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: Overlay",
         "u8: Action"
@@ -10673,11 +10895,12 @@
       "name": "BugContestControl",
       "decomp_name": "bug_contest_action",
       "parameters": [
-        2,
-        1
+        1,
+        2
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER",
+        "VARIABLE"
       ],
       "parameter_values": [
         "u8: Action",
@@ -10692,7 +10915,7 @@
         1
       ],
       "parameter_types": [
-        "FLEX"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: Rank"
@@ -10707,7 +10930,11 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Ranking",
         "Flex: Item",
@@ -10723,6 +10950,7 @@
         2
       ],
       "parameter_types": [
+        "INTEGER",
         "VARIABLE"
       ],
       "parameter_values": [
@@ -10738,7 +10966,7 @@
         1
       ],
       "parameter_types": [
-        "VARIABLE"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8: String Buffer"
@@ -10752,7 +10980,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Flex: Participant",
         "Var: Variable"
@@ -10767,8 +10998,7 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
+        "INTEGER",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -10777,14 +11007,8 @@
     "0x0318": {
       "name": "CMD_792",
       "decomp_name": "scrcmd_792",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -10797,7 +11021,7 @@
       ],
       "parameter_types": [
         "FLEX",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -10807,10 +11031,10 @@
       "decomp_name": "check_bank_balance",
       "parameters": [
         2,
-        2,
-        2
+        4
       ],
       "parameter_types": [
+        "VARIABLE",
         "FLEX"
       ],
       "parameter_values": [],
@@ -10824,7 +11048,8 @@
         2
       ],
       "parameter_types": [
-        "VARIABLE"
+        "FLEX",
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: X",
@@ -10836,22 +11061,15 @@
       "name": "HideMomMoney",
       "decomp_name": "scrcmd_796",
       "parameters": [],
-      "parameter_types": [
-        "VARIABLE",
-        "FLEX"
-      ],
+      "parameter_types": [],
       "parameter_values": [],
       "description": "Hides mom savings money box"
     },
     "0x031D": {
       "name": "CMD_797",
       "decomp_name": "scrcmd_797",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -10862,8 +11080,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": ""
@@ -10874,7 +11091,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -10884,7 +11103,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -10894,7 +11115,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -10914,6 +11137,7 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -10926,12 +11150,7 @@
         1
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE",
-        "VARIABLE"
+        "INTEGER"
       ],
       "parameter_values": [
         "u8(?): Map Type"
@@ -10941,24 +11160,16 @@
     "0x0325": {
       "name": "CMD_805",
       "decomp_name": "scrcmd_805",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
     "0x0326": {
       "name": "CMD_806",
       "decomp_name": "scrcmd_806",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -10981,7 +11192,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -11003,12 +11216,8 @@
     "0x032A": {
       "name": "CelebiTimeTravelAnimation",
       "decomp_name": "scrcmd_810",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -11020,6 +11229,7 @@
         2
       ],
       "parameter_types": [
+        "VARIABLE",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -11028,18 +11238,8 @@
     "0x032C": {
       "name": "CMD_812",
       "decomp_name": "scrcmd_812",
-      "parameters": [
-        2,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "FLEX",
-        "FLEX",
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -11049,7 +11249,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [
         "Var: Variable"
       ],
@@ -11070,8 +11272,7 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [],
       "description": "u16: ???"
@@ -11090,7 +11291,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -11105,12 +11308,8 @@
     "0x0333": {
       "name": "CMD_819",
       "decomp_name": "scrcmd_819",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -11120,7 +11319,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -11132,8 +11333,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER"
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -11141,12 +11342,8 @@
     "0x0336": {
       "name": "CMD_822",
       "decomp_name": "scrcmd_822",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
+      "parameters": [],
+      "parameter_types": [],
       "parameter_values": [],
       "description": ""
     },
@@ -11157,7 +11354,6 @@
         2
       ],
       "parameter_types": [
-        "FLEX",
         "VARIABLE"
       ],
       "parameter_values": [],
@@ -11169,7 +11365,9 @@
       "parameters": [
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -11180,7 +11378,10 @@
         2,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": ""
     },
@@ -11191,7 +11392,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -11204,7 +11405,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE",
+        "VARIABLE"
       ],
       "parameter_values": [
         "Flex: Party Slot",
@@ -11217,10 +11419,11 @@
       "decomp_name": "mon_add_contest_value",
       "parameters": [
         2,
-        2,
-        1
+        1,
+        2
       ],
       "parameter_types": [
+        "VARIABLE",
         "INTEGER",
         "FLEX"
       ],
@@ -11234,8 +11437,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -11249,8 +11451,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -11262,8 +11463,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -11275,8 +11475,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -11288,10 +11487,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX",
-        "INTEGER",
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [],
       "description": ""
@@ -11303,7 +11499,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -11317,8 +11513,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -11332,8 +11527,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -11347,8 +11541,7 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "Var: Variable"
@@ -11363,7 +11556,8 @@
         2
       ],
       "parameter_types": [
-        "INTEGER"
+        "FLEX",
+        "VARIABLE"
       ],
       "parameter_values": [
         "u16: Money Account",
@@ -11378,10 +11572,37 @@
         2
       ],
       "parameter_types": [
-        "INTEGER",
-        "INTEGER"
+        "FLEX"
       ],
       "parameter_values": [],
+      "description": ""
+    },
+    "0x0348": {
+      "name": "CMD_840",
+      "decomp_name": "ScrCmd_840",
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "FLEX",
+        "VARIABLE"
+      ],
+      "parameter_values": [],
+      "description": ""
+    },
+    "0x0349": {
+      "name": "CMD_841",
+      "decomp_name": "ScrCmd_841",
+      "parameters": [
+        1
+      ],
+      "parameter_types": [
+        "INTEGER"
+      ],
+      "parameter_values": [
+        "u8: ???"
+      ],
       "description": ""
     },
     "0x034B": {
@@ -11391,7 +11612,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Item"
@@ -11405,7 +11629,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Item"
@@ -11419,12 +11646,38 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Party position"
       ],
       "description": "Stores the name of the Pok\u00e9mon in Party Position in String Buffer with default color tags encoding"
+    },
+    "0x034E": {
+      "name": "CMD_846",
+      "decomp_name": "buffer_species_name_indef",
+      "parameters": [
+        1,
+        2,
+        2,
+        1
+      ],
+      "parameter_types": [
+        "INTEGER",
+        "FLEX",
+        "FLEX",
+        "INTEGER"
+      ],
+      "parameter_values": [
+        "u8: ???",
+        "Flex: ???",
+        "Flex: ???",
+        "u8: ???"
+      ],
+      "description": ""
     },
     "0x0351": {
       "name": "TextTrainerClass",
@@ -11433,7 +11686,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Trainer class"
@@ -11447,7 +11703,10 @@
         1,
         2
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "VARIABLE"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "Flex: Seal"
@@ -11460,7 +11719,9 @@
       "parameters": [
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: String Buffer"
       ],
@@ -11473,7 +11734,10 @@
         1,
         1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "INTEGER",
+        "INTEGER"
+      ],
       "parameter_values": [
         "u8: String Buffer",
         "u8: Floor"
