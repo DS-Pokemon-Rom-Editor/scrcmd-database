@@ -4083,24 +4083,21 @@
     },
     "0x011D": {
       "name": "ElevatorBox",
-      "decomp_name": "ShowCurrentFloor",
+      "decomp_name": "ScrCmd_ShowCurrentFloorNumber",
       "parameters": [
         1,
         1,
-        2,
         2
       ],
       "parameter_types": [
         "INTEGER",
         "INTEGER",
-        "VARIABLE",
-        "FLEX"
+        "VARIABLE"
       ],
       "parameter_values": [
         "u8: X",
         "u8: Y",
-        "Var: Variable",
-        "Flex: Floor"
+        "Var: Variable"
       ],
       "description": "Shows the current floor number in a box at X and Y coordinates in the screen"
     },
@@ -4204,17 +4201,20 @@
     },
     "0x0125": {
       "name": "FirstBattle",
-      "decomp_name": "StartFirstBattle",
+      "decomp_name": "ScrCmd_FirstBattle",
       "parameters": [
+        2,
         2
       ],
       "parameter_types": [
+        "POKEMON_NAME",
         "FLEX"
       ],
       "parameter_values": [
-        "Flex: Trainer ID"
+        "Flex: Pokémon",
+        "Flex: Level"
       ],
-      "description": "Starts a first battle against Trainer ID"
+      "description": "Starts a first battle agains a Pokémon of level Level"
     },
     "0x0126": {
       "name": "CatchTutorial",
@@ -6596,21 +6596,18 @@
     },
     "0x01E1": {
       "name": "CMD_481",
-      "decomp_name": "ScrCmd_1E1",
+      "decomp_name": "ScrCmd_Unk01E1",
       "parameters": [
-        2,
         2,
         2
       ],
       "parameter_types": [
         "FLEX",
-        "FLEX",
-        "VARIABLE"
+        "FLEX"
       ],
       "parameter_values": [
         "Flex: ???",
-        "Flex: ???",
-        "Var: ???"
+        "Flex: ???"
       ],
       "description": "nan"
     },
@@ -8903,14 +8900,22 @@
       "decomp_name": "ScrCmd_289",
       "parameters": [
         2,
-        2,
-        2,
-        2,
-        2,
-        2,
-        2
+        1,
+        1,
+        1,
+        1,
+        1,
+        1
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "VARIABLE",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER",
+        "INTEGER"
+      ],
       "parameter_values": [],
       "description": "nan"
     },
@@ -9584,1771 +9589,42 @@
       "description": "If Mode is 1, activates the scope mode, otherwise the command deactivates the scope mode"
     },
     "0x02C4": {
-      "name": "CMD_708",
-      "decomp_name": "ScrCmd_2C4",
+      "name": "TextItemLowercase",
+      "decomp_name": "ScrCmd_GetItemNameWithIndefArticle",
       "parameters": [
-        1
+        1,
+        2
       ],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
+      "parameter_types": [
+        "INTEGER",
+        "FLEX"
+      ],
+      "parameter_values": [
+        "u8: String Buffer",
+        "Flex: Item"
+      ],
+      "description": "Stores Item's lowercase name in String Buffer; International release exclusive."
     },
     "0x02C5": {
-      "name": "CMD_709",
-      "decomp_name": "ScrCmd_2C5",
+      "name": "TextItemPlural",
+      "decomp_name": "ScrCmd_GetItemNamePlural",
       "parameters": [
-        2,
+        1,
         2
       ],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
+      "parameter_types": [
+        "INTEGER",
+        "FLEX"
+      ],
+      "parameter_values": [
+        "u8: String Buffer",
+        "Flex: Item"
+      ],
+      "description": "Stores Item's plural noun in String Buffer; International release exclusive."
     },
     "0x02C6": {
-      "name": "SpinTradeScreen",
-      "decomp_name": "ScrCmd_2C6",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Starts the Spin Trade screen."
-    },
-    "0x02C7": {
-      "name": "CMD_711",
-      "decomp_name": "ScrCmd_2C7",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02C8": {
-      "name": "CMD_712",
-      "decomp_name": "ScrCmd_2C8",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: ???",
-        "Flex: ???",
-        "Flex: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02C9": {
-      "name": "InitEternaGym",
-      "decomp_name": "InitPersistedMapFeaturesForEternaGym",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Initializes Eterna Gym internal data and 3D model animations"
-    },
-    "0x02CA": {
-      "name": "EternaGymClockAnim",
-      "decomp_name": "ScrCmd_2CA",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Triggers the Eterna Gym next flower clock animation"
-    },
-    "0x02CB": {
-      "name": "CMD_715",
-      "decomp_name": "CountRepeatedSpeciesInParty",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Var: ???",
-        "Flex: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02CC": {
-      "name": "CMD_716",
-      "decomp_name": "ScrCmd_2CC",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX",
-        "INTEGER"
-      ],
-      "parameter_values": [
-        "u16: ???",
-        "Flex: ???",
-        "u16: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02CD": {
-      "name": "SetDarkFog",
-      "decomp_name": "ScrCmd_2CD",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Sets weather #26 to the current map"
-    },
-    "0x02CE": {
-      "name": "ClearDarkFog",
-      "decomp_name": "ScrCmd_Unused_2CE",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Sets the default weather to the current map"
-    },
-    "0x02CF": {
-      "name": "CMD_719",
-      "decomp_name": "ScrCmd_2CF",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: ???",
-        "Var: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02D0": {
-      "name": "CMD_720",
-      "decomp_name": "ScrCmd_2D0",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: ???",
-        "Var: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02D1": {
-      "name": "CMD_721",
-      "decomp_name": "ScrCmd_2D1",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02D2": {
-      "name": "CMD_722",
-      "decomp_name": "ScrCmd_2D2",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX",
-        "INTEGER"
-      ],
-      "parameter_values": [
-        "u16: ???",
-        "Flex: ???",
-        "u16: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02D3": {
-      "name": "CMD_723",
-      "decomp_name": "ScrCmd_2D3",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: ???",
-        "Flex: ???",
-        "Var: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02D4": {
-      "name": "CMD_724",
-      "decomp_name": "ScrCmd_2D4",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: ???",
-        "Var: ???",
-        "Var: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02D5": {
-      "name": "CMD_725",
-      "decomp_name": "ScrCmd_2D5",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02D6": {
-      "name": "CMD_726",
-      "decomp_name": "ScrCmd_2D6",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x02D7": {
-      "name": "CMD_727",
-      "decomp_name": "ScrCmd_2D7",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x02D8": {
-      "name": "CMD_728",
-      "decomp_name": "PokeMartFrontier",
-      "parameters": [
-        1
-      ],
-      "parameter_types": [
-        "INTEGER"
-      ],
-      "parameter_values": [
-        "u8: Mart ID"
-      ],
-      "description": "nan"
-    },
-    "0x02D9": {
-      "name": "CMD_729",
-      "decomp_name": "ScrCmd_2D9",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX",
-        "INTEGER"
-      ],
-      "parameter_values": [
-        "u16: ???",
-        "Flex: ???",
-        "u16: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02DA": {
-      "name": "CMD_730",
-      "decomp_name": "ScrCmd_2DA",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: ???",
-        "Flex: ???",
-        "Var: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02DB": {
-      "name": "CMD_731",
-      "decomp_name": "ScrCmd_2DB",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: ???",
-        "Var: ???",
-        "Var: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02DC": {
-      "name": "CMD_732",
-      "decomp_name": "ScrCmd_2DC",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02DD": {
-      "name": "CMD_733",
-      "decomp_name": "FindPartySlotWithSpecies",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: Pok\u00e9mon",
-        "Var: Variable"
-      ],
-      "description": "Stores into Variable the Party position of specified Pok\u00e9mon, provided it is actually in the Pok\u00e9mon party."
-    },
-    "0x02DE": {
-      "name": "CMD_734",
-      "decomp_name": "ScrCmd_2DE",
-      "parameters": [
-        2,
-        2,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER"
-      ],
-      "parameter_values": [
-        "Flex: ???",
-        "Flex: ???",
-        "u16: ???",
-        "u16: ???",
-        "u16: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02DF": {
-      "name": "CMD_735",
-      "decomp_name": "CalcAmitySquareBerryAndAccessoryManOptionID",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x02E0": {
-      "name": "CMD_736",
-      "decomp_name": "CheckAmitySquareManGiftIsAccesory",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: giftID",
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x02E1": {
-      "name": "CMD_737",
-      "decomp_name": "GetAmitySquareBerryOrAccessoryIDFromMan",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: berryAndAccessoryManOptionID",
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x02E2": {
-      "name": "ScratchOffScreen",
-      "decomp_name": "ScrCmd_2E2",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Loads and displays Scratch-off card interface."
-    },
-    "0x02E3": {
-      "name": "ReleaseScriptApp",
-      "decomp_name": "ScrCmd_2E3",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Releases resources that were previously allocated by a script command that runs an app."
-    },
-    "0x02E4": {
-      "name": "CMD_740",
-      "decomp_name": "ScrCmd_2E4",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: ???",
-        "Flex: ???",
-        "Var: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02E5": {
-      "name": "CheckLearnableTutorMoves",
-      "decomp_name": "CheckHasLearnableTutorMoves",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: Party Position",
-        "Flex: Tutor ID",
-        "Variable: Answer"
-      ],
-      "description": "Checks if Pok\u00e9mon at Party Position can learn any move from the Tutor with chosen Tutor ID. Assigns 1 to Answer if yes, 0 otherwise."
-    },
-    "0x02E6": {
-      "name": "ShowTutorMovesList",
-      "decomp_name": "ShowMoveTutorMoveSelectionMenu",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: Party Position",
-        "Flex: Tutor ID",
-        "Variable: Player Selection"
-      ],
-      "description": "Shows a list of moves that the Pok\u00e9mon at Party Position can learn from the Tutor with the specified Tutor ID. If Party Position is 0xFF, all moves from that Tutor are listed. Stores the player's Selection in the output variable."
-    },
-    "0x02E7": {
-      "name": "LearnMoveScreen",
-      "decomp_name": "OpenSummaryScreenTeachMove",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: Party Position",
-        "Flex: Move"
-      ],
-      "description": "Loads up a dedicated screen to teach the specified Move to the Pok\u00e9mon at the selected Party Position."
-    },
-    "0x02E8": {
-      "name": "LearnMoveGetSelection",
-      "decomp_name": "GetSummarySelectedMoveSlot",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "Stores in Variable the selected move slot after a LearnMoveScreen command, or 4 if player cancels the selection."
-    },
-    "0x02E9": {
-      "name": "ChangePartyPokemonMove",
-      "decomp_name": "ResetMoveSlot",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: Party Position",
-        "Flex: Move Slot",
-        "Flex: New Move ID"
-      ],
-      "description": "Stores a New Move ID into the Move Slot of the Pok\u00e9mon at the chosen Party Position."
-    },
-    "0x02EA": {
-      "name": "CheckAffordMove",
-      "decomp_name": "CheckCanAffordMove",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: selectedMove",
-        "Var: canTeach"
-      ],
-      "description": "Check if the player has enough shards to pay a Move Tutor to teach the given Move. Assigns 1 to Answer if yes, 0 otherwise."
-    },
-    "0x02EB": {
-      "name": "PayTutorShards",
-      "decomp_name": "PayShardsCost",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: Move"
-      ],
-      "description": "Subtracts shards from the Player's inventory depending on the amount requested by the tutor for the specified Move."
-    },
-    "0x02EC": {
-      "name": "ShowMovePriceBoard",
-      "decomp_name": "ShowShardsCost",
-      "parameters": [
-        1,
-        1,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "u8: X",
-        "u8: Y",
-        "Flex: Move",
-        "Variable: Player Selection"
-      ],
-      "description": "Prepares a price board menu at X and Y screen coordinates for the chosen Move. Stores the player's Selection in the output variable."
-    },
-    "0x02ED": {
-      "name": "CloseMovePriceBoard",
-      "decomp_name": "CloseShardsCostWindow",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Closes the Move price board."
-    },
-    "0x02EE": {
-      "name": "CMD_750",
-      "decomp_name": "JudgeStats",
-      "parameters": [
-        2,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: Party Position",
-        "Var: totalIVs",
-        "Var: highestIVIndex",
-        "Var: highestIVValue"
-      ],
-      "description": "nan"
-    },
-    "0x02EF": {
-      "name": "CMD_751",
-      "decomp_name": "ScrCmd_2EF",
-      "parameters": [
-        1,
-        2
-      ],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x02F0": {
-      "name": "InitVilla",
-      "decomp_name": "InitPersistedMapFeaturesForVilla",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Initializes Villa internal data and 3D model animations"
-    },
-    "0x02F1": {
-      "name": "ChangePokemonForm",
-      "decomp_name": "ScrCmd_2F1",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: Party Position",
-        "Flex: Form"
-      ],
-      "description": "Changes the form value of the Pok\u00e9mon at Party Position to Form"
-    },
-    "0x02F2": {
-      "name": "InitDistortionWorld",
-      "decomp_name": "InitPersistedMapFeaturesForDistortionWorld",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Initializes Distortion World internal data and 3D model animations"
-    },
-    "0x02F3": {
-      "name": "CMD_755",
-      "decomp_name": "ScrCmd_2F3",
-      "parameters": [
-        1,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "u8: ???",
-        "Flex: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02F4": {
-      "name": "CMD_756",
-      "decomp_name": "ScrCmd_2F4",
-      "parameters": [
-        2,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x02F5": {
-      "name": "CMD_757",
-      "decomp_name": "BufferNumberPaddingDigits",
-      "parameters": [
-        1,
-        4,
-        1,
-        1
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER"
-      ],
-      "parameter_values": [
-        "u8: templateArg",
-        "u32: value",
-        "u8: paddingMode",
-        "u8: maxDigits"
-      ],
-      "description": "StringTemplate_SetNumber(*strTemplate, templateArg, value, maxDigits, paddingMode, 1); see pokeplatinum for details"
-    },
-    "0x02F6": {
-      "name": "CMD_758",
-      "decomp_name": "ScrCmd_2F6",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: ???",
-        "Flex: ???",
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x02F7": {
-      "name": "CMD_759",
-      "decomp_name": "ScrCmd_2F7",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "INTEGER"
-      ],
-      "parameter_values": [
-        "u16: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02F8": {
-      "name": "CMD_760",
-      "decomp_name": "SetScene22",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x02F9": {
-      "name": "LoadFieldAudio",
-      "decomp_name": "SetFieldScene",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: Music ID"
-      ],
-      "description": "Loads Field scene sound data (GROUP_SE_FIELD in the SDAT) and starts playing SSEQ with Music ID."
-    },
-    "0x02FA": {
-      "name": "GetPlayingBGM",
-      "decomp_name": "GetCurrentBGM",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "Stores into Variable the ID of the current playing SSEQ."
-    },
-    "0x02FB": {
-      "name": "SpearPillarSequence2",
-      "decomp_name": "ScrCmd_2FB",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Starts part 2 of the Spear Pillar Sequence (Giratina Cutscene)"
-    },
-    "0x02FC": {
-      "name": "CMD_764",
-      "decomp_name": "ScrCmd_2FC",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x02FD": {
-      "name": "CMD_765",
-      "decomp_name": "ScrCmd_2FD",
-      "parameters": [
-        1,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "u8: ???",
-        "Flex: ???"
-      ],
-      "description": "nan"
-    },
-    "0x02FE": {
-      "name": "CMD_766",
-      "decomp_name": "GetItemQuantity",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: Item",
-        "Var: Quantity"
-      ],
-      "description": "FLEX as param0 could be wrong, might be u16 instead"
-    },
-    "0x02FF": {
-      "name": "CMD_767",
-      "decomp_name": "ScrCmd_2FF",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: ???",
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x0300": {
-      "name": "CMD_768",
-      "decomp_name": "ScrCmd_300",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0301": {
-      "name": "CMD_769",
-      "decomp_name": "ScrCmd_301",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0302": {
-      "name": "CheckUsedRotomAppliances",
-      "decomp_name": "GetRotomFormsInSave",
-      "parameters": [
-        2,
-        2,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Heat",
-        "Var: Wash",
-        "Var: Frost",
-        "Var: Fan",
-        "Var: Mow"
-      ],
-      "description": "Stores in Heat, Wash, Frost, Fan and Mow 1 if that appliance is being used by a Rotom, or 0 if the appliance is free"
-    },
-    "0x0303": {
-      "name": "CMD_771",
-      "decomp_name": "GetPartyRotomCountAndFirst",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Count",
-        "Var: PartySlot"
-      ],
-      "description": "nan"
-    },
-    "0x0304": {
-      "name": "CMD_772",
-      "decomp_name": "SetRotomForm",
-      "parameters": [
-        2,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Party Slot",
-        "Var: move Slot",
-        "Var: ???",
-        "Var: form"
-      ],
-      "description": "nan"
-    },
-    "0x0305": {
-      "name": "CMD_773",
-      "decomp_name": "GetPartyMonForm2",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: Party Slot",
-        "Var: Form"
-      ],
-      "description": "nan"
-    },
-    "0x0306": {
-      "name": "CMD_774",
-      "decomp_name": "ShowListMenuRememberCursor",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: rememberedListOffset",
-        "Var: Cursor Position"
-      ],
-      "description": "nan"
-    },
-    "0x0307": {
-      "name": "CMD_775",
-      "decomp_name": "ScrCmd_307",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "returns PoffinCase_CountEmptySlots"
-    },
-    "0x0308": {
-      "name": "CMD_776",
-      "decomp_name": "AddCameraOverrideObject",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0309": {
-      "name": "CMD_777",
-      "decomp_name": "RemoveCameraOverrideObject",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x030A": {
-      "name": "CMD_778",
-      "decomp_name": "IncrementTrainerScore",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "INTEGER"
-      ],
-      "parameter_values": [
-        "u16: Score"
-      ],
-      "description": "nan"
-    },
-    "0x030B": {
-      "name": "CMD_779",
-      "decomp_name": "ScrCmd_30B",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x030C": {
-      "name": "CMD_780",
-      "decomp_name": "ScrCmd_30C",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x030D": {
-      "name": "CMD_781",
-      "decomp_name": "ScrCmd_30D",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: ???"
-      ],
-      "description": "nan"
-    },
-    "0x030E": {
-      "name": "CMD_782",
-      "decomp_name": "ScrCmd_30E",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x030F": {
-      "name": "CMD_783",
-      "decomp_name": "ScrCmd_30F",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: ???",
-        "Var: ???"
-      ],
-      "description": "nan"
-    },
-    "0x0310": {
-      "name": "CMD_784",
-      "decomp_name": "ScrCmd_310",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0311": {
-      "name": "CMD_785",
-      "decomp_name": "ScrCmd_311",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: ???"
-      ],
-      "description": "nan"
-    },
-    "0x0312": {
-      "name": "CMD_786",
-      "decomp_name": "ScrCmd_312",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: ???"
-      ],
-      "description": "nan"
-    },
-    "0x0313": {
-      "name": "CMD_787",
-      "decomp_name": "ScrCmd_313",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0314": {
-      "name": "GetBattleOutcome",
-      "decomp_name": "ScrCmd_314",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "Stores the result of the last battle Variable"
-    },
-    "0x0315": {
-      "name": "GetCurrentWeather",
-      "decomp_name": "ScrCmd_315",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "Stores the current weather in Variable"
-    },
-    "0x0316": {
-      "name": "CMD_790",
-      "decomp_name": "ScrCmd_316",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0317": {
-      "name": "GetPlayerPositionFull",
-      "decomp_name": "GetPlayer3DPos",
-      "parameters": [
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: X",
-        "Var: Z",
-        "Var: Y"
-      ],
-      "description": "Saves the current player position in X, Z, and Y."
-    },
-    "0x0318": {
-      "name": "WildBattleFateful",
-      "decomp_name": "StartFatefulEncounter",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: Pok\u00e9mon",
-        "Flex: Level"
-      ],
-      "description": "Starts a static encounter battle against a Pok\u00e9mon of predefined Level"
-    },
-    "0x0319": {
-      "name": "GiratinaBattle",
-      "decomp_name": "StartGiratinaOriginBattle",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: Pok\u00e9mon",
-        "Flex: Level"
-      ],
-      "description": "Starts a Distortion World wild battle against a Pok\u00e9mon with level Level"
-    },
-    "0x031A": {
-      "name": "RegisterSeenPokemon",
-      "decomp_name": "SetSpeciesSeen",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: Pok\u00e9mon"
-      ],
-      "description": "Marks Pok\u00e9mon in the Pok\u00e9dex as seen if it hasn't been caught"
-    },
-    "0x031B": {
-      "name": "CMD_795",
-      "decomp_name": "ScrCmd_31B",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: ???"
-      ],
-      "description": "something to do with TVBroadcast"
-    },
-    "0x031C": {
-      "name": "CMD_796",
-      "decomp_name": "CheckPartyHasFatefulEncounter",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Var: Variable",
-        "Flex: species"
-      ],
-      "description": "nan"
-    },
-    "0x031D": {
-      "name": "CMD_797",
-      "decomp_name": "ScrCmd_31D",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x031E": {
-      "name": "CMD_798",
-      "decomp_name": "ScrCmd_31E",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: Party Slot",
-        "Var: Variable"
-      ],
-      "description": "Restores the base form of the Pok\u00e9mon at the chosen Party Slot if it is Rotom, Giratina or Shaymin.\n\nAdditionally, if the Pok\u00e9mon is holding a Griseous Orb, it attempts to put it back into the Player's bag.\nStores 0xFFFF into Variable if this fails, 0 if it succeeds or the mon has a different item."
-    },
-    "0x031F": {
-      "name": "CMD_799",
-      "decomp_name": "ResetDistortionWorldPersistedCameraAngles",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0320": {
-      "name": "PortalAnimation",
-      "decomp_name": "ScrCmd_320",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "Prepares 3D data of Distortion World's portal and plays the animation (also with sound effect 0x5D3 #1491)."
-    },
-    "0x0321": {
-      "name": "CMD_801",
-      "decomp_name": "ScrCmd_321",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0322": {
-      "name": "CMD_802",
-      "decomp_name": "ScrCmd_322",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0323": {
-      "name": "CMD_803",
-      "decomp_name": "ScrCmd_323",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x0324": {
-      "name": "CMD_804",
-      "decomp_name": "ScrCmd_324",
-      "parameters": [
-        1,
-        1,
-        1,
-        1,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "INTEGER",
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "u8: ???",
-        "u8: ???",
-        "u8: ???",
-        "u8: ???",
-        "Var: ???",
-        "Var: ???"
-      ],
-      "description": "nan"
-    },
-    "0x0325": {
-      "name": "CMD_805",
-      "decomp_name": "ScrCmd_325",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x0326": {
-      "name": "CMD_806",
-      "decomp_name": "ScrCmd_326",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x0327": {
-      "name": "CMD_807",
-      "decomp_name": "ShowListMenuSetWidth",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: Width"
-      ],
-      "description": "nan"
-    },
-    "0x0328": {
-      "name": "CMD_808",
-      "decomp_name": "SetPartyGiratinaForm",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0329": {
-      "name": "CMD_809",
-      "decomp_name": "ScrCmd_329",
-      "parameters": [
-        2,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: ???",
-        "Var: ???",
-        "Var: ???",
-        "Var: ???"
-      ],
-      "description": "something about TVBroadcast"
-    },
-    "0x032A": {
-      "name": "CMD_810",
-      "decomp_name": "ScrCmd_32A",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x032B": {
-      "name": "CheckEventRegigigas",
-      "decomp_name": "CheckPartyHasFatefulEncounterRegigigas",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: Return Value"
-      ],
-      "description": "Return Value is 1 if Player has an event Regigigas in their party, 0 otherwise."
-    },
-    "0x032C": {
-      "name": "CMD_812",
-      "decomp_name": "ScrCmd_32C",
-      "parameters": [
-        2,
-        2,
-        2,
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE",
-        "FLEX",
-        "FLEX",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Var: ???",
-        "Flex: ???",
-        "Flex: ???",
-        "Flex: ???"
-      ],
-      "description": "nan"
-    },
-    "0x032D": {
-      "name": "CMD_813",
-      "decomp_name": "ScrCmd_32D",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x032E": {
-      "name": "CMD_814",
-      "decomp_name": "ScrCmd_32E",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x032F": {
-      "name": "CMD_815",
-      "decomp_name": "CheckPartyHasHeldItem",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: Item",
-        "Var: Variable"
-      ],
-      "description": "nan"
-    },
-    "0x0330": {
-      "name": "CMD_816",
-      "decomp_name": "ScrCmd_330",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0331": {
-      "name": "CMD_817",
-      "decomp_name": "ScrCmd_331",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0332": {
-      "name": "CMD_818",
-      "decomp_name": "ScrCmd_332",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0333": {
-      "name": "SetFieldVolume",
-      "decomp_name": "ScrCmd_333",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "FLEX"
-      ],
-      "parameter_values": [
-        "Flex: Volume"
-      ],
-      "description": "Sets PLAYER_FIELD's Volume to passed value."
-    },
-    "0x0334": {
-      "name": "CMD_820",
-      "decomp_name": "AddToGameRecord",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0335": {
-      "name": "CMD_821",
-      "decomp_name": "AddToGameRecordBigValue",
-      "parameters": [
-        2,
-        4
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "INTEGER"
-      ],
-      "parameter_values": [
-        "u16: ???",
-        "u32: ???"
-      ],
-      "description": "nan"
-    },
-    "0x0336": {
-      "name": "CMD_822",
-      "decomp_name": "ScrCmd_336",
-      "parameters": [
-        2
-      ],
-      "parameter_types": [
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Var: ???"
-      ],
-      "description": "nan"
-    },
-    "0x0337": {
-      "name": "CheckPokemonIsSeen",
-      "decomp_name": "CheckHasSeenSpecies",
-      "parameters": [
-        2,
-        2
-      ],
-      "parameter_types": [
-        "FLEX",
-        "VARIABLE"
-      ],
-      "parameter_values": [
-        "Flex: Pok\u00e9mon",
-        "Var: Variable"
-      ],
-      "description": "Checks if Pok\u00e9mon is registered as seen in the Pok\u00e9dex, stores the answer in Variable"
-    },
-    "0x0338": {
-      "name": "CMD_824",
-      "decomp_name": "ScrCmd_338",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x0339": {
-      "name": "CMD_825",
-      "decomp_name": "ScrCmd_339",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
-      "description": "nan"
-    },
-    "0x033A": {
-      "name": "CMD_826",
-      "decomp_name": "SetMenuYOriginSide",
-      "parameters": [
-        1
-      ],
-      "parameter_types": [
-        "INTEGER"
-      ],
-      "parameter_values": [
-        "u8: ???"
-      ],
-      "description": "nan"
-    },
-    "0x033B": {
-      "name": "CMD_827",
-      "decomp_name": "ScrCmd_33B",
-      "parameters": [
-        1
-      ],
-      "parameter_types": [
-        "INTEGER"
-      ],
-      "parameter_values": [
-        "u8: ???"
-      ],
-      "description": "nan"
-    },
-    "0x033C": {
-      "name": "TextItemLowercase",
-      "decomp_name": "ScrCmd_33C",
-      "parameters": [
-        1,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "u8: String Buffer",
-        "Flex: Item"
-      ],
-      "description": "Stores Item's lowercase name in String Buffer"
-    },
-    "0x033D": {
-      "name": "TextItemPlural",
-      "decomp_name": "BufferItemNamePlural",
-      "parameters": [
-        1,
-        2
-      ],
-      "parameter_types": [
-        "INTEGER",
-        "FLEX"
-      ],
-      "parameter_values": [
-        "u8: String Buffer",
-        "Flex: Item"
-      ],
-      "description": "Stores Item's plural noun in String Buffer"
-    },
-    "0x033E": {
-      "name": "CMD_830",
-      "decomp_name": "ScrCmd_33E",
+      "name": "CMD_710",
+      "decomp_name": "ScrCmd_GetDecorationNameWithArticle",
       "parameters": [
         1,
         2
@@ -11361,11 +9637,11 @@
         "u8: String Buffer",
         "Flex: Underground goods"
       ],
-      "description": "???"
+      "description": "nan"
     },
-    "0x033F": {
-      "name": "CMD_831",
-      "decomp_name": "ScrCmd_33F",
+    "0x02C7": {
+      "name": "CMD_711",
+      "decomp_name": "ScrCmd_GetUndergroundTrapNameWithArticle",
       "parameters": [
         1,
         2
@@ -11378,11 +9654,11 @@
         "u8: String Buffer",
         "Flex: Underground trap"
       ],
-      "description": "???"
+      "description": "nan"
     },
-    "0x0340": {
-      "name": "CMD_832",
-      "decomp_name": "ScrCmd_340",
+    "0x02C8": {
+      "name": "CMD_712",
+      "decomp_name": "ScrCmd_GetUndergroundItemNameWithArticle",
       "parameters": [
         1,
         2
@@ -11395,11 +9671,11 @@
         "u8: String Buffer",
         "Flex: Underground treasure"
       ],
-      "description": "???"
+      "description": "nan"
     },
-    "0x0341": {
-      "name": "CMD_833",
-      "decomp_name": "ScrCmd_341",
+    "0x02C9": {
+      "name": "CMD_713",
+      "decomp_name": "ScrCmd_Unk02C9",
       "parameters": [
         1,
         2,
@@ -11418,11 +9694,11 @@
         "u16: ???",
         "u8: ???"
       ],
-      "description": "???"
+      "description": "nan"
     },
-    "0x0342": {
-      "name": "CMD_834",
-      "decomp_name": "BufferPlayerCounterpartStarterSpeciesNameWithArticle",
+    "0x02CA": {
+      "name": "CMD_714",
+      "decomp_name": "ScrCmd_Unk02CA",
       "parameters": [
         1
       ],
@@ -11432,11 +9708,11 @@
       "parameter_values": [
         "u8: String Buffer"
       ],
-      "description": "???"
+      "description": "nan"
     },
-    "0x0343": {
-      "name": "CMD_835",
-      "decomp_name": "ScrCmd_343",
+    "0x02CB": {
+      "name": "CMD_715",
+      "decomp_name": "ScrCmd_GetFashionNameWithArticle",
       "parameters": [
         1,
         2
@@ -11447,13 +9723,13 @@
       ],
       "parameter_values": [
         "u8: String Buffer",
-        "Flex: Accesory"
+        "Flex: Accessory"
       ],
-      "description": "???"
+      "description": "nan"
     },
-    "0x0344": {
+    "0x02CC": {
       "name": "TextTrainerClass",
-      "decomp_name": "ScrCmd_344",
+      "decomp_name": "ScrCmd_Unk02CC",
       "parameters": [
         1,
         2
@@ -11464,13 +9740,13 @@
       ],
       "parameter_values": [
         "u8: String Buffer",
-        "Flex: Trainer class"
+        "Flex: Trainer Class"
       ],
-      "description": "Stores Trainer class' lowercase noun in String Buffer"
+      "description": "Stores Trainer class' lowercase noun in String Buffer, International release exclusive."
     },
-    "0x0345": {
+    "0x02CD": {
       "name": "TextSealPlural",
-      "decomp_name": "ScrCmd_345",
+      "decomp_name": "ScrCmd_GetSealNamePlural",
       "parameters": [
         1,
         2
@@ -11483,11 +9759,11 @@
         "u8: String Buffer",
         "Flex: Seal"
       ],
-      "description": "Stores Seal's plural noun in String Buffer"
+      "description": "Stores Seal's plural noun in String Buffer; International release exclusive."
     },
-    "0x0346": {
+    "0x02CE": {
       "name": "TextCapitalize",
-      "decomp_name": "ScrCmd_346",
+      "decomp_name": "ScrCmd_CapitalizeFirstChar",
       "parameters": [
         1
       ],
@@ -11497,11 +9773,39 @@
       "parameter_values": [
         "u8: String Buffer"
       ],
-      "description": "Capitalizes the string currently stored in String Buffer"
+      "description": "Capitalizes the string currently stored in String Buffer; International release exclusive."
     },
-    "0x0347": {
-      "name": "DisplayFloor",
-      "decomp_name": "ScrCmd_347",
+    "0x02CF": {
+      "name": "CMD_719",
+      "decomp_name": "ScrCmd_Unk02CF",
+      "parameters": [
+        1
+      ],
+      "parameter_types": [
+        "INTEGER"
+      ],
+      "parameter_values": [
+        "u8: ???"
+      ],
+      "description": "nan"
+    },
+    "0x02D0": {
+      "name": "CMD_720",
+      "decomp_name": "ScrCmd_Unk02D0",
+      "parameters": [
+        1
+      ],
+      "parameter_types": [
+        "INTEGER"
+      ],
+      "parameter_values": [
+        "u8: ???"
+      ],
+      "description": "nan"
+    },
+    "0x02D1": {
+      "name": "TextFloor",
+      "decomp_name": "ScrCmd_2D1",
       "parameters": [
         1,
         1

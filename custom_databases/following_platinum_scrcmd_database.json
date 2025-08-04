@@ -2466,7 +2466,10 @@
     "0x009B": {
       "name": "CMD_155",
       "decomp_name": "ScrCmd_09B",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -2538,7 +2541,9 @@
     "0x00A4": {
       "name": "CMD_164",
       "decomp_name": "ScrCmd_Unused_0A4",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -2686,7 +2691,10 @@
     "0x00B2": {
       "name": "CMD_178",
       "decomp_name": "ScrCmd_0B2",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -2694,7 +2702,9 @@
     "0x00B3": {
       "name": "CMD_179",
       "decomp_name": "ScrCmd_0B3",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3615,7 +3625,12 @@
     "0x00F2": {
       "name": "CMD_242",
       "decomp_name": "ScrCmd_0F2",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3623,7 +3638,12 @@
     "0x00F3": {
       "name": "CMD_243",
       "decomp_name": "ScrCmd_0F3",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3631,7 +3651,9 @@
     "0x00F4": {
       "name": "CMD_244",
       "decomp_name": "ScrCmd_Unused_0F4",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3639,7 +3661,9 @@
     "0x00F5": {
       "name": "CMD_245",
       "decomp_name": "ScrCmd_Unused_0F5",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3663,7 +3687,9 @@
     "0x00F8": {
       "name": "CMD_248",
       "decomp_name": "ScrCmd_0F8",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3671,7 +3697,9 @@
     "0x00F9": {
       "name": "CMD_249",
       "decomp_name": "ScrCmd_0F9",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3679,7 +3707,12 @@
     "0x00FA": {
       "name": "CMD_250",
       "decomp_name": "ScrCmd_0FA",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3687,7 +3720,9 @@
     "0x00FB": {
       "name": "CMD_251",
       "decomp_name": "ScrCmd_0FB",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3695,7 +3730,10 @@
     "0x00FC": {
       "name": "CMD_252",
       "decomp_name": "ScrCmd_0FC",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3703,7 +3741,10 @@
     "0x00FD": {
       "name": "CMD_253",
       "decomp_name": "ScrCmd_0FD",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3711,7 +3752,10 @@
     "0x00FE": {
       "name": "CMD_254",
       "decomp_name": "ScrCmd_0FE",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3719,7 +3763,10 @@
     "0x00FF": {
       "name": "CMD_255",
       "decomp_name": "ScrCmd_0FF",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3743,7 +3790,9 @@
     "0x0102": {
       "name": "CMD_258",
       "decomp_name": "ScrCmd_102",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3751,7 +3800,9 @@
     "0x0103": {
       "name": "CMD_259",
       "decomp_name": "ScrCmd_103",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3759,7 +3810,9 @@
     "0x0104": {
       "name": "CMD_260",
       "decomp_name": "ScrCmd_104",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3767,7 +3820,9 @@
     "0x0105": {
       "name": "CMD_261",
       "decomp_name": "ScrCmd_105",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3775,7 +3830,9 @@
     "0x0106": {
       "name": "CMD_262",
       "decomp_name": "ScrCmd_106",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3783,7 +3840,9 @@
     "0x0107": {
       "name": "CMD_263",
       "decomp_name": "ScrCmd_107",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3791,7 +3850,9 @@
     "0x0108": {
       "name": "CMD_264",
       "decomp_name": "ScrCmd_108",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3799,7 +3860,9 @@
     "0x0109": {
       "name": "CMD_265",
       "decomp_name": "ScrCmd_109",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3807,7 +3870,10 @@
     "0x010A": {
       "name": "CMD_266",
       "decomp_name": "ScrCmd_10A",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3815,7 +3881,10 @@
     "0x010B": {
       "name": "CMD_267",
       "decomp_name": "ScrCmd_10B",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3823,7 +3892,9 @@
     "0x010C": {
       "name": "CMD_268",
       "decomp_name": "ScrCmd_10C",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3831,7 +3902,9 @@
     "0x010D": {
       "name": "CMD_269",
       "decomp_name": "ScrCmd_10D",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3839,7 +3912,9 @@
     "0x010E": {
       "name": "CMD_270",
       "decomp_name": "ScrCmd_10E",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3847,7 +3922,9 @@
     "0x010F": {
       "name": "CMD_271",
       "decomp_name": "ScrCmd_10F",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3855,7 +3932,12 @@
     "0x0110": {
       "name": "CMD_272",
       "decomp_name": "ScrCmd_110",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3863,7 +3945,9 @@
     "0x0111": {
       "name": "FlashContest",
       "decomp_name": "ScrCmd_111",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -3895,7 +3979,9 @@
     "0x0115": {
       "name": "CMD_277",
       "decomp_name": "ScrCmd_115",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4249,7 +4335,9 @@
     "0x0130": {
       "name": "CMD_304",
       "decomp_name": "ScrCmd_130",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4310,9 +4398,15 @@
     "0x0135": {
       "name": "CMD_309",
       "decomp_name": "ScrCmd_135",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "FLEX"
+      ],
+      "parameter_values": [
+        "Flex: ???"
+      ],
       "description": "nan"
     },
     "0x0136": {
@@ -4326,7 +4420,9 @@
     "0x0137": {
       "name": "CMD_311",
       "decomp_name": "ScrCmd_Unused_137",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4334,7 +4430,9 @@
     "0x0138": {
       "name": "CMD_312",
       "decomp_name": "ScrCmd_138",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4342,7 +4440,9 @@
     "0x0139": {
       "name": "CMD_313",
       "decomp_name": "ScrCmd_139",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4366,7 +4466,9 @@
     "0x013C": {
       "name": "CMD_316",
       "decomp_name": "ScrCmd_13C",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4390,7 +4492,10 @@
     "0x013F": {
       "name": "CMD_319",
       "decomp_name": "ScrCmd_13F",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4398,7 +4503,9 @@
     "0x0140": {
       "name": "CMD_320",
       "decomp_name": "ScrCmd_140",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4406,7 +4513,9 @@
     "0x0141": {
       "name": "CMD_321",
       "decomp_name": "ScrCmd_141",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4422,7 +4531,10 @@
     "0x0143": {
       "name": "CMD_323",
       "decomp_name": "ScrCmd_143",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4430,7 +4542,9 @@
     "0x0144": {
       "name": "CMD_324",
       "decomp_name": "ScrCmd_144",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4438,7 +4552,9 @@
     "0x0145": {
       "name": "CMD_325",
       "decomp_name": "ScrCmd_145",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4446,7 +4562,10 @@
     "0x0146": {
       "name": "CMD_326",
       "decomp_name": "ScrCmd_146",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4608,7 +4727,10 @@
     "0x0155": {
       "name": "CMD_341",
       "decomp_name": "ScrCmd_155",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -4616,7 +4738,9 @@
     "0x0156": {
       "name": "CMD_342",
       "decomp_name": "ScrCmd_156",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5366,7 +5490,9 @@
     "0x018F": {
       "name": "CMD_399",
       "decomp_name": "ScrCmd_18F",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5418,7 +5544,12 @@
     "0x0194": {
       "name": "CMD_404",
       "decomp_name": "ScrCmd_194",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5426,7 +5557,10 @@
     "0x0195": {
       "name": "CMD_405",
       "decomp_name": "ScrCmd_195",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5434,7 +5568,9 @@
     "0x0196": {
       "name": "CMD_406",
       "decomp_name": "ScrCmd_196",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5442,7 +5578,9 @@
     "0x0197": {
       "name": "CMD_407",
       "decomp_name": "ScrCmd_197",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5543,7 +5681,10 @@
     "0x019E": {
       "name": "CMD_414",
       "decomp_name": "ScrCmd_19E",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5551,7 +5692,9 @@
     "0x019F": {
       "name": "CMD_415",
       "decomp_name": "ScrCmd_19F",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5567,7 +5710,10 @@
     "0x01A1": {
       "name": "CMD_417",
       "decomp_name": "ScrCmd_Unused_1A1",
-      "parameters": [],
+      "parameters": [
+        1,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5575,7 +5721,10 @@
     "0x01A2": {
       "name": "CMD_418",
       "decomp_name": "ScrCmd_Unused_1A2",
-      "parameters": [],
+      "parameters": [
+        1,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5597,7 +5746,10 @@
     "0x01A4": {
       "name": "CMD_420",
       "decomp_name": "MoveMonToPartyFromDaycareSlot",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5605,7 +5757,9 @@
     "0x01A5": {
       "name": "CMD_421",
       "decomp_name": "Dummy1A5",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5645,7 +5799,10 @@
     "0x01AA": {
       "name": "CMD_426",
       "decomp_name": "BufferDaycarePriceBySlot",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5709,7 +5866,11 @@
     "0x01AF": {
       "name": "CMD_431",
       "decomp_name": "BufferPartyMonNicknameReturnSpecies",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5717,7 +5878,9 @@
     "0x01B0": {
       "name": "CMD_432",
       "decomp_name": "StorePartyMonIntoDaycare",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5775,7 +5938,9 @@
     "0x01B5": {
       "name": "CMD_437",
       "decomp_name": "ScrCmd_1B5",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -5933,7 +6098,9 @@
     "0x01BF": {
       "name": "CMD_447",
       "decomp_name": "CheckDaycareHasEgg",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6037,7 +6204,9 @@
     "0x01C6": {
       "name": "CMD_454",
       "decomp_name": "SelectPartyMonMove",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6045,7 +6214,9 @@
     "0x01C7": {
       "name": "CMD_455",
       "decomp_name": "GetSelectedPartyMonMove",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6229,7 +6400,10 @@
     "0x01D2": {
       "name": "CMD_466",
       "decomp_name": "ScrCmd_1D2",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6237,7 +6411,11 @@
     "0x01D3": {
       "name": "CMD_467",
       "decomp_name": "CanFitAccessory",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6245,7 +6423,11 @@
     "0x01D4": {
       "name": "CMD_468",
       "decomp_name": "ScrCmd_Unused_1D4",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6253,7 +6435,9 @@
     "0x01D5": {
       "name": "CMD_469",
       "decomp_name": "ScrCmd_1D5",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6261,7 +6445,10 @@
     "0x01D6": {
       "name": "CMD_470",
       "decomp_name": "CheckBackdrop",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6269,7 +6456,9 @@
     "0x01D7": {
       "name": "CMD_471",
       "decomp_name": "ScrCmd_1D7",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6277,7 +6466,9 @@
     "0x01D8": {
       "name": "CMD_472",
       "decomp_name": "ScrCmd_1D8",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6583,7 +6774,9 @@
     "0x01ED": {
       "name": "CMD_493",
       "decomp_name": "GetTrophyGardenSlot1Species",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6591,7 +6784,10 @@
     "0x01EE": {
       "name": "CMD_494",
       "decomp_name": "ScrCmd_1EE",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6599,7 +6795,9 @@
     "0x01EF": {
       "name": "CMD_495",
       "decomp_name": "ScrCmd_Unused_1EF",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6607,7 +6805,9 @@
     "0x01F0": {
       "name": "CMD_496",
       "decomp_name": "ScrCmd_1F0",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6947,7 +7147,9 @@
     "0x0207": {
       "name": "CMD_519",
       "decomp_name": "ScrCmd_207",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -6980,7 +7182,9 @@
     "0x020A": {
       "name": "CMD_522",
       "decomp_name": "ScrCmd_20A",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7164,7 +7368,9 @@
     "0x0218": {
       "name": "CMD_536",
       "decomp_name": "ScrCmd_218",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7172,7 +7378,9 @@
     "0x0219": {
       "name": "CMD_537",
       "decomp_name": "SetNewsPressDeadline",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7180,7 +7388,9 @@
     "0x021A": {
       "name": "CMD_538",
       "decomp_name": "GetNewsPressDeadline",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7243,7 +7453,10 @@
     "0x021F": {
       "name": "CMD_543",
       "decomp_name": "ScrCmd_21F",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7407,8 +7620,7 @@
       "name": "NationalDex",
       "decomp_name": "GetSetNationalDexEnabled",
       "parameters": [
-        2,
-        2,
+        1,
         2
       ],
       "parameter_types": [
@@ -7597,9 +7809,6 @@
       "name": "CMD_567",
       "decomp_name": "ScrCmd_237",
       "parameters": [
-        2,
-        2,
-        2,
         2,
         2,
         2,
@@ -7841,7 +8050,11 @@
     "0x0243": {
       "name": "CMD_579",
       "decomp_name": "ScrCmd_243",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7849,7 +8062,12 @@
     "0x0244": {
       "name": "CMD_580",
       "decomp_name": "ScrCmd_244",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7857,7 +8075,10 @@
     "0x0245": {
       "name": "CMD_581",
       "decomp_name": "ScrCmd_245",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7913,7 +8134,13 @@
     "0x0249": {
       "name": "CMD_585",
       "decomp_name": "ScrCmd_249",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7921,7 +8148,9 @@
     "0x024A": {
       "name": "CMD_586",
       "decomp_name": "GetCapturedFlagCount",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7929,7 +8158,9 @@
     "0x024B": {
       "name": "CMD_587",
       "decomp_name": "ScrCmd_24B",
-      "parameters": [],
+      "parameters": [
+        1
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7937,7 +8168,9 @@
     "0x024C": {
       "name": "CMD_588",
       "decomp_name": "ScrCmd_24C",
-      "parameters": [],
+      "parameters": [
+        1
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7945,7 +8178,9 @@
     "0x024D": {
       "name": "CMD_589",
       "decomp_name": "ScrCmd_24D",
-      "parameters": [],
+      "parameters": [
+        1
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -7998,7 +8233,10 @@
     "0x0251": {
       "name": "CMD_593",
       "decomp_name": "BufferMonNicknameFromPC",
-      "parameters": [],
+      "parameters": [
+        1,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8020,7 +8258,9 @@
     "0x0253": {
       "name": "CMD_595",
       "decomp_name": "SetClearInCatchingShowFlag",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8028,7 +8268,9 @@
     "0x0254": {
       "name": "CMD_596",
       "decomp_name": "CheckHasEnoughMonForCatchingShow",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8044,7 +8286,10 @@
     "0x0256": {
       "name": "CMD_598",
       "decomp_name": "CalcCatchingShowPoints",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8076,7 +8321,9 @@
     "0x025A": {
       "name": "CMD_602",
       "decomp_name": "ScrCmd_25A",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8130,7 +8377,9 @@
     "0x0260": {
       "name": "CMD_608",
       "decomp_name": "ScrCmd_260",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8304,7 +8553,9 @@
     "0x026C": {
       "name": "CMD_620",
       "decomp_name": "TryGetRandomMassageGirlAccessory",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8393,7 +8644,10 @@
     "0x0273": {
       "name": "CMD_627",
       "decomp_name": "ScrCmd_273",
-      "parameters": [],
+      "parameters": [
+        1,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8409,7 +8663,9 @@
     "0x0275": {
       "name": "CMD_629",
       "decomp_name": "CheckBonusRoundStreak",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8417,7 +8673,10 @@
     "0x0276": {
       "name": "CMD_630",
       "decomp_name": "GoToIfCannotAddCoins",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8425,7 +8684,9 @@
     "0x0277": {
       "name": "CMD_631",
       "decomp_name": "GetDailyRandomLevel",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8450,7 +8711,10 @@
     "0x0279": {
       "name": "CMD_633",
       "decomp_name": "ScrCmd_Unused_279",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8474,7 +8738,10 @@
     "0x027C": {
       "name": "CMD_636",
       "decomp_name": "ScrCmd_27C",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8482,7 +8749,10 @@
     "0x027D": {
       "name": "CMD_637",
       "decomp_name": "ScrCmd_27D",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8490,7 +8760,9 @@
     "0x027E": {
       "name": "CMD_638",
       "decomp_name": "CheckIsDepartmentStoreRegular",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8498,7 +8770,9 @@
     "0x027F": {
       "name": "CMD_639",
       "decomp_name": "ScrCmd_27F",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8529,7 +8803,11 @@
     "0x0281": {
       "name": "CMD_641",
       "decomp_name": "ScrCmd_281",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8582,7 +8860,10 @@
     "0x0285": {
       "name": "CMD_645",
       "decomp_name": "ScrCmd_285",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8590,7 +8871,9 @@
     "0x0286": {
       "name": "CMD_646",
       "decomp_name": "GetUndergroundItemsGivenAway",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8598,7 +8881,9 @@
     "0x0287": {
       "name": "CMD_647",
       "decomp_name": "GetUndergroundFossilsUnearthed",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8606,7 +8891,9 @@
     "0x0288": {
       "name": "CMD_648",
       "decomp_name": "GetUndergroundTrapsSet",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8614,7 +8901,15 @@
     "0x0289": {
       "name": "CMD_649",
       "decomp_name": "ScrCmd_289",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8622,7 +8917,9 @@
     "0x028A": {
       "name": "CMD_650",
       "decomp_name": "ScrCmd_28A",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8647,7 +8944,9 @@
     "0x028C": {
       "name": "CMD_652",
       "decomp_name": "DrawPokemonPreviewFromPartySlot",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8663,7 +8962,9 @@
     "0x028E": {
       "name": "CMD_654",
       "decomp_name": "ScrCmd_28E",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8685,7 +8986,9 @@
     "0x0290": {
       "name": "CMD_656",
       "decomp_name": "ScrCmd_290",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8693,7 +8996,10 @@
     "0x0291": {
       "name": "CMD_657",
       "decomp_name": "ScrCmd_291",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8701,7 +9007,10 @@
     "0x0292": {
       "name": "CMD_658",
       "decomp_name": "ScrCmd_292",
-      "parameters": [],
+      "parameters": [
+        1,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8709,7 +9018,9 @@
     "0x0293": {
       "name": "CMD_659",
       "decomp_name": "GetUndergroundTalkCounter",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8717,7 +9028,10 @@
     "0x0294": {
       "name": "CMD_660",
       "decomp_name": "ShowBattlePoints",
-      "parameters": [],
+      "parameters": [
+        1,
+        1
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8800,7 +9114,12 @@
     "0x029B": {
       "name": "CMD_667",
       "decomp_name": "ScrCmd_29B",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8808,7 +9127,10 @@
     "0x029C": {
       "name": "CMD_668",
       "decomp_name": "ScrCmd_29C",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8816,7 +9138,10 @@
     "0x029D": {
       "name": "CMD_669",
       "decomp_name": "AddMenuEntry",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8875,7 +9200,11 @@
     "0x02A1": {
       "name": "CMD_673",
       "decomp_name": "ScrCmd_Unused_2A1",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8883,7 +9212,9 @@
     "0x02A2": {
       "name": "CMD_674",
       "decomp_name": "TrySetUnusedUndergroundField",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8891,7 +9222,9 @@
     "0x02A3": {
       "name": "CMD_675",
       "decomp_name": "ScrCmd_2A3",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8899,7 +9232,9 @@
     "0x02A4": {
       "name": "CMD_676",
       "decomp_name": "ScrCmd_2A4",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8915,7 +9250,11 @@
     "0x02A6": {
       "name": "CMD_678",
       "decomp_name": "GetGameCornerPrizeData",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8923,7 +9262,10 @@
     "0x02A7": {
       "name": "CMD_679",
       "decomp_name": "ScrCmd_2A7",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8931,23 +9273,39 @@
     "0x02A8": {
       "name": "CMD_680",
       "decomp_name": "SubstractCoinsFromVar",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": "nan"
     },
     "0x02A9": {
       "name": "CMD_681",
       "decomp_name": "HasCoinsFromVar",
-      "parameters": [],
-      "parameter_types": [],
+      "parameters": [
+        2,
+        2
+      ],
+      "parameter_types": [
+        "VARIABLE",
+        "VARIABLE"
+      ],
       "parameter_values": [],
       "description": "nan"
     },
     "0x02AA": {
       "name": "CMD_682",
       "decomp_name": "ScrCmd_2AA",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -8955,7 +9313,9 @@
     "0x02AB": {
       "name": "CMD_683",
       "decomp_name": "ScrCmd_2AB",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -9005,7 +9365,9 @@
     "0x02AF": {
       "name": "CMD_687",
       "decomp_name": "ScrCmd_2AF",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -9062,7 +9424,11 @@
     "0x02B5": {
       "name": "CMD_693",
       "decomp_name": "ScrCmd_2B5",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -9070,7 +9436,10 @@
     "0x02B6": {
       "name": "CMD_694",
       "decomp_name": "ScrCmd_2B6",
-      "parameters": [],
+      "parameters": [
+        2,
+        1
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -9078,7 +9447,9 @@
     "0x02B7": {
       "name": "CMD_695",
       "decomp_name": "ScrCmd_2B7",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -9086,7 +9457,9 @@
     "0x02B8": {
       "name": "CMD_696",
       "decomp_name": "ScrCmd_2B8",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -9102,7 +9475,9 @@
     "0x02BA": {
       "name": "CMD_698",
       "decomp_name": "ScrCmd_2BA",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -9171,7 +9546,9 @@
     "0x02C0": {
       "name": "CMD_704",
       "decomp_name": "ScrCmd_2C0",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -9209,7 +9586,9 @@
     "0x02C4": {
       "name": "CMD_708",
       "decomp_name": "ScrCmd_2C4",
-      "parameters": [],
+      "parameters": [
+        1
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -9217,7 +9596,10 @@
     "0x02C5": {
       "name": "CMD_709",
       "decomp_name": "ScrCmd_2C5",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -9871,7 +10253,10 @@
     "0x02EF": {
       "name": "CMD_751",
       "decomp_name": "ScrCmd_2EF",
-      "parameters": [],
+      "parameters": [
+        1,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -10121,7 +10506,11 @@
     "0x0301": {
       "name": "CMD_769",
       "decomp_name": "ScrCmd_301",
-      "parameters": [],
+      "parameters": [
+        2,
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -10243,7 +10632,10 @@
     "0x0308": {
       "name": "CMD_776",
       "decomp_name": "AddCameraOverrideObject",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -10370,7 +10762,9 @@
     "0x0313": {
       "name": "CMD_787",
       "decomp_name": "ScrCmd_313",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -10560,7 +10954,9 @@
     "0x0321": {
       "name": "CMD_801",
       "decomp_name": "ScrCmd_321",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -10661,7 +11057,9 @@
     "0x0328": {
       "name": "CMD_808",
       "decomp_name": "SetPartyGiratinaForm",
-      "parameters": [],
+      "parameters": [
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
@@ -10814,7 +11212,10 @@
     "0x0334": {
       "name": "CMD_820",
       "decomp_name": "AddToGameRecord",
-      "parameters": [],
+      "parameters": [
+        2,
+        2
+      ],
       "parameter_types": [],
       "parameter_values": [],
       "description": "nan"
