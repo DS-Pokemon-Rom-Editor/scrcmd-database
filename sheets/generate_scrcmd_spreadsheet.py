@@ -204,4 +204,4 @@ for idx, path in enumerate(sorted(glob.glob(os.path.join(parent_dir, '*_scrcmd_d
     # print(f'CSV generated: {csv_file}')
 
 wb.close()
-print('Excel generated: scrcmd_commands.xlsx')
+print('Excel generated: scrcmd_database.xlsx')
