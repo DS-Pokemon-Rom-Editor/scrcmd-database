@@ -1,0 +1,249 @@
+{
+    "header": {
+        "1": {
+            "value": null,
+            "fill": {
+                "type": "solid",
+                "fg": "FFD9D9D9"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 12,
+                "bold": true,
+                "italic": true
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": "center"
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
+        },
+        "2": {
+            "value": "Decomp Names",
+            "fill": {
+                "type": "solid",
+                "fg": "FFFFE599"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 12,
+                "bold": true,
+                "italic": true
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": "center"
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
+        },
+        "3": {
+            "value": "DSPRE Names",
+            "fill": {
+                "type": "solid",
+                "fg": "FFF9CB9C"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 12,
+                "bold": true,
+                "italic": true
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": "center"
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
+        },
+        "4": {
+            "value": "Parameters",
+            "fill": {
+                "type": "solid",
+                "fg": "FFCFE2F3"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 12,
+                "bold": true,
+                "italic": true
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": "center"
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
+        },
+        "5": {
+            "value": "Function",
+            "fill": {
+                "type": "solid",
+                "fg": "FFB6D7A8"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 12,
+                "bold": true,
+                "italic": true
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": "center"
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
+        }
+    },
+    "data": {
+        "1": {
+            "fill": {
+                "type": "solid",
+                "fg": "FFEFEFEF"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 10,
+                "bold": false,
+                "italic": false
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": null
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
+        },
+        "2": {
+            "fill": {
+                "type": "solid",
+                "fg": "FFFFF2CC"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 10,
+                "bold": false,
+                "italic": false
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": null
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
+        },
+        "3": {
+            "fill": {
+                "type": "solid",
+                "fg": "FFFCE5CD"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 10,
+                "bold": false,
+                "italic": false
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": null
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
+        },
+        "4": {
+            "fill": {
+                "type": "solid",
+                "fg": "FFE2F1FF"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 10,
+                "bold": false,
+                "italic": false
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": null
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
+        },
+        "5": {
+            "fill": {
+                "type": "solid",
+                "fg": "FFD9EAD3"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 10,
+                "bold": false,
+                "italic": false
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": null
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
+        }
+    },
+    "widths": {
+        "1": 5.109375,
+        "2": 22.88671875,
+        "3": 30,
+        "4": 57.33203125,
+        "5": 80,
+        "6": 109
+    }
+}

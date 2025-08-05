@@ -1,0 +1,4 @@
+xlsxwriter
+pandas
+gspread
+google-auth
