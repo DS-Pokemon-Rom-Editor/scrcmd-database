@@ -17,7 +17,7 @@ with open('styles.json', 'r', encoding='utf-8') as f:
     CW = {int(k): v for k, v in s['widths'].items()}
 
 # Create workbook
-wb = xlsxwriter.Workbook('scrcmd_commands.xlsx')
+wb = xlsxwriter.Workbook('scrcmd_database.xlsx')
 
 # Create formats dict
 formats = {}
