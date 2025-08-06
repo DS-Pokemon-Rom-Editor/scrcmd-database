@@ -1266,7 +1266,7 @@
         2
       ],
       "parameter_types": [
-        "Flex",
+        "Pokemon",
         "Flex"
       ],
       "parameter_values": [
@@ -2397,7 +2397,7 @@
         2
       ],
       "parameter_types": [
-        "Flex",
+        "Pokemon",
         "Flex"
       ],
       "parameter_values": [
@@ -3273,7 +3273,7 @@
       ],
       "parameter_types": [
         "Integer",
-        "Flex",
+        "Pokemon",
         "Integer",
         "Integer"
       ],
@@ -4193,7 +4193,7 @@
         2
       ],
       "parameter_types": [
-        "Flex",
+        "Pokemon",
         "Flex"
       ],
       "parameter_values": [
@@ -6113,7 +6113,7 @@
         2
       ],
       "parameter_types": [
-        "Flex",
+        "Pokemon",
         "Variable"
       ],
       "parameter_values": [
@@ -6184,7 +6184,7 @@
       "parameter_types": [
         "Flex",
         "Flex",
-        "Flex"
+        "Pokemon"
       ],
       "parameter_values": [
         "Flex: Integer String Buffer",
@@ -7162,7 +7162,7 @@
         2
       ],
       "parameter_types": [
-        "Flex",
+        "Pokemon",
         "Flex"
       ],
       "parameter_values": [
@@ -7357,7 +7357,7 @@
       ],
       "parameter_types": [
         "Variable",
-        "Flex"
+        "Pokemon"
       ],
       "parameter_values": [
         "Var: Variable",
@@ -8409,7 +8409,7 @@
         2
       ],
       "parameter_types": [
-        "Flex",
+        "Pokemon",
         "Variable"
       ],
       "parameter_values": [
@@ -9512,7 +9512,7 @@
         2
       ],
       "parameter_types": [
-        "Flex",
+        "Pokemon",
         "Flex"
       ],
       "parameter_values": [
@@ -9955,7 +9955,7 @@
         2
       ],
       "parameter_types": [
-        "Flex",
+        "Pokemon",
         "Variable"
       ],
       "parameter_values": [
@@ -10833,7 +10833,7 @@
         2
       ],
       "parameter_types": [
-        "Flex",
+        "Pokemon",
         "Flex"
       ],
       "parameter_values": [
@@ -10850,7 +10850,7 @@
         2
       ],
       "parameter_types": [
-        "Flex",
+        "Pokemon",
         "Flex"
       ],
       "parameter_values": [
@@ -11259,7 +11259,7 @@
         2
       ],
       "parameter_types": [
-        "Flex",
+        "Pokemon",
         "Variable"
       ],
       "parameter_values": [
