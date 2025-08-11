@@ -194,15 +194,16 @@ for idx, path in enumerate(sorted(glob.glob(os.path.join(parent_dir, '*_scrcmd_d
         
         row += 1
 
+# Create movements worksheet
 ws_move = wb.add_worksheet('Movements (WIP)')
 
-# Modify column widths for movements sheet (skip parameters column)
+# Set column widths for movements sheet
 movement_columns = {
     1: CW[1],  # Code
     2: CW[2],  # Decomp Name
     3: CW[3],  # Name
-    4: CW[5],  # Function (using description width)
-    5: CW[5],  # Notes (using same width as description)
+    4: CW[5],  # Function 
+    5: CW[5],  # Notes
 }
 
 # Set column widths
@@ -212,19 +213,19 @@ for col, width in movement_columns.items():
 # Set header row height  
 ws_move.set_row(0, 30)
 
-# Write headers with modified columns
+# Write headers 
 movement_headers = {
     1: HEADER[1],  # Code
     2: HEADER[2],  # Decomp Name
     3: HEADER[3],  # Name
-    4: {'value': 'Function', 'font': HEADER[4]['font'], 'fill': HEADER[4]['fill']},  # Function
-    5: {'value': 'Notes', 'font': HEADER[5]['font'], 'fill': HEADER[5]['fill']}  # Notes
+    4: {'value': 'Function', 'font': HEADER[4]['font'], 'fill': HEADER[4]['fill']},
+    5: {'value': 'Notes', 'font': HEADER[5]['font'], 'fill': HEADER[5]['fill']}
 }
 
 for col, spec in movement_headers.items():
     merged_format = wb.add_format({
         'font_name': spec.get('font', {}).get('name', 'Courier New'),
-        'font_size': spec.get('font', {}).get('size', 11), 
+        'font_size': spec.get('font', {}).get('size', 11),
         'bold': spec.get('font', {}).get('bold', False),
         'italic': spec.get('font', {}).get('italic', False),
         'bg_color': spec.get('fill', {}).get('fg', 'FFFFFF')[2:],
@@ -236,34 +237,34 @@ for col, spec in movement_headers.items():
     })
     ws_move.write(0, col-1, spec.get('value', ''), merged_format)
 
-# Start writing movement data
-row = 1
-for path in sorted(glob.glob(os.path.join(parent_dir, '*_scrcmd_database.json'))):
-    with open(path, 'r', encoding='utf-8') as f:
-        js = json.load(f)['movements']
-    
-    for code_hex, info in js.items():
-        code = code_hex[2:].upper().zfill(4)
-        
-        # Split description into function and notes at first semicolon
-        description = info.get('description', '')
-        if ';' in description:
-            function, notes = description.split(';', 1)
-            notes = notes.strip()
-        else:
-            function = description
-            notes = ''
-        
-        # Write each column
-        ws_move.write(row, 0, code, formats['data_1'])
-        ws_move.write(row, 1, info.get('decomp_name', ''), formats['data_2'])
-        ws_move.write(row, 2, info.get('name', ''), formats['data_3'])
-        ws_move.write(row, 3, function, formats['data_4'])
-        ws_move.write(row, 4, notes, formats['data_5'])
-        
-        row += 1
+# Load and write Platinum movement data only
+platinum_path = os.path.join(parent_dir, 'platinum_scrcmd_database.json')
+with open(platinum_path, 'r', encoding='utf-8') as f:
+    js = json.load(f)['movements']
 
-# Freeze panes at D2 for movements sheet 
+row = 1
+for code_hex, info in js.items():
+    code = code_hex[2:].upper().zfill(4)
+    
+    # Split description into function and notes at first semicolon
+    description = info.get('description', '')
+    if ';' in description:
+        function, notes = description.split(';', 1)
+        notes = notes.strip()
+    else:
+        function = description
+        notes = ''
+    
+    # Write each column
+    ws_move.write(row, 0, code, formats['data_1'])
+    ws_move.write(row, 1, info.get('decomp_name', ''), formats['data_2'])
+    ws_move.write(row, 2, info.get('name', ''), formats['data_3'])
+    ws_move.write(row, 3, function, formats['data_4'])
+    ws_move.write(row, 4, notes, formats['data_5'])
+    
+    row += 1
+
+# Freeze panes
 ws_move.freeze_panes(1, 3)
 
 # Replace the sounds section with:
@@ -271,7 +272,7 @@ ws_move.freeze_panes(1, 3)
 # Create sound sheets for each game
 for idx, path in enumerate(sorted(glob.glob(os.path.join(parent_dir, '*_scrcmd_database.json')))):
     base = os.path.splitext(os.path.basename(path))[0].replace('_scrcmd_database','')
-    name = f"Sounds_{NAME_MAP.get(base, base.upper())}"
+    name = f"Sounds {NAME_MAP.get(base, base.upper())}"
     
     # Load JSON sounds
     with open(path, 'r', encoding='utf-8') as f:
