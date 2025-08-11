@@ -91,12 +91,12 @@
       "description": "Event faces down and moves southwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
     },
     "0x0012": {
-      "name": "WalkEast4",
+      "name": "WalkWest4",
       "decomp_name": "WalkFastWest",
       "description": "Event faces left and moves westwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
     },
     "0x0013": {
-      "name": "WalkWest4",
+      "name": "WalkEast4",
       "decomp_name": "WalkFastEast",
       "description": "Event faces right and moves eastwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
     },
