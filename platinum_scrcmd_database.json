@@ -1,339 +1,339 @@
 {
   "movements": {
     "0x0000": {
-      "name": "LookUp",
+      "name": "FaceNorth",
       "decomp_name": "FaceNorth",
       "description": "Event faces up"
     },
     "0x0001": {
-      "name": "LookDown",
+      "name": "FaceSouth",
       "decomp_name": "FaceSouth",
       "description": "Event faces down"
     },
     "0x0002": {
-      "name": "LookLeft",
+      "name": "FaceWest",
       "decomp_name": "FaceWest",
       "description": "Event faces left"
     },
     "0x0003": {
-      "name": "LookRight",
+      "name": "FaceEast",
       "decomp_name": "FaceEast",
       "description": "Event faces right"
     },
     "0x0004": {
-      "name": "WalkUpSlow",
+      "name": "WalkNorth32",
       "decomp_name": "WalkSlowerNorth",
       "description": "Event faces up and moves northwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
     },
     "0x0005": {
-      "name": "WalkDownSlow",
+      "name": "WalkSouth32",
       "decomp_name": "WalkSlowerSouth",
       "description": "Event faces down and moves southwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
     },
     "0x0006": {
-      "name": "WalkLeftSlow",
+      "name": "WalkWest32",
       "decomp_name": "WalkSlowerWest",
       "description": "Event faces left and moves westwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
     },
     "0x0007": {
-      "name": "WalkRightSlow",
+      "name": "WalkEast32",
       "decomp_name": "WalkSlowerEast",
       "description": "Event faces right and moves eastwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
     },
     "0x0008": {
-      "name": "WalkUp",
+      "name": "WalkNorth16",
       "decomp_name": "WalkSlowNorth",
       "description": "Event faces up and moves northwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x0009": {
-      "name": "WalkDown",
+      "name": "WalkSouth16",
       "decomp_name": "WalkSlowSouth",
       "description": "Event faces down and moves southwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x000A": {
-      "name": "WalkLeft",
+      "name": "WalkWest16",
       "decomp_name": "WalkSlowWest",
       "description": "Event faces left and moves westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x000B": {
-      "name": "WalkRight",
+      "name": "WalkEast16",
       "decomp_name": "WalkSlowEast",
       "description": "Event faces right and moves eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x000C": {
-      "name": "WalkUpFast",
+      "name": "WalkNorth8",
       "decomp_name": "WalkNormalNorth",
       "description": "Event faces up and moves northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
     },
     "0x000D": {
-      "name": "WalkDownFast",
+      "name": "WalkSouth8",
       "decomp_name": "WalkNormalSouth",
       "description": "Event faces down and moves southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
     },
     "0x000E": {
-      "name": "WalkLeftFast",
+      "name": "WalkWest8",
       "decomp_name": "WalkNormalWest",
       "description": "Event faces left and moves westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
     },
     "0x000F": {
-      "name": "WalkRightFast",
+      "name": "WalkEast8",
       "decomp_name": "WalkNormalEast",
       "description": "Event faces right and moves eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
     },
     "0x0010": {
-      "name": "WalkUpVeryFast",
+      "name": "WalkNorth4",
       "decomp_name": "WalkFastNorth",
       "description": "Event faces up and moves northwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
     },
     "0x0011": {
-      "name": "WalkDownVeryFast",
+      "name": "WalkSouth4",
       "decomp_name": "WalkFastSouth",
       "description": "Event faces down and moves southwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
     },
     "0x0012": {
-      "name": "WalkLeftVeryFast",
+      "name": "WalkEast4",
       "decomp_name": "WalkFastWest",
       "description": "Event faces left and moves westwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
     },
     "0x0013": {
-      "name": "WalkRightVeryFast",
+      "name": "WalkWest4",
       "decomp_name": "WalkFastEast",
       "description": "Event faces right and moves eastwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
     },
     "0x0014": {
-      "name": "RunUp",
+      "name": "WalkNorth2",
       "decomp_name": "WalkFasterNorth",
-      "description": ""
+      "description": "Event faces up and moves northwards at 1 tile per 2 frames; Equivalent to 15 tiles per second."
     },
     "0x0015": {
-      "name": "RunDown",
+      "name": "WalkSouth2",
       "decomp_name": "WalkFasterSouth",
-      "description": ""
+      "description": "Event faces down and moves southwards at 1 tile per 2 frames; Equivalent to 15 tiles per second."
     },
     "0x0016": {
-      "name": "RunLeft",
+      "name": "WalkWest2",
       "decomp_name": "WalkFasterWest",
-      "description": ""
+      "description": "Event faces left and moves westwards at 1 tile per 2 frames; Equivalent to 15 tiles per second."
     },
     "0x0017": {
-      "name": "RunRight",
+      "name": "WalkEast2",
       "decomp_name": "WalkFasterEast",
-      "description": ""
+      "description": "Event faces right and moves eastwards at 1 tile per 2 frames; Equivalent to 15 tiles per second."
     },
     "0x0018": {
-      "name": "WalkUpSlowSite",
+      "name": "WalkOnSpotNorth32",
       "decomp_name": "WalkOnSpotSlowerNorth",
       "description": "Event faces up and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
     },
     "0x0019": {
-      "name": "WalkDownSlowSite",
+      "name": "WalkOnSpotSouth32",
       "decomp_name": "WalkOnSpotSlowerSouth",
       "description": "Event faces down and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
     },
     "0x001A": {
-      "name": "WalkLeftSlowSite",
+      "name": "WalkOnSpotWest32",
       "decomp_name": "WalkOnSpotSlowerWest",
       "description": "Event faces left and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
     },
     "0x001B": {
-      "name": "WalkRightSlowSite",
+      "name": "WalkOnSpotEast32",
       "decomp_name": "WalkOnSpotSlowerEast",
       "description": "Event faces right and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
     },
     "0x001C": {
-      "name": "WalkUpSite",
+      "name": "WalkOnSpotNorth16",
       "decomp_name": "WalkOnSpotSlowNorth",
       "description": "Event faces up and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x001D": {
-      "name": "WalkDownSite",
+      "name": "WalkOnSpotSouth16",
       "decomp_name": "WalkOnSpotSlowSouth",
       "description": "Event faces down and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x001E": {
-      "name": "WalkLeftSite",
+      "name": "WalkOnSpotWest16",
       "decomp_name": "WalkOnSpotSlowWest",
       "description": "Event faces left and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x001F": {
-      "name": "WalkRightSite",
+      "name": "WalkOnSpotEast16",
       "decomp_name": "WalkOnSpotSlowEast",
       "description": "Event faces right and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x0020": {
-      "name": "WalkUpFastSite",
+      "name": "WalkOnSpotNorth8",
       "decomp_name": "WalkOnSpotNormalNorth",
       "description": "Event faces up and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
     },
     "0x0021": {
-      "name": "WalkDownFastSite",
+      "name": "WalkOnSpotSouth8",
       "decomp_name": "WalkOnSpotNormalSouth",
       "description": "Event faces down and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
     },
     "0x0022": {
-      "name": "WalkLeftFastSite",
+      "name": "WalkOnSpotWest8",
       "decomp_name": "WalkOnSpotNormalWest",
       "description": "Event faces left and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
     },
     "0x0023": {
-      "name": "WalkRightFastSite",
+      "name": "WalkOnSpotEast8",
       "decomp_name": "WalkOnSpotNormalEast",
       "description": "Event faces right and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
     },
     "0x0024": {
-      "name": "WalkUpVeryFastSite",
+      "name": "WalkOnSpotNorth4",
       "decomp_name": "WalkOnSpotFastNorth",
       "description": "Event faces up and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
     },
     "0x0025": {
-      "name": "WalkDownVeryFastSite",
+      "name": "WalkOnSpotSouth4",
       "decomp_name": "WalkOnSpotFastSouth",
       "description": "Event faces down and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
     },
     "0x0026": {
-      "name": "WalkLeftVeryFastSite",
+      "name": "WalkOnSpotWest4",
       "decomp_name": "WalkOnSpotFastWest",
       "description": "Event faces left and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
     },
     "0x0027": {
-      "name": "WalkRightVeryFastSite",
+      "name": "WalkOnSpotEast4",
       "decomp_name": "WalkOnSpotFastEast",
       "description": "Event faces right and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
     },
     "0x0028": {
-      "name": "RunUpSite",
+      "name": "WalkOnSpotNorth2",
       "decomp_name": "WalkOnSpotFasterNorth",
-      "description": ""
+      "description": "Event faces up and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second."
     },
     "0x0029": {
-      "name": "RunDownSite",
+      "name": "WalkOnSpotSouth2",
       "decomp_name": "WalkOnSpotFasterSouth",
-      "description": ""
+      "description": "Event faces down and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second."
     },
     "0x002A": {
-      "name": "RunLeftSite",
+      "name": "WalkOnSpotWest2",
       "decomp_name": "WalkOnSpotFasterWest",
-      "description": ""
+      "description": "Event faces left and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second."
     },
     "0x002B": {
-      "name": "RunRightSite",
+      "name": "WalkOnSpotEast2",
       "decomp_name": "WalkOnSpotFasterEast",
-      "description": ""
+      "description": "Event faces right and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second."
     },
     "0x002C": {
-      "name": "JumpUpSlow",
+      "name": "JumpOnSpotNorth16",
       "decomp_name": "JumpOnSpotSlowNorth",
-      "description": ""
+      "description": "Event faces up and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x002D": {
-      "name": "JumpDownSlow",
+      "name": "JumpOnSpotSouth16",
       "decomp_name": "JumpOnSpotSlowSouth",
-      "description": ""
+      "description": "Event faces down and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x002E": {
-      "name": "JumpLeftSlow",
+      "name": "JumpOnSpotWest16",
       "decomp_name": "JumpOnSpotSlowWest",
-      "description": ""
+      "description": "Event faces left and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x002F": {
-      "name": "JumpRightSlow",
+      "name": "JumpOnSpotEast16",
       "decomp_name": "JumpOnSpotSlowEast",
-      "description": ""
+      "description": "Event faces right and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x0030": {
-      "name": "JumpUp",
+      "name": "JumpOnSpotNorth8",
       "decomp_name": "JumpOnSpotFastNorth",
-      "description": ""
+      "description": "Event faces up and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
     },
     "0x0031": {
-      "name": "JumpDown",
+      "name": "JumpOnSpotSouth8",
       "decomp_name": "JumpOnSpotFastSouth",
-      "description": ""
+      "description": "Event faces down and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
     },
     "0x0032": {
-      "name": "JumpLeft",
+      "name": "JumpOnSpotWest8",
       "decomp_name": "JumpOnSpotFastWest",
-      "description": ""
+      "description": "Event faces left and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
     },
     "0x0033": {
-      "name": "JumpRight",
+      "name": "JumpOnSpotEast8",
       "decomp_name": "JumpOnSpotFastEast",
-      "description": ""
+      "description": "Event faces right and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
     },
     "0x0034": {
-      "name": "JumpUp1",
+      "name": "JumpNorth8",
       "decomp_name": "JumpNearFastNorth",
-      "description": ""
+      "description": "Event faces up and jumps northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
     },
     "0x0035": {
-      "name": "JumpDown1",
+      "name": "JumpSouth8",
       "decomp_name": "JumpNearFastSouth",
-      "description": ""
+      "description": "Event faces down and jumps southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
     },
     "0x0036": {
-      "name": "JumpLeft1",
+      "name": "JumpWest8",
       "decomp_name": "JumpNearFastWest",
-      "description": ""
+      "description": "Event faces left and jumps westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
     },
     "0x0037": {
-      "name": "JumpRight1",
+      "name": "JumpEast8",
       "decomp_name": "JumpNearFastEast",
-      "description": ""
+      "description": "Event faces right and jumps eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
     },
     "0x0038": {
-      "name": "JumpUp2",
+      "name": "JumpFarNorth",
       "decomp_name": "JumpFarNorth",
-      "description": ""
+      "description": "Event faces up and jumps 2 tiles northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total."
     },
     "0x0039": {
-      "name": "JumpDown2",
+      "name": "JumpFarSouth",
       "decomp_name": "JumpFarSouth",
-      "description": ""
+      "description": "Event faces down and jumps 2 tiles southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total."
     },
     "0x003A": {
-      "name": "JumpLeft2",
+      "name": "JumpFarWest",
       "decomp_name": "JumpFarWest",
-      "description": ""
+      "description": "Event faces left and jumps 2 tiles westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total."
     },
     "0x003B": {
-      "name": "JumpRight2",
+      "name": "JumpFarEast",
       "decomp_name": "JumpFarEast",
-      "description": ""
+      "description": "Event faces right and jumps 2 tiles eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total."
     },
     "0x003C": {
-      "name": "Freeze1",
+      "name": "Delay1",
       "decomp_name": "Delay1",
-      "description": ""
+      "description": "Event waits for 1 frame; Equivalent to ~0.033 seconds (1/30s)."
     },
     "0x003D": {
-      "name": "Freeze2",
+      "name": "Delay2",
       "decomp_name": "Delay2",
-      "description": ""
+      "description": "Event waits for 2 frames; Equivalent to ~0.067 seconds (2/30s)."
     },
     "0x003E": {
-      "name": "Freeze4",
+      "name": "Delay4",
       "decomp_name": "Delay4",
-      "description": ""
+      "description": "Event waits for 4 frames; Equivalent to ~0.133 seconds (4/30s)."
     },
     "0x003F": {
-      "name": "Freeze8",
+      "name": "Delay8",
       "decomp_name": "Delay8",
-      "description": ""
+      "description": "Event waits for 8 frames; Equivalent to ~0.267 seconds (8/30s)."
     },
     "0x0040": {
-      "name": "Freeze15",
+      "name": "Delay15",
       "decomp_name": "Delay15",
-      "description": ""
+      "description": "Event waits for 15 frames; Equivalent to 0.5 seconds (15/30s)."
     },
     "0x0041": {
-      "name": "Freeze16",
+      "name": "Delay16",
       "decomp_name": "Delay16",
-      "description": ""
+      "description": "Event waits for 16 frames; Equivalent to ~0.533 seconds (16/30s)."
     },
     "0x0042": {
-      "name": "Freeze32",
+      "name": "Delay32",
       "decomp_name": "Delay32",
-      "description": ""
+      "description": "Event waits for 32 frames; Equivalent to ~1.067 seconds (32/30s)."
     },
     "0x0043": {
       "name": "TeleportUp",
@@ -346,159 +346,194 @@
       "description": "Makes overworld fall from the sky. No rotation involved."
     },
     "0x0045": {
-      "name": "WaitDisappear",
+      "name": "SetInvisible",
       "decomp_name": "SetInvisible",
-      "description": ""
+      "description": "Makes event invisible. It can still be interacted with and will still have collision."
     },
     "0x0046": {
-      "name": "DisappearFalse",
+      "name": "SetVisible",
       "decomp_name": "SetVisible",
-      "description": ""
+      "description": "Makes event visible."
     },
     "0x0047": {
       "name": "LockDir",
       "decomp_name": "LockDir",
-      "description": ""
+      "description": "Prevents event from changing direction. It can still move, but it will always face the same direction."
     },
     "0x0048": {
       "name": "ReleaseDir",
       "decomp_name": "UnlockDir",
-      "description": ""
+      "description": "Allows event to change direction again."
     },
     "0x0049": {
-      "name": "StopAnimation",
+      "name": "PauseAnimation",
       "decomp_name": "PauseAnimation",
-      "description": ""
+      "description": "Disables event's animation. It can still move, but it will not animate."
     },
     "0x004A": {
       "name": "ResumeAnimation",
       "decomp_name": "ResumeAnimation",
-      "description": ""
+      "description": "Resumes event's animation."
     },
     "0x004B": {
-      "name": "Exclamation",
+      "name": "EmoteExclamation",
       "decomp_name": "EmoteExclamationMark",
-      "description": ""
+      "description": "Shows an exclamation mark above the event's head. Used commonly to indicate that the event is surprised or has noticed something."
     },
     "0x004C": {
-      "name": "WaitWalkUpSlow",
+      "name": "WalkNorth6",
       "decomp_name": "WalkSlightlyFastNorth",
-      "description": "Event faces up and floats northwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second. Walk animation isn't triggered."
+      "description": "Event faces up and walks northwards at 1 tile per 6 frames; Equivalent to 5 tiles per second."
     },
     "0x004D": {
-      "name": "WaitWalkDownSlow",
+      "name": "WalkSouth6",
       "decomp_name": "WalkSlightlyFastSouth",
-      "description": "Event faces down and floats southwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second. Walk animation isn't triggered."
+      "description": "Event faces down and walks southwards at 1 tile per 6 frames; Equivalent to 5 tiles per second."
+    },
+    "0x004E": {
+      "name": "WalkWest6",
+      "decomp_name": "WalkSlightlyFastWest",
+      "description": "Event faces right and walks westwards at 1 tile per 6 frames; Equivalent to 5 tiles per second." 
     },
     "0x004F": {
-      "name": "WaitWalkRightSlow",
-      "decomp_name": "WalkSlightlyFastWest",
-      "description": "Event faces right and floats eastwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second. Walk animation isn't triggered."
+      "name": "WalkEast6",
+      "decomp_name": "WalkSlightlyFastEast",
+      "description": "Event faces right and walks eastwards at 1 tile per 6 frames; Equivalent to 5 tiles per second."
     },
     "0x0050": {
-      "name": "WaitWalkUp",
-      "decomp_name": "WalkSlightlyFastEast",
-      "description": "Event faces up and floats northwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+      "name": "WalkNorth3",
+      "decomp_name": "WalkSlightlyFasterNorth",
+      "description": "Event faces up and walks northwards at 1 tile per 3 frames; Equivalent to 10 tiles per second."
     },
     "0x0051": {
-      "name": "WaitWalkDown",
-      "decomp_name": "WalkSlightlyFasterNorth",
-      "description": "Event faces down and floats southwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+      "name": "WalkSouth3",
+      "decomp_name": "WalkSlightlyFasterSouth",
+      "description": "Event faces down and walks southwards at 1 tile per 3 frames; Equivalent to 10 tiles per second."
     },
     "0x0052": {
-      "name": "WaitWalkLeft",
-      "decomp_name": "WalkSlightlyFasterSouth",
-      "description": "Event faces left and floats westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+      "name": "WalkWest3",
+      "decomp_name": "WalkSlightlyFasterWest",
+      "description": "Event faces left and walks westwards at 1 tile per 3 frames; Equivalent to 10 tiles per second."
     },
     "0x0053": {
-      "name": "WaitWalkRight",
-      "decomp_name": "WalkSlightlyFasterWest",
-      "description": "Event faces right and floats eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+      "name": "WalkEast3",
+      "decomp_name": "WalkSlightlyFasterEast",
+      "description": "Event faces right and walks eastwards at 1 tile per 3 frames; Equivalent to 10 tiles per second."
     },
     "0x0054": {
-      "name": "WaitMoveUp",
-      "decomp_name": "WalkSlightlyFasterEast",
-      "description": "Event faces up and floats northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered."
+      "name": "WalkNorth1",
+      "decomp_name": "WalkFastestNorth",
+      "description": "Event faces up and walks nothwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered."
     },
     "0x0055": {
-      "name": "WaitMoveDown",
-      "decomp_name": "WalkFastestNorth",
-      "description": "Event faces down and floats southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered."
+      "name": "WalkSouth1",
+      "decomp_name": "WalkFastestSouth",
+      "description": "Event faces down and walks southwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered."
     },
     "0x0056": {
-      "name": "WaitMoveLeft",
-      "decomp_name": "WalkFastestSouth",
-      "description": "Event faces left and floats westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered."
+      "name": "WalkWest1",
+      "decomp_name": "WalkFastestWest",
+      "description": "Event faces left and walks westwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered."
     },
     "0x0057": {
-      "name": "WaitMoveRight",
-      "decomp_name": "WalkFastestWest",
-      "description": "Event faces right and floats eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered."
+      "name": "WalkEast1",
+      "decomp_name": "WalkFastestEast",
+      "description": "Event faces right and walks eastwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered."
     },
     "0x0058": {
-      "name": "WaitWalkBackUp",
-      "decomp_name": "WalkFastestEast",
-      "description": "Event faces up and floats northwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered."
+      "name": "RunNorth",
+      "decomp_name": "RunNorth",
+      "description": "Event faces up and walks northwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
     },
     "0x0059": {
-      "name": "WaitWalkBackDown",
-      "decomp_name": "RunNorth",
-      "description": "Event faces down and floats southwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered."
+      "name": "RunSouth",
+      "decomp_name": "RunSouth",
+      "description": "Event faces down and walks southwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
     },
     "0x005A": {
-      "name": "WaitWalkBackLeft",
-      "decomp_name": "RunSouth",
-      "description": "Event faces left and floats westwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered."
+      "name": "RunWest",
+      "decomp_name": "RunWest",
+      "description": "Event faces left and walks westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
     },
     "0x005B": {
-      "name": "WaitWalkBackRight",
-      "decomp_name": "RunWest",
-      "description": "Event faces right and floats eastwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered."
+      "name": "RunEast",
+      "decomp_name": "RunEast",
+      "description": "Event faces right and walks eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
     },
     "0x005C": {
-      "name": "WaitJumpLeft1",
-      "decomp_name": "RunEast",
-      "description": ""
+      "name": "JumpWest16",
+      "decomp_name": "JumpNearSlowWest",
+      "description": "Event faces left and jumps westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x005D": {
-      "name": "WaitJumpRight1",
-      "decomp_name": "JumpNearSlowWest",
-      "description": ""
+      "name": "JumpEast16",
+      "decomp_name": "JumpNearSlowEast",
+      "description": "Event faces right and jumps eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
     },
     "0x005E": {
-      "name": "WaitJumpLeft2",
-      "decomp_name": "JumpNearSlowEast",
-      "description": ""
+      "name": "JumpVeryFarWest",
+      "decomp_name": "JumpFartherWest",
+      "description": "Event faces left and jumps 3 tiles westwards at 1 tile per 4 frames; Equivalent to 10 tiles per second. 12 frames in total."
     },
     "0x005F": {
-      "name": "WaitJumpRight2",
-      "decomp_name": "JumpFartherWest",
-      "description": ""
+      "name": "JumpVeryFarEast",
+      "decomp_name": "JumpFartherEast",
+      "description": "Event faces right and jumps 3 tiles eastwards at 1 tile per 4 frames; Equivalent to 10 tiles per second. 12 frames in total."
+    },    
+    "0x0060": {
+      "name": "WalkNorth7",
+      "decomp_name": "WalkEverSoSlightlyFastNorth",
+      "description": "Event faces up and moves northwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second."
+    },
+    "0x0061": {
+      "name": "WalkSouth7",
+      "decomp_name": "WalkEverSoSlightlyFastSouth",
+      "description": "Event faces down and moves southwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second."
+    },
+    "0x0062": {
+      "name": "WalkWest7",
+      "decomp_name": "WalkEverSoSlightlyFastWest",
+      "description": "Event faces left and moves westwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second."
+    },
+    "0x0063": {
+      "name": "WalkEast7",
+      "decomp_name": "WalkEverSoSlightlyFastEast",
+      "description": "Event faces right and moves eastwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second."
     },
     "0x0064": {
-      "name": "WaitMoveSite",
-      "decomp_name": "JumpFartherEast",
-      "description": ""
+      "name": "NurseJoyBow",
+      "decomp_name": "NurseJoyBow",
+      "description": "Nurse Joy bows. Used in the Pokémon Center."
     },
     "0x0065": {
-      "name": "WaitJumpSite",
-      "decomp_name": "WalkEverSoSlightlyFastNorth",
+      "name": "RevealTrainer",
+      "decomp_name": "RevealTrainer",
+      "description": "Used by the ninja boys when popping out of the ground."
+    },
+    "0x0066": {
+      "name": "PlayerGive",
+      "decomp_name": "PlayerGive",
       "description": ""
     },
     "0x0067": {
-      "name": "WaitDoubleExclamation",
-      "decomp_name": "WalkEverSoSlightlyFastSouth",
-      "description": ""
+      "name": "EmoteDoubleExclamation",
+      "decomp_name": "EmoteQuestionMark",
+      "description": "Shows a double exclamation mark above the event's head."
     },
     "0x0068": {
-      "name": "WaitMoveForever",
-      "decomp_name": "WalkEverSoSlightlyFastWest",
+      "name": "PlayerReceive",
+      "decomp_name": "PlayerReceive",
       "description": ""
+    },
+    "0x0099":{
+      "name": "EmoteExclamation2",
+      "decomp_name": "",
+      "description": "Shows an exclamation mark above the event's head. Duplicate of EmoteExclamation (0x004B)."
     },
     "0x00FE": {
       "name": "End",
       "decomp_name": "End",
-      "description": ""
+      "description": "Action end marker. Used to indicate the end of a movement sequence."
     }
   },
   "comparisonOperators": {
