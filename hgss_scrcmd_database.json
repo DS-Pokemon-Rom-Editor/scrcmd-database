@@ -2155,7 +2155,7 @@
         "Flex"
       ],
       "parameter_values": [
-        "u32: Money"
+        "u16: Money"
       ],
       "description": "Adds Money to the player's money"
     },
