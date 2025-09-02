@@ -2582,8 +2582,8 @@
       "parameter_types": [
         "Pokemon",
         "Flex",
-        "Flex",
         "Item",
+        "Flex",
         "Flex",
         "Variable"
       ],
