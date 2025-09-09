@@ -12049,11 +12049,13 @@
       "decomp_name": "ScrCmd_357",
       "parameters": [
         2,
-        2
+        2,
+		    2
       ],
       "parameter_types": [
         "INTEGER",
-        "VARIABLE"
+        "FLEX",
+		    "FLEX"
       ],
       "parameter_values": [],
       "description": ""
