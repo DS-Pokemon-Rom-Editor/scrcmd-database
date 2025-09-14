@@ -2266,7 +2266,7 @@
       "description": "Updates the current Currency in the currency box."
     },
     "0x0077": {
-      "name": "CheckCoins",
+      "name": "GetCoins",
       "decomp_name": "get_coin_amount",
       "parameters": [
         2
@@ -8048,7 +8048,7 @@
       "description": ""
     },
     "0x0214": {
-      "name": "CheckCoinsImmediate",
+      "name": "HasCoinsImmediate",
       "decomp_name": "check_coins_immediate",
       "parameters": [
         2,
@@ -8056,36 +8056,44 @@
       ],
       "parameter_types": [
         "Variable",
-        "Flex"
+        "Integer"
       ],
-      "parameter_values": [],
-      "description": ""
+      "parameter_values": [
+        "Var: Result",
+        "u32: Coins"
+      ],
+      "description": "Stores 1 in Result if player has at least Coins coins, stores 0 otherwise"
     },
     "0x0215": {
-      "name": "CheckCoins",
-      "decomp_name": "checkgivecoins",
+      "name": "CanGiveCoins",
+      "decomp_name": "CheckGiveCoins",
       "parameters": [
         2,
         2
       ],
       "parameter_types": [
         "Variable",
-        "Variable"
+        "Flex"
       ],
-      "parameter_values": [],
-      "description": ""
+      "parameter_values": [
+        "Var: Result",
+        "Flex: Coins"
+      ],
+      "description": "Stores 1 in Result if player can receive Coins coins (i.e. it won't exceed the cap), stores 0 otherwise"
     },
     "0x0216": {
-      "name": "AddCoins",
+      "name": "CheckVar4041",
       "decomp_name": "scrcmd_534",
       "parameters": [
         2
       ],
       "parameter_types": [
-        "Flex"
+        "Variable"
       ],
-      "parameter_values": [],
-      "description": ""
+      "parameter_values": [
+        "Var: Result"
+      ],
+      "description": "Stores 1 in Result if Var 0x4041 is set to 1, stores 0 otherwise"
     },
     "0x0217": {
       "name": "GetPokemonLevel",
@@ -8588,7 +8596,7 @@
       "description": ""
     },
     "0x023A": {
-      "name": "CheckCoinsVar",
+      "name": "HasCoinsVar",
       "decomp_name": "check_coins_var",
       "parameters": [
         2,
@@ -8598,7 +8606,10 @@
         "Variable",
         "Variable"
       ],
-      "parameter_values": [],
+      "parameter_values": [
+        "Var: Result",
+        "Var: Coin Amount"
+      ],
       "description": ""
     },
     "0x023B": {
