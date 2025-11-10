@@ -2131,7 +2131,7 @@
       ],
       "parameter_types": [
         "Overworld",
-        "Action"
+        "OwMovementType"
       ],
       "parameter_values": [
         "Flex: Event ID",
