@@ -5062,7 +5062,19 @@
         255, 2, 0, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 4, 1, 2, 5, 1,
         2, 6, 0
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "Integer",
+        "Variable",
+        "Integer",
+        "Variable",
+        "Integer",
+        "Integer",
+        "Integer",
+        "Integer",
+        "Variable",
+        "Integer",
+        "Integer"
+      ],
       "parameter_values": [
         "Command format depends on the first parameter:\nu16: 0"
       ],
