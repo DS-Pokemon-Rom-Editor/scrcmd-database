@@ -1030,7 +1030,7 @@
       "name": "BoardMessage",
       "decomp_name": "DrawSignpostScrollingMessage",
       "parameters": [1, 2],
-      "parameter_types": ["Integer", "Integer"],
+      "parameter_types": ["Integer", "Flex"],
       "parameter_values": ["u8: Text Slot", "u16: Variable"],
       "description": "Displays Text Slot message in the current text box, stores the current text box status in Variable"
     },
