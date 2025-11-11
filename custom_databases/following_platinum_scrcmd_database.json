@@ -3854,7 +3854,7 @@
       "name": "CMD_399",
       "decomp_name": "ScrCmd_18F",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Flex"],
       "parameter_values": [],
       "description": "nan"
     },
