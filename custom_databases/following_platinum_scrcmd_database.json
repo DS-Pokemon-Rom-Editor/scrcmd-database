@@ -4388,7 +4388,7 @@
       "name": "Strength",
       "decomp_name": "Strength",
       "parameters": [255, 1, 0, 0, 1, 0, 2, 1, 2],
-      "parameter_types": [],
+      "parameter_types": ["Variable"],
       "parameter_values": [
         "Command format depends on the first parameter:\nu8: 0\nu8: 1\nu8: 2"
       ],
@@ -4398,7 +4398,7 @@
       "name": "Flash",
       "decomp_name": "Flash",
       "parameters": [255, 1, 0, 0, 1, 0, 2, 1, 2],
-      "parameter_types": [],
+      "parameter_types": ["Variable"],
       "parameter_values": [
         "Command format depends on the first parameter:\nu8: 0\nu8: 1\nu8: 2"
       ],
@@ -4408,7 +4408,7 @@
       "name": "Defog",
       "decomp_name": "Defog",
       "parameters": [255, 1, 0, 0, 1, 0, 2, 1, 2],
-      "parameter_types": [],
+      "parameter_types": ["Variable"],
       "parameter_values": [
         "Command format depends on the first parameter:\nu8: 0\nu8: 1\nu8: 2"
       ],
@@ -5033,7 +5033,19 @@
         255, 2, 0, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 4, 1, 2, 5, 1,
         2, 6, 0
       ],
-      "parameter_types": [],
+      "parameter_types": [
+        "Integer",
+        "Variable",
+        "Integer",
+        "Variable",
+        "Integer",
+        "Integer",
+        "Integer",
+        "Integer",
+        "Variable",
+        "Integer",
+        "Integer"
+      ],
       "parameter_values": [
         "Command format depends on the first parameter:\nu16: 0"
       ],
