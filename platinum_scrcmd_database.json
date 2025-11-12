@@ -5704,7 +5704,7 @@
       "name": "CMD_608",
       "decomp_name": "ScrCmd_260",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Flex"],
       "parameter_values": [],
       "description": "nan"
     },
