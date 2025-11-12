@@ -6286,10 +6286,10 @@
       "description": "nan"
     },
     "0x02A7": {
-      "name": "CMD_679",
-      "decomp_name": "ScrCmd_2A7",
+      "name": "CheckItemIsPlate",
+      "decomp_name": "CheckItemIsPlate",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Flex", "Variable"],
       "parameter_values": [],
       "description": "nan"
     },
