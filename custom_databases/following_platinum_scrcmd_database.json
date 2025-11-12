@@ -5509,10 +5509,10 @@
       "description": "nan"
     },
     "0x024D": {
-      "name": "CMD_589",
-      "decomp_name": "ScrCmd_24D",
+      "name": "PlayPCShutDownAnimation",
+      "decomp_name": "PlayPCShutDownAnimation",
       "parameters": [1],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
