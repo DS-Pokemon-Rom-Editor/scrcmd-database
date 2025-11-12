@@ -5853,10 +5853,10 @@
       "description": "Stores the name that the player wrote in the Route 224 stone in String Buffer"
     },
     "0x0273": {
-      "name": "CMD_627",
-      "decomp_name": "ScrCmd_273",
+      "name": "BufferContestBackdropName",
+      "decomp_name": "BufferContestBackdropName",
       "parameters": [1, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Flex"],
       "parameter_values": [],
       "description": "nan"
     },
