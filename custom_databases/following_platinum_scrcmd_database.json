@@ -2584,7 +2584,7 @@
       "name": "CMD_244",
       "decomp_name": "ScrCmd_Unused_0F4",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2592,7 +2592,7 @@
       "name": "CMD_245",
       "decomp_name": "ScrCmd_Unused_0F5",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2616,7 +2616,7 @@
       "name": "CMD_248",
       "decomp_name": "ScrCmd_0F8",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2624,7 +2624,7 @@
       "name": "CMD_249",
       "decomp_name": "ScrCmd_0F9",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2632,7 +2632,7 @@
       "name": "CMD_250",
       "decomp_name": "ScrCmd_0FA",
       "parameters": [2, 2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Flex", "Flex", "Flex", "Flex"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2648,7 +2648,7 @@
       "name": "CMD_252",
       "decomp_name": "ScrCmd_0FC",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2656,7 +2656,7 @@
       "name": "CMD_253",
       "decomp_name": "ScrCmd_0FD",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2664,7 +2664,7 @@
       "name": "CMD_254",
       "decomp_name": "ScrCmd_0FE",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2672,7 +2672,7 @@
       "name": "CMD_255",
       "decomp_name": "ScrCmd_0FF",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2696,7 +2696,7 @@
       "name": "CMD_258",
       "decomp_name": "ScrCmd_102",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2704,7 +2704,7 @@
       "name": "CMD_259",
       "decomp_name": "ScrCmd_103",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2712,7 +2712,7 @@
       "name": "CMD_260",
       "decomp_name": "ScrCmd_104",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2720,7 +2720,7 @@
       "name": "CMD_261",
       "decomp_name": "ScrCmd_105",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2728,7 +2728,7 @@
       "name": "CMD_262",
       "decomp_name": "ScrCmd_106",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2736,7 +2736,7 @@
       "name": "CMD_263",
       "decomp_name": "ScrCmd_107",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2744,7 +2744,7 @@
       "name": "CMD_264",
       "decomp_name": "ScrCmd_108",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2752,7 +2752,7 @@
       "name": "CMD_265",
       "decomp_name": "ScrCmd_109",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2760,7 +2760,7 @@
       "name": "CMD_266",
       "decomp_name": "ScrCmd_10A",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2768,7 +2768,7 @@
       "name": "CMD_267",
       "decomp_name": "ScrCmd_10B",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2776,7 +2776,7 @@
       "name": "CMD_268",
       "decomp_name": "ScrCmd_10C",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2784,7 +2784,7 @@
       "name": "CMD_269",
       "decomp_name": "ScrCmd_10D",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2792,7 +2792,7 @@
       "name": "CMD_270",
       "decomp_name": "ScrCmd_10E",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2800,7 +2800,7 @@
       "name": "CMD_271",
       "decomp_name": "ScrCmd_10F",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2808,7 +2808,7 @@
       "name": "CMD_272",
       "decomp_name": "ScrCmd_110",
       "parameters": [2, 2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2816,7 +2816,7 @@
       "name": "FlashContest",
       "decomp_name": "ScrCmd_111",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -2848,7 +2848,7 @@
       "name": "CMD_277",
       "decomp_name": "ScrCmd_115",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3076,7 +3076,7 @@
       "name": "CMD_304",
       "decomp_name": "ScrCmd_130",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3132,7 +3132,7 @@
       "name": "CMD_311",
       "decomp_name": "ScrCmd_Unused_137",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3140,7 +3140,7 @@
       "name": "CMD_312",
       "decomp_name": "ScrCmd_138",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3148,7 +3148,7 @@
       "name": "CMD_313",
       "decomp_name": "ScrCmd_139",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3196,7 +3196,7 @@
       "name": "CMD_319",
       "decomp_name": "ScrCmd_13F",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3204,7 +3204,7 @@
       "name": "CMD_320",
       "decomp_name": "ScrCmd_140",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3212,7 +3212,7 @@
       "name": "CMD_321",
       "decomp_name": "ScrCmd_141",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3228,7 +3228,7 @@
       "name": "CMD_323",
       "decomp_name": "ScrCmd_143",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3236,7 +3236,7 @@
       "name": "CMD_324",
       "decomp_name": "ScrCmd_144",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3244,7 +3244,7 @@
       "name": "CMD_325",
       "decomp_name": "ScrCmd_145",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3252,7 +3252,7 @@
       "name": "CMD_326",
       "decomp_name": "ScrCmd_146",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3372,7 +3372,7 @@
       "name": "CMD_341",
       "decomp_name": "ScrCmd_155",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3380,7 +3380,7 @@
       "name": "CMD_342",
       "decomp_name": "ScrCmd_156",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3891,10 +3891,10 @@
       "description": "Stores in Variable the selected party slot in a party Pokémon screen, or 0xFF is user cancelled the selection"
     },
     "0x0194": {
-      "name": "CMD_404",
-      "decomp_name": "ScrCmd_194",
+      "name": "OpenPartyMenuForContest",
+      "decomp_name": "OpenPartyMenuForContest",
       "parameters": [2, 2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Flex", "Flex", "Flex", "Flex"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3902,7 +3902,7 @@
       "name": "CMD_405",
       "decomp_name": "ScrCmd_195",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3910,7 +3910,7 @@
       "name": "CMD_406",
       "decomp_name": "ScrCmd_196",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3918,7 +3918,7 @@
       "name": "CMD_407",
       "decomp_name": "ScrCmd_197",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3974,7 +3974,7 @@
       "name": "CMD_414",
       "decomp_name": "ScrCmd_19E",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3982,7 +3982,7 @@
       "name": "CMD_415",
       "decomp_name": "ScrCmd_19F",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -3998,7 +3998,7 @@
       "name": "CMD_417",
       "decomp_name": "ScrCmd_Unused_1A1",
       "parameters": [1, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4006,7 +4006,7 @@
       "name": "CMD_418",
       "decomp_name": "ScrCmd_Unused_1A2",
       "parameters": [1, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4022,7 +4022,7 @@
       "name": "CMD_420",
       "decomp_name": "MoveMonToPartyFromDaycareSlot",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4030,7 +4030,7 @@
       "name": "CMD_421",
       "decomp_name": "Dummy1A5",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4070,7 +4070,7 @@
       "name": "CMD_426",
       "decomp_name": "BufferDaycarePriceBySlot",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4110,7 +4110,7 @@
       "name": "CMD_431",
       "decomp_name": "BufferPartyMonNicknameReturnSpecies",
       "parameters": [2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4118,7 +4118,7 @@
       "name": "CMD_432",
       "decomp_name": "StorePartyMonIntoDaycare",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4158,7 +4158,7 @@
       "name": "CMD_437",
       "decomp_name": "ScrCmd_1B5",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4238,7 +4238,7 @@
       "name": "CMD_447",
       "decomp_name": "CheckDaycareHasEgg",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4302,7 +4302,7 @@
       "name": "CMD_454",
       "decomp_name": "SelectPartyMonMove",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4310,7 +4310,7 @@
       "name": "CMD_455",
       "decomp_name": "GetSelectedPartyMonMove",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4426,7 +4426,7 @@
       "name": "CMD_467",
       "decomp_name": "CanFitAccessory",
       "parameters": [2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4434,7 +4434,7 @@
       "name": "CMD_468",
       "decomp_name": "ScrCmd_Unused_1D4",
       "parameters": [2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4450,7 +4450,7 @@
       "name": "CMD_470",
       "decomp_name": "CheckBackdrop",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4458,7 +4458,7 @@
       "name": "CMD_471",
       "decomp_name": "ScrCmd_1D7",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4466,7 +4466,7 @@
       "name": "CMD_472",
       "decomp_name": "ScrCmd_1D8",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4634,7 +4634,7 @@
       "name": "CMD_493",
       "decomp_name": "GetTrophyGardenSlot1Species",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4642,7 +4642,7 @@
       "name": "CMD_494",
       "decomp_name": "ScrCmd_1EE",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4650,7 +4650,7 @@
       "name": "CMD_495",
       "decomp_name": "ScrCmd_Unused_1EF",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4658,7 +4658,7 @@
       "name": "CMD_496",
       "decomp_name": "ScrCmd_1F0",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4854,7 +4854,7 @@
       "name": "CMD_519",
       "decomp_name": "ScrCmd_207",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4878,7 +4878,7 @@
       "name": "CMD_522",
       "decomp_name": "ScrCmd_20A",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4990,7 +4990,7 @@
       "name": "CMD_536",
       "decomp_name": "ScrCmd_218",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -4998,7 +4998,7 @@
       "name": "CMD_537",
       "decomp_name": "SetNewsPressDeadline",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5006,7 +5006,7 @@
       "name": "CMD_538",
       "decomp_name": "GetNewsPressDeadline",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5063,7 +5063,7 @@
       "name": "CMD_543",
       "decomp_name": "ScrCmd_21F",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5432,7 +5432,7 @@
       "name": "CMD_579",
       "decomp_name": "ScrCmd_243",
       "parameters": [2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5440,7 +5440,7 @@
       "name": "CMD_580",
       "decomp_name": "ScrCmd_244",
       "parameters": [2, 2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5448,7 +5448,7 @@
       "name": "CMD_581",
       "decomp_name": "ScrCmd_245",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5480,7 +5480,13 @@
       "name": "CMD_585",
       "decomp_name": "ScrCmd_249",
       "parameters": [2, 2, 2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": [
+        "Integer",
+        "Integer",
+        "Integer",
+        "Integer",
+        "Integer"
+      ],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5488,7 +5494,7 @@
       "name": "CMD_586",
       "decomp_name": "GetCapturedFlagCount",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5549,7 +5555,7 @@
       "name": "CMD_593",
       "decomp_name": "BufferMonNicknameFromPC",
       "parameters": [1, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5565,7 +5571,7 @@
       "name": "CMD_595",
       "decomp_name": "SetClearInCatchingShowFlag",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5573,7 +5579,7 @@
       "name": "CMD_596",
       "decomp_name": "CheckHasEnoughMonForCatchingShow",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5589,7 +5595,7 @@
       "name": "CMD_598",
       "decomp_name": "CalcCatchingShowPoints",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5771,7 +5777,7 @@
       "name": "CMD_620",
       "decomp_name": "TryGetRandomMassageGirlAccessory",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5843,7 +5849,7 @@
       "name": "CMD_629",
       "decomp_name": "CheckBonusRoundStreak",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5851,7 +5857,7 @@
       "name": "CMD_630",
       "decomp_name": "GoToIfCannotAddCoins",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5859,7 +5865,7 @@
       "name": "CMD_631",
       "decomp_name": "GetDailyRandomLevel",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5875,7 +5881,7 @@
       "name": "CMD_633",
       "decomp_name": "ScrCmd_Unused_279",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5899,7 +5905,7 @@
       "name": "CMD_636",
       "decomp_name": "ScrCmd_27C",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5907,7 +5913,7 @@
       "name": "CMD_637",
       "decomp_name": "ScrCmd_27D",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5915,7 +5921,7 @@
       "name": "CMD_638",
       "decomp_name": "CheckIsDepartmentStoreRegular",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5923,7 +5929,7 @@
       "name": "CMD_639",
       "decomp_name": "ScrCmd_27F",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5944,7 +5950,7 @@
       "name": "CMD_641",
       "decomp_name": "ScrCmd_281",
       "parameters": [2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5976,7 +5982,7 @@
       "name": "CMD_645",
       "decomp_name": "ScrCmd_285",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5984,7 +5990,7 @@
       "name": "CMD_646",
       "decomp_name": "GetUndergroundItemsGivenAway",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -5992,7 +5998,7 @@
       "name": "CMD_647",
       "decomp_name": "GetUndergroundFossilsUnearthed",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6000,7 +6006,7 @@
       "name": "CMD_648",
       "decomp_name": "GetUndergroundTrapsSet",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6008,7 +6014,15 @@
       "name": "CMD_649",
       "decomp_name": "ScrCmd_289",
       "parameters": [2, 2, 2, 2, 2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": [
+        "Integer",
+        "Integer",
+        "Integer",
+        "Integer",
+        "Integer",
+        "Integer",
+        "Integer"
+      ],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6016,7 +6030,7 @@
       "name": "CMD_650",
       "decomp_name": "ScrCmd_28A",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6032,7 +6046,7 @@
       "name": "CMD_652",
       "decomp_name": "DrawPokemonPreviewFromPartySlot",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6048,7 +6062,7 @@
       "name": "CMD_654",
       "decomp_name": "ScrCmd_28E",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6064,7 +6078,7 @@
       "name": "CMD_656",
       "decomp_name": "ScrCmd_290",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6072,7 +6086,7 @@
       "name": "CMD_657",
       "decomp_name": "ScrCmd_291",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6080,7 +6094,7 @@
       "name": "CMD_658",
       "decomp_name": "ScrCmd_292",
       "parameters": [1, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6088,7 +6102,7 @@
       "name": "CMD_659",
       "decomp_name": "GetUndergroundTalkCounter",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6096,7 +6110,7 @@
       "name": "CMD_660",
       "decomp_name": "ShowBattlePoints",
       "parameters": [1, 1],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6152,7 +6166,7 @@
       "name": "CMD_667",
       "decomp_name": "ScrCmd_29B",
       "parameters": [2, 2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6160,7 +6174,7 @@
       "name": "CMD_668",
       "decomp_name": "ScrCmd_29C",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6168,7 +6182,7 @@
       "name": "CMD_669",
       "decomp_name": "AddMenuEntry",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6204,7 +6218,7 @@
       "name": "CMD_673",
       "decomp_name": "ScrCmd_Unused_2A1",
       "parameters": [2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6212,7 +6226,7 @@
       "name": "CMD_674",
       "decomp_name": "TrySetUnusedUndergroundField",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6220,7 +6234,7 @@
       "name": "CMD_675",
       "decomp_name": "ScrCmd_2A3",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6228,7 +6242,7 @@
       "name": "CMD_676",
       "decomp_name": "ScrCmd_2A4",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6244,7 +6258,7 @@
       "name": "CMD_678",
       "decomp_name": "GetGameCornerPrizeData",
       "parameters": [2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6316,7 +6330,7 @@
       "name": "CMD_687",
       "decomp_name": "ScrCmd_2AF",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6364,7 +6378,7 @@
       "name": "CMD_693",
       "decomp_name": "ScrCmd_2B5",
       "parameters": [2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6372,7 +6386,7 @@
       "name": "CMD_694",
       "decomp_name": "ScrCmd_2B6",
       "parameters": [2, 1],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6380,7 +6394,7 @@
       "name": "CMD_695",
       "decomp_name": "ScrCmd_2B7",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6388,7 +6402,7 @@
       "name": "CMD_696",
       "decomp_name": "ScrCmd_2B8",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6404,7 +6418,7 @@
       "name": "CMD_698",
       "decomp_name": "ScrCmd_2BA",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6452,7 +6466,7 @@
       "name": "CMD_704",
       "decomp_name": "ScrCmd_2C0",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6484,7 +6498,7 @@
       "name": "CMD_708",
       "decomp_name": "ScrCmd_2C4",
       "parameters": [1],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6492,7 +6506,7 @@
       "name": "CMD_709",
       "decomp_name": "ScrCmd_2C5",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -6859,7 +6873,7 @@
       "name": "CMD_751",
       "decomp_name": "ScrCmd_2EF",
       "parameters": [1, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -7008,7 +7022,7 @@
       "name": "CMD_769",
       "decomp_name": "ScrCmd_301",
       "parameters": [2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -7081,7 +7095,7 @@
       "name": "CMD_776",
       "decomp_name": "AddCameraOverrideObject",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -7281,7 +7295,7 @@
       "name": "CMD_801",
       "decomp_name": "ScrCmd_321",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -7447,7 +7461,7 @@
       "name": "CMD_820",
       "decomp_name": "AddToGameRecord",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Integer", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
@@ -7732,7 +7746,7 @@
       "name": "CMD_855",
       "decomp_name": "ScrCmd_357",
       "parameters": [2, 2, 2],
-      "parameter_types": ["INTEGER", "FLEX", "FLEX"],
+      "parameter_types": ["Integer", "Flex", "Flex"],
       "parameter_values": [],
       "description": ""
     },
@@ -7740,7 +7754,7 @@
       "name": "CMD_856",
       "decomp_name": "ScrCmd_358",
       "parameters": [2],
-      "parameter_types": ["VARIABLE"],
+      "parameter_types": ["Variable"],
       "parameter_values": [],
       "description": ""
     },
@@ -7756,7 +7770,7 @@
       "name": "CMD_858",
       "decomp_name": "ScrCmd_35A",
       "parameters": [2, 2],
-      "parameter_types": ["INTEGER", "FLEX"],
+      "parameter_types": ["Integer", "Flex"],
       "parameter_values": [],
       "description": ""
     },
@@ -7764,7 +7778,7 @@
       "name": "CMD_859",
       "decomp_name": "ScrCmd_35B",
       "parameters": [2],
-      "parameter_types": ["VARIABLE"],
+      "parameter_types": ["Variable"],
       "parameter_values": [],
       "description": ""
     },
@@ -7772,7 +7786,7 @@
       "name": "CMD_860",
       "decomp_name": "ScrCmd_35C",
       "parameters": [2],
-      "parameter_types": ["VARIABLE"],
+      "parameter_types": ["Variable"],
       "parameter_values": [],
       "description": ""
     }
