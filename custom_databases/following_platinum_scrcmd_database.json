@@ -4415,10 +4415,10 @@
       "description": "Function depends on the first parameter:\n0: Clears the Defog system flag\n1: Sets the Defog system flag\n2: Checks if Defog is activated, store answer in Variable"
     },
     "0x01D2": {
-      "name": "CMD_466",
-      "decomp_name": "ScrCmd_1D2",
+      "name": "AddAccessory",
+      "decomp_name": "AddAccessory",
       "parameters": [2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Flex", "Flex"],
       "parameter_values": [],
       "description": "nan"
     },
