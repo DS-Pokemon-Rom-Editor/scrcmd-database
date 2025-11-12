@@ -5501,10 +5501,10 @@
       "description": "nan"
     },
     "0x024C": {
-      "name": "CMD_588",
-      "decomp_name": "ScrCmd_24C",
+      "name": "PlayPCBootUpAnimation",
+      "decomp_name": "PlayPCBootUpAnimation",
       "parameters": [1],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
