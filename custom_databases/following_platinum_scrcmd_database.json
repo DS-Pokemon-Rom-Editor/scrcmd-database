@@ -6284,7 +6284,7 @@
       "name": "CMD_683",
       "decomp_name": "ScrCmd_2AB",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Variable"],
       "parameter_values": [],
       "description": "nan"
     },
