@@ -5528,10 +5528,10 @@
       "description": "nan"
     },
     "0x024B": {
-      "name": "CMD_587",
-      "decomp_name": "ScrCmd_24B",
+      "name": "LoadPCAnimation",
+      "decomp_name": "LoadPCAnimation",
       "parameters": [1],
-      "parameter_types": [],
+      "parameter_types": ["Integer"],
       "parameter_values": [],
       "description": "nan"
     },
