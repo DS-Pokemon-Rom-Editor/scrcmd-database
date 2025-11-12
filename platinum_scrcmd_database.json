@@ -5653,10 +5653,10 @@
       "description": "nan"
     },
     "0x025A": {
-      "name": "CMD_602",
-      "decomp_name": "ScrCmd_25A",
+      "name": "PlayHallOfFameHealingAnimation",
+      "decomp_name": "PlayHallOfFameHealingAnimation",
       "parameters": [2],
-      "parameter_types": [],
+      "parameter_types": ["Flex"],
       "parameter_values": [],
       "description": "nan"
     },
