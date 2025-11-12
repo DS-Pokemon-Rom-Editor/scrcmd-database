@@ -6313,7 +6313,7 @@
       "name": "CMD_682",
       "decomp_name": "ScrCmd_2AA",
       "parameters": [2, 2, 2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Variable", "Flex", "Flex", "Flex", "Flex"],
       "parameter_values": [],
       "description": "nan"
     },
