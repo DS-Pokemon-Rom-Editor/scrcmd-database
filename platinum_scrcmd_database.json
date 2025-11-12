@@ -2600,18 +2600,18 @@
       "description": "Jumps to a function, Relative Jump bytes forward or backward, if trainer flag with the invoking event ID is set"
     },
     "0x00F2": {
-      "name": "CMD_242",
-      "decomp_name": "ScrCmd_0F2",
+      "name": "StartBattleClient",
+      "decomp_name": "StartBattleClient",
       "parameters": [2, 2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Flex", "Flex", "Flex", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
     "0x00F3": {
-      "name": "CMD_243",
-      "decomp_name": "ScrCmd_0F3",
+      "name": "StartBattleServer",
+      "decomp_name": "StartBattleServer",
       "parameters": [2, 2, 2, 2],
-      "parameter_types": [],
+      "parameter_types": ["Flex", "Flex", "Flex", "Integer"],
       "parameter_values": [],
       "description": "nan"
     },
