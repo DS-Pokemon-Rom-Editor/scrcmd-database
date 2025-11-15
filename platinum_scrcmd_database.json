@@ -7658,6 +7658,64 @@
       "description": "Stores Floor's name in String Buffer"
     }
   },
+  "lvlscrcmd": {
+    "InitScriptEntryEnd": {
+      "length": "u8",
+      "value": 0,
+      "parameters": [],
+      "parameter_types": [],
+      "description": "comes after the last InitScript entry but before InitScriptFrameTable"
+    },
+    "InitScriptEntry_OnFrameTable": {
+      "length": "u8",
+      "value": 1,
+      "parameters": [4],
+      "parameter_types": ["Function"],
+      "description": "Before each frame of input processing, a table of conditions for the map is checked. Runs the first script where its two condition variables are equal. Therefore, any script invoked this way must at some point make its own condition false. The first check only occurs after all other init script types have run."
+    },
+    "InitScriptEntry_OnTransition": {
+      "length": "u8",
+      "value": 2,
+      "parameters": [4],
+      "parameter_types": ["Integer"],
+      "description": "Runs upon first entering a map, including when starting a new game or loading a save. Runs before all other init script types, including ON_FRAME_TABLE. Primary roles: modify object events, manage persisted map features"
+    },
+    "InitScriptEntry_OnResume": {
+      "length": "u8",
+      "value": 3,
+      "parameters": [4],
+      "parameter_types": ["Integer"],
+      "description": "Runs after the map has been fully loaded and drawn. Can run again without leaving the map, e.g., when using a field move or item. Primary roles: hide the player, modify object events"
+    },
+    "InitScriptEntry_OnLoad": {
+      "length": "u8",
+      "value": 4,
+      "parameters": [4],
+      "parameter_types": ["Integer"],
+      "description": "Runs after the map layout is loaded (but not drawn yet). Can run again without leaving the map, e.g., when using a field move or item. Primary roles: modify warp events, set/unset flags tied to object events"
+    },
+    "InitScriptGoToIfEqual": {
+      "length": null,
+      "value": null,
+      "parameters": [2, 2, 2],
+      "parameter_types": ["Variable", "Integer", "Integer"],
+      "description": "Calls a Script in the associated Script File if the given Variable holds the given Value"
+    },
+    "InitScriptFrameTableEnd": {
+      "length": "u16",
+      "value": 0,
+      "parameters": [4],
+      "parameter_types": ["Integer"],
+      "description": ""
+    },
+    "InitScriptEnd": {
+      "length": null,
+      "value": null,
+      "parameters": [],
+      "parameter_types": [],
+      "description": "alignment"
+    }
+  },
   "sounds": {
     "1": {
       "name": "SEQ_PV001",
