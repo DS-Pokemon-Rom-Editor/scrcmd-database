@@ -195,7 +195,7 @@ for idx, path in enumerate(sorted(glob.glob(os.path.join(parent_dir, '*_scrcmd_d
         row += 1
 
 # Create movements worksheet
-ws_move = wb.add_worksheet('Movements (WIP)')
+ws_move = wb.add_worksheet('Movements')
 
 # Set column widths for movements sheet
 movement_columns = {
