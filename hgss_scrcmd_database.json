@@ -7405,7 +7405,7 @@
       "name": "CMD_807",
       "decomp_name": "set_trainer_house_sprite",
       "parameters": [2, 2],
-      "parameter_types": ["Flex"],
+      "parameter_types": ["Flex", "Flex"],
       "parameter_values": [],
       "description": ""
     },
