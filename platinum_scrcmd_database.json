@@ -5065,8 +5065,14 @@
       "name": "UnionGroup",
       "decomp_name": "ScrCmd_21D",
       "parameters": [
-        255, 2, 0, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 4, 1, 2, 5, 1,
-        2, 6, 0
+        255, 2, 
+        0, 2, 2, 2, 
+        1, 2, 2, 2, 
+        2, 2, 2, 2, 
+        3, 2, 2, 2, 
+        4, 1, 2, 
+        5, 1, 2, 
+        6, 0
       ],
       "parameter_types": [
         "Integer",
@@ -7704,9 +7710,9 @@
     "InitScriptFrameTableEnd": {
       "length": "u16",
       "value": 0,
-      "parameters": [4],
-      "parameter_types": ["Integer"],
-      "description": ""
+      "parameters": [],
+      "parameter_types": [],
+      "description": "Marks the end of the frame table checks. Emits .short 0"
     },
     "InitScriptEnd": {
       "length": null,

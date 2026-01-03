@@ -7838,9 +7838,9 @@
     "InitScriptFrameTableEnd": {
       "length": "u16",
       "value": 0,
-      "parameters": [4],
-      "parameter_types": ["Integer"],
-      "description": ""
+      "parameters": [],
+      "parameter_types": [],
+      "description": "Marks the end of the frame table checks. Emits .short 0"
     },
     "InitScriptEnd": {
       "length": null,

@@ -1,0 +1,767 @@
+{
+  "meta": {
+    "base": "platinum_v2.json",
+    "variant": "following_platinum",
+    "generated_at": "2026-01-02T23:52:46.330124+00:00"
+  },
+  "add": {
+    "CMD_840": {
+      "type": "script_cmd",
+      "id": 840,
+      "legacy_name": "CMD_840",
+      "description": "",
+      "params": [
+        {
+          "name": "arg_0",
+          "type": "u16"
+        }
+      ]
+    },
+    "CMD_841": {
+      "type": "script_cmd",
+      "id": 841,
+      "legacy_name": "CMD_841",
+      "description": "",
+      "params": []
+    },
+    "CMD_842": {
+      "type": "script_cmd",
+      "id": 842,
+      "legacy_name": "CMD_842",
+      "description": "",
+      "params": []
+    },
+    "CMD_843": {
+      "type": "script_cmd",
+      "id": 843,
+      "legacy_name": "CMD_843",
+      "description": "",
+      "params": []
+    },
+    "CMD_844": {
+      "type": "script_cmd",
+      "id": 844,
+      "legacy_name": "CMD_844",
+      "description": "",
+      "params": []
+    },
+    "CMD_845": {
+      "type": "script_cmd",
+      "id": 845,
+      "legacy_name": "CMD_845",
+      "description": "",
+      "params": []
+    },
+    "CMD_846": {
+      "type": "script_cmd",
+      "id": 846,
+      "legacy_name": "CMD_846",
+      "description": "",
+      "params": []
+    },
+    "CMD_847": {
+      "type": "script_cmd",
+      "id": 847,
+      "legacy_name": "CMD_847",
+      "description": "",
+      "params": []
+    },
+    "CMD_848": {
+      "type": "script_cmd",
+      "id": 848,
+      "legacy_name": "CMD_848",
+      "description": "",
+      "params": []
+    },
+    "CMD_849": {
+      "type": "script_cmd",
+      "id": 849,
+      "legacy_name": "CMD_849",
+      "description": "",
+      "params": [
+        {
+          "name": "arg_0",
+          "type": "u16"
+        }
+      ]
+    },
+    "CMD_850": {
+      "type": "script_cmd",
+      "id": 850,
+      "legacy_name": "CMD_850",
+      "description": "",
+      "params": []
+    },
+    "CMD_851": {
+      "type": "script_cmd",
+      "id": 851,
+      "legacy_name": "CMD_851",
+      "description": "",
+      "params": []
+    },
+    "CMD_852": {
+      "type": "script_cmd",
+      "id": 852,
+      "legacy_name": "CMD_852",
+      "description": "",
+      "params": []
+    },
+    "CMD_853": {
+      "type": "script_cmd",
+      "id": 853,
+      "legacy_name": "CMD_853",
+      "description": "",
+      "params": []
+    },
+    "CMD_854": {
+      "type": "script_cmd",
+      "id": 854,
+      "legacy_name": "CMD_854",
+      "description": "",
+      "params": []
+    },
+    "CMD_855": {
+      "type": "script_cmd",
+      "id": 855,
+      "legacy_name": "CMD_855",
+      "description": "",
+      "params": [
+        {
+          "name": "arg_0",
+          "type": "u16"
+        },
+        {
+          "name": "arg_1",
+          "type": "u16"
+        },
+        {
+          "name": "arg_2",
+          "type": "u16"
+        }
+      ]
+    },
+    "CMD_856": {
+      "type": "script_cmd",
+      "id": 856,
+      "legacy_name": "CMD_856",
+      "description": "",
+      "params": [
+        {
+          "name": "result",
+          "type": "var"
+        }
+      ]
+    },
+    "CMD_857": {
+      "type": "script_cmd",
+      "id": 857,
+      "legacy_name": "CMD_857",
+      "description": "",
+      "params": []
+    },
+    "CMD_858": {
+      "type": "script_cmd",
+      "id": 858,
+      "legacy_name": "CMD_858",
+      "description": "",
+      "params": [
+        {
+          "name": "arg_0",
+          "type": "u16"
+        },
+        {
+          "name": "arg_1",
+          "type": "u16"
+        }
+      ]
+    },
+    "CMD_859": {
+      "type": "script_cmd",
+      "id": 859,
+      "legacy_name": "CMD_859",
+      "description": "",
+      "params": [
+        {
+          "name": "result",
+          "type": "var"
+        }
+      ]
+    },
+    "CMD_860": {
+      "type": "script_cmd",
+      "id": 860,
+      "legacy_name": "CMD_860",
+      "description": "",
+      "params": [
+        {
+          "name": "result",
+          "type": "var"
+        }
+      ]
+    }
+  },
+  "modify": {
+    "WalkSlightlyFasterWest": {
+      "type": "movement",
+      "id": 83,
+      "legacy_name": "WaitWalkRight",
+      "description": "Event faces right and floats eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+    },
+    "JumpFarSouth": {
+      "type": "movement",
+      "id": 57,
+      "legacy_name": "JumpDown2"
+    },
+    "WalkOnSpotSlowerEast": {
+      "type": "movement",
+      "id": 27,
+      "legacy_name": "WalkRightSlowSite",
+      "description": "Event faces right and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+    },
+    "WalkOnSpotFastWest": {
+      "type": "movement",
+      "id": 38,
+      "legacy_name": "WalkLeftVeryFastSite",
+      "description": "Event faces left and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+    },
+    "JumpOnSpotFastNorth": {
+      "type": "movement",
+      "id": 48,
+      "legacy_name": "JumpUp"
+    },
+    "FaceSouth": {
+      "type": "movement",
+      "id": 1,
+      "legacy_name": "LookDown",
+      "description": "Event faces down"
+    },
+    "WalkSlowerNorth": {
+      "type": "movement",
+      "id": 4,
+      "legacy_name": "WalkUpSlow",
+      "description": "Event faces up and moves northwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+    },
+    "RunNorth": {
+      "type": "movement",
+      "id": 89,
+      "legacy_name": "WaitWalkBackDown",
+      "description": "Event faces down and floats southwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered."
+    },
+    "WalkOnSpotFasterEast": {
+      "type": "movement",
+      "id": 43,
+      "legacy_name": "RunRightSite"
+    },
+    "WalkNormalNorth": {
+      "type": "movement",
+      "id": 12,
+      "legacy_name": "WalkUpFast",
+      "description": "Event faces up and moves northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+    },
+    "JumpOnSpotSlowWest": {
+      "type": "movement",
+      "id": 46,
+      "legacy_name": "JumpLeftSlow"
+    },
+    "WalkOnSpotFastSouth": {
+      "type": "movement",
+      "id": 37,
+      "legacy_name": "WalkDownVeryFastSite",
+      "description": "Event faces down and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+    },
+    "WalkFastestSouth": {
+      "type": "movement",
+      "id": 86,
+      "legacy_name": "WaitMoveLeft",
+      "description": "Event faces left and floats westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered."
+    },
+    "FaceNorth": {
+      "type": "movement",
+      "id": 0,
+      "legacy_name": "LookUp",
+      "description": "Event faces up"
+    },
+    "WalkSlightlyFastWest": {
+      "type": "movement",
+      "id": 79,
+      "legacy_name": "WaitWalkRightSlow",
+      "description": "Event faces right and floats eastwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second. Walk animation isn't triggered."
+    },
+    "RunEast": {
+      "type": "movement",
+      "id": 92,
+      "legacy_name": "WaitJumpLeft1"
+    },
+    "JumpOnSpotFastWest": {
+      "type": "movement",
+      "id": 50,
+      "legacy_name": "JumpLeft"
+    },
+    "WalkSlowWest": {
+      "type": "movement",
+      "id": 10,
+      "legacy_name": "WalkLeft",
+      "description": "Event faces left and moves westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+    },
+    "WalkOnSpotSlowWest": {
+      "type": "movement",
+      "id": 30,
+      "legacy_name": "WalkLeftSite",
+      "description": "Event faces left and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+    },
+    "JumpFarNorth": {
+      "type": "movement",
+      "id": 56,
+      "legacy_name": "JumpUp2"
+    },
+    "PlayTrainerEncounterBGM": {
+      "type": "script_cmd",
+      "id": 234,
+      "legacy_name": "TrainerMusic",
+      "description": "Retrieves the Trainer Class ID of the passed Trainer and plays its eye contact music.",
+      "params": [
+        {
+          "name": "trainer",
+          "type": "u16"
+        }
+      ]
+    },
+    "WalkOnSpotSlowerWest": {
+      "type": "movement",
+      "id": 26,
+      "legacy_name": "WalkLeftSlowSite",
+      "description": "Event faces left and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+    },
+    "WalkNormalEast": {
+      "type": "movement",
+      "id": 15,
+      "legacy_name": "WalkRightFast",
+      "description": "Event faces right and moves eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+    },
+    "JumpFarEast": {
+      "type": "movement",
+      "id": 59,
+      "legacy_name": "JumpRight2"
+    },
+    "JumpOnSpotFastEast": {
+      "type": "movement",
+      "id": 51,
+      "legacy_name": "JumpRight"
+    },
+    "Delay1": {
+      "type": "movement",
+      "id": 60,
+      "legacy_name": "Freeze1"
+    },
+    "WalkOnSpotSlowerSouth": {
+      "type": "movement",
+      "id": 25,
+      "legacy_name": "WalkDownSlowSite",
+      "description": "Event faces down and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+    },
+    "FaceWest": {
+      "type": "movement",
+      "id": 2,
+      "legacy_name": "LookLeft",
+      "description": "Event faces left"
+    },
+    "WalkFastestWest": {
+      "type": "movement",
+      "id": 87,
+      "legacy_name": "WaitMoveRight",
+      "description": "Event faces right and floats eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered."
+    },
+    "WalkOnSpotFasterSouth": {
+      "type": "movement",
+      "id": 41,
+      "legacy_name": "RunDownSite"
+    },
+    "WalkNormalSouth": {
+      "type": "movement",
+      "id": 13,
+      "legacy_name": "WalkDownFast",
+      "description": "Event faces down and moves southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+    },
+    "WalkSlowerWest": {
+      "type": "movement",
+      "id": 6,
+      "legacy_name": "WalkLeftSlow",
+      "description": "Event faces left and moves westwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+    },
+    "JumpNearFastEast": {
+      "type": "movement",
+      "id": 55,
+      "legacy_name": "JumpRight1"
+    },
+    "WalkFasterEast": {
+      "type": "movement",
+      "id": 23,
+      "legacy_name": "RunRight"
+    },
+    "WalkOnSpotFasterWest": {
+      "type": "movement",
+      "id": 42,
+      "legacy_name": "RunLeftSite"
+    },
+    "FaceEast": {
+      "type": "movement",
+      "id": 3,
+      "legacy_name": "LookRight",
+      "description": "Event faces right"
+    },
+    "JumpFartherWest": {
+      "type": "movement",
+      "id": 95,
+      "legacy_name": "WaitJumpRight2"
+    },
+    "WalkOnSpotSlowEast": {
+      "type": "movement",
+      "id": 31,
+      "legacy_name": "WalkRightSite",
+      "description": "Event faces right and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+    },
+    "PauseAnimation": {
+      "type": "movement",
+      "id": 73,
+      "legacy_name": "StopAnimation"
+    },
+    "JumpNearSlowWest": {
+      "type": "movement",
+      "id": 93,
+      "legacy_name": "WaitJumpRight1"
+    },
+    "WalkSlightlyFastNorth": {
+      "type": "movement",
+      "id": 76,
+      "legacy_name": "WaitWalkUpSlow",
+      "description": "Event faces up and floats northwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second. Walk animation isn't triggered."
+    },
+    "WalkFastSouth": {
+      "type": "movement",
+      "id": 17,
+      "legacy_name": "WalkDownVeryFast",
+      "description": "Event faces down and moves southwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+    },
+    "JumpOnSpotSlowSouth": {
+      "type": "movement",
+      "id": 45,
+      "legacy_name": "JumpDownSlow"
+    },
+    "WalkSlowSouth": {
+      "type": "movement",
+      "id": 9,
+      "legacy_name": "WalkDown",
+      "description": "Event faces down and moves southwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+    },
+    "Delay15": {
+      "type": "movement",
+      "id": 64,
+      "legacy_name": "Freeze15"
+    },
+    "WalkSlowNorth": {
+      "type": "movement",
+      "id": 8,
+      "legacy_name": "WalkUp",
+      "description": "Event faces up and moves northwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+    },
+    "WalkEverSoSlightlyFastNorth": {
+      "type": "movement",
+      "id": 101,
+      "legacy_name": "WaitJumpSite"
+    },
+    "WalkFastWest": {
+      "type": "movement",
+      "id": 18,
+      "legacy_name": "WalkLeftVeryFast",
+      "description": "Event faces left and moves westwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+    },
+    "WalkSlowEast": {
+      "type": "movement",
+      "id": 11,
+      "legacy_name": "WalkRight",
+      "description": "Event faces right and moves eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+    },
+    "JumpNearFastWest": {
+      "type": "movement",
+      "id": 54,
+      "legacy_name": "JumpLeft1"
+    },
+    "Delay32": {
+      "type": "movement",
+      "id": 66,
+      "legacy_name": "Freeze32"
+    },
+    "WalkEverSoSlightlyFastSouth": {
+      "type": "movement",
+      "id": 103,
+      "legacy_name": "WaitDoubleExclamation"
+    },
+    "JumpNearFastNorth": {
+      "type": "movement",
+      "id": 52,
+      "legacy_name": "JumpUp1"
+    },
+    "EndMovement": {
+      "type": "movement",
+      "id": 254,
+      "legacy_name": "End"
+    },
+    "SetInvisible": {
+      "type": "movement",
+      "id": 69,
+      "legacy_name": "WaitDisappear"
+    },
+    "WalkOnSpotSlowSouth": {
+      "type": "movement",
+      "id": 29,
+      "legacy_name": "WalkDownSite",
+      "description": "Event faces down and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+    },
+    "WalkFasterNorth": {
+      "type": "movement",
+      "id": 20,
+      "legacy_name": "RunUp"
+    },
+    "WalkOnSpotNormalWest": {
+      "type": "movement",
+      "id": 34,
+      "legacy_name": "WalkLeftFastSite",
+      "description": "Event faces left and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+    },
+    "JumpOnSpotSlowEast": {
+      "type": "movement",
+      "id": 47,
+      "legacy_name": "JumpRightSlow"
+    },
+    "WalkSlightlyFastSouth": {
+      "type": "movement",
+      "id": 77,
+      "legacy_name": "WaitWalkDownSlow",
+      "description": "Event faces down and floats southwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second. Walk animation isn't triggered."
+    },
+    "JumpNearSlowEast": {
+      "type": "movement",
+      "id": 94,
+      "legacy_name": "WaitJumpLeft2"
+    },
+    "WalkFastEast": {
+      "type": "movement",
+      "id": 19,
+      "legacy_name": "WalkRightVeryFast",
+      "description": "Event faces right and moves eastwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+    },
+    "Delay4": {
+      "type": "movement",
+      "id": 62,
+      "legacy_name": "Freeze4"
+    },
+    "WalkOnSpotFasterNorth": {
+      "type": "movement",
+      "id": 40,
+      "legacy_name": "RunUpSite"
+    },
+    "WalkEverSoSlightlyFastWest": {
+      "type": "movement",
+      "id": 104,
+      "legacy_name": "WaitMoveForever"
+    },
+    "WalkOnSpotFastEast": {
+      "type": "movement",
+      "id": 39,
+      "legacy_name": "WalkRightVeryFastSite",
+      "description": "Event faces right and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+    },
+    "WalkSlightlyFasterNorth": {
+      "type": "movement",
+      "id": 81,
+      "legacy_name": "WaitWalkDown",
+      "description": "Event faces down and floats southwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+    },
+    "WalkSlightlyFasterEast": {
+      "type": "movement",
+      "id": 84,
+      "legacy_name": "WaitMoveUp",
+      "description": "Event faces up and floats northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered."
+    },
+    "WalkSlightlyFastEast": {
+      "type": "movement",
+      "id": 80,
+      "legacy_name": "WaitWalkUp",
+      "description": "Event faces up and floats northwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+    },
+    "WalkFastestEast": {
+      "type": "movement",
+      "id": 88,
+      "legacy_name": "WaitWalkBackUp",
+      "description": "Event faces up and floats northwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered."
+    },
+    "WalkFasterSouth": {
+      "type": "movement",
+      "id": 21,
+      "legacy_name": "RunDown"
+    },
+    "Delay16": {
+      "type": "movement",
+      "id": 65,
+      "legacy_name": "Freeze16"
+    },
+    "WalkOnSpotNormalEast": {
+      "type": "movement",
+      "id": 35,
+      "legacy_name": "WalkRightFastSite",
+      "description": "Event faces right and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+    },
+    "RunSouth": {
+      "type": "movement",
+      "id": 90,
+      "legacy_name": "WaitWalkBackLeft",
+      "description": "Event faces left and floats westwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered."
+    },
+    "JumpOnSpotSlowNorth": {
+      "type": "movement",
+      "id": 44,
+      "legacy_name": "JumpUpSlow"
+    },
+    "SetVisible": {
+      "type": "movement",
+      "id": 70,
+      "legacy_name": "DisappearFalse"
+    },
+    "UnlockDir": {
+      "type": "movement",
+      "id": 72,
+      "legacy_name": "ReleaseDir"
+    },
+    "Delay2": {
+      "type": "movement",
+      "id": 61,
+      "legacy_name": "Freeze2"
+    },
+    "WalkOnSpotSlowerNorth": {
+      "type": "movement",
+      "id": 24,
+      "legacy_name": "WalkUpSlowSite",
+      "description": "Event faces up and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+    },
+    "WalkOnSpotNormalNorth": {
+      "type": "movement",
+      "id": 32,
+      "legacy_name": "WalkUpFastSite",
+      "description": "Event faces up and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+    },
+    "LockDir": {
+      "type": "movement",
+      "id": 71,
+      "legacy_name": "LockDir"
+    },
+    "JumpNearFastSouth": {
+      "type": "movement",
+      "id": 53,
+      "legacy_name": "JumpDown1"
+    },
+    "ResumeAnimation": {
+      "type": "movement",
+      "id": 74,
+      "legacy_name": "ResumeAnimation"
+    },
+    "WalkFastestNorth": {
+      "type": "movement",
+      "id": 85,
+      "legacy_name": "WaitMoveDown",
+      "description": "Event faces down and floats southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered."
+    },
+    "WalkFasterWest": {
+      "type": "movement",
+      "id": 22,
+      "legacy_name": "RunLeft"
+    },
+    "WalkSlowerEast": {
+      "type": "movement",
+      "id": 7,
+      "legacy_name": "WalkRightSlow",
+      "description": "Event faces right and moves eastwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+    },
+    "WalkNormalWest": {
+      "type": "movement",
+      "id": 14,
+      "legacy_name": "WalkLeftFast",
+      "description": "Event faces left and moves westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+    },
+    "WalkOnSpotFastNorth": {
+      "type": "movement",
+      "id": 36,
+      "legacy_name": "WalkUpVeryFastSite",
+      "description": "Event faces up and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+    },
+    "JumpOnSpotFastSouth": {
+      "type": "movement",
+      "id": 49,
+      "legacy_name": "JumpDown"
+    },
+    "WalkSlightlyFasterSouth": {
+      "type": "movement",
+      "id": 82,
+      "legacy_name": "WaitWalkLeft",
+      "description": "Event faces left and floats westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+    },
+    "Delay8": {
+      "type": "movement",
+      "id": 63,
+      "legacy_name": "Freeze8"
+    },
+    "WalkFastNorth": {
+      "type": "movement",
+      "id": 16,
+      "legacy_name": "WalkUpVeryFast",
+      "description": "Event faces up and moves northwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+    },
+    "RunWest": {
+      "type": "movement",
+      "id": 91,
+      "legacy_name": "WaitWalkBackRight",
+      "description": "Event faces right and floats eastwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered."
+    },
+    "JumpFartherEast": {
+      "type": "movement",
+      "id": 100,
+      "legacy_name": "WaitMoveSite"
+    },
+    "WalkOnSpotNormalSouth": {
+      "type": "movement",
+      "id": 33,
+      "legacy_name": "WalkDownFastSite",
+      "description": "Event faces down and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+    },
+    "EmoteExclamationMark": {
+      "type": "movement",
+      "id": 75,
+      "legacy_name": "Exclamation"
+    },
+    "WalkSlowerSouth": {
+      "type": "movement",
+      "id": 5,
+      "legacy_name": "WalkDownSlow",
+      "description": "Event faces down and moves southwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+    },
+    "WalkOnSpotSlowNorth": {
+      "type": "movement",
+      "id": 28,
+      "legacy_name": "WalkUpSite",
+      "description": "Event faces up and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+    },
+    "JumpFarWest": {
+      "type": "movement",
+      "id": 58,
+      "legacy_name": "JumpLeft2"
+    }
+  },
+  "remove": [
+    "WalkEverSoSlightlyFastEast",
+    "NurseJoyBow",
+    "RevealTrainer",
+    "PlayerGive",
+    "EmoteQuestionMark",
+    "PlayerReceive",
+    ""
+  ]
+}
