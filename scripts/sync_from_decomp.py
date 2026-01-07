@@ -144,20 +144,36 @@ def extract_macros(content: str) -> list[tuple[str, str, str]]:
 
 
 def parse_params(params_str: str) -> list[MacroParam]:
-    """Parse macro parameter string into list of MacroParam."""
+    """Parse macro parameter string into list of MacroParam.
+    
+    Handles:
+    - "param1, param2" (comma-separated)
+    - "param1 param2" (space-separated)
+    - "name = default" (default values)
+    - "name=default" (default values, no spaces)
+    """
     if not params_str:
         return []
     
     params = []
-    for part in params_str.split(','):
+    
+    # Split by comma if present, otherwise by whitespace
+    if ',' in params_str:
+        parts = [p.strip() for p in params_str.split(',')]
+    else:
+        parts = params_str.split()
+    
+    for part in parts:
         part = part.strip()
         if not part:
             continue
         
+        # Handle both "name=value" and "name = value" formats
         if '=' in part:
             name, default = part.split('=', 1)
             params.append(MacroParam(name.strip(), default.strip()))
         else:
+            # Simple parameter without default
             params.append(MacroParam(part))
     
     return params

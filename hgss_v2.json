@@ -12415,8 +12415,20 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; LESS THAN",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "LESS",
+          "type": "u16"
+        },
+        {
+          "name": "THAN",
+          "type": "u16"
         }
       ],
       "expansion": [
@@ -12427,8 +12439,16 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; EQUAL",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "EQUAL",
+          "type": "u16"
         }
       ],
       "expansion": [
@@ -12439,8 +12459,20 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; GREATER THAN",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "GREATER",
+          "type": "u16"
+        },
+        {
+          "name": "THAN",
+          "type": "u16"
         }
       ],
       "expansion": [
@@ -12451,8 +12483,28 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; LESS THAN OR EQUAL",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "LESS",
+          "type": "u16"
+        },
+        {
+          "name": "THAN",
+          "type": "u16"
+        },
+        {
+          "name": "OR",
+          "type": "u16"
+        },
+        {
+          "name": "EQUAL",
+          "type": "u16"
         }
       ],
       "expansion": [
@@ -12463,8 +12515,28 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; GREATER THAN OR EQUAL",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "GREATER",
+          "type": "u16"
+        },
+        {
+          "name": "THAN",
+          "type": "u16"
+        },
+        {
+          "name": "OR",
+          "type": "u16"
+        },
+        {
+          "name": "EQUAL",
+          "type": "u16"
         }
       ],
       "expansion": [
@@ -12475,8 +12547,20 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; NOT EQUAL",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "NOT",
+          "type": "u16"
+        },
+        {
+          "name": "EQUAL",
+          "type": "u16"
         }
       ],
       "expansion": [
@@ -12521,8 +12605,20 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; LESS THAN",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "LESS",
+          "type": "u16"
+        },
+        {
+          "name": "THAN",
+          "type": "u16"
         }
       ],
       "expansion": [
@@ -12533,8 +12629,16 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; EQUAL",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "EQUAL",
+          "type": "u16"
         }
       ],
       "expansion": [
@@ -12545,8 +12649,20 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; GREATER THAN",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "GREATER",
+          "type": "u16"
+        },
+        {
+          "name": "THAN",
+          "type": "u16"
         }
       ],
       "expansion": [
@@ -12557,8 +12673,28 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; LESS THAN OR EQUAL",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "LESS",
+          "type": "u16"
+        },
+        {
+          "name": "THAN",
+          "type": "u16"
+        },
+        {
+          "name": "OR",
+          "type": "u16"
+        },
+        {
+          "name": "EQUAL",
+          "type": "u16"
         }
       ],
       "expansion": [
@@ -12569,8 +12705,28 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; GREATER THAN OR EQUAL",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "GREATER",
+          "type": "u16"
+        },
+        {
+          "name": "THAN",
+          "type": "u16"
+        },
+        {
+          "name": "OR",
+          "type": "u16"
+        },
+        {
+          "name": "EQUAL",
+          "type": "u16"
         }
       ],
       "expansion": [
@@ -12581,8 +12737,20 @@
       "type": "macro",
       "params": [
         {
-          "name": "dest ; NOT EQUAL",
+          "name": "dest",
           "type": "label"
+        },
+        {
+          "name": ";",
+          "type": "u16"
+        },
+        {
+          "name": "NOT",
+          "type": "u16"
+        },
+        {
+          "name": "EQUAL",
+          "type": "u16"
         }
       ],
       "expansion": [

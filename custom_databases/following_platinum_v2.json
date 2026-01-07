@@ -12490,7 +12490,11 @@
       "type": "macro",
       "params": [
         {
-          "name": "badge label",
+          "name": "badge",
+          "type": "u16"
+        },
+        {
+          "name": "label",
           "type": "label"
         }
       ],
