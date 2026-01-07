@@ -12342,7 +12342,7 @@
         }
       ],
       "expansion": [
-        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_MAP",
+        "DrawSignpostInstantMessage $messageID, SIGNPOST_TYPE_MAP",
         "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
         "WaitForSignpostDone",
         "GetSignpostInput VAR_RESULT",
@@ -12358,7 +12358,7 @@
         }
       ],
       "expansion": [
-        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_ARROW",
+        "DrawSignpostInstantMessage $messageID, SIGNPOST_TYPE_ARROW",
         "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
         "WaitForSignpostDone",
         "GetSignpostInput VAR_RESULT",
@@ -12374,7 +12374,7 @@
         }
       ],
       "expansion": [
-        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_LANDMARK",
+        "DrawSignpostInstantMessage $messageID, SIGNPOST_TYPE_LANDMARK",
         "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
         "WaitForSignpostDone",
         "GetSignpostInput VAR_RESULT",
@@ -12588,7 +12588,7 @@
         }
       ],
       "expansion": [
-        "CallTVBroadcast TV_BROADCAST_CALL_LOAD_SEGMENT $segmentID, $bankDestVar, $messageDestVar"
+        "CallTVBroadcast TV_BROADCAST_CALL_LOAD_SEGMENT, $segmentID, $bankDestVar, $messageDestVar"
       ]
     },
     "LoadTVGreeting": {
@@ -12604,7 +12604,7 @@
         }
       ],
       "expansion": [
-        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_GREETING $bankDestVar, $messageDestVar"
+        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_GREETING, $bankDestVar, $messageDestVar"
       ]
     },
     "LoadTVSegmentIntro": {
@@ -12620,7 +12620,7 @@
         }
       ],
       "expansion": [
-        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_SEGMENT_INTRO $bankDestVar, $messageDestVar"
+        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_SEGMENT_INTRO, $bankDestVar, $messageDestVar"
       ]
     },
     "LoadTVFarewell": {
@@ -12636,7 +12636,7 @@
         }
       ],
       "expansion": [
-        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_FAREWELL $bankDestVar, $messageDestVar"
+        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_FAREWELL, $bankDestVar, $messageDestVar"
       ]
     },
     "LoadTVFarewellExtended": {
@@ -12652,7 +12652,7 @@
         }
       ],
       "expansion": [
-        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_FAREWELL_EXTENDED $bankDestVar, $messageDestVar"
+        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_FAREWELL_EXTENDED, $bankDestVar, $messageDestVar"
       ]
     },
     "GetNextTVSegmentID": {
@@ -13595,6 +13595,110 @@
       "params": [],
       "expansion": [
         "CallCommonScript 0x809"
+      ]
+    },
+    "CompareVar": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        }
+      ],
+      "variants": [
+        {
+          "condition": "\\valueOrVarID < VARS_START",
+          "expansion": [
+            "CompareVarToValue $varID, $valueOrVarID"
+          ]
+        },
+        {
+          "condition": "else",
+          "expansion": [
+            "CompareVarToVar $varID, $valueOrVarID"
+          ]
+        }
+      ]
+    },
+    "SetVar": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "destVarID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        }
+      ],
+      "variants": [
+        {
+          "condition": "\\valueOrVarID < VARS_START",
+          "expansion": [
+            "SetVarFromValue $destVarID, $valueOrVarID"
+          ]
+        },
+        {
+          "condition": "else",
+          "expansion": [
+            "SetVarFromVar $destVarID, $valueOrVarID"
+          ]
+        }
+      ]
+    },
+    "SubtractCoins": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        }
+      ],
+      "variants": [
+        {
+          "condition": "\\valueOrVarID < VARS_START",
+          "expansion": [
+            "SubstractCoinsFromValue $valueOrVarID"
+          ]
+        },
+        {
+          "condition": "else",
+          "expansion": [
+            "SubstractCoinsFromVar $valueOrVarID"
+          ]
+        }
+      ]
+    },
+    "HasCoins": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        }
+      ],
+      "variants": [
+        {
+          "condition": "\\valueOrVarID < VARS_START",
+          "expansion": [
+            "HasCoinsFromValue $varID, $valueOrVarID"
+          ]
+        },
+        {
+          "condition": "else",
+          "expansion": [
+            "HasCoinsFromVar $varID, $valueOrVarID"
+          ]
+        }
       ]
     }
   },

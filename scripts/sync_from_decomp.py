@@ -404,9 +404,19 @@ def parse_macro(name: str, params_str: str, body: str, all_macro_names: set[str]
     variants = parse_conditionals(body, params)
     
     opcodes = [first_opcode] if first_opcode is not None else extract_opcodes(body)[:1]
-    
+
     if not opcodes:
-        # No numeric opcode found - might use symbolic constant
+        # No numeric opcode found - check if it's a multi-line wrapper macro
+        # that calls other macros (like ShowArrowSign, ShowMapSign, etc.)
+        expansion_lines = parse_macro_expansion_lines(body)
+        if expansion_lines:
+            # This is a multi-line wrapper macro
+            return ParsedMacro(
+                name=name,
+                params=params,
+                opcodes=[],
+                body=body.strip()
+            )
         return None
     
     emitted_params = extract_emitted_params(body)
@@ -659,18 +669,44 @@ def parse_macro_expansion_lines(body: str) -> list[str]:
 def format_expansion_line(line: str, params: list[MacroParam]) -> str:
     """
     Convert a macro call line to expansion format with $param syntax.
-    
+
     Input:  "CompareVar \\varID, \\valueOrVarID"
+            "Signpost \\messageID, SIGNPOST_TYPE_ARROW"
     Output: "CompareVar $varID, $valueOrVarID"
+            "Signpost $messageID, SIGNPOST_TYPE_ARROW"
+
+    Always uses comma-separated arguments for script compiler compatibility.
     """
-    result = line
-    # Replace \param with $param
-    for p in params:
-        result = result.replace(f'\\{p.name}', f'${p.name}')
-    # Also handle any remaining backslash-prefixed identifiers
     import re
-    result = re.sub(r'\\([a-zA-Z_][a-zA-Z0-9_]*)', r'$\1', result)
-    return result
+
+    # Handle empty or no-argument cases
+    if not line or not line.strip():
+        return line
+
+    # Always split by whitespace first to get command name
+    tokens = line.split()
+    cmd = tokens[0]
+
+    # Remaining tokens are arguments (comma-separated or space-separated in source)
+    all_args = tokens[1:] if len(tokens) > 1 else []
+
+    # Clean each argument: replace \param with $param, strip whitespace and commas
+    clean_args = []
+    for arg in all_args:
+        # Replace \param with $param for all params
+        for p in params:
+            arg = arg.replace(f'\\{p.name}', f'${p.name}')
+        # Also handle any remaining backslash-prefixed identifiers
+        arg = re.sub(r'\\([a-zA-Z_][a-zA-Z0-9_]*)', r'$\1', arg)
+        # Strip whitespace and trailing commas
+        arg = arg.strip().rstrip(',')
+        if arg:
+            clean_args.append(arg)
+
+    if not clean_args:
+        return cmd
+
+    return f"{cmd} {', '.join(clean_args)}"
 
 
 def infer_param_type(name: str, context: str = "") -> str:

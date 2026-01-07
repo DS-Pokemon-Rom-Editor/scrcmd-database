@@ -13038,7 +13038,7 @@
         }
       ],
       "expansion": [
-        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_FAREWELL $bankDestVar, $messageDestVar"
+        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_FAREWELL, $bankDestVar, $messageDestVar"
       ]
     },
     "LoadTVFarewellExtended": {
@@ -13054,7 +13054,7 @@
         }
       ],
       "expansion": [
-        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_FAREWELL_EXTENDED $bankDestVar, $messageDestVar"
+        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_FAREWELL_EXTENDED, $bankDestVar, $messageDestVar"
       ]
     },
     "LoadTVFramingMessage": {
@@ -13090,7 +13090,7 @@
         }
       ],
       "expansion": [
-        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_GREETING $bankDestVar, $messageDestVar"
+        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_GREETING, $bankDestVar, $messageDestVar"
       ]
     },
     "LoadTVInterviewMessage": {
@@ -13130,7 +13130,7 @@
         }
       ],
       "expansion": [
-        "CallTVBroadcast TV_BROADCAST_CALL_LOAD_SEGMENT $segmentID, $bankDestVar, $messageDestVar"
+        "CallTVBroadcast TV_BROADCAST_CALL_LOAD_SEGMENT, $segmentID, $bankDestVar, $messageDestVar"
       ]
     },
     "LoadTVSegmentIntro": {
@@ -13146,7 +13146,7 @@
         }
       ],
       "expansion": [
-        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_SEGMENT_INTRO $bankDestVar, $messageDestVar"
+        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_SEGMENT_INTRO, $bankDestVar, $messageDestVar"
       ]
     },
     "MessageBagIsFull": {
@@ -13402,7 +13402,7 @@
         }
       ],
       "expansion": [
-        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_ARROW",
+        "DrawSignpostInstantMessage $messageID, SIGNPOST_TYPE_ARROW",
         "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
         "WaitForSignpostDone",
         "GetSignpostInput VAR_RESULT",
@@ -13418,7 +13418,7 @@
         }
       ],
       "expansion": [
-        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_LANDMARK",
+        "DrawSignpostInstantMessage $messageID, SIGNPOST_TYPE_LANDMARK",
         "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
         "WaitForSignpostDone",
         "GetSignpostInput VAR_RESULT",
@@ -13434,7 +13434,7 @@
         }
       ],
       "expansion": [
-        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_MAP",
+        "DrawSignpostInstantMessage $messageID, SIGNPOST_TYPE_MAP",
         "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
         "WaitForSignpostDone",
         "GetSignpostInput VAR_RESULT",
