@@ -127,8 +127,9 @@ def extract_macros(content: str) -> list[tuple[str, str, str]]:
     Returns list of (name, params_str, body) tuples.
     """
     # Pattern to match .macro Name [params] ... .endm
+    # Use [ \t]* instead of \s* to avoid consuming newlines before params
     macro_pattern = re.compile(
-        r'\.macro\s+(\w+)\s*([^\n]*)\n(.*?)\.endm',
+        r'\.macro\s+(\w+)[ \t]*([^\n]*)\n(.*?)\.endm',
         re.MULTILINE | re.DOTALL
     )
     
@@ -1105,7 +1106,13 @@ def main():
     parser.add_argument(
         "--inject-macros",
         action="store_true",
-        help="Inject convenience macros from decomp into the v2 database"
+        default=True,
+        help="Inject convenience macros from decomp into the v2 database (default: enabled)"
+    )
+    parser.add_argument(
+        "--no-inject-macros",
+        action="store_true",
+        help="Disable automatic macro injection"
     )
     
     args = parser.parse_args()
@@ -1114,7 +1121,7 @@ def main():
         dump_macros(args.dump)
         return 0
     
-    if args.inject_macros:
+    if args.inject_macros and not args.no_inject_macros:
         if args.all:
             # Inject into all v2 files (root + custom_databases)
             repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))

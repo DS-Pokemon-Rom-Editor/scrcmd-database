@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "Platinum",
-    "generated_at": "2026-01-03T00:12:27.042068+00:00",
+    "generated_at": "2026-01-06T18:54:17.831885+00:00",
     "generated_from": "platinum_scrcmd_database.json"
   },
   "commands": {
@@ -12394,13 +12394,9 @@
     },
     "SelectPokemonForUnionRoomBattle": {
       "type": "macro",
-      "params": [
-        {
-          "name": "OpenPartyMenuForUnionRoomBattle",
-          "type": "u16"
-        }
-      ],
+      "params": [],
       "expansion": [
+        "OpenPartyMenuForUnionRoomBattle",
         "ReturnToField"
       ]
     },
@@ -12753,13 +12749,9 @@
     },
     "SelectPokemonToTrade": {
       "type": "macro",
-      "params": [
-        {
-          "name": "OpenPartyMenuForTrade",
-          "type": "u16"
-        }
-      ],
+      "params": [],
       "expansion": [
+        "OpenPartyMenuForTrade",
         "GetSelectedPartySlot VAR_RESULT",
         "ReturnToField"
       ]
@@ -13170,6 +13162,328 @@
       "expansion": [
         "SetVar VAR_0x8007, $nurseLocalID",
         "CallCommonScript 0x7D2"
+      ]
+    },
+    "OpenItemsBag": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "OpenBag 0"
+      ]
+    },
+    "OpenBerriesBag": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "OpenBag 1"
+      ]
+    },
+    "StartSafariGame": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "StartEndSafariGame SAFARI_GAME_ACTIVE"
+      ]
+    },
+    "EndSafariGame": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "StartEndSafariGame SAFARI_GAME_INACTIVE"
+      ]
+    },
+    "SetNationalDexEnabled": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "GetSetNationalDexEnabled 1, VAR_RESULT"
+      ]
+    },
+    "FinishTVProgram": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallTVBroadcast TV_BROADCAST_CALL_FINISH_PROGRAM"
+      ]
+    },
+    "TakeShipToCanalave": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "PlayBoatCutscene BOAT_TRAVEL_DIR_SOUTH_TO_NORTH, DIR_WEST, MAP_HEADER_CANALAVE_CITY, 44, 750"
+      ]
+    },
+    "TakeShipToSnowpoint": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "PlayBoatCutscene BOAT_TRAVEL_DIR_EAST_TO_WEST, DIR_NORTH, MAP_HEADER_SNOWPOINT_CITY, 356, 246"
+      ]
+    },
+    "LoadMysteryGift": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "MysteryGiftGive MYSTERY_GIFT_LOAD"
+      ]
+    },
+    "GiveMysteryGift": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "MysteryGiftGive MYSTERY_GIFT_GIVE"
+      ]
+    },
+    "UnloadMysteryGift": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "MysteryGiftGive MYSTERY_GIFT_UNLOAD_RECEIVED"
+      ]
+    },
+    "UnloadMysteryGift2": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "MysteryGiftGive MYSTERY_GIFT_UNLOAD_NOT_RECEIVED"
+      ]
+    },
+    "SetInCatchingShowFlag": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetClearInCatchingShowFlag 0"
+      ]
+    },
+    "ClearInCatchingShowFlag": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetClearInCatchingShowFlag 1"
+      ]
+    },
+    "RecordHeapMemory": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CheckHeapMemory FALSE"
+      ]
+    },
+    "AssertHeapMemory": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CheckHeapMemory TRUE"
+      ]
+    },
+    "SetMenuXOriginToLeft": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetMenuXOriginSide FALSE"
+      ]
+    },
+    "SetMenuXOriginToRight": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetMenuXOriginSide TRUE"
+      ]
+    },
+    "SetMenuYOriginToTop": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetMenuYOriginSide FALSE"
+      ]
+    },
+    "SetMenuYOriginToBottom": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetMenuYOriginSide TRUE"
+      ]
+    },
+    "HandleSignpostInput": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7D0"
+      ]
+    },
+    "CheckBagPocketForItem": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7D1"
+      ]
+    },
+    "GivePoketchApp": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7D9"
+      ]
+    },
+    "SendToUndergroundPC": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7DC"
+      ]
+    },
+    "ObtainUndergroundTrap": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7DD"
+      ]
+    },
+    "ObtainUndergroundSphere": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7DE"
+      ]
+    },
+    "GiveAccessoryWaitForConfirm": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7DF"
+      ]
+    },
+    "GiveItemQuantityNoLineFeed": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7E0"
+      ]
+    },
+    "MessageBagIsFull": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7E1"
+      ]
+    },
+    "VendorGreeting": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7E3"
+      ]
+    },
+    "ObtainContestBackdropWaitForConfirm": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7F4"
+      ]
+    },
+    "PrintPlateObtainedMessage": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7F6"
+      ]
+    },
+    "SetCounterpartBGM": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7F8"
+      ]
+    },
+    "FadeToDefaultMusic": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7F9"
+      ]
+    },
+    "SetRivalBGM": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FA"
+      ]
+    },
+    "FadeToDefaultMusic2": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FB"
+      ]
+    },
+    "GiveItemQuantity": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FC"
+      ]
+    },
+    "ObtainContestBackdrop": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FD"
+      ]
+    },
+    "SendToUndergroundPCWithLinefeed": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FE"
+      ]
+    },
+    "GiveAccessory": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FF"
+      ]
+    },
+    "SetFollowMeBGM": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x800"
+      ]
+    },
+    "FadeToDefaultMusic3": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x801"
+      ]
+    },
+    "CheckAllFrontierGoldPrintsObtained": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x806"
+      ]
+    },
+    "SetLookerBGM": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x807"
+      ]
+    },
+    "FadeToDefaultMusic4": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x808"
+      ]
+    },
+    "GriseousOrbCouldNotBeRemoved": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x809"
       ]
     }
   },
