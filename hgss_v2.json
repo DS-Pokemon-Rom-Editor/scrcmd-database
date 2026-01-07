@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "HeartGold/SoulSilver",
-    "generated_at": "2026-01-06T18:54:19.921359+00:00",
+    "generated_at": "2026-01-07T15:16:12.834505+00:00",
     "generated_from": "hgss_scrcmd_database.json"
   },
   "commands": {
@@ -2376,7 +2376,8 @@
         },
         {
           "name": "door",
-          "type": "u16"
+          "type": "u16",
+          "default": "0"
         },
         {
           "name": "x",
@@ -4652,7 +4653,8 @@
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "var",
+          "default": "PARTY_SIZE"
         }
       ]
     },
@@ -6537,7 +6539,7 @@
       "description": "Nothing",
       "params": []
     },
-    "scrcmd_476": {
+    "enable_pokedex_form_detection": {
       "type": "script_cmd",
       "id": 476,
       "legacy_name": "DummyDimorphismDex",
@@ -7451,7 +7453,7 @@
         }
       ]
     },
-    "CheckGiveCoins": {
+    "checkgivecoins": {
       "type": "script_cmd",
       "id": 533,
       "legacy_name": "CanGiveCoins",
@@ -8245,7 +8247,8 @@
         },
         {
           "name": "shiny_flag",
-          "type": "u8"
+          "type": "u8",
+          "default": "0"
         }
       ]
     },
@@ -8481,7 +8484,7 @@
         }
       ]
     },
-    "get_npc_trade_unused_flag": {
+    "CMD_612": {
       "type": "script_cmd",
       "id": 612,
       "legacy_name": "CMD_612",
@@ -11598,6 +11601,32 @@
         }
       ]
     },
+    "buffer_dppt_friend_starter_species_name_indef": {
+      "type": "script_cmd",
+      "id": 847,
+      "description": "Imported from decomp: buffer_dppt_friend_starter_species_name_indef",
+      "params": [
+        {
+          "name": "arg0",
+          "type": "u16"
+        }
+      ]
+    },
+    "buffer_fashion_name_indef": {
+      "type": "script_cmd",
+      "id": 848,
+      "description": "Imported from decomp: buffer_fashion_name_indef",
+      "params": [
+        {
+          "name": "arg0",
+          "type": "u16"
+        },
+        {
+          "name": "arg1",
+          "type": "u16"
+        }
+      ]
+    },
     "buffer_trainer_class_name_indef": {
       "type": "script_cmd",
       "id": 849,
@@ -12305,6 +12334,13 @@
       "discriminant_size": "u8",
       "params": []
     },
+    "InitScriptFrameTableEnd": {
+      "type": "levelscript_cmd",
+      "id": 0,
+      "description": "Marks the end of the frame table checks. Emits .short 0",
+      "discriminant_size": "u16",
+      "params": []
+    },
     "InitScriptEntry_OnFrameTable": {
       "type": "levelscript_cmd",
       "id": 1,
@@ -12353,36 +12389,12 @@
         }
       ]
     },
-    "InitScriptFrameTableEnd": {
-      "type": "levelscript_cmd",
-      "id": 0,
-      "description": "Marks the end of the frame table checks. Emits .short 0",
-      "discriminant_size": "u16",
-      "params": []
-    },
-    "compare": {
+    "call_if_defeated": {
       "type": "macro",
       "params": [
         {
-          "name": "var",
-          "type": "var"
-        },
-        {
-          "name": "arg",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "compare_var_to_var $var, $arg",
-        "compare_var_to_value $var, $arg"
-      ]
-    },
-    "goto_if_unset": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "flag",
-          "type": "flag"
+          "name": "trainer",
+          "type": "trainer_id"
         },
         {
           "name": "dest",
@@ -12390,16 +12402,88 @@
         }
       ],
       "expansion": [
-        "checkflag $flag",
-        "goto_if FALSE, $dest"
+        "checktrainerflag $trainer",
+        "call_if TRUE, $dest"
       ]
     },
-    "goto_if_set": {
+    "call_if_eq": {
       "type": "macro",
       "params": [
         {
-          "name": "flag",
-          "type": "flag"
+          "name": "dest",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "call_if 1, $dest"
+      ]
+    },
+    "call_if_ge": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "dest",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "call_if 4, $dest"
+      ]
+    },
+    "call_if_gt": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "dest",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "call_if 2, $dest"
+      ]
+    },
+    "call_if_le": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "dest",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "call_if 3, $dest"
+      ]
+    },
+    "call_if_lt": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "dest",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "call_if 0, $dest"
+      ]
+    },
+    "call_if_ne": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "dest",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "call_if 5, $dest"
+      ]
+    },
+    "call_if_not_defeated": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "trainer",
+          "type": "trainer_id"
         },
         {
           "name": "dest",
@@ -12407,180 +12491,7 @@
         }
       ],
       "expansion": [
-        "checkflag $flag",
-        "goto_if TRUE, $dest"
-      ]
-    },
-    "goto_if_lt": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "dest",
-          "type": "label"
-        },
-        {
-          "name": ";",
-          "type": "u16"
-        },
-        {
-          "name": "LESS",
-          "type": "u16"
-        },
-        {
-          "name": "THAN",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "goto_if 0, $dest"
-      ]
-    },
-    "goto_if_eq": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "dest",
-          "type": "label"
-        },
-        {
-          "name": ";",
-          "type": "u16"
-        },
-        {
-          "name": "EQUAL",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "goto_if 1, $dest"
-      ]
-    },
-    "goto_if_gt": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "dest",
-          "type": "label"
-        },
-        {
-          "name": ";",
-          "type": "u16"
-        },
-        {
-          "name": "GREATER",
-          "type": "u16"
-        },
-        {
-          "name": "THAN",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "goto_if 2, $dest"
-      ]
-    },
-    "goto_if_le": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "dest",
-          "type": "label"
-        },
-        {
-          "name": ";",
-          "type": "u16"
-        },
-        {
-          "name": "LESS",
-          "type": "u16"
-        },
-        {
-          "name": "THAN",
-          "type": "u16"
-        },
-        {
-          "name": "OR",
-          "type": "u16"
-        },
-        {
-          "name": "EQUAL",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "goto_if 3, $dest"
-      ]
-    },
-    "goto_if_ge": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "dest",
-          "type": "label"
-        },
-        {
-          "name": ";",
-          "type": "u16"
-        },
-        {
-          "name": "GREATER",
-          "type": "u16"
-        },
-        {
-          "name": "THAN",
-          "type": "u16"
-        },
-        {
-          "name": "OR",
-          "type": "u16"
-        },
-        {
-          "name": "EQUAL",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "goto_if 4, $dest"
-      ]
-    },
-    "goto_if_ne": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "dest",
-          "type": "label"
-        },
-        {
-          "name": ";",
-          "type": "u16"
-        },
-        {
-          "name": "NOT",
-          "type": "u16"
-        },
-        {
-          "name": "EQUAL",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "goto_if 5, $dest"
-      ]
-    },
-    "call_if_unset": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "flag",
-          "type": "flag"
-        },
-        {
-          "name": "dest",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "checkflag $flag",
+        "checktrainerflag $trainer",
         "call_if FALSE, $dest"
       ]
     },
@@ -12601,160 +12512,71 @@
         "call_if TRUE, $dest"
       ]
     },
-    "call_if_lt": {
+    "call_if_unset": {
       "type": "macro",
       "params": [
         {
+          "name": "flag",
+          "type": "flag"
+        },
+        {
           "name": "dest",
           "type": "label"
-        },
-        {
-          "name": ";",
-          "type": "u16"
-        },
-        {
-          "name": "LESS",
-          "type": "u16"
-        },
-        {
-          "name": "THAN",
-          "type": "u16"
         }
       ],
       "expansion": [
-        "call_if 0, $dest"
+        "checkflag $flag",
+        "call_if FALSE, $dest"
       ]
     },
-    "call_if_eq": {
+    "case": {
       "type": "macro",
       "params": [
         {
-          "name": "dest",
-          "type": "label"
-        },
-        {
-          "name": ";",
+          "name": "value",
           "type": "u16"
         },
         {
-          "name": "EQUAL",
+          "name": "target",
           "type": "u16"
         }
       ],
       "expansion": [
-        "call_if 1, $dest"
+        "compare VAR_SPECIAL_x8008, $value",
+        "goto_if eq, $target"
       ]
     },
-    "call_if_gt": {
+    "compare": {
       "type": "macro",
       "params": [
         {
-          "name": "dest",
-          "type": "label"
+          "name": "var",
+          "type": "var"
         },
         {
-          "name": ";",
-          "type": "u16"
-        },
-        {
-          "name": "GREATER",
-          "type": "u16"
-        },
-        {
-          "name": "THAN",
+          "name": "arg",
           "type": "u16"
         }
       ],
       "expansion": [
-        "call_if 2, $dest"
+        "compare_var_to_var $var, $arg",
+        "compare_var_to_value $var, $arg"
       ]
     },
-    "call_if_le": {
+    "giveitem_no_check": {
       "type": "macro",
       "params": [
         {
-          "name": "dest",
-          "type": "label"
+          "name": "item",
+          "type": "item"
         },
         {
-          "name": ";",
-          "type": "u16"
-        },
-        {
-          "name": "LESS",
-          "type": "u16"
-        },
-        {
-          "name": "THAN",
-          "type": "u16"
-        },
-        {
-          "name": "OR",
-          "type": "u16"
-        },
-        {
-          "name": "EQUAL",
+          "name": "quantity",
           "type": "u16"
         }
       ],
       "expansion": [
-        "call_if 3, $dest"
-      ]
-    },
-    "call_if_ge": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "dest",
-          "type": "label"
-        },
-        {
-          "name": ";",
-          "type": "u16"
-        },
-        {
-          "name": "GREATER",
-          "type": "u16"
-        },
-        {
-          "name": "THAN",
-          "type": "u16"
-        },
-        {
-          "name": "OR",
-          "type": "u16"
-        },
-        {
-          "name": "EQUAL",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "call_if 4, $dest"
-      ]
-    },
-    "call_if_ne": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "dest",
-          "type": "label"
-        },
-        {
-          "name": ";",
-          "type": "u16"
-        },
-        {
-          "name": "NOT",
-          "type": "u16"
-        },
-        {
-          "name": "EQUAL",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "call_if 5, $dest"
+        "item_vars $item, $quantity"
       ]
     },
     "goto_if_defeated": {
@@ -12774,75 +12596,76 @@
         "goto_if TRUE, $dest"
       ]
     },
-    "goto_if_not_defeated": {
+    "goto_if_eq": {
       "type": "macro",
       "params": [
-        {
-          "name": "trainer",
-          "type": "trainer_id"
-        },
         {
           "name": "dest",
           "type": "label"
         }
       ],
       "expansion": [
-        "checktrainerflag $trainer",
-        "goto_if FALSE, $dest"
+        "goto_if 1, $dest"
       ]
     },
-    "call_if_defeated": {
+    "goto_if_ge": {
       "type": "macro",
       "params": [
-        {
-          "name": "trainer",
-          "type": "trainer_id"
-        },
         {
           "name": "dest",
           "type": "label"
         }
       ],
       "expansion": [
-        "checktrainerflag $trainer",
-        "call_if TRUE, $dest"
+        "goto_if 4, $dest"
       ]
     },
-    "call_if_not_defeated": {
+    "goto_if_gt": {
       "type": "macro",
       "params": [
-        {
-          "name": "trainer",
-          "type": "trainer_id"
-        },
         {
           "name": "dest",
           "type": "label"
         }
       ],
       "expansion": [
-        "checktrainerflag $trainer",
-        "call_if FALSE, $dest"
+        "goto_if 2, $dest"
       ]
     },
-    "item_vars": {
+    "goto_if_le": {
       "type": "macro",
       "params": [
         {
-          "name": "item",
-          "type": "item"
-        },
-        {
-          "name": "quantity",
-          "type": "u16",
-          "default": "1"
+          "name": "dest",
+          "type": "label"
         }
       ],
       "expansion": [
-        "setvar VAR_SPECIAL_x8004, $item",
-        "copyvar VAR_SPECIAL_x8004, $item",
-        "setvar VAR_SPECIAL_x8005, $quantity",
-        "copyvar VAR_SPECIAL_x8005, $quantity"
+        "goto_if 3, $dest"
+      ]
+    },
+    "goto_if_lt": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "dest",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "goto_if 0, $dest"
+      ]
+    },
+    "goto_if_ne": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "dest",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "goto_if 5, $dest"
       ]
     },
     "goto_if_no_item_space": {
@@ -12887,7 +12710,58 @@
         "goto_if ne, $target"
       ]
     },
-    "giveitem_no_check": {
+    "goto_if_not_defeated": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "trainer",
+          "type": "trainer_id"
+        },
+        {
+          "name": "dest",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "checktrainerflag $trainer",
+        "goto_if FALSE, $dest"
+      ]
+    },
+    "goto_if_set": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "flag",
+          "type": "flag"
+        },
+        {
+          "name": "dest",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "checkflag $flag",
+        "goto_if TRUE, $dest"
+      ]
+    },
+    "goto_if_unset": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "flag",
+          "type": "flag"
+        },
+        {
+          "name": "dest",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "checkflag $flag",
+        "goto_if FALSE, $dest"
+      ]
+    },
+    "item_vars": {
       "type": "macro",
       "params": [
         {
@@ -12896,56 +12770,15 @@
         },
         {
           "name": "quantity",
-          "type": "u16"
+          "type": "u16",
+          "default": "1"
         }
       ],
       "expansion": [
-        "item_vars $item, $quantity"
-      ]
-    },
-    "takeitem_no_check": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "item",
-          "type": "item"
-        },
-        {
-          "name": "quantity",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "item_vars $item, $quantity"
-      ]
-    },
-    "switch": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "var",
-          "type": "var"
-        }
-      ],
-      "expansion": [
-        "copyvar VAR_SPECIAL_x8008, $var"
-      ]
-    },
-    "case": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "value",
-          "type": "u16"
-        },
-        {
-          "name": "target",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "compare VAR_SPECIAL_x8008, $value",
-        "goto_if eq, $target"
+        "setvar VAR_SPECIAL_x8004, $item",
+        "copyvar VAR_SPECIAL_x8004, $item",
+        "setvar VAR_SPECIAL_x8005, $quantity",
+        "copyvar VAR_SPECIAL_x8005, $quantity"
       ]
     },
     "phone_call": {
@@ -12980,6 +12813,34 @@
       ],
       "expansion": [
         "npc_msg $msgid"
+      ]
+    },
+    "switch": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "var",
+          "type": "var"
+        }
+      ],
+      "expansion": [
+        "copyvar VAR_SPECIAL_x8008, $var"
+      ]
+    },
+    "takeitem_no_check": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "item",
+          "type": "item"
+        },
+        {
+          "name": "quantity",
+          "type": "u16"
+        }
+      ],
+      "expansion": [
+        "item_vars $item, $quantity"
       ]
     }
   },

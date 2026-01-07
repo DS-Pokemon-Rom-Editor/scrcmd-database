@@ -46,9 +46,14 @@ def map_semantic_type(legacy_type: str, size: int) -> str:
 
 
 def is_placeholder_name(name: str) -> bool:
-    """Check if a name is a placeholder (like ScrCmd_21D, scrcmd_465)."""
+    """Check if a name is a placeholder (like ScrCmd_21D, scrcmd_465, or contains Unused)."""
     if not name:
         return True
+    
+    # Check for "Unused" in name
+    if "unused" in name.lower():
+        return True
+
     # Match patterns like ScrCmd_XXX, scrcmd_XXX, Dummy_XXX
     return bool(re.match(r'^(ScrCmd_|scrcmd_|Dummy)\w+$', name, re.IGNORECASE))
 

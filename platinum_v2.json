@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "Platinum",
-    "generated_at": "2026-01-06T18:54:17.831885+00:00",
+    "generated_at": "2026-01-07T15:16:03.029882+00:00",
     "generated_from": "platinum_scrcmd_database.json"
   },
   "commands": {
@@ -652,7 +652,7 @@
         }
       ]
     },
-    "CMD_47": {
+    "MessageSynchronized": {
       "type": "script_cmd",
       "id": 47,
       "legacy_name": "CMD_47",
@@ -722,11 +722,13 @@
         },
         {
           "name": "icon",
-          "type": "u16"
+          "type": "u16",
+          "default": "0"
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "u16",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -738,11 +740,13 @@
       "params": [
         {
           "name": "type",
-          "type": "u8"
+          "type": "u8",
+          "default": "SIGNPOST_TYPE_SCROLLING"
         },
         {
           "name": "icon",
-          "type": "u16"
+          "type": "u16",
+          "default": "0"
         }
       ]
     },
@@ -777,7 +781,8 @@
         },
         {
           "name": "variable",
-          "type": "u16"
+          "type": "u16",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -789,7 +794,8 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -871,7 +877,8 @@
         },
         {
           "name": "cancel",
-          "type": "u8"
+          "type": "u8",
+          "default": "TRUE"
         },
         {
           "name": "selection",
@@ -899,7 +906,8 @@
         },
         {
           "name": "cancel",
-          "type": "u8"
+          "type": "u8",
+          "default": "TRUE"
         },
         {
           "name": "selection",
@@ -950,7 +958,8 @@
         },
         {
           "name": "cancel",
-          "type": "u8"
+          "type": "u8",
+          "default": "TRUE"
         },
         {
           "name": "selection",
@@ -978,7 +987,8 @@
         },
         {
           "name": "cancel",
-          "type": "u8"
+          "type": "u8",
+          "default": "TRUE"
         },
         {
           "name": "selection",
@@ -998,7 +1008,8 @@
         },
         {
           "name": "highlight_msg",
-          "type": "u16"
+          "type": "u16",
+          "default": "LIST_MENU_ENTRY_NO_ALT_TEXT"
         },
         {
           "name": "list_slot",
@@ -1073,7 +1084,8 @@
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "u16",
+          "default": "0"
         }
       ]
     },
@@ -1190,7 +1202,7 @@
         }
       ]
     },
-    "PlayFieldBGM": {
+    "SetBGM": {
       "type": "script_cmd",
       "id": 87,
       "legacy_name": "PlayFieldBGM",
@@ -1410,7 +1422,7 @@
         }
       ]
     },
-    "CMD_107": {
+    "MoveCamera": {
       "type": "script_cmd",
       "id": 107,
       "legacy_name": "CMD_107",
@@ -1731,7 +1743,7 @@
       "description": "Nothing",
       "params": []
     },
-    "GiveGoods": {
+    "SendGoodToPC": {
       "type": "script_cmd",
       "id": 131,
       "legacy_name": "GiveGoods",
@@ -1771,7 +1783,7 @@
         }
       ]
     },
-    "CheckGoodsSpace": {
+    "CheckHasRoomForGoodsInPC": {
       "type": "script_cmd",
       "id": 133,
       "legacy_name": "CheckGoodsSpace",
@@ -2195,7 +2207,7 @@
         }
       ]
     },
-    "CMD_155": {
+    "GetRematchTrainerID": {
       "type": "script_cmd",
       "id": 155,
       "legacy_name": "CMD_155",
@@ -2345,7 +2357,7 @@
       "description": "Opens the capsule editor screen",
       "params": []
     },
-    "WorldMapScreen": {
+    "OpenRegionMap": {
       "type": "script_cmd",
       "id": 170,
       "legacy_name": "WorldMapScreen",
@@ -2406,7 +2418,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_178": {
+    "TryStartGTSApp": {
       "type": "script_cmd",
       "id": 178,
       "legacy_name": "CMD_178",
@@ -2460,7 +2472,7 @@
         }
       ]
     },
-    "CMD_183": {
+    "CheckIsApproachingTrainerTaskDone": {
       "type": "script_cmd",
       "id": 183,
       "legacy_name": "CMD_183",
@@ -2488,7 +2500,7 @@
         }
       ]
     },
-    "CMD_185": {
+    "GetApproachingTrainerID": {
       "type": "script_cmd",
       "id": 185,
       "legacy_name": "CMD_185",
@@ -2627,7 +2639,7 @@
         }
       ]
     },
-    "FlyAnimation": {
+    "UseFly": {
       "type": "script_cmd",
       "id": 194,
       "legacy_name": "FlyAnimation",
@@ -2927,7 +2939,7 @@
         }
       ]
     },
-    "TextPlayerTrainerType": {
+    "BufferTrainerClassFromAppearance": {
       "type": "script_cmd",
       "id": 217,
       "legacy_name": "TextPlayerTrainerType",
@@ -3059,7 +3071,7 @@
         }
       ]
     },
-    "TextMapName": {
+    "BufferMapName": {
       "type": "script_cmd",
       "id": 226,
       "legacy_name": "TextMapName",
@@ -3115,7 +3127,8 @@
         },
         {
           "name": "trainer_2",
-          "type": "u16"
+          "type": "u16",
+          "default": "0"
         }
       ]
     },
@@ -3249,14 +3262,14 @@
       "description": "Starts a battle against trainer with ID 1",
       "params": []
     },
-    "ScrCmd_0F0": {
+    "SetTargetTrainerDefeated": {
       "type": "script_cmd",
       "id": 240,
       "legacy_name": "DummyTrainerFlag",
       "description": "Sets the trainer flag with the same ID as the invoking event",
       "params": []
     },
-    "ScrCmd_0F1": {
+    "GoToIfTargetTrainerDefeated": {
       "type": "script_cmd",
       "id": 241,
       "legacy_name": "DummyTrainerFlagJump",
@@ -3786,7 +3799,7 @@
         }
       ]
     },
-    "SetWarpData": {
+    "SetSpecialLocation": {
       "type": "script_cmd",
       "id": 283,
       "legacy_name": "SetWarpData",
@@ -3850,7 +3863,7 @@
         }
       ]
     },
-    "CountSinnohDexSeen": {
+    "GetLocalDexSeenCount": {
       "type": "script_cmd",
       "id": 286,
       "legacy_name": "CountSinnohDexSeen",
@@ -3874,7 +3887,7 @@
         }
       ]
     },
-    "CountNationalDexSeen": {
+    "GetNationalDexSeenCount": {
       "type": "script_cmd",
       "id": 288,
       "legacy_name": "CountNationalDexSeen",
@@ -3886,7 +3899,7 @@
         }
       ]
     },
-    "CountNationalDexObtained": {
+    "GetNationalDexCaughtCount": {
       "type": "script_cmd",
       "id": 289,
       "legacy_name": "CountNationalDexObtained",
@@ -3905,7 +3918,7 @@
       "description": "Nothing",
       "params": []
     },
-    "GetDexProgressMsg": {
+    "LoadPokedexRating": {
       "type": "script_cmd",
       "id": 291,
       "legacy_name": "GetDexProgressMsg",
@@ -4123,7 +4136,7 @@
         }
       ]
     },
-    "CMD_310": {
+    "ClearReceivedTempDataAllPlayers": {
       "type": "script_cmd",
       "id": 310,
       "legacy_name": "CMD_310",
@@ -4317,7 +4330,8 @@
       "params": [
         {
           "name": "unused",
-          "type": "u16"
+          "type": "u16",
+          "default": "1"
         }
       ]
     },
@@ -4357,7 +4371,7 @@
         }
       ]
     },
-    "ScrCmd_14B": {
+    "BlackOutFromBattle2": {
       "type": "script_cmd",
       "id": 331,
       "legacy_name": "DummyLostBattle",
@@ -4402,7 +4416,7 @@
       "description": "Nothing",
       "params": []
     },
-    "CMD_336": {
+    "EndCommunication": {
       "type": "script_cmd",
       "id": 336,
       "legacy_name": "CMD_336",
@@ -4638,7 +4652,7 @@
       "description": "Activates the completed game flag",
       "params": []
     },
-    "DoorAnimation": {
+    "LoadDoorAnimation": {
       "type": "script_cmd",
       "id": 360,
       "legacy_name": "DoorAnimation",
@@ -4666,7 +4680,7 @@
         }
       ]
     },
-    "WaitDoor": {
+    "WaitForAnimation": {
       "type": "script_cmd",
       "id": 361,
       "legacy_name": "WaitDoor",
@@ -4678,7 +4692,7 @@
         }
       ]
     },
-    "FreeDoor": {
+    "UnloadAnimation": {
       "type": "script_cmd",
       "id": 362,
       "legacy_name": "FreeDoor",
@@ -4690,7 +4704,7 @@
         }
       ]
     },
-    "OpenDoor": {
+    "PlayDoorOpenAnimation": {
       "type": "script_cmd",
       "id": 363,
       "legacy_name": "OpenDoor",
@@ -4702,7 +4716,7 @@
         }
       ]
     },
-    "CloseDoor": {
+    "PlayDoorCloseAnimation": {
       "type": "script_cmd",
       "id": 364,
       "legacy_name": "CloseDoor",
@@ -4740,7 +4754,7 @@
       "description": "Initializes Pastoria Gym internal data and 3D model animations",
       "params": []
     },
-    "PastoriaGymButton": {
+    "PressPastoriaGymButton": {
       "type": "script_cmd",
       "id": 368,
       "legacy_name": "PastoriaGymButton",
@@ -4787,7 +4801,7 @@
         }
       ]
     },
-    "SunyshoreGymGear": {
+    "SunyshoreGymButton": {
       "type": "script_cmd",
       "id": 374,
       "legacy_name": "SunyshoreGymGear",
@@ -4811,7 +4825,7 @@
         }
       ]
     },
-    "BagScreen": {
+    "OpenBag": {
       "type": "script_cmd",
       "id": 376,
       "legacy_name": "BagScreen",
@@ -4823,7 +4837,7 @@
         }
       ]
     },
-    "GetBagSelection": {
+    "GetSelectedItem": {
       "type": "script_cmd",
       "id": 377,
       "legacy_name": "GetBagSelection",
@@ -4835,7 +4849,7 @@
         }
       ]
     },
-    "CheckPocketItems": {
+    "CheckPocketHasItems": {
       "type": "script_cmd",
       "id": 378,
       "legacy_name": "CheckPocketItems",
@@ -4851,7 +4865,7 @@
         }
       ]
     },
-    "TextBerry": {
+    "BufferBerryName": {
       "type": "script_cmd",
       "id": 379,
       "legacy_name": "TextBerry",
@@ -4867,11 +4881,12 @@
         },
         {
           "name": "number",
-          "type": "u16"
+          "type": "u16",
+          "default": "VAR_0x8001"
         }
       ]
     },
-    "TextNature": {
+    "BufferNatureName": {
       "type": "script_cmd",
       "id": 380,
       "legacy_name": "TextNature",
@@ -4887,7 +4902,7 @@
         }
       ]
     },
-    "GetBerryGrowth": {
+    "GetBerryGrowthStage": {
       "type": "script_cmd",
       "id": 381,
       "legacy_name": "GetBerryGrowth",
@@ -4899,7 +4914,7 @@
         }
       ]
     },
-    "GetBerrySpecies": {
+    "GetBerryItemID": {
       "type": "script_cmd",
       "id": 382,
       "legacy_name": "GetBerrySpecies",
@@ -4911,7 +4926,7 @@
         }
       ]
     },
-    "GetBerryMulch": {
+    "GetBerryMulchType": {
       "type": "script_cmd",
       "id": 383,
       "legacy_name": "GetBerryMulch",
@@ -4923,7 +4938,7 @@
         }
       ]
     },
-    "GetBerryDryness": {
+    "GetBerryMoisture": {
       "type": "script_cmd",
       "id": 384,
       "legacy_name": "GetBerryDryness",
@@ -4935,7 +4950,7 @@
         }
       ]
     },
-    "CheckBerryAmount": {
+    "GetBerryYield": {
       "type": "script_cmd",
       "id": 385,
       "legacy_name": "CheckBerryAmount",
@@ -4959,7 +4974,7 @@
         }
       ]
     },
-    "SetBerrySpecies": {
+    "PlantBerry": {
       "type": "script_cmd",
       "id": 387,
       "legacy_name": "SetBerrySpecies",
@@ -4971,7 +4986,7 @@
         }
       ]
     },
-    "WateringAnimation": {
+    "SetBerryWateringState": {
       "type": "script_cmd",
       "id": 388,
       "legacy_name": "WateringAnimation",
@@ -4983,7 +4998,7 @@
         }
       ]
     },
-    "HarvestBerries": {
+    "HarvestBerry": {
       "type": "script_cmd",
       "id": 389,
       "legacy_name": "HarvestBerries",
@@ -5010,7 +5025,7 @@
         }
       ]
     },
-    "SetOWPosition": {
+    "SetPosition": {
       "type": "script_cmd",
       "id": 391,
       "legacy_name": "SetOWPosition",
@@ -5126,14 +5141,14 @@
         }
       ]
     },
-    "CMD_397": {
+    "ShowSavingIcon": {
       "type": "script_cmd",
       "id": 397,
       "legacy_name": "CMD_397",
       "description": "nan",
       "params": []
     },
-    "CMD_398": {
+    "HideSavingIcon": {
       "type": "script_cmd",
       "id": 398,
       "legacy_name": "CMD_398",
@@ -5164,14 +5179,14 @@
         }
       ]
     },
-    "PokemonSelectionScreen": {
+    "SelectMoveTutorPokemon": {
       "type": "script_cmd",
       "id": 401,
       "legacy_name": "PokemonSelectionScreen",
       "description": "Calls the Pok\u00e9mon selection screen",
       "params": []
     },
-    "CMD_402": {
+    "OpenPartyMenuForUnionRoomBattle": {
       "type": "script_cmd",
       "id": 402,
       "legacy_name": "CMD_402",
@@ -5270,7 +5285,7 @@
         }
       ]
     },
-    "CheckTradedPokemon": {
+    "CheckIsPartyMonOutsider": {
       "type": "script_cmd",
       "id": 409,
       "legacy_name": "CheckTradedPokemon",
@@ -5286,7 +5301,7 @@
         }
       ]
     },
-    "GetPartyCountHatched": {
+    "CountPartyNonEggs": {
       "type": "script_cmd",
       "id": 410,
       "legacy_name": "CountPartyBornPokemon",
@@ -5314,7 +5329,7 @@
         }
       ]
     },
-    "CountTotalAlivePokemon": {
+    "CountAliveMonsAndBoxMons": {
       "type": "script_cmd",
       "id": 412,
       "legacy_name": "CountTotalAlivePokemon",
@@ -5572,7 +5587,7 @@
         }
       ]
     },
-    "UnvanishOverworld": {
+    "ShowObject": {
       "type": "script_cmd",
       "id": 433,
       "legacy_name": "UnvanishOverworld",
@@ -5584,7 +5599,7 @@
         }
       ]
     },
-    "VanishOverworld": {
+    "HideObject": {
       "type": "script_cmd",
       "id": 434,
       "legacy_name": "VanishOverworld",
@@ -5687,7 +5702,7 @@
         }
       ]
     },
-    "AddHappiness": {
+    "IncreasePartyMonFriendship": {
       "type": "script_cmd",
       "id": 442,
       "legacy_name": "AddHappiness",
@@ -5910,7 +5925,7 @@
         }
       ]
     },
-    "DeleteMove": {
+    "ClearPartyMonMoveSlot": {
       "type": "script_cmd",
       "id": 457,
       "legacy_name": "DeleteMove",
@@ -5946,7 +5961,7 @@
         }
       ]
     },
-    "TextPartyPokemonMove": {
+    "BufferPartyMoveName": {
       "type": "script_cmd",
       "id": 459,
       "legacy_name": "TextPartyPokemonMove",
@@ -6258,14 +6273,14 @@
         }
       ]
     },
-    "CMD_474": {
+    "SetBattleTowerNull": {
       "type": "script_cmd",
       "id": 474,
       "legacy_name": "CMD_474",
       "description": "nan",
       "params": []
     },
-    "CMD_475": {
+    "InitBattleTower": {
       "type": "script_cmd",
       "id": 475,
       "legacy_name": "CMD_475",
@@ -6281,14 +6296,14 @@
         }
       ]
     },
-    "CMD_476": {
+    "FreeBattleTower": {
       "type": "script_cmd",
       "id": 476,
       "legacy_name": "CMD_476",
       "description": "nan",
       "params": []
     },
-    "CMD_477": {
+    "CallBattleTowerFunction": {
       "type": "script_cmd",
       "id": 477,
       "legacy_name": "CMD_477",
@@ -6308,7 +6323,7 @@
         }
       ]
     },
-    "CMD_478": {
+    "GetBattleTowerPartnerSpeciesAndMove": {
       "type": "script_cmd",
       "id": 478,
       "legacy_name": "CMD_478",
@@ -6500,14 +6515,14 @@
         }
       ]
     },
-    "RegisterSinnohPokedex": {
+    "ShowDiplomaSinnoh": {
       "type": "script_cmd",
       "id": 490,
       "legacy_name": "RegisterSinnohPokedex",
       "description": "nan",
       "params": []
     },
-    "RegisterNationalPokedex": {
+    "ShowDiplomaNationalDex": {
       "type": "script_cmd",
       "id": 491,
       "legacy_name": "RegisterNationalPokedex",
@@ -6599,7 +6614,7 @@
       "description": "Does absolutely nothing.",
       "params": []
     },
-    "GetPokeNameFromFossil": {
+    "GetSpeciesFromFossil": {
       "type": "script_cmd",
       "id": 500,
       "legacy_name": "GetPokeNameFromFossil",
@@ -6615,7 +6630,7 @@
         }
       ]
     },
-    "CheckFossil": {
+    "FindFossilAtThreshold": {
       "type": "script_cmd",
       "id": 501,
       "legacy_name": "CheckFossil",
@@ -6635,7 +6650,7 @@
         }
       ]
     },
-    "CountPokemonUnderLevel": {
+    "CountPartyMonsBelowLevelThreshold": {
       "type": "script_cmd",
       "id": 502,
       "legacy_name": "CountPokemonUnderLevel",
@@ -6667,7 +6682,7 @@
         }
       ]
     },
-    "FinishOverworldScreen": {
+    "WaitForTransition": {
       "type": "script_cmd",
       "id": 504,
       "legacy_name": "FinishOverworldScreen",
@@ -6686,7 +6701,7 @@
         }
       ]
     },
-    "MessageAllFromArchive": {
+    "MessageFromBankInstant": {
       "type": "script_cmd",
       "id": 506,
       "legacy_name": "MessageAllFromArchive",
@@ -6702,7 +6717,7 @@
         }
       ]
     },
-    "MessageFromArchive": {
+    "MessageFromBank": {
       "type": "script_cmd",
       "id": 507,
       "legacy_name": "MessageFromArchive",
@@ -6718,7 +6733,7 @@
         }
       ]
     },
-    "CMD_508": {
+    "SentenceInstant": {
       "type": "script_cmd",
       "id": 508,
       "legacy_name": "CMD_508",
@@ -6742,7 +6757,7 @@
         }
       ]
     },
-    "CMD_509": {
+    "Sentence": {
       "type": "script_cmd",
       "id": 509,
       "legacy_name": "CMD_509",
@@ -6766,7 +6781,7 @@
         }
       ]
     },
-    "CMD_510": {
+    "PrintBattleTowerIntroMessage": {
       "type": "script_cmd",
       "id": 510,
       "legacy_name": "CMD_510",
@@ -6778,7 +6793,7 @@
         }
       ]
     },
-    "CMD_511": {
+    "MessageSeenBanlistSpecies": {
       "type": "script_cmd",
       "id": 511,
       "legacy_name": "CMD_511",
@@ -6826,7 +6841,7 @@
         }
       ]
     },
-    "SetSafariFlag": {
+    "StartEndSafariGame": {
       "type": "script_cmd",
       "id": 514,
       "legacy_name": "SetSafariFlag",
@@ -6887,7 +6902,7 @@
       "description": "Brings up the view of the Great Marsh and the daily Pokemon as seen from the viewing platform.",
       "params": []
     },
-    "CMD_519": {
+    "GetCurNetID": {
       "type": "script_cmd",
       "id": 519,
       "legacy_name": "CMD_519",
@@ -6941,7 +6956,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_524": {
+    "MessageFromTrainerType": {
       "type": "script_cmd",
       "id": 524,
       "legacy_name": "CMD_524",
@@ -6964,14 +6979,14 @@
         }
       ]
     },
-    "InitPersistedMapFeaturesForGreatMarsh": {
+    "InitGreatMarshTram": {
       "type": "script_cmd",
       "id": 526,
       "legacy_name": "KeepSafariTrain",
       "description": "Sets the safari train in the same sector where it was the last time it was moved",
       "params": []
     },
-    "SafariTrainAnimation": {
+    "MoveGreatMarshTram": {
       "type": "script_cmd",
       "id": 527,
       "legacy_name": "SafariTrainAnimation",
@@ -6987,7 +7002,7 @@
         }
       ]
     },
-    "CheckSafariTrainMovement": {
+    "CheckGreatMarshTramLocation": {
       "type": "script_cmd",
       "id": 528,
       "legacy_name": "CheckSafariTrainMovement",
@@ -7015,7 +7030,7 @@
         }
       ]
     },
-    "GetPokemonNature": {
+    "GetPartyMonNature": {
       "type": "script_cmd",
       "id": 530,
       "legacy_name": "GetPokemonNature",
@@ -7031,7 +7046,7 @@
         }
       ]
     },
-    "CheckPartyNature": {
+    "FindPartySlotWithNature": {
       "type": "script_cmd",
       "id": 531,
       "legacy_name": "CheckPartyNature",
@@ -7274,7 +7289,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_543": {
+    "CheckHasLearnableReminderMoves": {
       "type": "script_cmd",
       "id": 543,
       "legacy_name": "CMD_543",
@@ -7297,7 +7312,7 @@
       "description": "nan",
       "params": []
     },
-    "RememberMoveScreen": {
+    "OpenMoveReminderMenu": {
       "type": "script_cmd",
       "id": 545,
       "legacy_name": "RememberMoveScreen",
@@ -7316,7 +7331,7 @@
       "description": "Empty code.",
       "params": []
     },
-    "ResponseRememberMove": {
+    "CheckLearnedReminderMove": {
       "type": "script_cmd",
       "id": 547,
       "legacy_name": "ResponseRememberMove",
@@ -7328,7 +7343,7 @@
         }
       ]
     },
-    "TeachMoveScreen": {
+    "OpenMoveTutorMenu": {
       "type": "script_cmd",
       "id": 548,
       "legacy_name": "TeachMoveScreen",
@@ -7344,7 +7359,7 @@
         }
       ]
     },
-    "ResponseTeachMove": {
+    "CheckLearnedTutorMove": {
       "type": "script_cmd",
       "id": 549,
       "legacy_name": "ResponseTeachMove",
@@ -7505,7 +7520,7 @@
         }
       ]
     },
-    "TextRibbon": {
+    "BufferRibbonName": {
       "type": "script_cmd",
       "id": 562,
       "legacy_name": "TextRibbon",
@@ -7521,7 +7536,7 @@
         }
       ]
     },
-    "CountPokemonEVs": {
+    "GetPartyMonEVTotal": {
       "type": "script_cmd",
       "id": 563,
       "legacy_name": "CountPokemonEVs",
@@ -7684,7 +7699,7 @@
         }
       ]
     },
-    "CMD_567": {
+    "CallTVInterview": {
       "type": "script_cmd",
       "id": 567,
       "legacy_name": "CMD_567",
@@ -7708,7 +7723,7 @@
         }
       ]
     },
-    "CMD_568": {
+    "CheckTVInterviewEligible": {
       "type": "script_cmd",
       "id": 568,
       "legacy_name": "CMD_568",
@@ -7756,7 +7771,7 @@
         }
       ]
     },
-    "PCHealAnimation": {
+    "PlayPokecenterHealingAnimation": {
       "type": "script_cmd",
       "id": 571,
       "legacy_name": "PCHealAnimation",
@@ -7768,7 +7783,7 @@
         }
       ]
     },
-    "ElevatorAnimation": {
+    "PlayElevatorAnimation": {
       "type": "script_cmd",
       "id": 572,
       "legacy_name": "ElevatorAnimation",
@@ -7784,7 +7799,7 @@
         }
       ]
     },
-    "ShipAnimation": {
+    "PlayBoatCutscene": {
       "type": "script_cmd",
       "id": 573,
       "legacy_name": "ShipAnimation",
@@ -8026,7 +8041,7 @@
         }
       ]
     },
-    "CheckVersion": {
+    "GetGameVersion": {
       "type": "script_cmd",
       "id": 582,
       "legacy_name": "CheckVersion",
@@ -8050,7 +8065,7 @@
         }
       ]
     },
-    "GetPartyPokemonTypes": {
+    "GetPartyMonType": {
       "type": "script_cmd",
       "id": 584,
       "legacy_name": "GetPartyPokemonTypes",
@@ -8229,7 +8244,7 @@
         }
       ]
     },
-    "CheckHasEnoughMonForCatchingShow": {
+    "GoToIfNotEnoughMonForCatchingShow": {
       "type": "script_cmd",
       "id": 596,
       "legacy_name": "CMD_596",
@@ -8337,7 +8352,7 @@
       "description": "Waits for the Galactic Labs machines to complete their animations, then shuts them all down.",
       "params": []
     },
-    "CMD_608": {
+    "IncrementTrainerScore2": {
       "type": "script_cmd",
       "id": 608,
       "legacy_name": "CMD_608",
@@ -8546,7 +8561,7 @@
       "description": "Resets the underground talking counter to zero",
       "params": []
     },
-    "SetHiddenLocation": {
+    "EnableHiddenLocation": {
       "type": "script_cmd",
       "id": 624,
       "legacy_name": "SetMatrixAlternativeMap",
@@ -8574,7 +8589,7 @@
         }
       ]
     },
-    "TextStoneName": {
+    "BufferTabletName": {
       "type": "script_cmd",
       "id": 626,
       "legacy_name": "TextStoneName",
@@ -8649,7 +8664,7 @@
         }
       ]
     },
-    "CMD_632": {
+    "GetPartyMonLevel": {
       "type": "script_cmd",
       "id": 632,
       "legacy_name": "CMD_632",
@@ -8751,7 +8766,7 @@
         }
       ]
     },
-    "TextNumberSp": {
+    "BufferVarPaddingDigits": {
       "type": "script_cmd",
       "id": 640,
       "legacy_name": "TextNumberSp",
@@ -8775,7 +8790,7 @@
         }
       ]
     },
-    "CMD_641": {
+    "GetPartyMonContestStat": {
       "type": "script_cmd",
       "id": 641,
       "legacy_name": "CMD_641",
@@ -8795,7 +8810,7 @@
         }
       ]
     },
-    "CheckBirthday": {
+    "CheckIsTodayPlayerBirthday": {
       "type": "script_cmd",
       "id": 642,
       "legacy_name": "CheckBirthday",
@@ -8835,7 +8850,7 @@
         }
       ]
     },
-    "CMD_645": {
+    "InitTurnbackCave": {
       "type": "script_cmd",
       "id": 645,
       "legacy_name": "CMD_645",
@@ -8887,7 +8902,7 @@
         }
       ]
     },
-    "CMD_649": {
+    "GivePoffin": {
       "type": "script_cmd",
       "id": 649,
       "legacy_name": "CMD_649",
@@ -8923,7 +8938,7 @@
         }
       ]
     },
-    "CMD_650": {
+    "CheckHasEmptyPoffinCaseSlot": {
       "type": "script_cmd",
       "id": 650,
       "legacy_name": "CMD_650",
@@ -8994,7 +9009,7 @@
         }
       ]
     },
-    "CMD_656": {
+    "OpenPartyMenuForDaycare": {
       "type": "script_cmd",
       "id": 656,
       "legacy_name": "CMD_656",
@@ -9256,7 +9271,7 @@
         }
       ]
     },
-    "TrySetUnusedUndergroundField": {
+    "CMD_674": {
       "type": "script_cmd",
       "id": 674,
       "legacy_name": "CMD_674",
@@ -9292,7 +9307,7 @@
         }
       ]
     },
-    "PartyPokemonTradeScreen": {
+    "OpenPartyMenuForTrade": {
       "type": "script_cmd",
       "id": 677,
       "legacy_name": "PartyPokemonTradeScreen",
@@ -9410,7 +9425,7 @@
       "description": "Shows Mystery Gift option in Start Menu.",
       "params": []
     },
-    "GetOWMovement": {
+    "GetMovementType": {
       "type": "script_cmd",
       "id": 685,
       "legacy_name": "GetOWMovement",
@@ -9475,7 +9490,7 @@
       "description": "nan",
       "params": []
     },
-    "TextSeal": {
+    "BufferBallSealName": {
       "type": "script_cmd",
       "id": 691,
       "legacy_name": "TextSeal",
@@ -9534,7 +9549,7 @@
         }
       ]
     },
-    "CMD_695": {
+    "CheckPartyHasBadEgg": {
       "type": "script_cmd",
       "id": 695,
       "legacy_name": "CMD_695",
@@ -9612,7 +9627,7 @@
         }
       ]
     },
-    "CheckTrainerCardLevel": {
+    "GetTrainerCardLevel": {
       "type": "script_cmd",
       "id": 702,
       "legacy_name": "CheckTrainerCardLevel",
@@ -9631,7 +9646,7 @@
       "description": "Nothing",
       "params": []
     },
-    "CMD_704": {
+    "MessageAutoScroll": {
       "type": "script_cmd",
       "id": 704,
       "legacy_name": "CMD_704",
@@ -9643,14 +9658,14 @@
         }
       ]
     },
-    "ShowSaveBox": {
+    "OpenSaveInfo": {
       "type": "script_cmd",
       "id": 705,
       "legacy_name": "ShowSaveBox",
       "description": "Displays the save data box (current map name, player's name, the amount of badges, the Pok\u00e9dex counter and the play time)",
       "params": []
     },
-    "HideSaveBox": {
+    "CloseSaveInfo": {
       "type": "script_cmd",
       "id": 706,
       "legacy_name": "HideSaveBox",
@@ -9743,7 +9758,7 @@
       "description": "Initializes Eterna Gym internal data and 3D model animations",
       "params": []
     },
-    "EternaGymClockAnim": {
+    "AdvanceEternaGymClock": {
       "type": "script_cmd",
       "id": 714,
       "legacy_name": "EternaGymClockAnim",
@@ -9916,14 +9931,14 @@
         }
       ]
     },
-    "CMD_726": {
+    "SaveExtraData": {
       "type": "script_cmd",
       "id": 726,
       "legacy_name": "CMD_726",
       "description": "nan",
       "params": []
     },
-    "CMD_727": {
+    "CheckIsMiscSaveInit": {
       "type": "script_cmd",
       "id": 727,
       "legacy_name": "CMD_727",
@@ -10075,7 +10090,7 @@
         }
       ]
     },
-    "CheckAmitySquareManGiftIsAccesory": {
+    "GoToIfAmitySquareManGiftIsNotAccesory": {
       "type": "script_cmd",
       "id": 736,
       "legacy_name": "CMD_736",
@@ -10312,7 +10327,7 @@
         }
       ]
     },
-    "CMD_751": {
+    "BufferStatName": {
       "type": "script_cmd",
       "id": 751,
       "legacy_name": "CMD_751",
@@ -10358,7 +10373,7 @@
       "description": "Initializes Distortion World internal data and 3D model animations",
       "params": []
     },
-    "CMD_755": {
+    "BufferTrainerName": {
       "type": "script_cmd",
       "id": 755,
       "legacy_name": "CMD_755",
@@ -10398,7 +10413,7 @@
         }
       ]
     },
-    "BufferNumberPaddingDigits": {
+    "BufferValuePaddingDigits": {
       "type": "script_cmd",
       "id": 757,
       "legacy_name": "CMD_757",
@@ -10504,7 +10519,7 @@
         }
       ]
     },
-    "CMD_765": {
+    "BufferTypeName": {
       "type": "script_cmd",
       "id": 765,
       "legacy_name": "CMD_765",
@@ -10679,7 +10694,7 @@
         }
       ]
     },
-    "CMD_775": {
+    "GetEmptyPoffinCaseSlotCount": {
       "type": "script_cmd",
       "id": 775,
       "legacy_name": "CMD_775",
@@ -10811,7 +10826,7 @@
         }
       ]
     },
-    "CMD_787": {
+    "CheckHeapMemory": {
       "type": "script_cmd",
       "id": 787,
       "legacy_name": "CMD_787",
@@ -10823,7 +10838,7 @@
         }
       ]
     },
-    "GetBattleOutcome": {
+    "GetBattleResult": {
       "type": "script_cmd",
       "id": 788,
       "legacy_name": "GetBattleOutcome",
@@ -10918,7 +10933,7 @@
         }
       ]
     },
-    "CMD_795": {
+    "GetCurrentSafariGameCaughtNum": {
       "type": "script_cmd",
       "id": 795,
       "legacy_name": "CMD_795",
@@ -10930,7 +10945,7 @@
         }
       ]
     },
-    "CheckPartyHasFatefulEncounter": {
+    "FindPartySlotWithFatefulEncounterSpecies": {
       "type": "script_cmd",
       "id": 796,
       "legacy_name": "CMD_796",
@@ -10958,7 +10973,7 @@
         }
       ]
     },
-    "CMD_798": {
+    "TryRevertPokemonForm": {
       "type": "script_cmd",
       "id": 798,
       "legacy_name": "CMD_798",
@@ -11201,7 +11216,7 @@
         }
       ]
     },
-    "CMD_816": {
+    "LogLinkInfoInWiFiHistory": {
       "type": "script_cmd",
       "id": 816,
       "legacy_name": "CMD_816",
@@ -11308,15 +11323,14 @@
       "description": "nan",
       "params": []
     },
-    "SetMenuYOriginSide": {
+    "SetMenuXOriginSide": {
       "type": "script_cmd",
       "id": 826,
-      "legacy_name": "CMD_826",
-      "description": "nan",
+      "description": "Imported from decomp: SetMenuXOriginSide",
       "params": [
         {
-          "name": "???",
-          "type": "u8"
+          "name": "rightSide",
+          "type": "u16"
         }
       ]
     },
@@ -11332,7 +11346,19 @@
         }
       ]
     },
-    "TextItemLowercase": {
+    "SetMenuYOriginSide": {
+      "type": "script_cmd",
+      "id": 827,
+      "legacy_name": "CMD_827",
+      "description": "nan",
+      "params": [
+        {
+          "name": "???",
+          "type": "u8"
+        }
+      ]
+    },
+    "BufferItemNameWithArticle": {
       "type": "script_cmd",
       "id": 828,
       "legacy_name": "TextItemLowercase",
@@ -11364,7 +11390,7 @@
         }
       ]
     },
-    "CMD_830": {
+    "BufferUndergroundGoodsNameWithArticle": {
       "type": "script_cmd",
       "id": 830,
       "legacy_name": "CMD_830",
@@ -11380,7 +11406,7 @@
         }
       ]
     },
-    "CMD_831": {
+    "BufferUndergroundTrapNameWithArticle": {
       "type": "script_cmd",
       "id": 831,
       "legacy_name": "CMD_831",
@@ -11396,7 +11422,7 @@
         }
       ]
     },
-    "CMD_832": {
+    "BufferUndergroundItemNameWithArticle": {
       "type": "script_cmd",
       "id": 832,
       "legacy_name": "CMD_832",
@@ -11412,7 +11438,7 @@
         }
       ]
     },
-    "CMD_833": {
+    "BufferSpeciesNameWithArticle": {
       "type": "script_cmd",
       "id": 833,
       "legacy_name": "CMD_833",
@@ -11448,7 +11474,7 @@
         }
       ]
     },
-    "CMD_835": {
+    "BufferAccessoryNameWithArticle": {
       "type": "script_cmd",
       "id": 835,
       "legacy_name": "CMD_835",
@@ -11464,7 +11490,7 @@
         }
       ]
     },
-    "TextTrainerClass": {
+    "BufferTrainerClassNameWithArticle": {
       "type": "script_cmd",
       "id": 836,
       "legacy_name": "TextTrainerClass",
@@ -11480,7 +11506,7 @@
         }
       ]
     },
-    "TextSealPlural": {
+    "BufferBallSealNamePlural": {
       "type": "script_cmd",
       "id": 837,
       "legacy_name": "TextSealPlural",
@@ -11496,7 +11522,7 @@
         }
       ]
     },
-    "TextCapitalize": {
+    "CapitalizeFirstLetter": {
       "type": "script_cmd",
       "id": 838,
       "legacy_name": "TextCapitalize",
@@ -11508,7 +11534,7 @@
         }
       ]
     },
-    "DisplayFloor": {
+    "BufferFloorNumber": {
       "type": "script_cmd",
       "id": 839,
       "legacy_name": "DisplayFloor",
@@ -12171,6 +12197,13 @@
       "discriminant_size": "u8",
       "params": []
     },
+    "InitScriptFrameTableEnd": {
+      "type": "levelscript_cmd",
+      "id": 0,
+      "description": "Marks the end of the frame table checks. Emits .short 0",
+      "discriminant_size": "u16",
+      "params": []
+    },
     "InitScriptEntry_OnFrameTable": {
       "type": "levelscript_cmd",
       "id": 1,
@@ -12219,77 +12252,6 @@
         }
       ]
     },
-    "InitScriptFrameTableEnd": {
-      "type": "levelscript_cmd",
-      "id": 0,
-      "description": "Marks the end of the frame table checks. Emits .short 0",
-      "discriminant_size": "u16",
-      "params": []
-    },
-    "ShowMapSign": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "messageID",
-          "type": "msg_id"
-        }
-      ],
-      "expansion": [
-        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_MAP",
-        "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
-        "WaitForSignpostDone",
-        "GetSignpostInput VAR_RESULT",
-        "HandleSignpostInput"
-      ]
-    },
-    "ShowArrowSign": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "messageID",
-          "type": "msg_id"
-        }
-      ],
-      "expansion": [
-        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_ARROW",
-        "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
-        "WaitForSignpostDone",
-        "GetSignpostInput VAR_RESULT",
-        "HandleSignpostInput"
-      ]
-    },
-    "ShowLandmarkSign": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "messageID",
-          "type": "msg_id"
-        }
-      ],
-      "expansion": [
-        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_LANDMARK",
-        "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
-        "WaitForSignpostDone",
-        "GetSignpostInput VAR_RESULT",
-        "HandleSignpostInput"
-      ]
-    },
-    "ShowScrollingSign": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "messageID",
-          "type": "msg_id"
-        }
-      ],
-      "expansion": [
-        "DrawSignpostTextBox SIGNPOST_TYPE_SCROLLING",
-        "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
-        "WaitForSignpostDone",
-        "DrawSignpostScrollingMessage $messageID, VAR_RESULT",
-        "HandleSignpostInput"
-      ]
-    },
     "ApplyFreeCameraMovement": {
       "type": "macro",
       "params": [
@@ -12302,12 +12264,23 @@
         "ApplyMovement 241, $movementOffset"
       ]
     },
-    "GoToIfNotEnoughMoney": {
+    "AssertHeapMemory": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CheckHeapMemory TRUE"
+      ]
+    },
+    "CallIfEq": {
       "type": "macro",
       "params": [
         {
-          "name": "value",
-          "type": "u16"
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
         },
         {
           "name": "offset",
@@ -12315,26 +12288,251 @@
         }
       ],
       "expansion": [
-        "CheckMoney VAR_RESULT, $value",
-        "GoToIfEq VAR_RESULT, FALSE, $offset"
+        "CompareVar $varID, $valueOrVarID",
+        "CallIf 1, $offset"
       ]
     },
-    "FadeScreenOut": {
+    "CallIfGe": {
       "type": "macro",
       "params": [
         {
-          "name": "frames",
-          "type": "u16",
-          "default": "FADE_SCREEN_SPEED_FAST"
+          "name": "varID",
+          "type": "var"
         },
         {
-          "name": "color",
-          "type": "u16",
-          "default": "COLOR_BLACK"
+          "name": "valueOrVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
         }
       ],
       "expansion": [
-        "FadeScreen FADE_SCREEN_CMD_STEPS, $frames, FADE_TYPE_BRIGHTNESS_OUT, $color"
+        "CompareVar $varID, $valueOrVarID",
+        "CallIf 4, $offset"
+      ]
+    },
+    "CallIfGt": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CompareVar $varID, $valueOrVarID",
+        "CallIf 2, $offset"
+      ]
+    },
+    "CallIfLe": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CompareVar $varID, $valueOrVarID",
+        "CallIf 3, $offset"
+      ]
+    },
+    "CallIfLt": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CompareVar $varID, $valueOrVarID",
+        "CallIf 0, $offset"
+      ]
+    },
+    "CallIfNe": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CompareVar $varID, $valueOrVarID",
+        "CallIf 5, $offset"
+      ]
+    },
+    "CallIfSet": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "flagID",
+          "type": "flag"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CheckFlag $flagID",
+        "CallIf 1, $offset"
+      ]
+    },
+    "CallIfUnset": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "flagID",
+          "type": "flag"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CheckFlag $flagID",
+        "CallIf 0, $offset"
+      ]
+    },
+    "CallPokecenterNurse": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "nurseLocalID",
+          "type": "u16"
+        }
+      ],
+      "expansion": [
+        "SetVar VAR_0x8007, $nurseLocalID",
+        "CallCommonScript 0x7D2"
+      ]
+    },
+    "CheckAllFrontierGoldPrintsObtained": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x806"
+      ]
+    },
+    "CheckAvailableMysteryGift": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "destVarID",
+          "type": "var"
+        }
+      ],
+      "expansion": [
+        "MysteryGiftGive MYSTERY_GIFT_CHECK_AVAILABLE_PGT, $destVarID"
+      ]
+    },
+    "CheckBagPocketForItem": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7D1"
+      ]
+    },
+    "CheckBroadcastStatus": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "destVar",
+          "type": "var"
+        }
+      ],
+      "expansion": [
+        "CallTVBroadcast TV_BROADCAST_CALL_CHECK_STATUS, $destVar"
+      ]
+    },
+    "CheckCanReceiveMysteryGift": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "destVarID",
+          "type": "var"
+        }
+      ],
+      "expansion": [
+        "MysteryGiftGive MYSTERY_GIFT_CHECK_CAN_RECEIVE, $destVarID"
+      ]
+    },
+    "ClearInCatchingShowFlag": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetClearInCatchingShowFlag 1"
+      ]
+    },
+    "CompareVar": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        }
+      ],
+      "variants": [
+        {
+          "condition": "\\valueOrVarID < VARS_START",
+          "expansion": [
+            "CompareVarToValue $varID, $valueOrVarID"
+          ]
+        },
+        {
+          "condition": "else",
+          "expansion": [
+            "CompareVarToVar $varID, $valueOrVarID"
+          ]
+        }
+      ]
+    },
+    "EndSafariGame": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "StartEndSafariGame SAFARI_GAME_INACTIVE"
       ]
     },
     "FadeScreenIn": {
@@ -12355,19 +12553,72 @@
         "FadeScreen FADE_SCREEN_CMD_STEPS, $frames, FADE_TYPE_BRIGHTNESS_IN, $color"
       ]
     },
-    "LoadLocalDexRating": {
+    "FadeScreenOut": {
       "type": "macro",
       "params": [
         {
-          "name": "destVar",
-          "type": "var"
+          "name": "frames",
+          "type": "u16",
+          "default": "FADE_SCREEN_SPEED_FAST"
+        },
+        {
+          "name": "color",
+          "type": "u16",
+          "default": "COLOR_BLACK"
         }
       ],
       "expansion": [
-        "LoadPokedexRating FALSE, $destVar"
+        "FadeScreen FADE_SCREEN_CMD_STEPS, $frames, FADE_TYPE_BRIGHTNESS_OUT, $color"
       ]
     },
-    "LoadNationalDexRating": {
+    "FadeToDefaultMusic": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7F9"
+      ]
+    },
+    "FadeToDefaultMusic2": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FB"
+      ]
+    },
+    "FadeToDefaultMusic3": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x801"
+      ]
+    },
+    "FadeToDefaultMusic4": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x808"
+      ]
+    },
+    "FinishTVProgram": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallTVBroadcast TV_BROADCAST_CALL_FINISH_PROGRAM"
+      ]
+    },
+    "GetMysteryGiftType": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "destVarID",
+          "type": "var"
+        }
+      ],
+      "expansion": [
+        "MysteryGiftGive MYSTERY_GIFT_GET_PGT_TYPE, $destVarID"
+      ]
+    },
+    "GetNationalDexEnabled": {
       "type": "macro",
       "params": [
         {
@@ -12376,7 +12627,61 @@
         }
       ],
       "expansion": [
-        "LoadPokedexRating TRUE, $destVar"
+        "GetSetNationalDexEnabled 2, $destVar"
+      ]
+    },
+    "GetNextTVSegmentID": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "destVar",
+          "type": "var"
+        }
+      ],
+      "expansion": [
+        "CallTVBroadcast TV_BROADCAST_CALL_GET_NEXT_SEGMENT_ID, $destVar"
+      ]
+    },
+    "GiveAccessory": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FF"
+      ]
+    },
+    "GiveAccessoryWaitForConfirm": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7DF"
+      ]
+    },
+    "GiveItemQuantity": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FC"
+      ]
+    },
+    "GiveItemQuantityNoLineFeed": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7E0"
+      ]
+    },
+    "GiveMysteryGift": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "MysteryGiftGive MYSTERY_GIFT_GIVE"
+      ]
+    },
+    "GivePoketchApp": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7D9"
       ]
     },
     "GoToIfBadgeAcquired": {
@@ -12396,15 +12701,284 @@
         "GoToIfEq VAR_RESULT, TRUE, $label"
       ]
     },
-    "SelectPokemonForUnionRoomBattle": {
+    "GoToIfCannotFitItem": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "item",
+          "type": "item"
+        },
+        {
+          "name": "count",
+          "type": "u16"
+        },
+        {
+          "name": "destVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CanFitItem $item, $count, $destVarID",
+        "GoToIfEq $destVarID, FALSE, $offset"
+      ]
+    },
+    "GoToIfDefeated": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "trainerID",
+          "type": "trainer_id"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CheckTrainerFlag $trainerID",
+        "GoToIf 1, $offset"
+      ]
+    },
+    "GoToIfEq": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CompareVar $varID, $valueOrVarID",
+        "GoToIf 1, $offset"
+      ]
+    },
+    "GoToIfGe": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CompareVar $varID, $valueOrVarID",
+        "GoToIf 4, $offset"
+      ]
+    },
+    "GoToIfGt": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CompareVar $varID, $valueOrVarID",
+        "GoToIf 2, $offset"
+      ]
+    },
+    "GoToIfLe": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CompareVar $varID, $valueOrVarID",
+        "GoToIf 3, $offset"
+      ]
+    },
+    "GoToIfLt": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CompareVar $varID, $valueOrVarID",
+        "GoToIf 0, $offset"
+      ]
+    },
+    "GoToIfNe": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CompareVar $varID, $valueOrVarID",
+        "GoToIf 5, $offset"
+      ]
+    },
+    "GoToIfNotDefeated": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "trainerID",
+          "type": "trainer_id"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CheckTrainerFlag $trainerID",
+        "GoToIf 0, $offset"
+      ]
+    },
+    "GoToIfNotEnoughMoney": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "value",
+          "type": "u16"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CheckMoney VAR_RESULT, $value",
+        "GoToIfEq VAR_RESULT, FALSE, $offset"
+      ]
+    },
+    "GoToIfSet": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "flagID",
+          "type": "flag"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CheckFlag $flagID",
+        "GoToIf 1, $offset"
+      ]
+    },
+    "GoToIfUnset": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "flagID",
+          "type": "flag"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CheckFlag $flagID",
+        "GoToIf 0, $offset"
+      ]
+    },
+    "GriseousOrbCouldNotBeRemoved": {
       "type": "macro",
       "params": [],
       "expansion": [
-        "OpenPartyMenuForUnionRoomBattle",
-        "ReturnToField"
+        "CallCommonScript 0x809"
       ]
     },
-    "GetNationalDexEnabled": {
+    "HandleSignpostInput": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7D0"
+      ]
+    },
+    "HasCoins": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        }
+      ],
+      "variants": [
+        {
+          "condition": "\\valueOrVarID < VARS_START",
+          "expansion": [
+            "HasCoinsFromValue $varID, $valueOrVarID"
+          ]
+        },
+        {
+          "condition": "else",
+          "expansion": [
+            "HasCoinsFromVar $varID, $valueOrVarID"
+          ]
+        }
+      ]
+    },
+    "LoadLocalDexRating": {
       "type": "macro",
       "params": [
         {
@@ -12413,10 +12987,17 @@
         }
       ],
       "expansion": [
-        "GetSetNationalDexEnabled 2, $destVar"
+        "LoadPokedexRating FALSE, $destVar"
       ]
     },
-    "CheckBroadcastStatus": {
+    "LoadMysteryGift": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "MysteryGiftGive MYSTERY_GIFT_LOAD"
+      ]
+    },
+    "LoadNationalDexRating": {
       "type": "macro",
       "params": [
         {
@@ -12425,7 +13006,7 @@
         }
       ],
       "expansion": [
-        "CallTVBroadcast TV_BROADCAST_CALL_CHECK_STATUS, $destVar"
+        "LoadPokedexRating TRUE, $destVar"
       ]
     },
     "LoadTVCommercial": {
@@ -12442,78 +13023,6 @@
       ],
       "expansion": [
         "CallTVBroadcast TV_BROADCAST_CALL_LOAD_COMMERCIAL, $bankDestVar, $messageDestVar"
-      ]
-    },
-    "LoadTVFramingMessage": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "framingMessageType",
-          "type": "msg_id"
-        },
-        {
-          "name": "bankDestVar",
-          "type": "var"
-        },
-        {
-          "name": "messageDestVar",
-          "type": "var"
-        }
-      ],
-      "expansion": [
-        "CallTVBroadcast TV_BROADCAST_CALL_LOAD_FRAMING_MESSAGE, $framingMessageType, $bankDestVar, $messageDestVar"
-      ]
-    },
-    "LoadTVSegment": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "segmentID",
-          "type": "u16"
-        },
-        {
-          "name": "bankDestVar",
-          "type": "var"
-        },
-        {
-          "name": "messageDestVar",
-          "type": "var"
-        }
-      ],
-      "expansion": [
-        "CallTVBroadcast TV_BROADCAST_CALL_LOAD_SEGMENT $segmentID, $bankDestVar, $messageDestVar"
-      ]
-    },
-    "LoadTVGreeting": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "bankDestVar",
-          "type": "var"
-        },
-        {
-          "name": "messageDestVar",
-          "type": "var"
-        }
-      ],
-      "expansion": [
-        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_GREETING $bankDestVar, $messageDestVar"
-      ]
-    },
-    "LoadTVSegmentIntro": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "bankDestVar",
-          "type": "var"
-        },
-        {
-          "name": "messageDestVar",
-          "type": "var"
-        }
-      ],
-      "expansion": [
-        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_SEGMENT_INTRO $bankDestVar, $messageDestVar"
       ]
     },
     "LoadTVFarewell": {
@@ -12548,38 +13057,40 @@
         "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_FAREWELL_EXTENDED $bankDestVar, $messageDestVar"
       ]
     },
-    "GetNextTVSegmentID": {
+    "LoadTVFramingMessage": {
       "type": "macro",
       "params": [
         {
-          "name": "destVar",
+          "name": "framingMessageType",
+          "type": "msg_id"
+        },
+        {
+          "name": "bankDestVar",
+          "type": "var"
+        },
+        {
+          "name": "messageDestVar",
           "type": "var"
         }
       ],
       "expansion": [
-        "CallTVBroadcast TV_BROADCAST_CALL_GET_NEXT_SEGMENT_ID, $destVar"
+        "CallTVBroadcast TV_BROADCAST_CALL_LOAD_FRAMING_MESSAGE, $framingMessageType, $bankDestVar, $messageDestVar"
       ]
     },
-    "TVBroadcastDummy": {
+    "LoadTVGreeting": {
       "type": "macro",
       "params": [
         {
-          "name": "arg0",
-          "type": "u16"
+          "name": "bankDestVar",
+          "type": "var"
         },
         {
-          "name": "arg1",
-          "type": "u16"
-        },
-        {
-          "name": "arg2",
-          "type": "u16"
+          "name": "messageDestVar",
+          "type": "var"
         }
       ],
       "expansion": [
-        "Dummy1F9 $arg0",
-        "Dummy1F9 $arg1",
-        "Dummy1F9 $arg2"
+        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_GREETING $bankDestVar, $messageDestVar"
       ]
     },
     "LoadTVInterviewMessage": {
@@ -12602,6 +13113,137 @@
         "CallTVInterview TV_INTERVIEW_CALL_LOAD_MESSAGE, $interviewSegmentID, $bankDestVar, $messageDestVar"
       ]
     },
+    "LoadTVSegment": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "segmentID",
+          "type": "u16"
+        },
+        {
+          "name": "bankDestVar",
+          "type": "var"
+        },
+        {
+          "name": "messageDestVar",
+          "type": "var"
+        }
+      ],
+      "expansion": [
+        "CallTVBroadcast TV_BROADCAST_CALL_LOAD_SEGMENT $segmentID, $bankDestVar, $messageDestVar"
+      ]
+    },
+    "LoadTVSegmentIntro": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "bankDestVar",
+          "type": "var"
+        },
+        {
+          "name": "messageDestVar",
+          "type": "var"
+        }
+      ],
+      "expansion": [
+        "LoadTVFramingMessage TV_PROGRAM_FRAMING_MESSAGE_SEGMENT_INTRO $bankDestVar, $messageDestVar"
+      ]
+    },
+    "MessageBagIsFull": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7E1"
+      ]
+    },
+    "ObtainContestBackdrop": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FD"
+      ]
+    },
+    "ObtainContestBackdropWaitForConfirm": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7F4"
+      ]
+    },
+    "ObtainUndergroundSphere": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7DE"
+      ]
+    },
+    "ObtainUndergroundTrap": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7DD"
+      ]
+    },
+    "OpenBerriesBag": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "OpenBag 1"
+      ]
+    },
+    "OpenItemsBag": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "OpenBag 0"
+      ]
+    },
+    "PrepareMysterGiftCantReceiveMsg": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "destTextBank",
+          "type": "label"
+        },
+        {
+          "name": "destStringID",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "MysteryGiftGive MYSTERY_GIFT_CANT_RECEIVE, $destTextBank, $destStringID"
+      ]
+    },
+    "PrepareMysteryGiftReceivedMsg": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "destTextBank",
+          "type": "label"
+        },
+        {
+          "name": "destStringID",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "MysteryGiftGive MYSTERY_GIFT_RECEIVED, $destTextBank, $destStringID"
+      ]
+    },
+    "PrintPlateObtainedMessage": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7F6"
+      ]
+    },
+    "RecordHeapMemory": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CheckHeapMemory FALSE"
+      ]
+    },
     "SaveTVInterviewResponse": {
       "type": "macro",
       "params": [
@@ -12621,6 +13263,250 @@
       ],
       "expansion": [
         "CallTVInterview TV_INTERVIEW_CALL_SAVE_RESPONSE, $interviewSegmentID, $customWordMessage, $unused"
+      ]
+    },
+    "SelectPokemonForUnionRoomBattle": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "OpenPartyMenuForUnionRoomBattle",
+        "ReturnToField"
+      ]
+    },
+    "SelectPokemonToTrade": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "OpenPartyMenuForTrade",
+        "GetSelectedPartySlot VAR_RESULT",
+        "ReturnToField"
+      ]
+    },
+    "SendToUndergroundPC": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7DC"
+      ]
+    },
+    "SendToUndergroundPCWithLinefeed": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FE"
+      ]
+    },
+    "SetCounterpartBGM": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7F8"
+      ]
+    },
+    "SetFollowMeBGM": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x800"
+      ]
+    },
+    "SetInCatchingShowFlag": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetClearInCatchingShowFlag 0"
+      ]
+    },
+    "SetLookerBGM": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x807"
+      ]
+    },
+    "SetMenuXOriginToLeft": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetMenuXOriginSide FALSE"
+      ]
+    },
+    "SetMenuXOriginToRight": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetMenuXOriginSide TRUE"
+      ]
+    },
+    "SetMenuYOriginToBottom": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetMenuYOriginSide TRUE"
+      ]
+    },
+    "SetMenuYOriginToTop": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "SetMenuYOriginSide FALSE"
+      ]
+    },
+    "SetNationalDexEnabled": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "GetSetNationalDexEnabled 1, VAR_RESULT"
+      ]
+    },
+    "SetRivalBGM": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7FA"
+      ]
+    },
+    "SetVar": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "destVarID",
+          "type": "var"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        }
+      ],
+      "variants": [
+        {
+          "condition": "\\valueOrVarID < VARS_START",
+          "expansion": [
+            "SetVarFromValue $destVarID, $valueOrVarID"
+          ]
+        },
+        {
+          "condition": "else",
+          "expansion": [
+            "SetVarFromVar $destVarID, $valueOrVarID"
+          ]
+        }
+      ]
+    },
+    "ShowArrowSign": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "messageID",
+          "type": "msg_id"
+        }
+      ],
+      "expansion": [
+        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_ARROW",
+        "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
+        "WaitForSignpostDone",
+        "GetSignpostInput VAR_RESULT",
+        "HandleSignpostInput"
+      ]
+    },
+    "ShowLandmarkSign": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "messageID",
+          "type": "msg_id"
+        }
+      ],
+      "expansion": [
+        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_LANDMARK",
+        "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
+        "WaitForSignpostDone",
+        "GetSignpostInput VAR_RESULT",
+        "HandleSignpostInput"
+      ]
+    },
+    "ShowMapSign": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "messageID",
+          "type": "msg_id"
+        }
+      ],
+      "expansion": [
+        "DrawSignpostInstantMessage $messageID SIGNPOST_TYPE_MAP",
+        "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
+        "WaitForSignpostDone",
+        "GetSignpostInput VAR_RESULT",
+        "HandleSignpostInput"
+      ]
+    },
+    "ShowScrollingSign": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "messageID",
+          "type": "msg_id"
+        }
+      ],
+      "expansion": [
+        "DrawSignpostTextBox SIGNPOST_TYPE_SCROLLING",
+        "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
+        "WaitForSignpostDone",
+        "DrawSignpostScrollingMessage $messageID, VAR_RESULT",
+        "HandleSignpostInput"
+      ]
+    },
+    "StartSafariGame": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "StartEndSafariGame SAFARI_GAME_ACTIVE"
+      ]
+    },
+    "SubtractCoins": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "valueOrVarID",
+          "type": "var"
+        }
+      ],
+      "variants": [
+        {
+          "condition": "\\valueOrVarID < VARS_START",
+          "expansion": [
+            "SubstractCoinsFromValue $valueOrVarID"
+          ]
+        },
+        {
+          "condition": "else",
+          "expansion": [
+            "SubstractCoinsFromVar $valueOrVarID"
+          ]
+        }
+      ]
+    },
+    "TVBroadcastDummy": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "arg0",
+          "type": "u16"
+        },
+        {
+          "name": "arg1",
+          "type": "u16"
+        },
+        {
+          "name": "arg2",
+          "type": "u16"
+        }
+      ],
+      "expansion": [
+        "Dummy1F9 $arg0",
+        "Dummy1F9 $arg1",
+        "Dummy1F9 $arg2"
       ]
     },
     "TakeShipFromCanalave": {
@@ -12671,545 +13557,6 @@
         "PlayBoatCutscene BOAT_TRAVEL_DIR_WEST_TO_EAST, $exitDir, $mapID, $x, $z"
       ]
     },
-    "CheckAvailableMysteryGift": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "destVarID",
-          "type": "var"
-        }
-      ],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_CHECK_AVAILABLE_PGT, $destVarID"
-      ]
-    },
-    "GetMysteryGiftType": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "destVarID",
-          "type": "var"
-        }
-      ],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_GET_PGT_TYPE, $destVarID"
-      ]
-    },
-    "CheckCanReceiveMysteryGift": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "destVarID",
-          "type": "var"
-        }
-      ],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_CHECK_CAN_RECEIVE, $destVarID"
-      ]
-    },
-    "PrepareMysteryGiftReceivedMsg": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "destTextBank",
-          "type": "label"
-        },
-        {
-          "name": "destStringID",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_RECEIVED, $destTextBank, $destStringID"
-      ]
-    },
-    "PrepareMysterGiftCantReceiveMsg": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "destTextBank",
-          "type": "label"
-        },
-        {
-          "name": "destStringID",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_CANT_RECEIVE, $destTextBank, $destStringID"
-      ]
-    },
-    "GoToIfNotEnoughMonForCatchingShow": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "GoToIfEq VAR_RESULT, FALSE, $offset"
-      ]
-    },
-    "SelectPokemonToTrade": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "OpenPartyMenuForTrade",
-        "GetSelectedPartySlot VAR_RESULT",
-        "ReturnToField"
-      ]
-    },
-    "GoToIfAmitySquareManGiftIsNotAccesory": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "giftID",
-          "type": "u16"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "GoToIfEq VAR_RESULT, FALSE, $offset"
-      ]
-    },
-    "GoToIfLt": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 0, $offset"
-      ]
-    },
-    "GoToIfEq": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 1, $offset"
-      ]
-    },
-    "GoToIfGt": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 2, $offset"
-      ]
-    },
-    "GoToIfLe": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 3, $offset"
-      ]
-    },
-    "GoToIfGe": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 4, $offset"
-      ]
-    },
-    "GoToIfNe": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 5, $offset"
-      ]
-    },
-    "GoToIfUnset": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "flagID",
-          "type": "flag"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "GoToIf 0, $offset"
-      ]
-    },
-    "GoToIfSet": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "flagID",
-          "type": "flag"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "GoToIf 1, $offset"
-      ]
-    },
-    "GoToIfNotDefeated": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "trainerID",
-          "type": "trainer_id"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CheckTrainerFlag $trainerID",
-        "GoToIf 0, $offset"
-      ]
-    },
-    "GoToIfDefeated": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "trainerID",
-          "type": "trainer_id"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CheckTrainerFlag $trainerID",
-        "GoToIf 1, $offset"
-      ]
-    },
-    "CallIfLt": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 0, $offset"
-      ]
-    },
-    "CallIfEq": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 1, $offset"
-      ]
-    },
-    "CallIfGt": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 2, $offset"
-      ]
-    },
-    "CallIfLe": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 3, $offset"
-      ]
-    },
-    "CallIfGe": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 4, $offset"
-      ]
-    },
-    "CallIfNe": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "varID",
-          "type": "var"
-        },
-        {
-          "name": "valueOrVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 5, $offset"
-      ]
-    },
-    "CallIfUnset": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "flagID",
-          "type": "flag"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "CallIf 0, $offset"
-      ]
-    },
-    "CallIfSet": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "flagID",
-          "type": "flag"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "CallIf 1, $offset"
-      ]
-    },
-    "GoToIfCannotFitItem": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "item",
-          "type": "item"
-        },
-        {
-          "name": "count",
-          "type": "u16"
-        },
-        {
-          "name": "destVarID",
-          "type": "var"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CanFitItem $item, $count, $destVarID",
-        "GoToIfEq $destVarID, FALSE, $offset"
-      ]
-    },
-    "CallPokecenterNurse": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "nurseLocalID",
-          "type": "u16"
-        }
-      ],
-      "expansion": [
-        "SetVar VAR_0x8007, $nurseLocalID",
-        "CallCommonScript 0x7D2"
-      ]
-    },
-    "OpenItemsBag": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "OpenBag 0"
-      ]
-    },
-    "OpenBerriesBag": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "OpenBag 1"
-      ]
-    },
-    "StartSafariGame": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "StartEndSafariGame SAFARI_GAME_ACTIVE"
-      ]
-    },
-    "EndSafariGame": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "StartEndSafariGame SAFARI_GAME_INACTIVE"
-      ]
-    },
-    "SetNationalDexEnabled": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "GetSetNationalDexEnabled 1, VAR_RESULT"
-      ]
-    },
-    "FinishTVProgram": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallTVBroadcast TV_BROADCAST_CALL_FINISH_PROGRAM"
-      ]
-    },
     "TakeShipToCanalave": {
       "type": "macro",
       "params": [],
@@ -13222,20 +13569,6 @@
       "params": [],
       "expansion": [
         "PlayBoatCutscene BOAT_TRAVEL_DIR_EAST_TO_WEST, DIR_NORTH, MAP_HEADER_SNOWPOINT_CITY, 356, 246"
-      ]
-    },
-    "LoadMysteryGift": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_LOAD"
-      ]
-    },
-    "GiveMysteryGift": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_GIVE"
       ]
     },
     "UnloadMysteryGift": {
@@ -13252,242 +13585,11 @@
         "MysteryGiftGive MYSTERY_GIFT_UNLOAD_NOT_RECEIVED"
       ]
     },
-    "SetInCatchingShowFlag": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "SetClearInCatchingShowFlag 0"
-      ]
-    },
-    "ClearInCatchingShowFlag": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "SetClearInCatchingShowFlag 1"
-      ]
-    },
-    "RecordHeapMemory": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CheckHeapMemory FALSE"
-      ]
-    },
-    "AssertHeapMemory": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CheckHeapMemory TRUE"
-      ]
-    },
-    "SetMenuXOriginToLeft": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "SetMenuXOriginSide FALSE"
-      ]
-    },
-    "SetMenuXOriginToRight": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "SetMenuXOriginSide TRUE"
-      ]
-    },
-    "SetMenuYOriginToTop": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "SetMenuYOriginSide FALSE"
-      ]
-    },
-    "SetMenuYOriginToBottom": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "SetMenuYOriginSide TRUE"
-      ]
-    },
-    "HandleSignpostInput": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7D0"
-      ]
-    },
-    "CheckBagPocketForItem": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7D1"
-      ]
-    },
-    "GivePoketchApp": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7D9"
-      ]
-    },
-    "SendToUndergroundPC": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DC"
-      ]
-    },
-    "ObtainUndergroundTrap": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DD"
-      ]
-    },
-    "ObtainUndergroundSphere": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DE"
-      ]
-    },
-    "GiveAccessoryWaitForConfirm": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DF"
-      ]
-    },
-    "GiveItemQuantityNoLineFeed": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7E0"
-      ]
-    },
-    "MessageBagIsFull": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7E1"
-      ]
-    },
     "VendorGreeting": {
       "type": "macro",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7E3"
-      ]
-    },
-    "ObtainContestBackdropWaitForConfirm": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F4"
-      ]
-    },
-    "PrintPlateObtainedMessage": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F6"
-      ]
-    },
-    "SetCounterpartBGM": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F8"
-      ]
-    },
-    "FadeToDefaultMusic": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F9"
-      ]
-    },
-    "SetRivalBGM": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FA"
-      ]
-    },
-    "FadeToDefaultMusic2": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FB"
-      ]
-    },
-    "GiveItemQuantity": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FC"
-      ]
-    },
-    "ObtainContestBackdrop": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FD"
-      ]
-    },
-    "SendToUndergroundPCWithLinefeed": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FE"
-      ]
-    },
-    "GiveAccessory": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FF"
-      ]
-    },
-    "SetFollowMeBGM": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x800"
-      ]
-    },
-    "FadeToDefaultMusic3": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x801"
-      ]
-    },
-    "CheckAllFrontierGoldPrintsObtained": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x806"
-      ]
-    },
-    "SetLookerBGM": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x807"
-      ]
-    },
-    "FadeToDefaultMusic4": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x808"
-      ]
-    },
-    "GriseousOrbCouldNotBeRemoved": {
-      "type": "macro",
-      "params": [],
-      "expansion": [
-        "CallCommonScript 0x809"
       ]
     }
   },

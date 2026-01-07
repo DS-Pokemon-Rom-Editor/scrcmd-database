@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "Diamond/Pearl",
-    "generated_at": "2026-01-06T18:54:18.952715+00:00",
+    "generated_at": "2026-01-07T15:00:23.183364+00:00",
     "generated_from": "diamond_pearl_scrcmd_database.json"
   },
   "commands": {
@@ -9252,7 +9252,7 @@
         }
       ]
     },
-    "TrySetUnusedUndergroundField": {
+    "CMD_674": {
       "type": "script_cmd",
       "id": 674,
       "legacy_name": "CMD_674",
