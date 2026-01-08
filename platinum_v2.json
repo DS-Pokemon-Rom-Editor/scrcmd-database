@@ -4021,7 +4021,7 @@
         }
       ]
     },
-    "SaveGame": {
+    "TrySaveGame": {
       "type": "script_cmd",
       "id": 301,
       "legacy_name": "SaveGame",
@@ -12850,11 +12850,18 @@
         }
       ]
     },
-    "NurseJoyBow": {
+    "PokecenterNurseBow": {
       "type": "movement",
       "id": 100,
       "legacy_name": "NurseJoyBow",
-      "description": "Nurse Joy bows. Used in the Pok\u00e9mon Center."
+      "description": "Nurse Joy bows. Used in the Pok\u00e9mon Center.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "RevealTrainer": {
       "type": "movement",
@@ -12881,11 +12888,18 @@
         }
       ]
     },
-    "EmoteQuestionMark": {
+    "EmoteDoubleExclamationMark": {
       "type": "movement",
       "id": 103,
       "legacy_name": "EmoteDoubleExclamation",
-      "description": "Shows a double exclamation mark above the event's head."
+      "description": "Shows a double exclamation mark above the event's head.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "PlayerReceive": {
       "type": "movement",
@@ -12899,11 +12913,594 @@
         }
       ]
     },
-    "EmoteExclamation2": {
+    "MoveAction_105": {
+      "type": "movement",
+      "id": 105,
+      "description": "Imported from decomp: MoveAction_105",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_106": {
+      "type": "movement",
+      "id": 106,
+      "description": "Imported from decomp: MoveAction_106",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_107": {
+      "type": "movement",
+      "id": 107,
+      "description": "Imported from decomp: MoveAction_107",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_108": {
+      "type": "movement",
+      "id": 108,
+      "description": "Imported from decomp: MoveAction_108",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_109": {
+      "type": "movement",
+      "id": 109,
+      "description": "Imported from decomp: MoveAction_109",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_110": {
+      "type": "movement",
+      "id": 110,
+      "description": "Imported from decomp: MoveAction_110",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_111": {
+      "type": "movement",
+      "id": 111,
+      "description": "Imported from decomp: MoveAction_111",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_112": {
+      "type": "movement",
+      "id": 112,
+      "description": "Imported from decomp: MoveAction_112",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_113": {
+      "type": "movement",
+      "id": 113,
+      "description": "Imported from decomp: MoveAction_113",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_114": {
+      "type": "movement",
+      "id": 114,
+      "description": "Imported from decomp: MoveAction_114",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_115": {
+      "type": "movement",
+      "id": 115,
+      "description": "Imported from decomp: MoveAction_115",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_116": {
+      "type": "movement",
+      "id": 116,
+      "description": "Imported from decomp: MoveAction_116",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_117": {
+      "type": "movement",
+      "id": 117,
+      "description": "Imported from decomp: MoveAction_117",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_118": {
+      "type": "movement",
+      "id": 118,
+      "description": "Imported from decomp: MoveAction_118",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_119": {
+      "type": "movement",
+      "id": 119,
+      "description": "Imported from decomp: MoveAction_119",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_120": {
+      "type": "movement",
+      "id": 120,
+      "description": "Imported from decomp: MoveAction_120",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_121": {
+      "type": "movement",
+      "id": 121,
+      "description": "Imported from decomp: MoveAction_121",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_122": {
+      "type": "movement",
+      "id": 122,
+      "description": "Imported from decomp: MoveAction_122",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_123": {
+      "type": "movement",
+      "id": 123,
+      "description": "Imported from decomp: MoveAction_123",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_124": {
+      "type": "movement",
+      "id": 124,
+      "description": "Imported from decomp: MoveAction_124",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_125": {
+      "type": "movement",
+      "id": 125,
+      "description": "Imported from decomp: MoveAction_125",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_126": {
+      "type": "movement",
+      "id": 126,
+      "description": "Imported from decomp: MoveAction_126",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_127": {
+      "type": "movement",
+      "id": 127,
+      "description": "Imported from decomp: MoveAction_127",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_128": {
+      "type": "movement",
+      "id": 128,
+      "description": "Imported from decomp: MoveAction_128",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_129": {
+      "type": "movement",
+      "id": 129,
+      "description": "Imported from decomp: MoveAction_129",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_130": {
+      "type": "movement",
+      "id": 130,
+      "description": "Imported from decomp: MoveAction_130",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_131": {
+      "type": "movement",
+      "id": 131,
+      "description": "Imported from decomp: MoveAction_131",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_132": {
+      "type": "movement",
+      "id": 132,
+      "description": "Imported from decomp: MoveAction_132",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_133": {
+      "type": "movement",
+      "id": 133,
+      "description": "Imported from decomp: MoveAction_133",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_134": {
+      "type": "movement",
+      "id": 134,
+      "description": "Imported from decomp: MoveAction_134",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_135": {
+      "type": "movement",
+      "id": 135,
+      "description": "Imported from decomp: MoveAction_135",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_136": {
+      "type": "movement",
+      "id": 136,
+      "description": "Imported from decomp: MoveAction_136",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_137": {
+      "type": "movement",
+      "id": 137,
+      "description": "Imported from decomp: MoveAction_137",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_138": {
+      "type": "movement",
+      "id": 138,
+      "description": "Imported from decomp: MoveAction_138",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_139": {
+      "type": "movement",
+      "id": 139,
+      "description": "Imported from decomp: MoveAction_139",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_140": {
+      "type": "movement",
+      "id": 140,
+      "description": "Imported from decomp: MoveAction_140",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_141": {
+      "type": "movement",
+      "id": 141,
+      "description": "Imported from decomp: MoveAction_141",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_142": {
+      "type": "movement",
+      "id": 142,
+      "description": "Imported from decomp: MoveAction_142",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_143": {
+      "type": "movement",
+      "id": 143,
+      "description": "Imported from decomp: MoveAction_143",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_144": {
+      "type": "movement",
+      "id": 144,
+      "description": "Imported from decomp: MoveAction_144",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_145": {
+      "type": "movement",
+      "id": 145,
+      "description": "Imported from decomp: MoveAction_145",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_146": {
+      "type": "movement",
+      "id": 146,
+      "description": "Imported from decomp: MoveAction_146",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_147": {
+      "type": "movement",
+      "id": 147,
+      "description": "Imported from decomp: MoveAction_147",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_148": {
+      "type": "movement",
+      "id": 148,
+      "description": "Imported from decomp: MoveAction_148",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_149": {
+      "type": "movement",
+      "id": 149,
+      "description": "Imported from decomp: MoveAction_149",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_150": {
+      "type": "movement",
+      "id": 150,
+      "description": "Imported from decomp: MoveAction_150",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_151": {
+      "type": "movement",
+      "id": 151,
+      "description": "Imported from decomp: MoveAction_151",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_152": {
+      "type": "movement",
+      "id": 152,
+      "description": "Imported from decomp: MoveAction_152",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_153": {
       "type": "movement",
       "id": 153,
       "legacy_name": "EmoteExclamation2",
-      "description": "Shows an exclamation mark above the event's head. Duplicate of EmoteExclamation (0x004B)."
+      "description": "Shows an exclamation mark above the event's head. Duplicate of EmoteExclamation (0x004B).",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "EndMovement": {
       "type": "movement",
@@ -13963,6 +14560,13 @@
       "params": [],
       "expansion": [
         "CheckHeapMemory FALSE"
+      ]
+    },
+    "SaveGame": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7D6"
       ]
     },
     "SaveTVInterviewResponse": {

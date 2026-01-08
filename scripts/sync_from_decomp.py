@@ -22,8 +22,11 @@ import argparse
 import json
 import os
 import re
+import subprocess
 import sys
+import tempfile
 from dataclasses import dataclass, field
+from pathlib import Path
 from urllib.request import urlopen
 from urllib.error import URLError
 
@@ -500,13 +503,17 @@ def parse_scrcmd_inc(content: str) -> dict[str, ParsedMacro]:
     return parsed
 
 
-def parse_movement_inc(content: str) -> dict[str, tuple[int | None, list[MacroParam]]]:
+def parse_movement_inc(content: str, constants: dict[str, int] | None = None) -> dict[str, tuple[int | None, list[MacroParam]]]:
     r"""
     Parse movement.inc to extract movement macro names, opcodes, and params.
     
     Returns dict of name -> (opcode, params).
     Most movements have a `length` param with default=1.
     EndMovement has no params and id=254.
+    
+    Args:
+        content: The movement.inc file content
+        constants: Optional dict of MOVEMENT_ACTION_* constant names to values
     """
     movements = {}
     
@@ -544,11 +551,61 @@ def parse_movement_inc(content: str) -> dict[str, tuple[int | None, list[MacroPa
             else:
                 opcode = int(value_str)
         except ValueError:
-            opcode = None
+            # Try to resolve from constants (e.g., MOVEMENT_ACTION_FACE_NORTH -> 0)
+            if constants and value_str in constants:
+                opcode = constants[value_str]
+            else:
+                opcode = None
         
         movements[name] = (opcode, params)
     
     return movements
+
+
+def get_movement_action_constants() -> dict[str, int]:
+    """
+    Fetch movement_actions.txt from decomp and use metang to build constant map.
+    
+    Returns dict of MOVEMENT_ACTION_* constant name -> numeric value.
+    """
+    constants = {
+        'MOVEMENT_ACTION_END': 254,
+        'MOVEMENT_ACTION_NONE': 255,
+    }
+    
+    try:
+        # Fetch movement_actions.txt from decomp
+        url = "https://raw.githubusercontent.com/pret/pokeplatinum/main/generated/movement_actions.txt"
+        with urlopen(url, timeout=10) as response:
+            content = response.read().decode('utf-8')
+        
+        # Run metang to generate Python enum using stdin
+        metang_path = Path(__file__).parent.parent / 'metang' / 'metang.py'
+        result = subprocess.run(
+            ['python', str(metang_path), 'enum', '-', '-L', 'py', '-t', 'MOVEMENT_ACTION'],
+            input=content,
+            capture_output=True,
+            text=True,
+            cwd=str(Path(__file__).parent.parent / 'metang')
+        )
+        
+        if result.returncode != 0:
+            return constants
+        
+        # Parse the generated enum
+        enum_code = result.stdout
+        
+        # Extract constant values using regex
+        pattern = r'(MOVEMENT_ACTION_\w+)\s*=\s*(\d+)'
+        for match in re.finditer(pattern, enum_code):
+            name = match.group(1)
+            value = int(match.group(2))
+            constants[name] = value
+    
+    except Exception:
+        pass
+    
+    return constants
 
 
 def parse_levelscript_macros(content: str) -> dict[str, LevelscriptMacro]:
@@ -934,7 +991,10 @@ def inject_macros_into_db(db_path: str, verbose: bool = False) -> int:
         print(f"  Sample macros:")
         for name in list(macros.keys())[:5]:
             m = macros[name]
-            print(f"    - {name}: {len(m['expansion'])} expansion lines")
+            if 'expansion' in m:
+                print(f"    - {name}: {len(m['expansion'])} expansion lines")
+            elif 'variants' in m:
+                print(f"    - {name}: {len(m['variants'])} variants")
     
     return added + updated
 
@@ -980,7 +1040,7 @@ def compare_macros_with_db(
     wrappers = []
     
     for name, macro in decomp_macros.items():
-        # Skip wrapper macros for now (track separately)
+        # Handle wrapper macros
         if macro.is_wrapper and macro.expansion:
             wrappers.append({
                 "name": name,
@@ -988,6 +1048,34 @@ def compare_macros_with_db(
                 "args": macro.expansion.args,
                 "params": [p.name for p in macro.params]
             })
+            
+            # For CallCommonScript wrappers, also add them to missing list
+            # with opcode 20 so they get added to the database
+            if macro.expansion.target_macro == 'CallCommonScript':
+                # Extract the script ID constant from the call
+                # e.g., "CallCommonScript 0x7D6" -> script ID 0x7D6
+                import re
+                call_match = re.search(r'CallCommonScript\s+(0x[0-9A-Fa-f]+|\d+)', macro.body)
+                if call_match:
+                    script_id_str = call_match.group(1)
+                    try:
+                        if script_id_str.startswith('0x'):
+                            script_id = int(script_id_str, 16)
+                        else:
+                            script_id = int(script_id_str)
+                        
+                        # Add to missing so it gets created in the database
+                        missing.append({
+                            "name": name,
+                            "opcode": 20,  # CallCommonScript opcode
+                            "is_conditional": False,
+                            "params": [p.name for p in macro.params],
+                            "script_id": script_id,  # Store for documentation
+                            "is_wrapper_cmd": True  # Mark as wrapper command
+                        })
+                    except ValueError:
+                        pass
+            
             continue
             
         # Check if macro is an opcode switcher (multiple opcodes)
@@ -1017,8 +1105,11 @@ def compare_macros_with_db(
             # Check if existing DB name is also a valid decomp name (alias)
             # If so, don't rename it (prevent flip-flopping between aliases)
             if db_name in decomp_macros:
-                continue
-                
+                # But only if it's NOT a wrapper - wrappers don't emit opcodes
+                # so they shouldn't block adding the actual command
+                if not decomp_macros[db_name].is_wrapper:
+                    continue
+            
             mismatched.append({
                 "name": name,
                 "decomp_opcode": primary_opcode,
@@ -1181,7 +1272,7 @@ def update_db_from_sync(
                 
                 if item.get('params'):
                     entry["params"] = [
-                        {"name": p, "type": infer_param_type(p)} 
+                        {"name": p.name if hasattr(p, 'name') else p, "type": infer_param_type(p.name if hasattr(p, 'name') else p)}
                         for p in item['params']
                     ]
                 
@@ -1194,19 +1285,61 @@ def update_db_from_sync(
         name = item['name']
         if is_placeholder_name(name):
             continue
+        
+        # For CallCommonScript wrappers, add as macro with expansion
+        if item.get('is_wrapper_cmd') and item.get('script_id'):
+            script_id = item['script_id']
+            script_id_str = f"0x{script_id:03X}" if script_id < 0x1000 else f"0x{script_id:04X}"
             
+            # Build expansion lines
+            expansion = []
+            if item.get('params'):
+                # Has params - need to format them (e.g., "SetVar VAR_0x8007, $nurseLocalID")
+                for p in item['params']:
+                    pname = p.name if hasattr(p, 'name') else p
+                    # Check if this is a special SetVar call for CallCommonScript
+                    if name == 'CallPokecenterNurse':
+                        expansion.append(f"SetVar VAR_0x8007, ${pname}")
+                    else:
+                        # Just pass through the param
+                        pass
+            expansion.append(f"CallCommonScript {script_id_str}")
+            
+            # Create macro entry
+            entry = {
+                "type": "macro",
+                "description": f"Convenience wrapper for CallCommonScript {script_id_str}",
+                "params": [],
+                "expansion": expansion
+            }
+            
+            # Add params if available
+            if item.get('params'):
+                entry["params"] = [
+                    {"name": p.name if hasattr(p, 'name') else p, "type": infer_param_type(p.name if hasattr(p, 'name') else p)}
+                    for p in item['params']
+                ]
+            
+            commands[name] = entry
+            changes += 1
+            print(f"    Added new macro: {name}")
+            continue
+            
+        # Create description for regular commands
+        description = f"Imported from decomp: {name}"
+        
         # Create new entry
         entry = {
             "type": cmd_type,
             "id": item['opcode'],
-            "description": f"Imported from decomp: {name}",
+            "description": description,
             "params": []
         }
         
         # Add params if available
         if item.get('params'):
             entry["params"] = [
-                {"name": p, "type": infer_param_type(p)} 
+                {"name": p.name if hasattr(p, 'name') else p, "type": infer_param_type(p.name if hasattr(p, 'name') else p)}
                 for p in item['params']
             ]
             
@@ -1400,7 +1533,9 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
         print("  Fetching movement.inc...")
         content = fetch_url(sources["movement"])
         if content:
-            decomp_moves = parse_movement_inc(content)
+            # Fetch movement action constants for resolving opcodes
+            movement_constants = get_movement_action_constants()
+            decomp_moves = parse_movement_inc(content, movement_constants)
             print(f"  Parsed {len(decomp_moves)} movements from decomp")
             
             # Use simple comparison for movements
