@@ -112,6 +112,14 @@ class LevelscriptMacro:
     wrapper_target: str | None = None  # Target macro if wrapper
 
 
+@dataclass
+class MovementMacro:
+    """A parsed movement macro definition."""
+    name: str
+    opcode: int | None  # Numeric opcode or None if symbolic
+    params: list[MacroParam] = field(default_factory=list)  # Empty for EndMovement
+
+
 def is_placeholder_name(name: str) -> bool:
     """Check if a name is a placeholder (like ScrCmd_21D, scrcmd_465, or contains Unused)."""
     if not name:
@@ -492,37 +500,53 @@ def parse_scrcmd_inc(content: str) -> dict[str, ParsedMacro]:
     return parsed
 
 
-def parse_movement_inc(content: str) -> dict[str, int | None]:
+def parse_movement_inc(content: str) -> dict[str, tuple[int | None, list[MacroParam]]]:
     r"""
-    Parse movement.inc to extract movement macro names.
+    Parse movement.inc to extract movement macro names, opcodes, and params.
     
-    Movements may use symbolic constants (MOVEMENT_ACTION_*) instead of
-    numeric literals, so we extract macro names and optionally resolve them.
-    
-    Returns dict of name -> opcode (or None if symbolic).
+    Returns dict of name -> (opcode, params).
+    Most movements have a `length` param with default=1.
+    EndMovement has no params and id=254.
     """
     movements = {}
     
-    # Pattern: .macro Name followed by .short/.byte VALUE
+    # Known symbolic movement action constants
+    MOVEMENT_ACTION_END = 254
+    
+    # Pattern to extract: .macro Name [params] on one line,
+    # followed by .short VALUE on the next line (first directive)
     macro_pattern = re.compile(
-        r'\.macro\s+(\w+).*?\n\s*\.(?:byte|short|hword)\s+(\S+)',
-        re.MULTILINE | re.DOTALL
+        r'\.macro\s+(\w+)\s*([^\n]*)\n\s*\.(?:byte|short|hword)\s+(\S+)',
+        re.MULTILINE
     )
     
     for match in macro_pattern.finditer(content):
         name = match.group(1)
-        value_str = match.group(2)
+        params_str = match.group(2)
+        value_str = match.group(3)
         
-        # Try to parse as numeric
+        # Handle EndMovement specially - it has no params in the macro signature
+        # but uses two .short directives (opcode and length=0)
+        if name == 'EndMovement':
+            movements[name] = (MOVEMENT_ACTION_END, [])
+            continue
+        
+        # Parse params - EndMovement has no params
+        if params_str.strip():
+            params = parse_params(params_str)
+        else:
+            params = []
+        
+        # Try to parse opcode as numeric
         try:
             if value_str.startswith('0x'):
                 opcode = int(value_str, 16)
             else:
                 opcode = int(value_str)
-            movements[name] = opcode
         except ValueError:
-            # Symbolic constant - store None for now
-            movements[name] = None
+            opcode = None
+        
+        movements[name] = (opcode, params)
     
     return movements
 
@@ -1391,13 +1415,14 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
             missing = []
             mismatched = []
             
-            for name, opcode in decomp_moves.items():
+            for name, (opcode, move_params) in decomp_moves.items():
                 if name in db_name_to_id:
                     if opcode is not None and db_name_to_id[name] != opcode:
                         mismatched.append({
                             "name": name, 
                             "decomp_opcode": opcode, 
-                            "db_opcode": db_name_to_id[name]
+                            "db_opcode": db_name_to_id[name],
+                            "params": move_params
                         })
                 elif opcode is not None and opcode in db_id_to_name:
                     db_name = db_id_to_name[opcode]
@@ -1408,11 +1433,12 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     mismatched.append({
                         "name": name, 
                         "decomp_opcode": opcode, 
-                        "db_name": db_name
+                        "db_name": db_name,
+                        "params": move_params
                     })
                 else:
                     if opcode is not None:
-                        missing.append({"name": name, "opcode": opcode})
+                        missing.append({"name": name, "opcode": opcode, "params": move_params})
             
             if missing:
                 print(f"  Missing movements in DB: {len(missing)}")
@@ -1434,6 +1460,41 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 count = update_db_from_sync(db, missing, mismatched, "movement")
                 if count > 0:
                     print(f"  Applied {count} changes to movements")
+                    with open(db_path, 'w', encoding='utf-8') as f:
+                        json.dump(db, f, indent=2)
+            
+            # Update movement params if requested
+            if update:
+                print("  Checking movement params...")
+                params_updated = 0
+                db_commands = db.get("commands", {})
+                
+                for name, (opcode, move_params) in decomp_moves.items():
+                    if name not in db_commands:
+                        continue
+                    
+                    cmd = db_commands[name]
+                    if cmd.get("type") != "movement":
+                        continue
+                    
+                    # Build expected params list from decomp
+                    decomp_param_list = []
+                    for p in move_params:
+                        decomp_param_list.append({
+                            "name": p.name,
+                            "type": infer_param_type(p.name),
+                            **({"default": p.default} if p.default else {})
+                        })
+                    
+                    # Compare with current params
+                    current_params = cmd.get("params", [])
+                    if current_params != decomp_param_list:
+                        cmd["params"] = decomp_param_list
+                        params_updated += 1
+                
+                if params_updated > 0:
+                    print(f"  Updated params for {params_updated} movements")
+                    has_changes = True
                     with open(db_path, 'w', encoding='utf-8') as f:
                         json.dump(db, f, indent=2)
     
