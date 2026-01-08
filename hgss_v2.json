@@ -274,11 +274,11 @@
       "params": [
         {
           "name": "variable_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -508,7 +508,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "var"
         }
       ]
     },
@@ -520,7 +520,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "var"
         }
       ]
     },
@@ -532,7 +532,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "var"
         }
       ]
     },
@@ -592,11 +592,11 @@
       "params": [
         {
           "name": "variable_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -608,11 +608,11 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "flexible_value",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -738,7 +738,7 @@
         },
         {
           "name": "???",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -789,7 +789,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -801,7 +801,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -852,7 +852,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -880,7 +880,7 @@
         },
         {
           "name": "selection",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -908,7 +908,7 @@
         },
         {
           "name": "selection",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -959,7 +959,7 @@
         },
         {
           "name": "selection",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -987,7 +987,7 @@
         },
         {
           "name": "selection",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1227,7 +1227,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1239,7 +1239,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1357,11 +1357,11 @@
       "params": [
         {
           "name": "x",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "y",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1387,11 +1387,11 @@
       "params": [
         {
           "name": "x",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "y",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1407,11 +1407,11 @@
         },
         {
           "name": "x",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "y",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1475,7 +1475,7 @@
       "params": [
         {
           "name": "money",
-          "type": "u16"
+          "type": "u32"
         }
       ]
     },
@@ -1499,7 +1499,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "money",
@@ -1584,7 +1584,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1596,7 +1596,7 @@
       "params": [
         {
           "name": "coins",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1608,7 +1608,7 @@
       "params": [
         {
           "name": "coins",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1620,7 +1620,7 @@
       "params": [
         {
           "name": "amount",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1644,7 +1644,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "amount",
@@ -1664,11 +1664,11 @@
         },
         {
           "name": "amount",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1684,11 +1684,11 @@
         },
         {
           "name": "amount",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1704,11 +1704,11 @@
         },
         {
           "name": "amount",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1724,11 +1724,11 @@
         },
         {
           "name": "amount",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1744,7 +1744,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1760,7 +1760,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1800,11 +1800,11 @@
       "params": [
         {
           "name": "seal_id",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "number_of_seals_in_seal_case",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1816,11 +1816,11 @@
       "params": [
         {
           "name": "seal_id",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "number_of_seals_to_be_given",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1832,15 +1832,15 @@
       "params": [
         {
           "name": "random_seal_id_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "random_seal_id_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "random_seal_id_3",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1856,7 +1856,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1936,7 +1936,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "move_id",
@@ -1956,7 +1956,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "move_id",
@@ -1976,7 +1976,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -1988,7 +1988,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2000,7 +2000,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2040,7 +2040,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2113,15 +2113,15 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2137,7 +2137,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2222,11 +2222,11 @@
       "params": [
         {
           "name": "arg",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2238,7 +2238,7 @@
       "params": [
         {
           "name": "arg",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2273,7 +2273,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2285,7 +2285,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2297,11 +2297,11 @@
       "params": [
         {
           "name": "???",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2313,7 +2313,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2325,11 +2325,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2381,11 +2381,11 @@
         },
         {
           "name": "x",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "y",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "dir",
@@ -2401,7 +2401,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2413,7 +2413,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2425,7 +2425,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2464,7 +2464,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2476,7 +2476,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2488,7 +2488,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2595,7 +2595,7 @@
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2627,7 +2627,7 @@
         },
         {
           "name": "pocket",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2675,7 +2675,7 @@
         },
         {
           "name": "number",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2691,7 +2691,7 @@
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2707,7 +2707,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2807,7 +2807,7 @@
         },
         {
           "name": "unused",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2823,7 +2823,7 @@
         },
         {
           "name": "unused",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2839,7 +2839,7 @@
         },
         {
           "name": "unused",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2855,7 +2855,7 @@
         },
         {
           "name": "map",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2867,11 +2867,11 @@
       "params": [
         {
           "name": "map",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "pok\u00e9mon",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2883,7 +2883,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2935,15 +2935,15 @@
       "params": [
         {
           "name": "noticing",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "defeat",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "one_pok\u00e9mon",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2955,15 +2955,15 @@
       "params": [
         {
           "name": "noticing",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "defeat",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "one_pok\u00e9mon",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -2975,7 +2975,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3018,7 +3018,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "???",
@@ -3034,7 +3034,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3072,19 +3072,19 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_3",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3096,19 +3096,19 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_3",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3182,19 +3182,19 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_3",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3206,7 +3206,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3237,7 +3237,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3249,11 +3249,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3265,7 +3265,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "arg_1",
@@ -3293,7 +3293,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3313,11 +3313,11 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "floor",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3388,11 +3388,11 @@
         },
         {
           "name": "message",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "unknown",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3450,7 +3450,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3478,7 +3478,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3490,7 +3490,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3533,7 +3533,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3601,7 +3601,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3613,7 +3613,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3625,7 +3625,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3660,7 +3660,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3672,7 +3672,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3684,11 +3684,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3700,7 +3700,7 @@
       "params": [
         {
           "name": "unused",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3712,7 +3712,7 @@
       "params": [
         {
           "name": "mart_id",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3826,11 +3826,11 @@
       "params": [
         {
           "name": "choice",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3842,7 +3842,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3854,7 +3854,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3873,7 +3873,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3932,7 +3932,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -3951,7 +3951,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4003,7 +4003,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4030,11 +4030,11 @@
         },
         {
           "name": "map_x",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "map_y",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "door_id",
@@ -4105,7 +4105,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4157,7 +4157,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4196,7 +4196,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4341,7 +4341,7 @@
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4357,7 +4357,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4373,11 +4373,11 @@
         },
         {
           "name": "x",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "y",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4393,15 +4393,15 @@
         },
         {
           "name": "x",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "z",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "y",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "dir",
@@ -4519,7 +4519,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4557,7 +4557,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4593,7 +4593,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4605,7 +4605,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
@@ -4621,7 +4621,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
@@ -4653,7 +4653,7 @@
         },
         {
           "name": "party_position",
-          "type": "var",
+          "type": "u16",
           "default": "PARTY_SIZE"
         }
       ]
@@ -4666,7 +4666,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4678,7 +4678,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4702,11 +4702,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4742,11 +4742,11 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4758,7 +4758,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4784,11 +4784,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4804,7 +4804,7 @@
         },
         {
           "name": "money",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4835,11 +4835,11 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4851,7 +4851,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4863,7 +4863,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4906,7 +4906,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4922,7 +4922,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4934,7 +4934,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4946,7 +4946,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "range",
@@ -4962,7 +4962,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "range",
@@ -4978,11 +4978,11 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -4998,7 +4998,7 @@
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5050,7 +5050,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5062,7 +5062,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5074,7 +5074,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5090,7 +5090,7 @@
         },
         {
           "name": "pok\u00e9mon",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5102,11 +5102,11 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5118,7 +5118,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5130,15 +5130,15 @@
       "params": [
         {
           "name": "integer_string_buffer",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "decimal_string_buffer",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5150,11 +5150,11 @@
       "params": [
         {
           "name": "integer_string_buffer",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "decimal_string_buffer",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "pok\u00e9mon_id",
@@ -5170,7 +5170,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5182,7 +5182,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5194,11 +5194,11 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5210,11 +5210,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "move_slot",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5226,15 +5226,15 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "move_slot",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5250,11 +5250,11 @@
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "move_slot",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5392,11 +5392,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5408,15 +5408,15 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5448,7 +5448,7 @@
       "params": [
         {
           "name": "background",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5460,11 +5460,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5476,11 +5476,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5526,11 +5526,11 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5542,7 +5542,7 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "arg_1",
@@ -5550,11 +5550,11 @@
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_3",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5566,7 +5566,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5578,7 +5578,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5598,7 +5598,7 @@
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5614,7 +5614,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5626,11 +5626,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5642,7 +5642,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5710,7 +5710,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5722,7 +5722,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5746,11 +5746,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "arg_2",
@@ -5778,7 +5778,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5790,7 +5790,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5802,15 +5802,15 @@
       "params": [
         {
           "name": "caller_id",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "???",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "???_*",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5829,7 +5829,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "item_id",
@@ -5845,11 +5845,11 @@
       "params": [
         {
           "name": "position",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "item_id",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "amount",
@@ -5865,7 +5865,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "level",
@@ -5881,11 +5881,11 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5904,7 +5904,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5916,11 +5916,11 @@
       "params": [
         {
           "name": "archive_number",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5932,11 +5932,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -5948,11 +5948,11 @@
       "params": [
         {
           "name": "archive_number,_flex:_message_id",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6048,7 +6048,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6060,7 +6060,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6096,11 +6096,11 @@
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_3",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "arg_4",
@@ -6130,7 +6130,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6191,7 +6191,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_position",
@@ -6207,7 +6207,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "nature_id",
@@ -6230,11 +6230,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6250,11 +6250,11 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6266,7 +6266,7 @@
       "params": [
         {
           "name": "phone_contact",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6429,11 +6429,11 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_slot",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6445,7 +6445,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6457,7 +6457,7 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "arg_1",
@@ -6473,7 +6473,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6497,7 +6497,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6509,7 +6509,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6521,7 +6521,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6558,7 +6558,7 @@
         },
         {
           "name": "mode",
-          "type": "u8"
+          "type": "u16"
         }
       ]
     },
@@ -6570,11 +6570,11 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6586,7 +6586,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6598,11 +6598,11 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "ribbon",
@@ -6618,7 +6618,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "ribbon",
@@ -6650,11 +6650,11 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6666,7 +6666,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6678,7 +6678,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6697,7 +6697,7 @@
       "params": [
         {
           "name": "pok\u00e9balls",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6713,7 +6713,7 @@
         },
         {
           "name": "count",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6851,7 +6851,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6875,15 +6875,15 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6895,15 +6895,15 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "option_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "option_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6919,7 +6919,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6931,7 +6931,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6943,7 +6943,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6955,15 +6955,15 @@
       "params": [
         {
           "name": "type_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "type_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -6975,23 +6975,23 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "response_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "response_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "response_3",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "response_4",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7003,23 +7003,23 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "response_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "response_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "response_3",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "response_4",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7067,7 +7067,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7079,19 +7079,19 @@
       "params": [
         {
           "name": "matchpos",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "digits",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "pc",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "winning_number",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7114,7 +7114,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7126,7 +7126,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7150,7 +7150,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7173,7 +7173,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7199,7 +7199,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7227,7 +7227,7 @@
         },
         {
           "name": "accesory",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7243,7 +7243,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7255,7 +7255,7 @@
       "params": [
         {
           "name": "form",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7267,7 +7267,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7293,7 +7293,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7353,7 +7353,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7389,7 +7389,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7401,7 +7401,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7433,7 +7433,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7445,7 +7445,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "coins",
@@ -7461,7 +7461,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "coins",
@@ -7477,7 +7477,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7489,7 +7489,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "party_slot",
@@ -7528,7 +7528,7 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "arg_1",
@@ -7556,7 +7556,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7572,7 +7572,7 @@
         },
         {
           "name": "number",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "alignment_type",
@@ -7612,7 +7612,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7640,7 +7640,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7656,7 +7656,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7668,7 +7668,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7687,7 +7687,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7711,7 +7711,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7723,11 +7723,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7743,7 +7743,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7779,7 +7779,7 @@
       "params": [
         {
           "name": "bp_amount",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7791,11 +7791,11 @@
       "params": [
         {
           "name": "bp_amount",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7807,11 +7807,11 @@
       "params": [
         {
           "name": "choice",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7843,7 +7843,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7923,7 +7923,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -7935,7 +7935,7 @@
       "params": [
         {
           "name": "???",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8002,11 +8002,11 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "coin_amount",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8046,7 +8046,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8065,11 +8065,11 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "overworld_id",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8097,7 +8097,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8134,7 +8134,7 @@
         },
         {
           "name": "seal_id",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8157,11 +8157,11 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8189,7 +8189,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8208,7 +8208,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8227,7 +8227,7 @@
       "params": [
         {
           "name": "arg",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8260,7 +8260,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8279,7 +8279,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8317,7 +8317,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8464,23 +8464,23 @@
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_3",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_4",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_5",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_6",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8504,7 +8504,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8516,7 +8516,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8540,7 +8540,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8559,7 +8559,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8606,7 +8606,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8618,7 +8618,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8630,7 +8630,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8642,15 +8642,15 @@
       "params": [
         {
           "name": "apricorn",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "quantity",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8666,7 +8666,7 @@
         },
         {
           "name": "apricorn_name",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8690,11 +8690,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8713,7 +8713,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8725,15 +8725,15 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8745,7 +8745,7 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "arg_1",
@@ -8765,11 +8765,11 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8781,11 +8781,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8797,11 +8797,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8813,7 +8813,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8829,11 +8829,11 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8845,15 +8845,15 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8865,15 +8865,15 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8885,7 +8885,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8904,7 +8904,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8920,11 +8920,11 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8936,15 +8936,15 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8956,15 +8956,15 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8976,7 +8976,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -8988,7 +8988,7 @@
       "params": [
         {
           "name": "slot",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "pokemon_id",
@@ -9050,11 +9050,11 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9066,15 +9066,15 @@
       "params": [
         {
           "name": "party_slot",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "tutor",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9086,19 +9086,19 @@
       "params": [
         {
           "name": "party_slot",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "tutor",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "page",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9110,15 +9110,15 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9130,11 +9130,11 @@
       "params": [
         {
           "name": "???",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9146,11 +9146,11 @@
       "params": [
         {
           "name": "party_slot",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9162,19 +9162,19 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_3",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9190,7 +9190,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9238,7 +9238,7 @@
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "u32"
         },
         {
           "name": "arg_2",
@@ -9258,15 +9258,15 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9278,7 +9278,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9309,7 +9309,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9337,7 +9337,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9353,7 +9353,7 @@
         },
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9365,11 +9365,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9408,23 +9408,23 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_3",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_4",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9436,11 +9436,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9452,19 +9452,19 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_3",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9476,11 +9476,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9543,7 +9543,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9567,7 +9567,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9579,7 +9579,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9639,7 +9639,7 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "arg_1",
@@ -9667,11 +9667,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9683,7 +9683,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9711,11 +9711,11 @@
         },
         {
           "name": "var_4",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_5",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9727,7 +9727,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9739,7 +9739,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9791,11 +9791,11 @@
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9876,7 +9876,7 @@
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "u32"
         }
       ]
     },
@@ -9888,7 +9888,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9904,7 +9904,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -9999,7 +9999,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10015,7 +10015,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10027,11 +10027,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10043,7 +10043,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10055,7 +10055,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10127,7 +10127,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10162,7 +10162,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10190,7 +10190,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10202,7 +10202,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10237,7 +10237,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10261,7 +10261,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10280,7 +10280,7 @@
       "params": [
         {
           "name": "id",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10292,7 +10292,7 @@
       "params": [
         {
           "name": "count",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10311,11 +10311,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10327,19 +10327,19 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_2",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_3",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10371,7 +10371,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10394,7 +10394,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10420,7 +10420,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10448,7 +10448,7 @@
         },
         {
           "name": "selection",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10476,7 +10476,7 @@
         },
         {
           "name": "selection",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10519,11 +10519,11 @@
         },
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "item",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10535,7 +10535,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10667,7 +10667,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10763,11 +10763,11 @@
       "params": [
         {
           "name": "seq",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10795,7 +10795,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10846,7 +10846,7 @@
         },
         {
           "name": "day",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10894,7 +10894,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10918,11 +10918,11 @@
       "params": [
         {
           "name": "participant",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10938,7 +10938,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10961,7 +10961,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -10973,11 +10973,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "u32"
         }
       ]
     },
@@ -11031,7 +11031,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11043,7 +11043,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11055,7 +11055,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11074,11 +11074,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11132,7 +11132,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11144,7 +11144,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11163,11 +11163,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11186,7 +11186,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11262,11 +11262,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11285,7 +11285,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11297,7 +11297,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11309,11 +11309,11 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11325,7 +11325,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11337,11 +11337,11 @@
       "params": [
         {
           "name": "party_slot",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11353,7 +11353,7 @@
       "params": [
         {
           "name": "var_0",
-          "type": "var"
+          "type": "u16"
         },
         {
           "name": "arg_1",
@@ -11373,7 +11373,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11385,7 +11385,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11397,7 +11397,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11409,7 +11409,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11421,7 +11421,7 @@
       "params": [
         {
           "name": "result",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11433,7 +11433,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11445,7 +11445,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11457,7 +11457,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11469,7 +11469,7 @@
       "params": [
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11485,7 +11485,7 @@
         },
         {
           "name": "variable",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11513,7 +11513,7 @@
         },
         {
           "name": "var_1",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11573,7 +11573,7 @@
         },
         {
           "name": "party_position",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11608,7 +11608,7 @@
       "params": [
         {
           "name": "arg0",
-          "type": "u16"
+          "type": "u8"
         }
       ]
     },
@@ -11619,7 +11619,7 @@
       "params": [
         {
           "name": "arg0",
-          "type": "u16"
+          "type": "u8"
         },
         {
           "name": "arg1",
@@ -11639,7 +11639,7 @@
         },
         {
           "name": "trainer_class",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },
@@ -11655,7 +11655,7 @@
         },
         {
           "name": "seal",
-          "type": "var"
+          "type": "u16"
         }
       ]
     },

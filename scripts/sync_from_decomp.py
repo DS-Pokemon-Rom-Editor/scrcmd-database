@@ -228,6 +228,52 @@ def extract_emitted_params(body: str) -> list[str]:
     return params
 
 
+def extract_param_types(body: str, param_names: list[str]) -> dict[str, str]:
+    """
+    Extract parameter types from macro body based on directive used.
+    
+    Returns dict mapping param name -> type ('u8', 'u16', 'u32').
+    Only returns types for params that are found in the body.
+    """
+    type_map = {}
+    lines = body.split('\n')
+    
+    for line in lines:
+        line = line.strip()
+        if not line or line.startswith((';', '/*', '@', '#')):
+            continue
+            
+        # Skip conditionals
+        if line.startswith(('.if', '.else', '.endif', '.macro', '.endm')):
+            continue
+            
+        # Match .directive value \param
+        # e.g., ".byte \rightSide", ".short \flagID", ".long \value"
+        match = re.search(r'\.(byte|short|2byte|hword|word|long)\s+.*\\(\w+)', line)
+        if match:
+            directive = match.group(1)
+            param_name = match.group(2)
+            
+            if param_name not in param_names:
+                continue
+                
+            # Map directive to type
+            if directive in ('byte',):
+                param_type = 'u8'
+            elif directive in ('short', '2byte', 'hword'):
+                param_type = 'u16'
+            elif directive in ('word', 'long'):
+                param_type = 'u32'
+            else:
+                continue
+                
+            # Only set if not already set (prefer first occurrence)
+            if param_name not in type_map:
+                type_map[param_name] = param_type
+    
+    return type_map
+
+
 def extract_opcodes(body: str) -> list[int]:
     """Extract all numeric opcode emissions from macro body."""
     # Match .short/.byte/.2byte/.hword followed by numeric value
@@ -1015,6 +1061,43 @@ def update_param_defaults(db_params: list, macro: ParsedMacro) -> bool:
     return changes
 
 
+def update_param_types(db_params: list, macro: ParsedMacro) -> bool:
+    """
+    Update database parameter types based on actual types from macro body.
+    Returns True if changes were made.
+    """
+    if not macro.emitted_params or not db_params:
+        return False
+        
+    if len(macro.emitted_params) != len(db_params):
+        return False
+    
+    # Extract actual types from macro body
+    param_names = [p.name for p in macro.params]
+    actual_types = extract_param_types(macro.body, param_names)
+    
+    changes = False
+    
+    # Map by position: DB Param[i] corresponds to Emitted Param[i]
+    for i, emitted_name in enumerate(macro.emitted_params):
+        if emitted_name not in actual_types:
+            continue
+            
+        actual_type = actual_types[emitted_name]
+        current_type = db_params[i].get("type", "u16")
+        
+        # Prefer "var" type for parameters with "var" in their name
+        if 'var' in emitted_name.lower():
+            actual_type = 'var'
+        
+        # Only update if types differ
+        if current_type != actual_type:
+            db_params[i]["type"] = actual_type
+            changes = True
+    
+    return changes
+
+
 def update_db_from_sync(
     db: dict,
     missing: list,
@@ -1236,6 +1319,43 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                             
                 if defaults_updated > 0:
                     print(f"  Updated defaults for {defaults_updated} commands")
+                    has_changes = True
+                    with open(db_path, 'w', encoding='utf-8') as f:
+                        json.dump(db, f, indent=2)
+            
+            # Update parameter types from macro body directives
+            if update:
+                print("  Checking parameter types...")
+                types_updated = 0
+                db_commands = db.get("commands", {})
+                # Rebuild map as updates might have changed things
+                db_name_to_id = {
+                    name: data["id"] 
+                    for name, data in db_commands.items() 
+                    if data.get("type") == "script_cmd"
+                }
+                db_id_to_name = {v: k for k, v in db_name_to_id.items()}
+                
+                for name, macro in decomp_macros.items():
+                    if macro.is_wrapper or macro.is_conditional or len(macro.opcodes) > 1:
+                        continue
+                    if not macro.opcodes:
+                        continue
+                        
+                    # Find corresponding DB command
+                    target_name = None
+                    if name in db_name_to_id:
+                        target_name = name
+                    elif macro.opcodes[0] in db_id_to_name:
+                        target_name = db_id_to_name[macro.opcodes[0]]
+                    
+                    if target_name and target_name in db_commands:
+                        cmd = db_commands[target_name]
+                        if update_param_types(cmd.get("params", []), macro):
+                            types_updated += 1
+                            
+                if types_updated > 0:
+                    print(f"  Updated types for {types_updated} commands")
                     has_changes = True
                     with open(db_path, 'w', encoding='utf-8') as f:
                         json.dump(db, f, indent=2)
