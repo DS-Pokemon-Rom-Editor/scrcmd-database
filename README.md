@@ -4,14 +4,16 @@ JSON database of script commands, movements, and related data for Pokemon Genera
 
 **Supported Games:** Diamond/Pearl, Platinum, HeartGold/SoulSilver
 
-**Published Spreadsheet:** [Google Sheets](https://docs.google.com/spreadsheets/d/1WE6aCJeVbIMDfWYPykQEqLyBAZCDK8YlYFBD6hChiVA)
+**[View the data in Google Sheets](https://docs.google.com/spreadsheets/d/1WE6aCJeVbIMDfWYPykQEqLyBAZCDK8YlYFBD6hChiVA)**
+
+**V2 format is the source of truth. Legacy files are maintained for compatibility.**
 
 ## Database Files
 
 | File | Description |
 |------|-------------|
-| `*_scrcmd_database.json` | Legacy format (used by DSPRE) |
-| `*_v2.json` | New normalized v2 format |
+| `*_v2.json` | Primary format - Modern, unified schema |
+| `*_scrcmd_database.json` | Legacy format (DSPRE compatibility) |
 | `custom_databases/` | ROM hack-specific databases (e.g., Following Platinum) |
 
 ## Data Types
@@ -51,6 +53,24 @@ The v2 format unifies all command types into a single `commands` dictionary:
       "description": "Event faces up",
       "params": [{"name": "length", "type": "u16", "default": "1"}]
     },
+    "Message": {
+      "type": "script_cmd",
+      "id": 47,
+      "description": "Shows message box",
+      "variants": {
+        "0": {
+          "description": "Default message",
+          "params": [{"name": "msg_id", "type": "msg_id"}]
+        },
+        "1": {
+          "description": "Message with speaker",
+          "params": [
+            {"name": "msg_id", "type": "msg_id"},
+            {"name": "speaker_id", "type": "u16"}
+          ]
+        }
+      }
+    },
     "GoToIfEq": {
       "type": "macro",
       "params": [
@@ -88,6 +108,26 @@ The v2 format unifies all command types into a single `commands` dictionary:
 }
 ```
 
+### Conditional Commands (Variants)
+Some commands have different parameter sets based on a mode parameter:
+```json
+{
+  "variants": {
+    "0": {
+      "description": "Mode 0 behavior",
+      "params": [{"name": "param1", "type": "u8"}]
+    },
+    "1": {
+      "description": "Mode 1 behavior", 
+      "params": [
+        {"name": "param1", "type": "u8"},
+        {"name": "param2", "type": "u16"}
+      ]
+    }
+  }
+}
+```
+
 ### Parameter Types
 
 | Type | Description |
@@ -111,7 +151,7 @@ The v2 format is recommended for new tools. Key fields:
 
 ### For DSPRE Users
 
-DSPRE uses the legacy `*_scrcmd_database.json` files directly.
+DSPRE currently uses the legacy `*_scrcmd_database.json` files. Support for the v2 format is planned for integration with the custom script compiler.
 
 ## Scripts
 
