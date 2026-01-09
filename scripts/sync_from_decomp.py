@@ -50,6 +50,19 @@ SKIP_MACROS = {
     'script_entry_fixed', 'script_entry_go_to_if_equal',
 }
 
+# Manual primitive definitions for macros that wrap primitives but don't have
+# the /* PrimitiveName */ comment pattern in decomp. These are injected into
+# the hidden primitives dict as if they were extracted from comments.
+# Format: macro_name -> (opcode, primitive_name, [param dicts])
+MANUAL_PRIMITIVES = {
+    # GoToIfCannotAddCoins wraps an unnamed primitive at opcode 630
+    # Macro: .short 630; .short VAR_RESULT; .short \amount; Noop; GoToIfEq ...
+    "GoToIfCannotAddCoins": (630, "CannotAddCoins", [
+        {"name": "result", "type": "var"},
+        {"name": "amount", "type": "u16"},
+    ]),
+}
+
 # Levelscript macros - these define how scripts are triggered on a map
 # We parse these specially since they don't have numeric opcodes like regular commands
 LEVELSCRIPT_MACROS = {
@@ -96,12 +109,20 @@ class ParsedMacro:
     variants: list[Variant] = field(default_factory=list)
     opcode_switches: list[tuple[str, int]] = field(default_factory=list)
     emitted_params: list[str] = field(default_factory=list)
+    all_emitted_values: list[dict] = field(default_factory=list)  # All emitted values including literals
     expansion: MacroExpansion | None = None  # If this is a wrapper macro
     body: str = ""  # Raw body for debugging
+    primitive_name: str | None = None  # If macro wraps a differently-named primitive
+    primitive_params: list[dict] = field(default_factory=list)  # Params for the primitive
     
     @property
     def is_wrapper(self) -> bool:
         return self.expansion is not None
+    
+    @property
+    def wraps_primitive(self) -> bool:
+        """True if this macro wraps a primitive command with a different name."""
+        return self.primitive_name is not None and self.primitive_name != self.name
 
 
 @dataclass
@@ -239,6 +260,90 @@ def extract_emitted_params(body: str) -> list[str]:
     return params
 
 
+def extract_all_emitted_values(body: str) -> list[dict]:
+    """
+    Extract ALL emitted values from macro body, including both macro params and literals.
+    
+    Returns a list of dicts, each with:
+        - name: param name (e.g., 'banlistMsgStartIdx') or 'unused_N' for literals
+        - type: directive type ('u8', 'u16', 'u32')
+        - default: literal value if hardcoded (e.g., 0), None if from macro arg
+        - is_literal: True if this is a hardcoded value, False if from macro arg
+    
+    Skips the first .short (opcode) and stops at conditionals.
+    """
+    result = []
+    lines = body.split('\n')
+    first_short_seen = False
+    unused_counter = 0
+    
+    # Map directive to type
+    directive_to_type = {
+        'byte': 'u8',
+        'short': 'u16',
+        '2byte': 'u16',
+        'hword': 'u16',
+        'word': 'u32',
+        'long': 'u32',
+    }
+    
+    for line in lines:
+        line = line.strip()
+        if not line or line.startswith((';', '/*', '@', '#')):
+            continue
+            
+        # Abort on conditionals as flow is ambiguous
+        if line.startswith(('.if', '.else', '.endif', '.macro', '.endm')):
+            break
+        
+        # Match directives: .byte, .short, .word, etc.
+        match = re.match(r'\.(\w+)\s+(.+?)(?:\s*[@;/].*)?$', line)
+        if not match:
+            continue
+            
+        directive = match.group(1).lower()
+        if directive not in directive_to_type:
+            continue
+            
+        value_str = match.group(2).strip()
+        param_type = directive_to_type[directive]
+        
+        # Skip the first .short - that's the opcode
+        if directive in ('short', '2byte', 'hword') and not first_short_seen:
+            first_short_seen = True
+            continue
+        
+        # Check if it's a macro param reference (\paramName)
+        param_match = re.search(r'\\(\w+)', value_str)
+        if param_match:
+            result.append({
+                'name': param_match.group(1),
+                'type': param_type,
+                'default': None,
+                'is_literal': False
+            })
+        else:
+            # It's a literal value - parse it
+            try:
+                if value_str.startswith('0x'):
+                    literal_val = int(value_str, 16)
+                else:
+                    literal_val = int(value_str)
+                    
+                result.append({
+                    'name': f'unused_{unused_counter}',
+                    'type': param_type,
+                    'default': literal_val,
+                    'is_literal': True
+                })
+                unused_counter += 1
+            except ValueError:
+                # Could be a constant like TRUE/FALSE - skip for now
+                pass
+    
+    return result
+
+
 def extract_param_types(body: str, param_names: list[str]) -> dict[str, str]:
     """
     Extract parameter types from macro body based on directive used.
@@ -322,6 +427,228 @@ def extract_first_opcode(body: str) -> int | None:
         if match:
             return int(match.group(1))
     return None
+
+
+def extract_primitive_from_comment(body: str) -> tuple[int, str] | None:
+    """
+    Extract the primitive command name from a .short OPCODE /* PrimitiveName */ pattern.
+    
+    This detects when a macro emits an opcode with a comment indicating the actual
+    command name (which may differ from the macro name). For example:
+        .short 624 /* SetHiddenLocation */
+        
+    Returns (opcode, primitive_name) or None if pattern not found.
+    """
+    # Match: .short OPCODE /* CommandName */
+    # The command name should be a valid identifier (PascalCase typically)
+    pattern = re.compile(
+        r'\.(?:short|2byte|hword)\s+(\d+)\s*/\*\s*([A-Z][a-zA-Z0-9_]+)\s*\*/',
+        re.MULTILINE
+    )
+    
+    match = pattern.search(body)
+    if match:
+        opcode = int(match.group(1))
+        primitive_name = match.group(2)
+        return (opcode, primitive_name)
+    
+    return None
+
+
+def extract_all_primitives_from_comments(body: str) -> list[tuple[int, str]]:
+    """
+    Extract ALL primitive command names from .short OPCODE /* PrimitiveName */ patterns.
+    
+    This handles opcode-switching macros like SetVar which reference multiple primitives:
+        .short 40 /* SetVarFromValue */
+        .short 41 /* SetVarFromVar */
+        
+    Returns list of (opcode, primitive_name) tuples.
+    """
+    pattern = re.compile(
+        r'\.(?:short|2byte|hword)\s+(\d+)\s*/\*\s*([A-Z][a-zA-Z0-9_]+)\s*\*/',
+        re.MULTILINE
+    )
+    
+    primitives = []
+    for match in pattern.finditer(body):
+        opcode = int(match.group(1))
+        primitive_name = match.group(2)
+        primitives.append((opcode, primitive_name))
+    
+    return primitives
+
+
+def extract_primitive_params(body: str) -> list[dict]:
+    """
+    Extract parameter info for a primitive command from macro body.
+    
+    Looks at directives after the opcode emission to determine params.
+    Returns list of {name, type} dicts.
+    
+    This captures ALL parameters including constants like VAR_RESULT,
+    since when calling the primitive directly you need all arguments.
+    """
+    params = []
+    lines = body.split('\n')
+    found_opcode = False
+    const_counter = 0  # For generating names for constant params
+    
+    for line in lines:
+        line = line.strip()
+        if not line or line.startswith((';', '@', '#')):
+            continue
+        
+        # Skip standalone block comments
+        if line.startswith('/*') and '*/' not in line:
+            continue
+        
+        # Skip until we find the opcode (with comment pattern)
+        if not found_opcode:
+            if re.match(r'\.(?:short|2byte|hword)\s+\d+\s*/\*', line):
+                found_opcode = True
+            continue
+        
+        # After opcode, look for param emissions
+        # Stop if we hit a macro call (non-directive line starting with uppercase)
+        if not line.startswith('.') and line and line[0].isupper():
+            break
+        
+        # Stop on conditionals
+        if line.startswith(('.if', '.else', '.endif')):
+            break
+            
+        # Match .directive VALUE
+        match = re.match(r'\.(byte|short|2byte|hword|word|long)\s+([^\s]+)', line)
+        if match:
+            directive = match.group(1)
+            value = match.group(2).strip()
+            
+            # Remove trailing comments
+            if '/*' in value:
+                value = value.split('/*')[0].strip()
+            
+            # Determine type from directive
+            if directive in ('byte',):
+                param_type = 'u8'
+            elif directive in ('short', '2byte', 'hword'):
+                param_type = 'u16'
+            elif directive in ('word', 'long'):
+                param_type = 'u32'
+            else:
+                param_type = 'u16'
+            
+            # Check if it's a parameter reference (\name) or a constant
+            if value.startswith('\\'):
+                param_name = value[1:]  # Remove backslash
+                params.append({
+                    'name': param_name,
+                    'type': param_type
+                })
+            else:
+                # It's a constant (like VAR_RESULT, TRUE, FALSE)
+                # These are still params to the primitive command
+                # Use the constant name in lowercase as param name, or infer from context
+                if 'VAR_RESULT' in value or 'RESULT' in value:
+                    param_name = 'result'
+                    param_type = 'var'  # Result vars are var type
+                elif value in ('TRUE', 'FALSE'):
+                    param_name = f'flag_{const_counter}'
+                    param_type = 'u8'
+                else:
+                    param_name = f'arg_{const_counter}'
+                const_counter += 1
+                params.append({
+                    'name': param_name,
+                    'type': param_type
+                })
+    
+    return params
+
+
+def extract_primitive_call_line(body: str, id_to_name: dict[int, str] | None = None, macro_name: str | None = None) -> str | None:
+    """
+    Extract a primitive call expansion line from a macro body.
+    
+    For macros like:
+        .short 736 /* CheckAmitySquareManGiftIsAccesory */
+        .short \\giftID
+        .short VAR_RESULT
+        GoToIfEq VAR_RESULT, FALSE, \\offset
+    
+    Returns: "CheckAmitySquareManGiftIsAccesory $giftID, VAR_RESULT"
+    
+    Returns None if no primitive comment pattern is found and no manual override exists.
+    """
+    # First, find the primitive name and opcode from comment
+    primitive_info = extract_primitive_from_comment(body)
+    
+    # If no comment pattern, check for manual primitive override
+    if not primitive_info:
+        if macro_name and macro_name in MANUAL_PRIMITIVES:
+            opcode, primitive_name, manual_params = MANUAL_PRIMITIVES[macro_name]
+            # Build the call line from manual params
+            args = [f"${p['name']}" for p in manual_params]
+            if args:
+                return f"{primitive_name} {', '.join(args)}"
+            else:
+                return primitive_name
+        return None
+    
+    opcode, primitive_name = primitive_info
+    
+    # If we have id_to_name mapping and the primitive exists in DB, use that name
+    if id_to_name and opcode in id_to_name:
+        primitive_name = id_to_name[opcode]
+    
+    # Now extract the arguments that follow the opcode
+    args = []
+    lines = body.split('\n')
+    found_opcode = False
+    
+    for line in lines:
+        line = line.strip()
+        if not line or line.startswith((';', '@', '#')):
+            continue
+        
+        # Skip block comments but not inline comments
+        if line.startswith('/*') and '*/' not in line:
+            continue
+        
+        # Find the opcode line
+        if not found_opcode:
+            if re.match(r'\.(?:short|2byte|hword)\s+\d+\s*/\*', line):
+                found_opcode = True
+            continue
+        
+        # After opcode, look for param emissions
+        # Stop if we hit a macro call (non-directive line starting with uppercase)
+        if not line.startswith('.') and line and line[0].isupper():
+            break
+        
+        # Stop on conditionals
+        if line.startswith(('.if', '.else', '.endif')):
+            break
+            
+        # Match .directive VALUE
+        match = re.match(r'\.(byte|short|2byte|hword|word|long)\s+([^\s]+)', line)
+        if match:
+            value = match.group(2).strip()
+            # Remove trailing comments
+            if '/*' in value:
+                value = value.split('/*')[0].strip()
+            
+            # Convert \param to $param format
+            if value.startswith('\\'):
+                args.append(f"${value[1:]}")
+            else:
+                # It's a constant (like VAR_RESULT, TRUE, FALSE)
+                args.append(value)
+    
+    if args:
+        return f"{primitive_name} {', '.join(args)}"
+    else:
+        return f"{primitive_name}"
 
 
 def detect_opcode_switching(body: str) -> list[tuple[str, int]]:
@@ -437,6 +764,18 @@ def parse_macro(name: str, params_str: str, body: str, all_macro_names: set[str]
             body=body.strip()
         )
     
+    # Check for primitive command name in comment (e.g., .short 624 /* SetHiddenLocation */)
+    primitive_info = extract_primitive_from_comment(body)
+    primitive_name = None
+    primitive_params = []
+    
+    if primitive_info:
+        opcode, comment_name = primitive_info
+        # If the comment name differs from the macro name, this macro wraps a primitive
+        if comment_name != name:
+            primitive_name = comment_name
+            primitive_params = extract_primitive_params(body)
+    
     # Get first opcode (before any conditionals)
     first_opcode = extract_first_opcode(body)
     
@@ -454,7 +793,9 @@ def parse_macro(name: str, params_str: str, body: str, all_macro_names: set[str]
             opcodes=opcodes,
             opcode_switches=opcode_switches,
             is_conditional=True,
-            body=body.strip()
+            body=body.strip(),
+            primitive_name=primitive_name,
+            primitive_params=primitive_params
         )
     
     # Check for conditional parameter emission
@@ -477,6 +818,7 @@ def parse_macro(name: str, params_str: str, body: str, all_macro_names: set[str]
         return None
     
     emitted_params = extract_emitted_params(body)
+    all_emitted = extract_all_emitted_values(body)
     
     return ParsedMacro(
         name=name,
@@ -485,22 +827,59 @@ def parse_macro(name: str, params_str: str, body: str, all_macro_names: set[str]
         is_conditional=bool(variants),
         variants=variants,
         emitted_params=emitted_params,
-        body=body.strip()
+        all_emitted_values=all_emitted,
+        body=body.strip(),
+        primitive_name=primitive_name,
+        primitive_params=primitive_params
     )
 
 
-def parse_scrcmd_inc(content: str) -> dict[str, ParsedMacro]:
-    """Parse scrcmd.inc into dict of name -> ParsedMacro."""
+def parse_scrcmd_inc(content: str) -> tuple[dict[str, ParsedMacro], dict[str, tuple[int, list[dict]]]]:
+    """
+    Parse scrcmd.inc into dict of name -> ParsedMacro.
+    
+    Also extracts primitives that are only defined via comments in wrapper macros.
+    This handles both simple cases (EnableHiddenLocation -> SetHiddenLocation) and
+    opcode-switching cases (SetVar -> SetVarFromValue, SetVarFromVar).
+    
+    Returns:
+        - parsed: dict of macro_name -> ParsedMacro
+        - primitives: dict of primitive_name -> (opcode, params) for commands
+                     that don't have their own macro definition
+    """
     raw_macros = extract_macros(content)
     all_names = {name for name, _, _ in raw_macros}
     
     parsed = {}
+    primitives = {}  # primitive_name -> (opcode, params)
+    
     for name, params_str, body in raw_macros:
         macro = parse_macro(name, params_str, body, all_names)
         if macro:
             parsed[name] = macro
+            
+            # Extract ALL primitives from comments in this macro's body
+            # This handles both simple wrappers and opcode-switching macros
+            all_prims = extract_all_primitives_from_comments(body)
+            for prim_opcode, prim_name in all_prims:
+                # Only add if:
+                # 1. The primitive name differs from the macro name
+                # 2. The primitive doesn't already have its own macro
+                if prim_name != name and prim_name not in all_names:
+                    if prim_name not in primitives:
+                        # Extract params for this primitive
+                        prim_params = extract_primitive_params(body)
+                        primitives[prim_name] = (prim_opcode, prim_params)
     
-    return parsed
+    # Inject manual primitives for macros that don't have the comment pattern
+    for macro_name, (opcode, prim_name, prim_params) in MANUAL_PRIMITIVES.items():
+        if macro_name in parsed and prim_name not in primitives and prim_name not in all_names:
+            primitives[prim_name] = (opcode, prim_params)
+            # Also update the parsed macro to know it wraps this primitive
+            parsed[macro_name].primitive_name = prim_name
+            parsed[macro_name].primitive_params = prim_params
+    
+    return parsed, primitives
 
 
 def parse_movement_inc(content: str, constants: dict[str, int] | None = None) -> dict[str, tuple[int | None, list[MacroParam]]]:
@@ -869,7 +1248,7 @@ def extract_macros_for_db(content: str, id_to_name: dict[int, str] | None = None
     Returns dict of macro_name -> macro entry in v2 schema format.
     Handles standard macros and opcode-switching conditional macros.
     """
-    parsed_macros = parse_scrcmd_inc(content)
+    parsed_macros, _ = parse_scrcmd_inc(content)
     macros = {}
     
     for name, macro in parsed_macros.items():
@@ -906,11 +1285,14 @@ def extract_macros_for_db(content: str, id_to_name: dict[int, str] | None = None
         # 2. Handle Standard Macros (Expansion Lines)
         expansion_lines = parse_macro_expansion_lines(macro.body)
         
-        if not expansion_lines:
+        # Check if this macro wraps a primitive (has .short OPCODE /* Name */ pattern or manual override)
+        primitive_call = extract_primitive_call_line(macro.body, id_to_name, name)
+        
+        # If no expansion lines and no primitive call, skip
+        if not expansion_lines and not primitive_call:
             continue
         
-        # Skip if first line emits .short (it's a real command with opcode),
-        # unless it also calls other macros (mixed content)
+        # Skip if it's a plain command (emits .short but no macro calls AND no primitive comment)
         if any(line.strip().startswith('.short') for line in macro.body.split('\n')[:5]):
             has_macro_calls = any(
                 line.strip() and 
@@ -918,10 +1300,19 @@ def extract_macros_for_db(content: str, id_to_name: dict[int, str] | None = None
                 line.strip()[0].isupper()
                 for line in macro.body.split('\n')
             )
-            if not has_macro_calls:
+            # If no macro calls AND no primitive comment pattern, it's a plain command, skip
+            if not has_macro_calls and not primitive_call:
                 continue
         
-        v2_expansion = [format_expansion_line(line, macro.params) for line in expansion_lines]
+        # Build the expansion list
+        v2_expansion = []
+        
+        # Prepend the primitive call if present
+        if primitive_call:
+            v2_expansion.append(primitive_call)
+        
+        # Add the macro call expansion lines
+        v2_expansion.extend(format_expansion_line(line, macro.params) for line in expansion_lines)
         
         if v2_expansion:
             macros[name] = {
@@ -1016,10 +1407,17 @@ def build_id_to_name_map(commands: dict, cmd_type: str) -> dict[int, str]:
 def compare_macros_with_db(
     db: dict, 
     decomp_macros: dict[str, ParsedMacro], 
-    cmd_type: str
-) -> tuple[list, list, list, list]:
+    cmd_type: str,
+    decomp_primitives: dict[str, tuple[int, list[dict]]] | None = None
+) -> tuple[list, list, list, list, list]:
     """
     Compare parsed decomp macros with database.
+    
+    Args:
+        db: The database dict
+        decomp_macros: Parsed macros from decomp
+        cmd_type: Command type to compare (e.g., "script_cmd")
+        decomp_primitives: Hidden primitives extracted from comments (opcode, params)
     
     Returns:
         - missing: Commands in decomp but not in database
@@ -1038,6 +1436,59 @@ def compare_macros_with_db(
     missing = []
     mismatched = []
     wrappers = []
+    param_updates = []  # Commands that exist but need param updates
+    
+    # First, check hidden primitives from comments (like SetHiddenLocation, CheckHasEnoughMonForCatchingShow)
+    if decomp_primitives:
+        for prim_name, (prim_opcode, prim_params) in decomp_primitives.items():
+            if prim_name in db_name_to_id:
+                # Primitive exists in DB - check opcode
+                if db_name_to_id[prim_name] != prim_opcode:
+                    mismatched.append({
+                        "name": prim_name,
+                        "decomp_opcode": prim_opcode,
+                        "db_opcode": db_name_to_id[prim_name],
+                        "is_conditional": False,
+                        "all_opcodes": [prim_opcode],
+                        "params": [p.get("name", f"arg_{i}") for i, p in enumerate(prim_params)],
+                        "is_hidden_primitive": True
+                    })
+                else:
+                    # Name and opcode match - check if params need updating
+                    # Compare param count (decomp has more than DB)
+                    db_cmd = db_commands.get(prim_name, {})
+                    db_params = db_cmd.get("params", [])
+                    if len(prim_params) > len(db_params):
+                        param_updates.append({
+                            "name": prim_name,
+                            "params": prim_params,
+                            "is_hidden_primitive": True
+                        })
+            elif prim_opcode in db_id_to_name:
+                # Opcode exists with different name - this is a renaming situation
+                # The DB has a command (possibly a wrapper name) but decomp says
+                # the primitive at this opcode has a different name
+                db_name = db_id_to_name[prim_opcode]
+                mismatched.append({
+                    "name": prim_name,
+                    "decomp_opcode": prim_opcode,
+                    "db_name": db_name,
+                    "is_conditional": False,
+                    "all_opcodes": [prim_opcode],
+                    "params": prim_params,  # Pass full param info for hidden primitives
+                    "is_hidden_primitive": True
+                })
+            else:
+                # Completely missing - add to missing list
+                missing.append({
+                    "name": prim_name,
+                    "opcode": prim_opcode,
+                    "is_conditional": False,
+                    "params": [p.get("name", f"arg_{i}") for i, p in enumerate(prim_params)],
+                    "param_types": prim_params,  # Include full param info
+                    "variants": [],
+                    "is_hidden_primitive": True
+                })
     
     for name, macro in decomp_macros.items():
         # Handle wrapper macros
@@ -1102,6 +1553,10 @@ def compare_macros_with_db(
             # Opcode exists with different name
             db_name = db_id_to_name[primary_opcode]
             
+            # Skip if this macro wraps a hidden primitive - the primitive is the real command
+            if macro.wraps_primitive:
+                continue
+            
             # Check if existing DB name is also a valid decomp name (alias)
             # If so, don't rename it (prevent flip-flopping between aliases)
             if db_name in decomp_macros:
@@ -1109,6 +1564,10 @@ def compare_macros_with_db(
                 # so they shouldn't block adding the actual command
                 if not decomp_macros[db_name].is_wrapper:
                     continue
+            
+            # Check if DB name is a hidden primitive - don't rename primitives to wrapper names
+            if decomp_primitives and db_name in decomp_primitives:
+                continue
             
             mismatched.append({
                 "name": name,
@@ -1145,7 +1604,7 @@ def compare_macros_with_db(
            and name not in decomp_names
     ]
     
-    return missing, extra, mismatched, wrappers
+    return missing, extra, mismatched, wrappers, param_updates
 
 
 def update_param_defaults(db_params: list, macro: ParsedMacro) -> bool:
@@ -1250,6 +1709,15 @@ def update_db_from_sync(
                 # Update legacy_name only if it's missing (preserve original legacy name)
                 if "legacy_name" not in data:
                     data["legacy_name"] = old_name
+                
+                # For hidden primitives, also update params from the primitive info
+                if item.get('is_hidden_primitive') and item.get('params'):
+                    data["params"] = [
+                        {"name": p.get('name', f'arg_{i}') if isinstance(p, dict) else p, 
+                         "type": p.get('type', 'u16') if isinstance(p, dict) else 'u16'}
+                        for i, p in enumerate(item['params'])
+                    ]
+                
                 changes += 1
                 print(f"    Renamed {old_name} -> {decomp_name}")
         
@@ -1398,7 +1866,7 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
         print("  Fetching scrcmd.inc...")
         content = fetch_url(sources["scrcmd"])
         if content:
-            decomp_macros = parse_scrcmd_inc(content)
+            decomp_macros, decomp_primitives = parse_scrcmd_inc(content)
             
             # Count types
             simple = sum(1 for m in decomp_macros.values() if not m.is_conditional and not m.is_wrapper)
@@ -1406,15 +1874,18 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
             wrapper = sum(1 for m in decomp_macros.values() if m.is_wrapper)
             
             print(f"  Parsed {len(decomp_macros)} macros: {simple} simple, {conditional} conditional, {wrapper} wrapper")
+            if decomp_primitives:
+                print(f"  Found {len(decomp_primitives)} hidden primitives from comments")
             
-            missing, extra, mismatched, wrappers = compare_macros_with_db(db, decomp_macros, "script_cmd")
+            missing, extra, mismatched, wrappers, param_updates = compare_macros_with_db(db, decomp_macros, "script_cmd", decomp_primitives)
             
             if missing:
                 print(f"  Missing in DB: {len(missing)}")
                 for item in missing[:10]:
-                    cond_str = " (conditional)" if item['is_conditional'] else ""
-                    print(f"    - {item['name']} (0x{item['opcode']:04X}){cond_str}")
-                    if verbose and item['variants']:
+                    cond_str = " (conditional)" if item.get('is_conditional') else ""
+                    prim_str = " (hidden primitive)" if item.get('is_hidden_primitive') else ""
+                    print(f"    - {item['name']} (0x{item['opcode']:04X}){cond_str}{prim_str}")
+                    if verbose and item.get('variants'):
                         for v in item['variants']:
                             print(f"        when {v['condition']}: emits {v['emits']}")
                 if len(missing) > 10:
@@ -1440,6 +1911,25 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 if count > 0:
                     print(f"  Applied {count} changes to commands")
                     # Save immediately to avoid losing progress if next steps fail
+                    with open(db_path, 'w', encoding='utf-8') as f:
+                        json.dump(db, f, indent=2)
+            
+            # Apply param updates for hidden primitives
+            if update and param_updates:
+                db_commands = db.get("commands", {})
+                param_updates_count = 0
+                for item in param_updates:
+                    name = item["name"]
+                    if name in db_commands:
+                        new_params = [
+                            {"name": p.get("name", f"arg_{i}") if isinstance(p, dict) else str(p), 
+                             "type": p.get("type", "u16") if isinstance(p, dict) else "u16"}
+                            for i, p in enumerate(item["params"])
+                        ]
+                        db_commands[name]["params"] = new_params
+                        param_updates_count += 1
+                        print(f"    Updated params for {name}: {len(new_params)} params")
+                if param_updates_count > 0:
                     with open(db_path, 'w', encoding='utf-8') as f:
                         json.dump(db, f, indent=2)
             
@@ -1513,6 +2003,76 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                             
                 if types_updated > 0:
                     print(f"  Updated types for {types_updated} commands")
+                    has_changes = True
+                    with open(db_path, 'w', encoding='utf-8') as f:
+                        json.dump(db, f, indent=2)
+            
+            # Update params with hardcoded defaults (for unused params like `.short 0`)
+            if update:
+                print("  Checking for hardcoded/unused params...")
+                unused_params_updated = 0
+                db_commands = db.get("commands", {})
+                # Rebuild map as updates might have changed things
+                db_name_to_id = {
+                    name: data["id"] 
+                    for name, data in db_commands.items() 
+                    if data.get("type") == "script_cmd"
+                }
+                db_id_to_name = {v: k for k, v in db_name_to_id.items()}
+                
+                for name, macro in decomp_macros.items():
+                    if macro.is_wrapper or macro.is_conditional or len(macro.opcodes) > 1:
+                        continue
+                    if not macro.opcodes or not macro.all_emitted_values:
+                        continue
+                    
+                    # Skip if no hardcoded values
+                    has_hardcoded = any(v.get('is_literal') for v in macro.all_emitted_values)
+                    if not has_hardcoded:
+                        continue
+                        
+                    # Find corresponding DB command
+                    target_name = None
+                    if name in db_name_to_id:
+                        target_name = name
+                    elif macro.opcodes[0] in db_id_to_name:
+                        target_name = db_id_to_name[macro.opcodes[0]]
+                    
+                    if target_name and target_name in db_commands:
+                        cmd = db_commands[target_name]
+                        db_params = cmd.get("params", [])
+                        decomp_params = macro.all_emitted_values
+                        
+                        # Check if DB has correct number of params with defaults
+                        if len(decomp_params) == len(db_params):
+                            # Update defaults for hardcoded params and names from decomp
+                            changed = False
+                            for i, decomp_p in enumerate(decomp_params):
+                                db_name = db_params[i].get('name', '')
+                                decomp_name = decomp_p.get('name', '')
+                                # Update name if:
+                                # - DB has placeholder (???) 
+                                # - DB has generic name (like 'variable') but decomp has specific name
+                                if decomp_name and (
+                                    db_name.startswith('???') or 
+                                    (db_name in ('variable', 'value', 'arg') and decomp_name not in ('variable', 'value', 'arg'))
+                                ):
+                                    db_params[i]['name'] = decomp_name
+                                    changed = True
+                                # Update default for hardcoded params
+                                if decomp_p.get('is_literal') and decomp_p.get('default') is not None:
+                                    if db_params[i].get('default') != decomp_p['default']:
+                                        db_params[i]['default'] = decomp_p['default']
+                                        changed = True
+                            if changed:
+                                unused_params_updated += 1
+                        elif len(decomp_params) > len(db_params):
+                            # DB is missing some params - this shouldn't happen normally
+                            # but could occur if DB was manually truncated
+                            pass
+                
+                if unused_params_updated > 0:
+                    print(f"  Updated {unused_params_updated} commands with hardcoded param defaults")
                     has_changes = True
                     with open(db_path, 'w', encoding='utf-8') as f:
                         json.dump(db, f, indent=2)
@@ -1690,7 +2250,7 @@ def dump_macros(game: str) -> None:
     if not content:
         return
     
-    macros = parse_scrcmd_inc(content)
+    macros, primitives = parse_scrcmd_inc(content)
     
     # Group by type
     simple = []
@@ -1738,6 +2298,13 @@ def dump_macros(game: str) -> None:
             print(f"  {m.name}({params}) -> ???")
     if len(wrappers) > 20:
         print(f"  ... and {len(wrappers) - 20} more")
+    
+    # Print hidden primitives (commands only defined via comments)
+    if primitives:
+        print(f"\n=== Hidden Primitives ({len(primitives)}) ===")
+        for name, (opcode, params) in sorted(primitives.items(), key=lambda x: x[1][0]):
+            param_str = ', '.join(p.get('name', '?') for p in params) if params else ""
+            print(f"  0x{opcode:04X} {name}({param_str})")
 
 
 def main():

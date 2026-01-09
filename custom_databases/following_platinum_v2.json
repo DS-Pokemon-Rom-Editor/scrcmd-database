@@ -2404,7 +2404,7 @@
       "description": "nan",
       "params": []
     },
-    "EndGameScreen": {
+    "ClearGame": {
       "type": "script_cmd",
       "id": 176,
       "legacy_name": "EndGameScreen",
@@ -4021,7 +4021,7 @@
         }
       ]
     },
-    "SaveGame": {
+    "TrySaveGame": {
       "type": "script_cmd",
       "id": 301,
       "legacy_name": "SaveGame",
@@ -6800,20 +6800,22 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "banlistMsgStartIdx",
           "type": "u8"
         },
         {
-          "name": "variable",
+          "name": "numPokemonRequired",
           "type": "var"
         },
         {
-          "name": "???",
-          "type": "u16"
+          "name": "unused_0",
+          "type": "u16",
+          "default": 0
         },
         {
-          "name": "???",
-          "type": "u8"
+          "name": "unused_1",
+          "type": "u8",
+          "default": 0
         }
       ]
     },
@@ -8244,7 +8246,7 @@
         }
       ]
     },
-    "GoToIfNotEnoughMonForCatchingShow": {
+    "CheckHasEnoughMonForCatchingShow": {
       "type": "script_cmd",
       "id": 596,
       "legacy_name": "CMD_596",
@@ -8561,18 +8563,18 @@
       "description": "Resets the underground talking counter to zero",
       "params": []
     },
-    "EnableHiddenLocation": {
+    "SetHiddenLocation": {
       "type": "script_cmd",
       "id": 624,
       "legacy_name": "SetMatrixAlternativeMap",
       "description": "Permanently changes a worldmap matrix cell corresponding to Alternative ID if Status is 1, reverts the change if 0",
       "params": [
         {
-          "name": "alternative_id",
+          "name": "hiddenLocation",
           "type": "u16"
         },
         {
-          "name": "status",
+          "name": "flag_0",
           "type": "u8"
         }
       ]
@@ -8622,7 +8624,16 @@
       "id": 628,
       "legacy_name": "CMD_628",
       "description": "nan",
-      "params": []
+      "params": [
+        {
+          "name": "varID",
+          "type": "u16"
+        },
+        {
+          "name": "valueOrVarID",
+          "type": "u32"
+        }
+      ]
     },
     "CheckBonusRoundStreak": {
       "type": "script_cmd",
@@ -8636,18 +8647,18 @@
         }
       ]
     },
-    "GoToIfCannotAddCoins": {
+    "CannotAddCoins": {
       "type": "script_cmd",
       "id": 630,
       "legacy_name": "CMD_630",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
-          "type": "u16"
+          "name": "result",
+          "type": "var"
         },
         {
-          "name": "arg_1",
+          "name": "amount",
           "type": "u16"
         }
       ]
@@ -8997,7 +9008,7 @@
         }
       ]
     },
-    "CountLeagueVictories": {
+    "GetLeagueVictories": {
       "type": "script_cmd",
       "id": 655,
       "legacy_name": "CountLeagueVictories",
@@ -10090,18 +10101,18 @@
         }
       ]
     },
-    "GoToIfAmitySquareManGiftIsNotAccesory": {
+    "CheckAmitySquareManGiftIsAccesory": {
       "type": "script_cmd",
       "id": 736,
       "legacy_name": "CMD_736",
       "description": "nan",
       "params": [
         {
-          "name": "giftid",
+          "name": "giftID",
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "result",
           "type": "var"
         }
       ]
@@ -11449,16 +11460,18 @@
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "species",
           "type": "u16"
         },
         {
-          "name": "???",
-          "type": "u16"
+          "name": "unused_0",
+          "type": "u16",
+          "default": 0
         },
         {
-          "name": "???",
-          "type": "u8"
+          "name": "unused_1",
+          "type": "u8",
+          "default": 0
         }
       ]
     },
@@ -12722,7 +12735,7 @@
     },
     "WalkSlightlyFastWest": {
       "type": "movement",
-      "id": 79,
+      "id": 78,
       "legacy_name": "WaitWalkRightSlow",
       "description": "Event faces right and floats eastwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second. Walk animation isn't triggered.",
       "params": [
@@ -12735,7 +12748,7 @@
     },
     "WalkSlightlyFastEast": {
       "type": "movement",
-      "id": 80,
+      "id": 79,
       "legacy_name": "WaitWalkUp",
       "description": "Event faces up and floats northwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered.",
       "params": [
@@ -12748,7 +12761,7 @@
     },
     "WalkSlightlyFasterNorth": {
       "type": "movement",
-      "id": 81,
+      "id": 80,
       "legacy_name": "WaitWalkDown",
       "description": "Event faces down and floats southwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered.",
       "params": [
@@ -12761,7 +12774,7 @@
     },
     "WalkSlightlyFasterSouth": {
       "type": "movement",
-      "id": 82,
+      "id": 81,
       "legacy_name": "WaitWalkLeft",
       "description": "Event faces left and floats westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered.",
       "params": [
@@ -12774,7 +12787,7 @@
     },
     "WalkSlightlyFasterWest": {
       "type": "movement",
-      "id": 83,
+      "id": 82,
       "legacy_name": "WaitWalkRight",
       "description": "Event faces right and floats eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered.",
       "params": [
@@ -12787,7 +12800,7 @@
     },
     "WalkSlightlyFasterEast": {
       "type": "movement",
-      "id": 84,
+      "id": 83,
       "legacy_name": "WaitMoveUp",
       "description": "Event faces up and floats northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered.",
       "params": [
@@ -12800,7 +12813,7 @@
     },
     "WalkFastestNorth": {
       "type": "movement",
-      "id": 85,
+      "id": 84,
       "legacy_name": "WaitMoveDown",
       "description": "Event faces down and floats southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered.",
       "params": [
@@ -12813,7 +12826,7 @@
     },
     "WalkFastestSouth": {
       "type": "movement",
-      "id": 86,
+      "id": 85,
       "legacy_name": "WaitMoveLeft",
       "description": "Event faces left and floats westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered.",
       "params": [
@@ -12826,7 +12839,7 @@
     },
     "WalkFastestWest": {
       "type": "movement",
-      "id": 87,
+      "id": 86,
       "legacy_name": "WaitMoveRight",
       "description": "Event faces right and floats eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed. \nWalk animation isn't triggered.",
       "params": [
@@ -12839,7 +12852,7 @@
     },
     "WalkFastestEast": {
       "type": "movement",
-      "id": 88,
+      "id": 87,
       "legacy_name": "WaitWalkBackUp",
       "description": "Event faces up and floats northwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered.",
       "params": [
@@ -12852,7 +12865,7 @@
     },
     "RunNorth": {
       "type": "movement",
-      "id": 89,
+      "id": 88,
       "legacy_name": "WaitWalkBackDown",
       "description": "Event faces down and floats southwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered.",
       "params": [
@@ -12865,7 +12878,7 @@
     },
     "RunSouth": {
       "type": "movement",
-      "id": 90,
+      "id": 89,
       "legacy_name": "WaitWalkBackLeft",
       "description": "Event faces left and floats westwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered.",
       "params": [
@@ -12878,7 +12891,7 @@
     },
     "RunWest": {
       "type": "movement",
-      "id": 91,
+      "id": 90,
       "legacy_name": "WaitWalkBackRight",
       "description": "Event faces right and floats eastwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second. Walk animation isn't triggered.",
       "params": [
@@ -12891,7 +12904,7 @@
     },
     "RunEast": {
       "type": "movement",
-      "id": 92,
+      "id": 91,
       "legacy_name": "WaitJumpLeft1",
       "params": [
         {
@@ -12903,7 +12916,7 @@
     },
     "JumpNearSlowWest": {
       "type": "movement",
-      "id": 93,
+      "id": 92,
       "legacy_name": "WaitJumpRight1",
       "params": [
         {
@@ -12915,7 +12928,7 @@
     },
     "JumpNearSlowEast": {
       "type": "movement",
-      "id": 94,
+      "id": 93,
       "legacy_name": "WaitJumpLeft2",
       "params": [
         {
@@ -12927,7 +12940,7 @@
     },
     "JumpFartherWest": {
       "type": "movement",
-      "id": 95,
+      "id": 94,
       "legacy_name": "WaitJumpRight2",
       "params": [
         {
@@ -12939,7 +12952,7 @@
     },
     "JumpFartherEast": {
       "type": "movement",
-      "id": 100,
+      "id": 95,
       "legacy_name": "WaitMoveSite",
       "params": [
         {
@@ -12951,7 +12964,7 @@
     },
     "WalkEverSoSlightlyFastNorth": {
       "type": "movement",
-      "id": 101,
+      "id": 96,
       "legacy_name": "WaitJumpSite",
       "params": [
         {
@@ -12963,7 +12976,7 @@
     },
     "WalkEverSoSlightlyFastSouth": {
       "type": "movement",
-      "id": 103,
+      "id": 97,
       "legacy_name": "WaitDoubleExclamation",
       "params": [
         {
@@ -12975,8 +12988,668 @@
     },
     "WalkEverSoSlightlyFastWest": {
       "type": "movement",
-      "id": 104,
+      "id": 98,
       "legacy_name": "WaitMoveForever",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "WalkEverSoSlightlyFastEast": {
+      "type": "movement",
+      "id": 99,
+      "description": "Imported from decomp: WalkEverSoSlightlyFastEast",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "PokecenterNurseBow": {
+      "type": "movement",
+      "id": 100,
+      "description": "Imported from decomp: PokecenterNurseBow",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "RevealTrainer": {
+      "type": "movement",
+      "id": 101,
+      "description": "Imported from decomp: RevealTrainer",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "PlayerGive": {
+      "type": "movement",
+      "id": 102,
+      "description": "Imported from decomp: PlayerGive",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "EmoteDoubleExclamationMark": {
+      "type": "movement",
+      "id": 103,
+      "description": "Imported from decomp: EmoteDoubleExclamationMark",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "PlayerReceive": {
+      "type": "movement",
+      "id": 104,
+      "description": "Imported from decomp: PlayerReceive",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_105": {
+      "type": "movement",
+      "id": 105,
+      "description": "Imported from decomp: MoveAction_105",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_106": {
+      "type": "movement",
+      "id": 106,
+      "description": "Imported from decomp: MoveAction_106",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_107": {
+      "type": "movement",
+      "id": 107,
+      "description": "Imported from decomp: MoveAction_107",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_108": {
+      "type": "movement",
+      "id": 108,
+      "description": "Imported from decomp: MoveAction_108",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_109": {
+      "type": "movement",
+      "id": 109,
+      "description": "Imported from decomp: MoveAction_109",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_110": {
+      "type": "movement",
+      "id": 110,
+      "description": "Imported from decomp: MoveAction_110",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_111": {
+      "type": "movement",
+      "id": 111,
+      "description": "Imported from decomp: MoveAction_111",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_112": {
+      "type": "movement",
+      "id": 112,
+      "description": "Imported from decomp: MoveAction_112",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_113": {
+      "type": "movement",
+      "id": 113,
+      "description": "Imported from decomp: MoveAction_113",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_114": {
+      "type": "movement",
+      "id": 114,
+      "description": "Imported from decomp: MoveAction_114",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_115": {
+      "type": "movement",
+      "id": 115,
+      "description": "Imported from decomp: MoveAction_115",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_116": {
+      "type": "movement",
+      "id": 116,
+      "description": "Imported from decomp: MoveAction_116",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_117": {
+      "type": "movement",
+      "id": 117,
+      "description": "Imported from decomp: MoveAction_117",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_118": {
+      "type": "movement",
+      "id": 118,
+      "description": "Imported from decomp: MoveAction_118",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_119": {
+      "type": "movement",
+      "id": 119,
+      "description": "Imported from decomp: MoveAction_119",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_120": {
+      "type": "movement",
+      "id": 120,
+      "description": "Imported from decomp: MoveAction_120",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_121": {
+      "type": "movement",
+      "id": 121,
+      "description": "Imported from decomp: MoveAction_121",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_122": {
+      "type": "movement",
+      "id": 122,
+      "description": "Imported from decomp: MoveAction_122",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_123": {
+      "type": "movement",
+      "id": 123,
+      "description": "Imported from decomp: MoveAction_123",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_124": {
+      "type": "movement",
+      "id": 124,
+      "description": "Imported from decomp: MoveAction_124",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_125": {
+      "type": "movement",
+      "id": 125,
+      "description": "Imported from decomp: MoveAction_125",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_126": {
+      "type": "movement",
+      "id": 126,
+      "description": "Imported from decomp: MoveAction_126",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_127": {
+      "type": "movement",
+      "id": 127,
+      "description": "Imported from decomp: MoveAction_127",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_128": {
+      "type": "movement",
+      "id": 128,
+      "description": "Imported from decomp: MoveAction_128",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_129": {
+      "type": "movement",
+      "id": 129,
+      "description": "Imported from decomp: MoveAction_129",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_130": {
+      "type": "movement",
+      "id": 130,
+      "description": "Imported from decomp: MoveAction_130",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_131": {
+      "type": "movement",
+      "id": 131,
+      "description": "Imported from decomp: MoveAction_131",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_132": {
+      "type": "movement",
+      "id": 132,
+      "description": "Imported from decomp: MoveAction_132",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_133": {
+      "type": "movement",
+      "id": 133,
+      "description": "Imported from decomp: MoveAction_133",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_134": {
+      "type": "movement",
+      "id": 134,
+      "description": "Imported from decomp: MoveAction_134",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_135": {
+      "type": "movement",
+      "id": 135,
+      "description": "Imported from decomp: MoveAction_135",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_136": {
+      "type": "movement",
+      "id": 136,
+      "description": "Imported from decomp: MoveAction_136",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_137": {
+      "type": "movement",
+      "id": 137,
+      "description": "Imported from decomp: MoveAction_137",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_138": {
+      "type": "movement",
+      "id": 138,
+      "description": "Imported from decomp: MoveAction_138",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_139": {
+      "type": "movement",
+      "id": 139,
+      "description": "Imported from decomp: MoveAction_139",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_140": {
+      "type": "movement",
+      "id": 140,
+      "description": "Imported from decomp: MoveAction_140",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_141": {
+      "type": "movement",
+      "id": 141,
+      "description": "Imported from decomp: MoveAction_141",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_142": {
+      "type": "movement",
+      "id": 142,
+      "description": "Imported from decomp: MoveAction_142",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_143": {
+      "type": "movement",
+      "id": 143,
+      "description": "Imported from decomp: MoveAction_143",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_144": {
+      "type": "movement",
+      "id": 144,
+      "description": "Imported from decomp: MoveAction_144",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_145": {
+      "type": "movement",
+      "id": 145,
+      "description": "Imported from decomp: MoveAction_145",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_146": {
+      "type": "movement",
+      "id": 146,
+      "description": "Imported from decomp: MoveAction_146",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_147": {
+      "type": "movement",
+      "id": 147,
+      "description": "Imported from decomp: MoveAction_147",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_148": {
+      "type": "movement",
+      "id": 148,
+      "description": "Imported from decomp: MoveAction_148",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_149": {
+      "type": "movement",
+      "id": 149,
+      "description": "Imported from decomp: MoveAction_149",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_150": {
+      "type": "movement",
+      "id": 150,
+      "description": "Imported from decomp: MoveAction_150",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_151": {
+      "type": "movement",
+      "id": 151,
+      "description": "Imported from decomp: MoveAction_151",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_152": {
+      "type": "movement",
+      "id": 152,
+      "description": "Imported from decomp: MoveAction_152",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_153": {
+      "type": "movement",
+      "id": 153,
+      "description": "Imported from decomp: MoveAction_153",
       "params": [
         {
           "name": "length",
@@ -13328,6 +14001,30 @@
         }
       ]
     },
+    "DisableHiddenLocation": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "hiddenLocation",
+          "type": "u16"
+        }
+      ],
+      "expansion": [
+        "SetHiddenLocation $hiddenLocation, FALSE"
+      ]
+    },
+    "EnableHiddenLocation": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "hiddenLocation",
+          "type": "u16"
+        }
+      ],
+      "expansion": [
+        "SetHiddenLocation $hiddenLocation, TRUE"
+      ]
+    },
     "EndSafariGame": {
       "type": "macro",
       "params": [],
@@ -13484,6 +14181,23 @@
         "CallCommonScript 0x7D9"
       ]
     },
+    "GoToIfAmitySquareManGiftIsNotAccesory": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "giftID",
+          "type": "u16"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CheckAmitySquareManGiftIsAccesory $giftID, VAR_RESULT",
+        "GoToIfEq VAR_RESULT, FALSE, $offset"
+      ]
+    },
     "GoToIfBadgeAcquired": {
       "type": "macro",
       "params": [
@@ -13499,6 +14213,24 @@
       "expansion": [
         "CheckBadgeAcquired $badge, VAR_RESULT",
         "GoToIfEq VAR_RESULT, TRUE, $label"
+      ]
+    },
+    "GoToIfCannotAddCoins": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "amount",
+          "type": "u16"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CannotAddCoins $result, $amount",
+        "Noop",
+        "GoToIfEq VAR_RESULT, FALSE, $offset"
       ]
     },
     "GoToIfCannotFitItem": {
@@ -13684,6 +14416,19 @@
       "expansion": [
         "CheckTrainerFlag $trainerID",
         "GoToIf 0, $offset"
+      ]
+    },
+    "GoToIfNotEnoughMonForCatchingShow": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CheckHasEnoughMonForCatchingShow VAR_RESULT",
+        "GoToIfEq VAR_RESULT, FALSE, $offset"
       ]
     },
     "GoToIfNotEnoughMoney": {
@@ -14042,6 +14787,13 @@
       "params": [],
       "expansion": [
         "CheckHeapMemory FALSE"
+      ]
+    },
+    "SaveGame": {
+      "type": "macro",
+      "params": [],
+      "expansion": [
+        "CallCommonScript 0x7D6"
       ]
     },
     "SaveTVInterviewResponse": {
