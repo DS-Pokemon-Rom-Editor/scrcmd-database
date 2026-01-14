@@ -2151,7 +2151,7 @@
         }
       ]
     },
-    "ReplaceMove": {
+    "ResetPartyMonMoveSlot_Unused": {
       "type": "script_cmd",
       "id": 152,
       "legacy_name": "ReplaceMove",
@@ -3783,7 +3783,7 @@
         }
       ]
     },
-    "GetPokemonGender": {
+    "GetPartyMonGender_Unused": {
       "type": "script_cmd",
       "id": 282,
       "legacy_name": "GetPokemonGender",
@@ -3875,7 +3875,7 @@
         }
       ]
     },
-    "CountSinnohDexObtained": {
+    "GetLocalDexCaughtCount_Unused": {
       "type": "script_cmd",
       "id": 287,
       "legacy_name": "CountSinnohDexObtained",
@@ -5718,7 +5718,7 @@
         }
       ]
     },
-    "SubHappiness": {
+    "DecreasePartyMonFriendship_Unused": {
       "type": "script_cmd",
       "id": 443,
       "legacy_name": "SubHappiness",
@@ -6548,7 +6548,7 @@
         }
       ]
     },
-    "CMD_494": {
+    "GetPartyMonHeldItem_Unused": {
       "type": "script_cmd",
       "id": 494,
       "legacy_name": "CMD_494",
@@ -6576,7 +6576,7 @@
         }
       ]
     },
-    "CMD_496": {
+    "DeletePartyMonHeldItem_Unused": {
       "type": "script_cmd",
       "id": 496,
       "legacy_name": "CMD_496",
@@ -6810,12 +6810,12 @@
         {
           "name": "unused_0",
           "type": "u16",
-          "default": 0
+          "default": "0"
         },
         {
           "name": "unused_1",
           "type": "u8",
-          "default": 0
+          "default": "0"
         }
       ]
     },
@@ -7458,7 +7458,7 @@
         }
       ]
     },
-    "CountPokemonRibbons": {
+    "CountPartyMonRibbons_Unused": {
       "type": "script_cmd",
       "id": 558,
       "legacy_name": "CountPokemonRibbons",
@@ -9282,7 +9282,7 @@
         }
       ]
     },
-    "CMD_674": {
+    "TrySetUnusedUndergroundField": {
       "type": "script_cmd",
       "id": 674,
       "legacy_name": "CMD_674",
@@ -11466,12 +11466,12 @@
         {
           "name": "unused_0",
           "type": "u16",
-          "default": 0
+          "default": "0"
         },
         {
           "name": "unused_1",
           "type": "u8",
-          "default": 0
+          "default": "0"
         }
       ]
     },
@@ -13777,6 +13777,7 @@
     },
     "CheckAllFrontierGoldPrintsObtained": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x806",
       "params": [],
       "expansion": [
         "CallCommonScript 0x806"
@@ -13796,6 +13797,7 @@
     },
     "CheckBagPocketForItem": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7D1",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7D1"
@@ -13928,6 +13930,7 @@
     },
     "FadeToDefaultMusic": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7F9",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7F9"
@@ -13935,6 +13938,7 @@
     },
     "FadeToDefaultMusic2": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FB",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7FB"
@@ -13942,6 +13946,7 @@
     },
     "FadeToDefaultMusic3": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x801",
       "params": [],
       "expansion": [
         "CallCommonScript 0x801"
@@ -13949,6 +13954,7 @@
     },
     "FadeToDefaultMusic4": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x808",
       "params": [],
       "expansion": [
         "CallCommonScript 0x808"
@@ -13999,6 +14005,7 @@
     },
     "GiveAccessory": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FF",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7FF"
@@ -14006,6 +14013,7 @@
     },
     "GiveAccessoryWaitForConfirm": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7DF",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7DF"
@@ -14013,6 +14021,7 @@
     },
     "GiveItemQuantity": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FC",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7FC"
@@ -14020,6 +14029,7 @@
     },
     "GiveItemQuantityNoLineFeed": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7E0",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7E0"
@@ -14034,6 +14044,7 @@
     },
     "GivePoketchApp": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7D9",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7D9"
@@ -14076,6 +14087,11 @@
     "GoToIfCannotAddCoins": {
       "type": "macro",
       "params": [
+        {
+          "name": "result",
+          "type": "var",
+          "default": "VAR_RESULT"
+        },
         {
           "name": "amount",
           "type": "u16"
@@ -14342,6 +14358,7 @@
     },
     "GriseousOrbCouldNotBeRemoved": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x809",
       "params": [],
       "expansion": [
         "CallCommonScript 0x809"
@@ -14349,6 +14366,7 @@
     },
     "HandleSignpostInput": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7D0",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7D0"
@@ -14554,6 +14572,7 @@
     },
     "MessageBagIsFull": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7E1",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7E1"
@@ -14561,6 +14580,7 @@
     },
     "ObtainContestBackdrop": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FD",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7FD"
@@ -14568,6 +14588,7 @@
     },
     "ObtainContestBackdropWaitForConfirm": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7F4",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7F4"
@@ -14575,6 +14596,7 @@
     },
     "ObtainUndergroundSphere": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7DE",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7DE"
@@ -14582,6 +14604,7 @@
     },
     "ObtainUndergroundTrap": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7DD",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7DD"
@@ -14635,6 +14658,7 @@
     },
     "PrintPlateObtainedMessage": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7F6",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7F6"
@@ -14649,6 +14673,7 @@
     },
     "SaveGame": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7D6",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7D6"
@@ -14694,6 +14719,7 @@
     },
     "SendToUndergroundPC": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7DC",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7DC"
@@ -14701,6 +14727,7 @@
     },
     "SendToUndergroundPCWithLinefeed": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FE",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7FE"
@@ -14708,6 +14735,7 @@
     },
     "SetCounterpartBGM": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7F8",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7F8"
@@ -14715,6 +14743,7 @@
     },
     "SetFollowMeBGM": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x800",
       "params": [],
       "expansion": [
         "CallCommonScript 0x800"
@@ -14729,6 +14758,7 @@
     },
     "SetLookerBGM": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x807",
       "params": [],
       "expansion": [
         "CallCommonScript 0x807"
@@ -14771,6 +14801,7 @@
     },
     "SetRivalBGM": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FA",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7FA"
@@ -14997,6 +15028,7 @@
     },
     "VendorGreeting": {
       "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7E3",
       "params": [],
       "expansion": [
         "CallCommonScript 0x7E3"
