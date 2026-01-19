@@ -3750,14 +3750,14 @@
         }
       ]
     },
-    "ShowLinkCountRecord": {
+    "ShowLinkContestRecords": {
       "type": "script_cmd",
       "id": 278,
       "legacy_name": "ShowLinkCountRecord",
       "description": "nan",
       "params": []
     },
-    "CMD_279": {
+    "LockAutoScrollForLinkContests": {
       "type": "script_cmd",
       "id": 279,
       "legacy_name": "CMD_279",
@@ -3854,12 +3854,13 @@
           "type": "u8"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         },
         {
           "name": "floor",
-          "type": "var"
+          "type": "var",
+          "default": "$destVarID"
         }
       ]
     },
@@ -4065,7 +4066,7 @@
         }
       ]
     },
-    "CMD_304": {
+    "SetDressUpPhotoTitle": {
       "type": "script_cmd",
       "id": 304,
       "legacy_name": "CMD_304",
@@ -10101,7 +10102,7 @@
         }
       ]
     },
-    "CheckAmitySquareManGiftIsAccesory": {
+    "CheckAmitySquareManGiftIsAccessory": {
       "type": "script_cmd",
       "id": 736,
       "legacy_name": "CMD_736",
@@ -14067,6 +14068,23 @@
         "GoToIfEq VAR_RESULT, FALSE, $offset"
       ]
     },
+    "GoToIfAmitySquareManGiftIsNotAccessory": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "giftID",
+          "type": "u16"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CheckAmitySquareManGiftIsAccesory $giftID, VAR_RESULT",
+        "GoToIfEq VAR_RESULT, FALSE, $offset"
+      ]
+    },
     "GoToIfBadgeAcquired": {
       "type": "macro",
       "params": [
@@ -14937,17 +14955,37 @@
         },
         {
           "name": "arg1",
-          "type": "u16"
+          "type": "u16",
+          "optional": true
         },
         {
           "name": "arg2",
-          "type": "u16"
+          "type": "u16",
+          "optional": true
         }
       ],
-      "expansion": [
-        "Dummy1F9 $arg0",
-        "Dummy1F9 $arg1",
-        "Dummy1F9 $arg2"
+      "variants": [
+        {
+          "condition": "1 arg(s)",
+          "expansion": [
+            "Dummy1F9 $arg0"
+          ]
+        },
+        {
+          "condition": "2 args",
+          "expansion": [
+            "Dummy1F9 $arg0",
+            "Dummy1F9 $arg1"
+          ]
+        },
+        {
+          "condition": "3 args",
+          "expansion": [
+            "Dummy1F9 $arg0",
+            "Dummy1F9 $arg1",
+            "Dummy1F9 $arg2"
+          ]
+        }
       ]
     },
     "TakeShipFromCanalave": {

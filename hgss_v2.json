@@ -8484,7 +8484,7 @@
         }
       ]
     },
-    "CMD_612": {
+    "get_npc_trade_unused_flag": {
       "type": "script_cmd",
       "id": 612,
       "legacy_name": "CMD_612",
