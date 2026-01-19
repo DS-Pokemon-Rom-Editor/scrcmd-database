@@ -8378,7 +8378,7 @@
           "type": "u8"
         },
         {
-          "name": "accesory",
+          "name": "accessory",
           "type": "u16"
         }
       ]
@@ -11499,7 +11499,7 @@
           "type": "u8"
         },
         {
-          "name": "accesory",
+          "name": "accessory",
           "type": "u16"
         }
       ]
@@ -13592,16 +13592,12 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "ApplyMovement 241, $movementOffset"
-      ]
+      "expansion": ["ApplyMovement 241, $movementOffset"]
     },
     "AssertHeapMemory": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CheckHeapMemory TRUE"
-      ]
+      "expansion": ["CheckHeapMemory TRUE"]
     },
     "CallIfEq": {
       "type": "macro",
@@ -13619,10 +13615,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 1, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 1, $offset"]
     },
     "CallIfGe": {
       "type": "macro",
@@ -13640,10 +13633,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 4, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 4, $offset"]
     },
     "CallIfGt": {
       "type": "macro",
@@ -13661,10 +13651,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 2, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 2, $offset"]
     },
     "CallIfLe": {
       "type": "macro",
@@ -13682,10 +13669,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 3, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 3, $offset"]
     },
     "CallIfLt": {
       "type": "macro",
@@ -13703,10 +13687,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 0, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 0, $offset"]
     },
     "CallIfNe": {
       "type": "macro",
@@ -13724,10 +13705,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 5, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 5, $offset"]
     },
     "CallIfSet": {
       "type": "macro",
@@ -13741,10 +13719,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "CallIf 1, $offset"
-      ]
+      "expansion": ["CheckFlag $flagID", "CallIf 1, $offset"]
     },
     "CallIfUnset": {
       "type": "macro",
@@ -13758,10 +13733,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "CallIf 0, $offset"
-      ]
+      "expansion": ["CheckFlag $flagID", "CallIf 0, $offset"]
     },
     "CallPokecenterNurse": {
       "type": "macro",
@@ -13780,9 +13752,7 @@
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x806",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x806"
-      ]
+      "expansion": ["CallCommonScript 0x806"]
     },
     "CheckAvailableMysteryGift": {
       "type": "macro",
@@ -13800,9 +13770,7 @@
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7D1",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7D1"
-      ]
+      "expansion": ["CallCommonScript 0x7D1"]
     },
     "CheckBroadcastStatus": {
       "type": "macro",
@@ -13812,9 +13780,7 @@
           "type": "var"
         }
       ],
-      "expansion": [
-        "CallTVBroadcast TV_BROADCAST_CALL_CHECK_STATUS, $destVar"
-      ]
+      "expansion": ["CallTVBroadcast TV_BROADCAST_CALL_CHECK_STATUS, $destVar"]
     },
     "CheckCanReceiveMysteryGift": {
       "type": "macro",
@@ -13831,9 +13797,7 @@
     "ClearInCatchingShowFlag": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetClearInCatchingShowFlag 1"
-      ]
+      "expansion": ["SetClearInCatchingShowFlag 1"]
     },
     "CompareVar": {
       "type": "macro",
@@ -13850,15 +13814,11 @@
       "variants": [
         {
           "condition": "\\valueOrVarID < VARS_START",
-          "expansion": [
-            "CompareVarToValue $varID, $valueOrVarID"
-          ]
+          "expansion": ["CompareVarToValue $varID, $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "CompareVarToVar $varID, $valueOrVarID"
-          ]
+          "expansion": ["CompareVarToVar $varID, $valueOrVarID"]
         }
       ]
     },
@@ -13870,9 +13830,7 @@
           "type": "u16"
         }
       ],
-      "expansion": [
-        "SetHiddenLocation $hiddenLocation, FALSE"
-      ]
+      "expansion": ["SetHiddenLocation $hiddenLocation, FALSE"]
     },
     "EnableHiddenLocation": {
       "type": "macro",
@@ -13882,16 +13840,12 @@
           "type": "u16"
         }
       ],
-      "expansion": [
-        "SetHiddenLocation $hiddenLocation, TRUE"
-      ]
+      "expansion": ["SetHiddenLocation $hiddenLocation, TRUE"]
     },
     "EndSafariGame": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "StartEndSafariGame SAFARI_GAME_INACTIVE"
-      ]
+      "expansion": ["StartEndSafariGame SAFARI_GAME_INACTIVE"]
     },
     "FadeScreenIn": {
       "type": "macro",
@@ -13933,40 +13887,30 @@
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7F9",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F9"
-      ]
+      "expansion": ["CallCommonScript 0x7F9"]
     },
     "FadeToDefaultMusic2": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7FB",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FB"
-      ]
+      "expansion": ["CallCommonScript 0x7FB"]
     },
     "FadeToDefaultMusic3": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x801",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x801"
-      ]
+      "expansion": ["CallCommonScript 0x801"]
     },
     "FadeToDefaultMusic4": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x808",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x808"
-      ]
+      "expansion": ["CallCommonScript 0x808"]
     },
     "FinishTVProgram": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallTVBroadcast TV_BROADCAST_CALL_FINISH_PROGRAM"
-      ]
+      "expansion": ["CallTVBroadcast TV_BROADCAST_CALL_FINISH_PROGRAM"]
     },
     "GetMysteryGiftType": {
       "type": "macro",
@@ -13976,9 +13920,7 @@
           "type": "var"
         }
       ],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_GET_PGT_TYPE, $destVarID"
-      ]
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_GET_PGT_TYPE, $destVarID"]
     },
     "GetNationalDexEnabled": {
       "type": "macro",
@@ -13988,9 +13930,7 @@
           "type": "var"
         }
       ],
-      "expansion": [
-        "GetSetNationalDexEnabled 2, $destVar"
-      ]
+      "expansion": ["GetSetNationalDexEnabled 2, $destVar"]
     },
     "GetNextTVSegmentID": {
       "type": "macro",
@@ -14008,50 +13948,38 @@
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7FF",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FF"
-      ]
+      "expansion": ["CallCommonScript 0x7FF"]
     },
     "GiveAccessoryWaitForConfirm": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7DF",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DF"
-      ]
+      "expansion": ["CallCommonScript 0x7DF"]
     },
     "GiveItemQuantity": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7FC",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FC"
-      ]
+      "expansion": ["CallCommonScript 0x7FC"]
     },
     "GiveItemQuantityNoLineFeed": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7E0",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7E0"
-      ]
+      "expansion": ["CallCommonScript 0x7E0"]
     },
     "GiveMysteryGift": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_GIVE"
-      ]
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_GIVE"]
     },
     "GivePoketchApp": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7D9",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7D9"
-      ]
+      "expansion": ["CallCommonScript 0x7D9"]
     },
-    "GoToIfAmitySquareManGiftIsNotAccesory": {
+    "GoToIfAmitySquareManGiftIsNotAccessory": {
       "type": "macro",
       "params": [
         {
@@ -14162,10 +14090,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckTrainerFlag $trainerID",
-        "GoToIf 1, $offset"
-      ]
+      "expansion": ["CheckTrainerFlag $trainerID", "GoToIf 1, $offset"]
     },
     "GoToIfEq": {
       "type": "macro",
@@ -14183,10 +14108,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 1, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 1, $offset"]
     },
     "GoToIfGe": {
       "type": "macro",
@@ -14204,10 +14126,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 4, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 4, $offset"]
     },
     "GoToIfGt": {
       "type": "macro",
@@ -14225,10 +14144,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 2, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 2, $offset"]
     },
     "GoToIfLe": {
       "type": "macro",
@@ -14246,10 +14162,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 3, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 3, $offset"]
     },
     "GoToIfLt": {
       "type": "macro",
@@ -14267,10 +14180,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 0, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 0, $offset"]
     },
     "GoToIfNe": {
       "type": "macro",
@@ -14288,10 +14198,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 5, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 5, $offset"]
     },
     "GoToIfNotDefeated": {
       "type": "macro",
@@ -14305,10 +14212,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckTrainerFlag $trainerID",
-        "GoToIf 0, $offset"
-      ]
+      "expansion": ["CheckTrainerFlag $trainerID", "GoToIf 0, $offset"]
     },
     "GoToIfNotEnoughMonForCatchingShow": {
       "type": "macro",
@@ -14352,10 +14256,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "GoToIf 1, $offset"
-      ]
+      "expansion": ["CheckFlag $flagID", "GoToIf 1, $offset"]
     },
     "GoToIfUnset": {
       "type": "macro",
@@ -14369,26 +14270,19 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "GoToIf 0, $offset"
-      ]
+      "expansion": ["CheckFlag $flagID", "GoToIf 0, $offset"]
     },
     "GriseousOrbCouldNotBeRemoved": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x809",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x809"
-      ]
+      "expansion": ["CallCommonScript 0x809"]
     },
     "HandleSignpostInput": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7D0",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7D0"
-      ]
+      "expansion": ["CallCommonScript 0x7D0"]
     },
     "HasCoins": {
       "type": "macro",
@@ -14405,15 +14299,11 @@
       "variants": [
         {
           "condition": "\\valueOrVarID < VARS_START",
-          "expansion": [
-            "HasCoinsFromValue $varID, $valueOrVarID"
-          ]
+          "expansion": ["HasCoinsFromValue $varID, $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "HasCoinsFromVar $varID, $valueOrVarID"
-          ]
+          "expansion": ["HasCoinsFromVar $varID, $valueOrVarID"]
         }
       ]
     },
@@ -14425,16 +14315,12 @@
           "type": "var"
         }
       ],
-      "expansion": [
-        "LoadPokedexRating FALSE, $destVar"
-      ]
+      "expansion": ["LoadPokedexRating FALSE, $destVar"]
     },
     "LoadMysteryGift": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_LOAD"
-      ]
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_LOAD"]
     },
     "LoadNationalDexRating": {
       "type": "macro",
@@ -14444,9 +14330,7 @@
           "type": "var"
         }
       ],
-      "expansion": [
-        "LoadPokedexRating TRUE, $destVar"
-      ]
+      "expansion": ["LoadPokedexRating TRUE, $destVar"]
     },
     "LoadTVCommercial": {
       "type": "macro",
@@ -14592,55 +14476,41 @@
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7E1",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7E1"
-      ]
+      "expansion": ["CallCommonScript 0x7E1"]
     },
     "ObtainContestBackdrop": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7FD",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FD"
-      ]
+      "expansion": ["CallCommonScript 0x7FD"]
     },
     "ObtainContestBackdropWaitForConfirm": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7F4",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F4"
-      ]
+      "expansion": ["CallCommonScript 0x7F4"]
     },
     "ObtainUndergroundSphere": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7DE",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DE"
-      ]
+      "expansion": ["CallCommonScript 0x7DE"]
     },
     "ObtainUndergroundTrap": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7DD",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DD"
-      ]
+      "expansion": ["CallCommonScript 0x7DD"]
     },
     "OpenBerriesBag": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "OpenBag 1"
-      ]
+      "expansion": ["OpenBag 1"]
     },
     "OpenItemsBag": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "OpenBag 0"
-      ]
+      "expansion": ["OpenBag 0"]
     },
     "PrepareMysterGiftCantReceiveMsg": {
       "type": "macro",
@@ -14678,24 +14548,18 @@
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7F6",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F6"
-      ]
+      "expansion": ["CallCommonScript 0x7F6"]
     },
     "RecordHeapMemory": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CheckHeapMemory FALSE"
-      ]
+      "expansion": ["CheckHeapMemory FALSE"]
     },
     "SaveGame": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7D6",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7D6"
-      ]
+      "expansion": ["CallCommonScript 0x7D6"]
     },
     "SaveTVInterviewResponse": {
       "type": "macro",
@@ -14721,10 +14585,7 @@
     "SelectPokemonForUnionRoomBattle": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "OpenPartyMenuForUnionRoomBattle",
-        "ReturnToField"
-      ]
+      "expansion": ["OpenPartyMenuForUnionRoomBattle", "ReturnToField"]
     },
     "SelectPokemonToTrade": {
       "type": "macro",
@@ -14739,91 +14600,67 @@
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7DC",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DC"
-      ]
+      "expansion": ["CallCommonScript 0x7DC"]
     },
     "SendToUndergroundPCWithLinefeed": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7FE",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FE"
-      ]
+      "expansion": ["CallCommonScript 0x7FE"]
     },
     "SetCounterpartBGM": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7F8",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F8"
-      ]
+      "expansion": ["CallCommonScript 0x7F8"]
     },
     "SetFollowMeBGM": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x800",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x800"
-      ]
+      "expansion": ["CallCommonScript 0x800"]
     },
     "SetInCatchingShowFlag": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetClearInCatchingShowFlag 0"
-      ]
+      "expansion": ["SetClearInCatchingShowFlag 0"]
     },
     "SetLookerBGM": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x807",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x807"
-      ]
+      "expansion": ["CallCommonScript 0x807"]
     },
     "SetMenuXOriginToLeft": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetMenuXOriginSide FALSE"
-      ]
+      "expansion": ["SetMenuXOriginSide FALSE"]
     },
     "SetMenuXOriginToRight": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetMenuXOriginSide TRUE"
-      ]
+      "expansion": ["SetMenuXOriginSide TRUE"]
     },
     "SetMenuYOriginToBottom": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetMenuYOriginSide TRUE"
-      ]
+      "expansion": ["SetMenuYOriginSide TRUE"]
     },
     "SetMenuYOriginToTop": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetMenuYOriginSide FALSE"
-      ]
+      "expansion": ["SetMenuYOriginSide FALSE"]
     },
     "SetNationalDexEnabled": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "GetSetNationalDexEnabled 1, VAR_RESULT"
-      ]
+      "expansion": ["GetSetNationalDexEnabled 1, VAR_RESULT"]
     },
     "SetRivalBGM": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7FA",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FA"
-      ]
+      "expansion": ["CallCommonScript 0x7FA"]
     },
     "SetVar": {
       "type": "macro",
@@ -14840,15 +14677,11 @@
       "variants": [
         {
           "condition": "\\valueOrVarID < VARS_START",
-          "expansion": [
-            "SetVarFromValue $destVarID, $valueOrVarID"
-          ]
+          "expansion": ["SetVarFromValue $destVarID, $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "SetVarFromVar $destVarID, $valueOrVarID"
-          ]
+          "expansion": ["SetVarFromVar $destVarID, $valueOrVarID"]
         }
       ]
     },
@@ -14919,9 +14752,7 @@
     "StartSafariGame": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "StartEndSafariGame SAFARI_GAME_ACTIVE"
-      ]
+      "expansion": ["StartEndSafariGame SAFARI_GAME_ACTIVE"]
     },
     "SubtractCoins": {
       "type": "macro",
@@ -14934,15 +14765,11 @@
       "variants": [
         {
           "condition": "\\valueOrVarID < VARS_START",
-          "expansion": [
-            "SubstractCoinsFromValue $valueOrVarID"
-          ]
+          "expansion": ["SubstractCoinsFromValue $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "SubstractCoinsFromVar $valueOrVarID"
-          ]
+          "expansion": ["SubstractCoinsFromVar $valueOrVarID"]
         }
       ]
     },
@@ -14967,24 +14794,15 @@
       "variants": [
         {
           "condition": "1 arg(s)",
-          "expansion": [
-            "Dummy1F9 $arg0"
-          ]
+          "expansion": ["Dummy1F9 $arg0"]
         },
         {
           "condition": "2 args",
-          "expansion": [
-            "Dummy1F9 $arg0",
-            "Dummy1F9 $arg1"
-          ]
+          "expansion": ["Dummy1F9 $arg0", "Dummy1F9 $arg1"]
         },
         {
           "condition": "3 args",
-          "expansion": [
-            "Dummy1F9 $arg0",
-            "Dummy1F9 $arg1",
-            "Dummy1F9 $arg2"
-          ]
+          "expansion": ["Dummy1F9 $arg0", "Dummy1F9 $arg1", "Dummy1F9 $arg2"]
         }
       ]
     },
@@ -15053,24 +14871,18 @@
     "UnloadMysteryGift": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_UNLOAD_RECEIVED"
-      ]
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_UNLOAD_RECEIVED"]
     },
     "UnloadMysteryGift2": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_UNLOAD_NOT_RECEIVED"
-      ]
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_UNLOAD_NOT_RECEIVED"]
     },
     "VendorGreeting": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7E3",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7E3"
-      ]
+      "expansion": ["CallCommonScript 0x7E3"]
     }
   },
   "sounds": {

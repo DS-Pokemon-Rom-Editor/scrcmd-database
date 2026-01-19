@@ -5065,14 +5065,8 @@
       "name": "UnionGroup",
       "decomp_name": "ScrCmd_21D",
       "parameters": [
-        255, 2, 
-        0, 2, 2, 2, 
-        1, 2, 2, 2, 
-        2, 2, 2, 2, 
-        3, 2, 2, 2, 
-        4, 1, 2, 
-        5, 1, 2, 
-        6, 0
+        255, 2, 0, 2, 2, 2, 1, 2, 2, 2, 2, 2, 2, 2, 3, 2, 2, 2, 4, 1, 2, 5, 1,
+        2, 6, 0
       ],
       "parameter_types": [
         "Integer",
@@ -5725,7 +5719,7 @@
       "decomp_name": "BufferAccessoryName",
       "parameters": [1, 2],
       "parameter_types": ["Integer", "Flex"],
-      "parameter_values": ["u8: String Buffer", "Flex: Accesory"],
+      "parameter_values": ["u8: String Buffer", "Flex: Accessory"],
       "description": "Stores Accessory's name in String Buffer"
     },
     "0x0262": {
@@ -7628,7 +7622,7 @@
       "decomp_name": "ScrCmd_343",
       "parameters": [1, 2],
       "parameter_types": ["Integer", "Flex"],
-      "parameter_values": ["u8: String Buffer", "Flex: Accesory"],
+      "parameter_values": ["u8: String Buffer", "Flex: Accessory"],
       "description": "???"
     },
     "0x0344": {
