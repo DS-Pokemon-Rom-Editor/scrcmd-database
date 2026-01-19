@@ -6727,7 +6727,7 @@
     },
     "0x02E0": {
       "name": "CMD_736",
-      "decomp_name": "CheckAmitySquareManGiftIsAccesory",
+      "decomp_name": "CheckAmitySquareManGiftIsAccessory",
       "parameters": [2, 2],
       "parameter_types": ["Flex", "Variable"],
       "parameter_values": ["Flex: giftID", "Var: Variable"],

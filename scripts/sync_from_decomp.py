@@ -600,12 +600,12 @@ def extract_primitive_call_line(
     Extract a primitive call expansion line from a macro body.
 
     For macros like:
-        .short 736 /* CheckAmitySquareManGiftIsAccesory */
+        .short 736 /* CheckAmitySquareManGiftIsAccessory */
         .short \\giftID
         .short VAR_RESULT
         GoToIfEq VAR_RESULT, FALSE, \\offset
 
-    Returns: "CheckAmitySquareManGiftIsAccesory $giftID, VAR_RESULT"
+    Returns: "CheckAmitySquareManGiftIsAccessory $giftID, VAR_RESULT"
 
     Returns None if no primitive comment pattern is found and no manual override exists.
     """
