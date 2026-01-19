@@ -14138,23 +14138,6 @@
         "GoToIfEq VAR_RESULT, FALSE, $offset"
       ]
     },
-    "GoToIfAmitySquareManGiftIsNotAccessory": {
-      "type": "macro",
-      "params": [
-        {
-          "name": "giftID",
-          "type": "u16"
-        },
-        {
-          "name": "offset",
-          "type": "label"
-        }
-      ],
-      "expansion": [
-        "CheckAmitySquareManGiftIsAccessory $giftID, VAR_RESULT",
-        "GoToIfEq VAR_RESULT, FALSE, $offset"
-      ]
-    },
     "GoToIfBadgeAcquired": {
       "type": "macro",
       "params": [

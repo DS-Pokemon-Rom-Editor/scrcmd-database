@@ -8356,7 +8356,7 @@
           "type": "u8"
         },
         {
-          "name": "accesory",
+          "name": "accessory",
           "type": "u16"
         }
       ]
