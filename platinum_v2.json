@@ -14064,7 +14064,7 @@
         }
       ],
       "expansion": [
-        "CheckAmitySquareManGiftIsAccesory $giftID, VAR_RESULT",
+        "CheckAmitySquareManGiftIsAccessory $giftID, VAR_RESULT",
         "GoToIfEq VAR_RESULT, FALSE, $offset"
       ]
     },
