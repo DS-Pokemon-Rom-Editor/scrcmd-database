@@ -12327,68 +12327,6 @@
       "legacy_name": "End",
       "description": "Action end marker. Used to indicate the end of a movement sequence."
     },
-    "InitScriptEntryEnd": {
-      "type": "levelscript_cmd",
-      "id": 0,
-      "description": "comes after the last InitScript entry but before InitScriptFrameTable",
-      "discriminant_size": "u8",
-      "params": []
-    },
-    "InitScriptFrameTableEnd": {
-      "type": "levelscript_cmd",
-      "id": 0,
-      "description": "Marks the end of the frame table checks. Emits .short 0",
-      "discriminant_size": "u16",
-      "params": []
-    },
-    "InitScriptEntry_OnFrameTable": {
-      "type": "levelscript_cmd",
-      "id": 1,
-      "description": "Before each frame of input processing, a table of conditions for the map is checked. Runs the first script where its two condition variables are equal. Therefore, any script invoked this way must at some point make its own condition false. The first check only occurs after all other init script types have run.",
-      "discriminant_size": "u8",
-      "params": [
-        {
-          "name": "script_id",
-          "type": "u16"
-        }
-      ]
-    },
-    "InitScriptEntry_OnTransition": {
-      "type": "levelscript_cmd",
-      "id": 2,
-      "description": "Runs upon first entering a map, including when starting a new game or loading a save. Runs before all other init script types, including ON_FRAME_TABLE. Primary roles: modify object events, manage persisted map features",
-      "discriminant_size": "u8",
-      "params": [
-        {
-          "name": "script_id",
-          "type": "u32"
-        }
-      ]
-    },
-    "InitScriptEntry_OnResume": {
-      "type": "levelscript_cmd",
-      "id": 3,
-      "description": "Runs after the map has been fully loaded and drawn. Can run again without leaving the map, e.g., when using a field move or item. Primary roles: hide the player, modify object events",
-      "discriminant_size": "u8",
-      "params": [
-        {
-          "name": "script_id",
-          "type": "u32"
-        }
-      ]
-    },
-    "InitScriptEntry_OnLoad": {
-      "type": "levelscript_cmd",
-      "id": 4,
-      "description": "Runs after the map layout is loaded (but not drawn yet). Can run again without leaving the map, e.g., when using a field move or item. Primary roles: modify warp events, set/unset flags tied to object events",
-      "discriminant_size": "u8",
-      "params": [
-        {
-          "name": "script_id",
-          "type": "u32"
-        }
-      ]
-    },
     "call_if_defeated": {
       "type": "macro",
       "params": [
@@ -12401,7 +12339,10 @@
           "type": "label"
         }
       ],
-      "expansion": ["checktrainerflag $trainer", "call_if TRUE, $dest"]
+      "expansion": [
+        "checktrainerflag $trainer",
+        "call_if TRUE, $dest"
+      ]
     },
     "call_if_eq": {
       "type": "macro",
@@ -12411,7 +12352,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["call_if 1, $dest"]
+      "expansion": [
+        "call_if 1, $dest"
+      ]
     },
     "call_if_ge": {
       "type": "macro",
@@ -12421,7 +12364,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["call_if 4, $dest"]
+      "expansion": [
+        "call_if 4, $dest"
+      ]
     },
     "call_if_gt": {
       "type": "macro",
@@ -12431,7 +12376,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["call_if 2, $dest"]
+      "expansion": [
+        "call_if 2, $dest"
+      ]
     },
     "call_if_le": {
       "type": "macro",
@@ -12441,7 +12388,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["call_if 3, $dest"]
+      "expansion": [
+        "call_if 3, $dest"
+      ]
     },
     "call_if_lt": {
       "type": "macro",
@@ -12451,7 +12400,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["call_if 0, $dest"]
+      "expansion": [
+        "call_if 0, $dest"
+      ]
     },
     "call_if_ne": {
       "type": "macro",
@@ -12461,7 +12412,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["call_if 5, $dest"]
+      "expansion": [
+        "call_if 5, $dest"
+      ]
     },
     "call_if_not_defeated": {
       "type": "macro",
@@ -12475,7 +12428,10 @@
           "type": "label"
         }
       ],
-      "expansion": ["checktrainerflag $trainer", "call_if FALSE, $dest"]
+      "expansion": [
+        "checktrainerflag $trainer",
+        "call_if FALSE, $dest"
+      ]
     },
     "call_if_set": {
       "type": "macro",
@@ -12489,7 +12445,10 @@
           "type": "label"
         }
       ],
-      "expansion": ["checkflag $flag", "call_if TRUE, $dest"]
+      "expansion": [
+        "checkflag $flag",
+        "call_if TRUE, $dest"
+      ]
     },
     "call_if_unset": {
       "type": "macro",
@@ -12503,7 +12462,10 @@
           "type": "label"
         }
       ],
-      "expansion": ["checkflag $flag", "call_if FALSE, $dest"]
+      "expansion": [
+        "checkflag $flag",
+        "call_if FALSE, $dest"
+      ]
     },
     "case": {
       "type": "macro",
@@ -12517,7 +12479,10 @@
           "type": "u16"
         }
       ],
-      "expansion": ["compare VAR_SPECIAL_x8008, $value", "goto_if eq, $target"]
+      "expansion": [
+        "compare VAR_SPECIAL_x8008, $value",
+        "goto_if eq, $target"
+      ]
     },
     "compare": {
       "type": "macro",
@@ -12548,7 +12513,9 @@
           "type": "u16"
         }
       ],
-      "expansion": ["item_vars $item, $quantity"]
+      "expansion": [
+        "item_vars $item, $quantity"
+      ]
     },
     "goto_if_defeated": {
       "type": "macro",
@@ -12562,7 +12529,10 @@
           "type": "label"
         }
       ],
-      "expansion": ["checktrainerflag $trainer", "goto_if TRUE, $dest"]
+      "expansion": [
+        "checktrainerflag $trainer",
+        "goto_if TRUE, $dest"
+      ]
     },
     "goto_if_eq": {
       "type": "macro",
@@ -12572,7 +12542,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["goto_if 1, $dest"]
+      "expansion": [
+        "goto_if 1, $dest"
+      ]
     },
     "goto_if_ge": {
       "type": "macro",
@@ -12582,7 +12554,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["goto_if 4, $dest"]
+      "expansion": [
+        "goto_if 4, $dest"
+      ]
     },
     "goto_if_gt": {
       "type": "macro",
@@ -12592,7 +12566,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["goto_if 2, $dest"]
+      "expansion": [
+        "goto_if 2, $dest"
+      ]
     },
     "goto_if_le": {
       "type": "macro",
@@ -12602,7 +12578,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["goto_if 3, $dest"]
+      "expansion": [
+        "goto_if 3, $dest"
+      ]
     },
     "goto_if_lt": {
       "type": "macro",
@@ -12612,7 +12590,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["goto_if 0, $dest"]
+      "expansion": [
+        "goto_if 0, $dest"
+      ]
     },
     "goto_if_ne": {
       "type": "macro",
@@ -12622,7 +12602,9 @@
           "type": "label"
         }
       ],
-      "expansion": ["goto_if 5, $dest"]
+      "expansion": [
+        "goto_if 5, $dest"
+      ]
     },
     "goto_if_no_item_space": {
       "type": "macro",
@@ -12640,7 +12622,10 @@
           "type": "u16"
         }
       ],
-      "expansion": ["item_vars $item, $quantity", "goto_if eq, $target"]
+      "expansion": [
+        "item_vars $item, $quantity",
+        "goto_if eq, $target"
+      ]
     },
     "goto_if_no_item_space_2": {
       "type": "macro",
@@ -12658,7 +12643,10 @@
           "type": "u16"
         }
       ],
-      "expansion": ["item_vars $item, $quantity", "goto_if ne, $target"]
+      "expansion": [
+        "item_vars $item, $quantity",
+        "goto_if ne, $target"
+      ]
     },
     "goto_if_not_defeated": {
       "type": "macro",
@@ -12672,7 +12660,10 @@
           "type": "label"
         }
       ],
-      "expansion": ["checktrainerflag $trainer", "goto_if FALSE, $dest"]
+      "expansion": [
+        "checktrainerflag $trainer",
+        "goto_if FALSE, $dest"
+      ]
     },
     "goto_if_set": {
       "type": "macro",
@@ -12686,7 +12677,10 @@
           "type": "label"
         }
       ],
-      "expansion": ["checkflag $flag", "goto_if TRUE, $dest"]
+      "expansion": [
+        "checkflag $flag",
+        "goto_if TRUE, $dest"
+      ]
     },
     "goto_if_unset": {
       "type": "macro",
@@ -12700,7 +12694,10 @@
           "type": "label"
         }
       ],
-      "expansion": ["checkflag $flag", "goto_if FALSE, $dest"]
+      "expansion": [
+        "checkflag $flag",
+        "goto_if FALSE, $dest"
+      ]
     },
     "item_vars": {
       "type": "macro",
@@ -12752,7 +12749,9 @@
           "type": "msg_id"
         }
       ],
-      "expansion": ["npc_msg $msgid"]
+      "expansion": [
+        "npc_msg $msgid"
+      ]
     },
     "switch": {
       "type": "macro",
@@ -12762,7 +12761,9 @@
           "type": "var"
         }
       ],
-      "expansion": ["copyvar VAR_SPECIAL_x8008, $var"]
+      "expansion": [
+        "copyvar VAR_SPECIAL_x8008, $var"
+      ]
     },
     "takeitem_no_check": {
       "type": "macro",
@@ -12776,7 +12777,9 @@
           "type": "u16"
         }
       ],
-      "expansion": ["item_vars $item, $quantity"]
+      "expansion": [
+        "item_vars $item, $quantity"
+      ]
     }
   },
   "sounds": {
@@ -17210,28 +17213,6 @@
     },
     "2378": {
       "name": "SEQ_SE_END"
-    }
-  },
-  "levelscript_meta": {
-    "InitScriptGoToIfEqual": {
-      "description": "Calls a Script in the associated Script File if the given Variable holds the given Value",
-      "params": [
-        {
-          "name": "condition_var",
-          "type": "var"
-        },
-        {
-          "name": "check_value",
-          "type": "u16"
-        },
-        {
-          "name": "script_id",
-          "type": "u16"
-        }
-      ]
-    },
-    "InitScriptEnd": {
-      "description": "alignment"
     }
   },
   "comparison_operators": {

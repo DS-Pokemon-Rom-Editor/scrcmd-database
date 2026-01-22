@@ -28,9 +28,8 @@ import sys
 import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
-from urllib.request import urlopen
 from urllib.error import URLError
-
+from urllib.request import urlopen
 
 # Decomp repo URLs for each game
 DECOMP_SOURCES = {
@@ -54,6 +53,16 @@ SKIP_MACROS = {
     "script_entry",
     "script_entry_fixed",
     "script_entry_go_to_if_equal",
+    # Levelscript macros - these are handled separately and should not be synced
+    "InitScriptEntry_Fixed",
+    "InitScriptEntry_OnFrameTable",
+    "InitScriptEntry_OnTransition",
+    "InitScriptEntry_OnResume",
+    "InitScriptEntry_OnLoad",
+    "InitScriptEntryEnd",
+    "InitScriptGoToIfEqual",
+    "InitScriptFrameTableEnd",
+    "InitScriptEnd",
 }
 
 # Manual primitive definitions for macros that wrap primitives but don't have
@@ -71,20 +80,6 @@ MANUAL_PRIMITIVES = {
             {"name": "amount", "type": "u16"},
         ],
     ),
-}
-
-# Levelscript macros - these define how scripts are triggered on a map
-# We parse these specially since they don't have numeric opcodes like regular commands
-LEVELSCRIPT_MACROS = {
-    "InitScriptEntry_Fixed",
-    "InitScriptEntry_OnFrameTable",
-    "InitScriptEntry_OnTransition",
-    "InitScriptEntry_OnResume",
-    "InitScriptEntry_OnLoad",
-    "InitScriptEntryEnd",
-    "InitScriptGoToIfEqual",
-    "InitScriptFrameTableEnd",
-    "InitScriptEnd",
 }
 
 
@@ -144,20 +139,6 @@ class ParsedMacro:
     def wraps_primitive(self) -> bool:
         """True if this macro wraps a primitive command with a different name."""
         return self.primitive_name is not None and self.primitive_name != self.name
-
-
-@dataclass
-class LevelscriptMacro:
-    """A parsed levelscript macro definition."""
-
-    name: str
-    params: list[MacroParam]
-    type_id: int | None = None  # The INIT_SCRIPT_* constant value if fixed type
-    emits: list[str] = field(
-        default_factory=list
-    )  # What it emits: [".byte", ".short", etc.]
-    is_wrapper: bool = False  # If it wraps another macro
-    wrapper_target: str | None = None  # Target macro if wrapper
 
 
 @dataclass
@@ -1150,189 +1131,6 @@ def get_movement_action_constants() -> dict[str, int]:
     return constants
 
 
-def parse_levelscript_macros(content: str) -> dict[str, LevelscriptMacro]:
-    """
-    Parse levelscript-related macros from scrcmd.inc.
-
-    These macros define how scripts are triggered on map load/transition.
-    Unlike regular script commands, they use symbolic constants for type IDs.
-
-    Returns dict of name -> LevelscriptMacro.
-    """
-    raw_macros = extract_macros(content)
-
-    # Map of INIT_SCRIPT_* constants to their values
-    # These are defined in constants/init_script_types.h in the decomp
-    init_script_types = {
-        "INIT_SCRIPT_ON_FRAME_TABLE": 1,
-        "INIT_SCRIPT_ON_TRANSITION": 2,
-        "INIT_SCRIPT_ON_RESUME": 3,
-        "INIT_SCRIPT_ON_LOAD": 4,
-    }
-
-    results = {}
-
-    for name, params_str, body in raw_macros:
-        if name not in LEVELSCRIPT_MACROS:
-            continue
-
-        # For levelscript macros, we need cleaner param parsing
-        # Filter out .set directives that might appear on the same line
-        clean_params_str = params_str.strip()
-        if clean_params_str.startswith("."):
-            # This is a directive, not params
-            clean_params_str = ""
-
-        params = parse_params(clean_params_str)
-
-        # Check if it's a wrapper macro (single line calling another macro)
-        lines = [
-            l.strip()
-            for l in body.split("\n")
-            if l.strip()
-            and not l.strip().startswith((".if", ".else", ".endif", ".error", ".set"))
-        ]
-
-        is_wrapper = False
-        wrapper_target = None
-        type_id = None
-        emits = []
-
-        # Check for wrapper pattern (calls another InitScript macro)
-        if len(lines) == 1:
-            line = lines[0]
-            for target in LEVELSCRIPT_MACROS:
-                if line.startswith(target + " ") or line.startswith(target + ","):
-                    is_wrapper = True
-                    wrapper_target = target
-                    break
-
-        # Parse what this macro emits
-        for line in body.split("\n"):
-            line = line.strip()
-            if line.startswith(".byte"):
-                emits.append(".byte")
-                # Check for type constant
-                match = re.search(r"\.byte\s+(INIT_SCRIPT_\w+|\d+|\\?\w+)", line)
-                if match:
-                    val = match.group(1)
-                    if val in init_script_types:
-                        type_id = init_script_types[val]
-                    elif val.isdigit():
-                        type_id = int(val)
-            elif line.startswith(".short"):
-                emits.append(".short")
-            elif line.startswith(".long"):
-                emits.append(".long")
-
-        results[name] = LevelscriptMacro(
-            name=name,
-            params=params,
-            type_id=type_id,
-            emits=emits,
-            is_wrapper=is_wrapper,
-            wrapper_target=wrapper_target,
-        )
-
-    return results
-
-
-def compare_levelscript_with_db(
-    db: dict, decomp_macros: dict[str, LevelscriptMacro]
-) -> tuple[list, list, list]:
-    """
-    Compare levelscript macros with database.
-
-    Returns:
-        - missing: Macros in decomp but not in database
-        - mismatched: Macros with wrong type IDs or params
-        - corrections: Suggested corrections for database
-    """
-    db_commands = db.get("commands", {})
-    db_meta = db.get("levelscript_meta", {})
-
-    missing = []
-    mismatched = []
-    corrections = []
-
-    for name, macro in decomp_macros.items():
-        # Check in commands (for type_id != None) or meta
-        in_commands = (
-            name in db_commands and db_commands[name].get("type") == "levelscript_cmd"
-        )
-        in_meta = name in db_meta
-
-        if macro.is_wrapper:
-            # Wrapper macros may or may not need to be in DB
-            continue
-
-        if not in_commands and not in_meta:
-            missing.append(
-                {
-                    "name": name,
-                    "type_id": macro.type_id,
-                    "emits": macro.emits,
-                    "params": [p.name for p in macro.params],
-                }
-            )
-            continue
-
-        # Check for mismatches
-        if in_commands:
-            db_entry = db_commands[name]
-            db_type_id = db_entry.get("id")
-            db_params = db_entry.get("params", [])
-
-            # Check type ID
-            if macro.type_id is not None and db_type_id != macro.type_id:
-                mismatched.append(
-                    {
-                        "name": name,
-                        "issue": "type_id",
-                        "decomp": macro.type_id,
-                        "db": db_type_id,
-                    }
-                )
-
-            # Check param count
-            # Count params (excluding wrapper target args)
-            decomp_param_count = len(
-                [p for p in macro.params if not p.name.startswith("\\")]
-            )
-            db_param_count = len(db_params)
-
-            # Special case: if decomp emits nothing but DB has params, it's wrong
-            if len(macro.emits) == 0 and db_param_count > 0:
-                corrections.append(
-                    {
-                        "name": name,
-                        "issue": "has_params",
-                        "current": db_param_count,
-                        "should_be": 0,
-                        "reason": "Decomp macro emits no data",
-                    }
-                )
-            elif (
-                len(macro.emits) == 1
-                and macro.emits[0] == ".short"
-                and db_param_count > 0
-            ):
-                # Just emits .short 0 or similar (no params)
-                # Check if macro has no real params
-                if len(macro.params) == 0:
-                    corrections.append(
-                        {
-                            "name": name,
-                            "issue": "has_params",
-                            "current": db_param_count,
-                            "should_be": 0,
-                            "reason": "Decomp macro just emits a constant value",
-                        }
-                    )
-
-    return missing, mismatched, corrections
-
-
 def parse_macro_expansion_lines(body: str) -> list[str]:
     """
     Parse macro body into expansion lines (calls to other macros).
@@ -1481,7 +1279,7 @@ def extract_macros_for_db(
     macros = {}
 
     for name, macro in parsed_macros.items():
-        if name in SKIP_MACROS or name in LEVELSCRIPT_MACROS:
+        if name in SKIP_MACROS:
             continue
 
         v2_params = []
@@ -2590,35 +2388,6 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     has_changes = True
                     with open(db_path, "w", encoding="utf-8") as f:
                         json.dump(db, f, indent=2)
-
-    # Sync levelscript macros (parsed from scrcmd.inc already fetched above)
-    if "scrcmd" in sources:
-        # Re-fetch or reuse content
-        content = fetch_url(sources["scrcmd"])
-        if content:
-            levelscript_macros = parse_levelscript_macros(content)
-            if levelscript_macros:
-                print(f"  Parsed {len(levelscript_macros)} levelscript macros")
-
-                ls_missing, ls_mismatched, ls_corrections = compare_levelscript_with_db(
-                    db, levelscript_macros
-                )
-
-                if ls_corrections:
-                    print(f"  Levelscript corrections needed: {len(ls_corrections)}")
-                    for c in ls_corrections:
-                        print(
-                            f"    - {c['name']}: {c['issue']} (current={c['current']}, should be={c['should_be']})"
-                        )
-                        print(f"      Reason: {c['reason']}")
-                    has_changes = True
-
-                if ls_mismatched and verbose:
-                    print(f"  Levelscript mismatches: {len(ls_mismatched)}")
-                    for m in ls_mismatched:
-                        print(
-                            f"    - {m['name']}: {m['issue']} decomp={m['decomp']}, db={m['db']}"
-                        )
 
     if not has_changes:
         print("  ✓ Database is in sync with decomp")

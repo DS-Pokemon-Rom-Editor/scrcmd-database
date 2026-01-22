@@ -22,7 +22,7 @@ The database contains several categories of data:
 
 - **Script Commands** - Opcodes that control game logic, dialogue, events
 - **Movement Commands** - NPC/event animation opcodes (walk, turn, emote, etc.). Most have a `length` parameter with default `1`.
-- **Levelscript Commands** - Map initialization triggers (on load, on transition)
+
 - **Macros** - Convenience wrappers that expand to multiple commands
 - **Sounds** - Sound effect ID mappings
 - **Comparison Operators** - Conditional comparison constants
@@ -95,7 +95,7 @@ The v2 format unifies all command types into a single `commands` dictionary:
 |------|-------------|
 | `script_cmd` | Regular script command with numeric opcode |
 | `movement` | Movement/animation command |
-| `levelscript_cmd` | Map initialization trigger |
+
 | `macro` | Convenience macro that expands to multiple commands |
 
 ### Parameter Format
