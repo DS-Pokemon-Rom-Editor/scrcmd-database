@@ -257,7 +257,7 @@
       "description": "Compares Variable value with Value",
       "params": [
         {
-          "name": "variable",
+          "name": "varID",
           "type": "var"
         },
         {
@@ -431,7 +431,7 @@
       "description": "Sets Flag to 1",
       "params": [
         {
-          "name": "flag",
+          "name": "flagID",
           "type": "u16"
         }
       ]
@@ -443,7 +443,7 @@
       "description": "Sets Flag to 0",
       "params": [
         {
-          "name": "flag",
+          "name": "flagID",
           "type": "u16"
         }
       ]
@@ -455,7 +455,7 @@
       "description": "Checks if Flag is set",
       "params": [
         {
-          "name": "flag",
+          "name": "flagID",
           "type": "u16"
         }
       ]
@@ -467,11 +467,11 @@
       "description": "Checks if Flag is set and store the result in Variable",
       "params": [
         {
-          "name": "flag",
+          "name": "flagID",
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -483,7 +483,7 @@
       "description": "Sets the flag whose ID is stored in Flag",
       "params": [
         {
-          "name": "flag",
+          "name": "varID",
           "type": "var"
         }
       ]
@@ -531,7 +531,7 @@
       "description": "Stores the operation Variable + Operand in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         },
         {
@@ -547,7 +547,7 @@
       "description": "Stores the operation Variable - Operand in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         },
         {
@@ -563,7 +563,7 @@
       "description": "Stores Value in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         },
         {
@@ -780,7 +780,7 @@
           "type": "u8"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var",
           "default": "VAR_RESULT"
         }
@@ -793,7 +793,7 @@
       "description": "Returns 1 to Variable if the player has pressed a button so the board must close, 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var",
           "default": "VAR_RESULT"
         }
@@ -813,27 +813,27 @@
       "description": "???",
       "params": [
         {
-          "name": "???",
+          "name": "distanceX",
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "countX",
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "directionX",
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "distanceY",
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "countY",
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "directionY",
           "type": "u8"
         }
       ]
@@ -845,7 +845,7 @@
       "description": "Opens a Yes-No dialog and stores user response in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -1221,7 +1221,7 @@
       "description": "???",
       "params": [
         {
-          "name": "???",
+          "name": "bgmID",
           "type": "u8"
         }
       ]
@@ -1233,7 +1233,7 @@
       "description": "Checks if Chatot has custom sound, stores answer in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -1245,7 +1245,7 @@
       "description": "Starts Chatot microphone record, stores answer in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -1512,7 +1512,7 @@
       "description": "Returns 1 to Variable if the player has Money or more money, returns 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -1588,7 +1588,7 @@
       "description": "Stores in Variable the current amount of coins",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -1605,7 +1605,7 @@
         }
       ]
     },
-    "SubstractCoinsFromValue": {
+    "SubtractCoinsFromValue": {
       "type": "script_cmd",
       "id": 122,
       "legacy_name": "TakeCoins",
@@ -1632,7 +1632,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -1652,7 +1652,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -1672,7 +1672,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -1692,7 +1692,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -1708,7 +1708,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -1724,7 +1724,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -1758,7 +1758,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -1778,7 +1778,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -1798,7 +1798,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -1818,7 +1818,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -1838,7 +1838,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -1858,7 +1858,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -1878,7 +1878,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -1898,7 +1898,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -1918,7 +1918,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -1938,7 +1938,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -1958,7 +1958,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -1978,7 +1978,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -1998,7 +1998,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -2018,7 +2018,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -2038,7 +2038,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -2058,7 +2058,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "dummy3",
           "type": "u16"
         }
       ]
@@ -2106,7 +2106,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -2130,7 +2130,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "successVar",
           "type": "var"
         }
       ]
@@ -2178,7 +2178,7 @@
       "description": "Stores 1 in Variable if Pok\u00e9mon at Party Position knows Move ID move, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -2198,7 +2198,7 @@
       "description": "Checks if any Pok\u00e9mon in the party knows Move ID move, stores in Variable the position of the first Pok\u00e9mon that knows it or stores 6 if no Pok\u00e9mon in the party knows the move",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -2467,7 +2467,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "approachNum",
           "type": "u16"
         }
       ]
@@ -2479,11 +2479,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "approachNum",
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -2495,7 +2495,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -2507,11 +2507,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "approachNum",
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -2699,7 +2699,7 @@
       "description": "Stores 1 in Variable if player is riding the bike, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -2735,7 +2735,7 @@
       "description": "Stores in Variable the current player form",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -3018,7 +3018,7 @@
       "description": "Stores the starter Pok\u00e9mon ID in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -3110,7 +3110,7 @@
       "description": "Stores the trainer ID number in Variable depending on the script ID",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -3195,7 +3195,7 @@
       "description": "Stores 0 in Variable if the script ID corresponds to a single battle, stores 1 if it corresponds to a double battle",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -3226,7 +3226,7 @@
       "description": "Stores 0 in Variable if player has been defeated in battle, stores 1 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -3238,7 +3238,7 @@
       "description": "Stores 0 in Variable if player defeated or caught the wild Pokemon, stores 1 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -3250,7 +3250,7 @@
       "description": "Stores 1 in Variable if player has at least 2 not fainted Pok\u00e9mon, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -3778,7 +3778,7 @@
       "description": "Stores 1 in Variable if one or more Pok\u00e9mon in the party are infected with the Pok\u00e9rus",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -3794,7 +3794,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -3834,7 +3834,7 @@
       "description": "Stores in Variable the current floor in a elevator",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -3871,7 +3871,7 @@
       "description": "Stores in Variable the total seen Pokemon in the Sinnoh Pok\u00e9dex",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -3883,7 +3883,7 @@
       "description": "Stores in Variable the total obtained Pokemon in the Sinnoh Pok\u00e9dex",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -3895,7 +3895,7 @@
       "description": "Stores in Variable the total seen Pokemon in the National Pok\u00e9dex",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -3907,7 +3907,7 @@
       "description": "Stores in Variable the total obtained Pokemon in the National Pok\u00e9dex",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -3930,7 +3930,7 @@
           "type": "u8"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -3984,7 +3984,7 @@
       "description": "Stores 1 in Variable if player can spread honey in the tree, stores 2 if player already spread honey and stores 3 if the wild encounter is ready",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -4017,7 +4017,7 @@
       "description": "Stores 0 in Variable if a different savegame exists and it's not possible to save, stores 1 if no previous savegame exists, stores 2 if game has to save a lot of data and stores 3 if game can perform a quick save",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4029,7 +4029,7 @@
       "description": "Saves the game and stores 1 in Variable if savegame was succesfully made, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -4120,7 +4120,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4132,7 +4132,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "syncNo",
           "type": "u16"
         }
       ]
@@ -4398,7 +4398,7 @@
       "description": "Stores 0 in Variable if player is male, stores 1 if female",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4492,7 +4492,7 @@
       "description": "Stores 1 in Variable if player has the Pok\u00e9dex, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4511,7 +4511,7 @@
       "description": "Stores 1 in Variable if player has the running shoes, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4534,7 +4534,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4558,7 +4558,7 @@
       "description": "Stores in Variable the number of badges obtained",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4570,7 +4570,7 @@
       "description": "Stores 1 in Variable if player has the bag, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4589,7 +4589,7 @@
       "description": "Stores 1 in Variable if the following event flag is activated, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4615,7 +4615,7 @@
       "description": "Checks if player has moved one step, stores the result in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4641,7 +4641,7 @@
       "description": "Stores 1 in Variable if the game has been completed, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4743,7 +4743,7 @@
       "description": "If daycare Pok\u00e9mon have an egg, stores 1 in Variable. Otherwise it stores 0 if no Pok\u00e9mon is in the daycare, 2 if only one Pok\u00e9mon is in the daycare or 3 if there are two Pok\u00e9mon",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -4821,7 +4821,7 @@
       "description": "Stores in Variable the current number of Pok\u00e9mon in party",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -4845,7 +4845,7 @@
       "description": "Stores in Variable the selected item after a BagScreen command, or zero if user cancels the selection",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -4861,7 +4861,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -4910,7 +4910,7 @@
       "description": "Stores the current berry growth phase of the invoking event in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -4922,7 +4922,7 @@
       "description": "Stores the berry item ID corresponding on the current invoking event berry tree in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -4934,7 +4934,7 @@
       "description": "Stores the mulch item ID corresponding on the current invoking event berry tree in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -4946,7 +4946,7 @@
       "description": "Stores the dryness grade corresponding on the current invoking event berry tree in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -4958,7 +4958,7 @@
       "description": "Stores the amount of berries in the berry tree of the invoking event in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -5201,7 +5201,7 @@
       "description": "Stores in Variable the selected party slot in a party Pok\u00e9mon screen, or 0xFF is user cancelled the selection",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -5281,7 +5281,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -5297,7 +5297,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -5309,7 +5309,7 @@
       "description": "Stores in Variable the number of Pok\u00e9mon in the Pok\u00e9mon party, excluding the eggs",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -5321,7 +5321,7 @@
       "description": "Stores in Variable how many alive Pok\u00e9mon would remain in the Pok\u00e9mon party if Pok\u00e9mon at Party Position disappeared",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         },
         {
@@ -5337,7 +5337,7 @@
       "description": "Stores in Variable the number of Pok\u00e9mon in the Pok\u00e9mon party and PC boxes, excluding the eggs and fainted Pok\u00e9mon",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -5349,7 +5349,7 @@
       "description": "Stores in Variable the number of eggs in the Pok\u00e9mon party",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -5512,7 +5512,7 @@
       "description": "Returns 1 to Variable if the player has Money or more money, returns 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -5547,7 +5547,7 @@
       "description": "Stores at string buffer 0 the nickname and at string buffer 1 the level of the Pok\u00e9mon at Position daycare position, and also stores the level in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -5650,7 +5650,7 @@
       "description": "Stores in Variable the current time period of the day",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -5662,7 +5662,7 @@
       "description": "Generates a random number between 0 and Range - 1, and stores it in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         },
         {
@@ -5678,7 +5678,7 @@
       "description": "Generates a random number between 0 and Range - 1, and stores it in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         },
         {
@@ -5694,7 +5694,7 @@
       "description": "Stores in Variable the happiness of Pok\u00e9mon in Party Position",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -5742,19 +5742,19 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "templateArgNickname",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "templateArgLevel",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "templateArgGender",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "daycareSlot",
           "type": "u16"
         }
       ]
@@ -5766,7 +5766,7 @@
       "description": "Stores in Variable the direction the player is looking at",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -5806,7 +5806,7 @@
           "type": "var"
         },
         {
-          "name": "variable",
+          "name": "species",
           "type": "u16"
         }
       ]
@@ -5818,7 +5818,7 @@
       "description": "Stores 0 in Variable if Pok\u00e9mon at Party Position has not a bigger relative size than player's record, stores 1 if it's the same size and stores 2 if it has a bigger relative size",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -5917,7 +5917,7 @@
       "description": "Stores in Variable the total amount of moves that the Pok\u00e9mon at Party Position has",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -5949,7 +5949,7 @@
       "description": "Stores in Variable the ID of the move in Move Slot from the Pok\u00e9mon at Party Position",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -5996,11 +5996,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "eventType",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "eventParam",
           "type": "u16"
         },
         {
@@ -6311,15 +6311,15 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "functionIndex",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "functionArgument",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -6331,19 +6331,19 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "partnerID",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "monID",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "destVar1",
           "type": "var"
         },
         {
-          "name": "???",
+          "name": "destVar2",
           "type": "var"
         }
       ]
@@ -6499,7 +6499,7 @@
       "description": "Stores 1 in Variable if every Pok\u00e9mon in the Sinnoh Pok\u00e9dex has been seen, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -6511,7 +6511,7 @@
       "description": "Stores 1 in Variable if every Pok\u00e9mon in the National Pok\u00e9dex has been caught, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -6596,7 +6596,7 @@
       "description": "Stores in Variable the current amount of fossils in the bag",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -6622,7 +6622,7 @@
       "description": "Stores in Variable the ID of the Pok\u00e9mon to which Item ID fossil belongs",
       "params": [
         {
-          "name": "variable",
+          "name": "speciesVar",
           "type": "var"
         },
         {
@@ -6658,7 +6658,7 @@
       "description": "Stores in Variable the amount of Pok\u00e9mon in party whose level is equal or lower than Level",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -6674,7 +6674,7 @@
       "description": "If Pok\u00e9mon at Party Position is poisoned and at 1 HP, it cures the poison and stores 1 in Variable, otherwise it stores 0",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         },
         {
@@ -6697,7 +6697,7 @@
       "description": "Does nothing.",
       "params": [
         {
-          "name": "variable",
+          "name": "dummy",
           "type": "u16"
         }
       ]
@@ -6741,19 +6741,19 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "sentenceType",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "sentenceID",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "word1",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "word2",
           "type": "u16"
         }
       ]
@@ -6765,19 +6765,19 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "sentenceType",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "sentenceID",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "word1",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "word2",
           "type": "u16"
         }
       ]
@@ -6789,7 +6789,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "opponentID",
           "type": "u8"
         }
       ]
@@ -6827,7 +6827,7 @@
       "description": "Stores in Variable the header ID of the previous map accessed",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -6839,7 +6839,7 @@
       "description": "Stores in Variable the current header ID",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -6851,7 +6851,7 @@
       "description": "If Flag is 0 safari encounters are activated, if Flag is 1 safari encounters are deactivated",
       "params": [
         {
-          "name": "flag",
+          "name": "activeState",
           "type": "u8"
         }
       ]
@@ -7016,7 +7016,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -7028,7 +7028,7 @@
       "description": "If Flag Value is 0, the player becomes able to walk ignoring terrain heights, otherwise the flag is cleared and the mode is deactivated",
       "params": [
         {
-          "name": "flag",
+          "name": "heightCalculationEnabled",
           "type": "u8"
         }
       ]
@@ -7040,7 +7040,7 @@
       "description": "Stores in Variable the nature of the Pok\u00e9mon at Party Position",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -7056,7 +7056,7 @@
       "description": "Stores in Variable the position of the first Pok\u00e9mon with a given Nature ID in the player's party.",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -7072,7 +7072,7 @@
       "description": "Stores in Variable the current underground talk counter value",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -7091,7 +7091,7 @@
       "description": "Stores in Variable the current amount of steps walked in the Amity Square",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -7103,7 +7103,7 @@
       "description": "Stores in Variable a random accessory item ID corresponding to a specific Pok\u00e9mon",
       "params": [
         {
-          "name": "variable",
+          "name": "destFoundAccessoryID",
           "type": "u16"
         },
         {
@@ -7393,7 +7393,7 @@
       "description": "Stores in Variable the ID of the offered Pok\u00e9mon of the current trade data",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -7405,7 +7405,7 @@
       "description": "Stores in Variable the ID of the requested Pok\u00e9mon of the current trade data",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -7466,7 +7466,7 @@
       "description": "Stores in Variable the amount of ribbons that the Pok\u00e9mon in Party Position has",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -7482,7 +7482,7 @@
       "description": "Stores in Variable the total amount of different ribbons in the current Pok\u00e9mon party",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -7494,7 +7494,7 @@
       "description": "Stores 1 in Variable if the Pok\u00e9mon in Party Position has the Ribbon ribbon, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -7546,7 +7546,7 @@
       "description": "Stores in Variable the total amount of effort values of Pok\u00e9mon in Party Position",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -7562,7 +7562,7 @@
       "description": "Stores in Variable the current day of the week",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -7713,7 +7713,7 @@
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "interviewSegmentID",
           "type": "u16"
         },
         {
@@ -7733,11 +7733,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "interviewSegmentID",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -7761,11 +7761,11 @@
       "description": "???",
       "params": [
         {
-          "name": "???",
+          "name": "hasPrintVar",
           "type": "var"
         },
         {
-          "name": "???",
+          "name": "printTypeVar",
           "type": "var"
         },
         {
@@ -8051,7 +8051,7 @@
       "description": "Returns 0xC to Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -8063,7 +8063,7 @@
       "description": "Stores in Variable the slot of the first Pok\u00e9mon in the party that is not an egg",
       "params": [
         {
-          "name": "variable",
+          "name": "partySlot",
           "type": "u16"
         }
       ]
@@ -8171,7 +8171,7 @@
       "description": "Stores Lotto random number in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -8230,7 +8230,7 @@
       "description": "Stores in Variable the amount of free Pok\u00e9mon slots in PC boxes",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -8255,7 +8255,7 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "var"
         }
       ]
     },
@@ -8336,7 +8336,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -8394,7 +8394,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -8418,7 +8418,7 @@
       "description": "Checks if player has a Combee/Vespiquen in their party and stores the result in Variable:\nStores 2 if player has at least one male and one female;\nStores 1 if player has one male only or one female only;\nStores 0 if no Combee is found.",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -8444,7 +8444,7 @@
       "description": "???",
       "params": [
         {
-          "name": "???",
+          "name": "slotMachineID",
           "type": "u16"
         }
       ]
@@ -8456,7 +8456,7 @@
       "description": "Stores current hour from RTC in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -8516,7 +8516,7 @@
       "description": "Stores 1 in Variable if player has the 3 Regis in the party, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -8552,7 +8552,7 @@
       "description": "Stores the current GBA cartridge ID in Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -8628,7 +8628,7 @@
       "params": [
         {
           "name": "varID",
-          "type": "u16"
+          "type": "var"
         },
         {
           "name": "valueOrVarID",
@@ -8829,7 +8829,7 @@
       "description": "Stores 1 in Variable if the current day is the player's birthday, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -8857,7 +8857,7 @@
       "description": "Stores in Variable the number of different seen Unown forms",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -8973,7 +8973,7 @@
           "type": "u8"
         },
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -9362,7 +9362,7 @@
         }
       ]
     },
-    "SubstractCoinsFromVar": {
+    "SubtractCoinsFromVar": {
       "type": "script_cmd",
       "id": 680,
       "legacy_name": "CMD_680",
@@ -9444,7 +9444,7 @@
       "description": "Stores Overworld's Movement ID into passed Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -9618,7 +9618,7 @@
       "description": "Stores 0 in Variable if the last Pok\u00e9mon battle resulted in a successful capture, 1 otherwise.",
       "params": [
         {
-          "name": "variable",
+          "name": "destVarID",
           "type": "var"
         }
       ]
@@ -9646,7 +9646,7 @@
       "description": "Stores in Variable the current trainer card level",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -9784,11 +9784,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "destVar",
           "type": "var"
         },
         {
-          "name": "???",
+          "name": "species",
           "type": "u16"
         }
       ]
@@ -9957,7 +9957,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -10057,7 +10057,7 @@
           "type": "var"
         },
         {
-          "name": "variable",
+          "name": "species",
           "type": "u16"
         }
       ]
@@ -10097,7 +10097,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "variable",
+          "name": "destBerryAndAccessoryManOptionID",
           "type": "u16"
         }
       ]
@@ -10129,7 +10129,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destBerryOrAccessoryID",
           "type": "u16"
         }
       ]
@@ -10231,7 +10231,7 @@
       "description": "Stores in Variable the selected move slot after a LearnMoveScreen command, or 4 if player cancels the selection.",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -10392,11 +10392,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "templateArg",
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "trainerID",
           "type": "u16"
         }
       ]
@@ -10507,7 +10507,7 @@
       "description": "Stores into Variable the ID of the current playing SSEQ.",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -10538,11 +10538,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "templateArg",
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "type",
           "type": "u16"
         }
       ]
@@ -10713,7 +10713,7 @@
       "description": "returns PoffinCase_CountEmptySlots",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -10857,7 +10857,7 @@
       "description": "Stores the result of the last battle Variable",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -10952,7 +10952,7 @@
       "description": "something to do with TVBroadcast",
       "params": [
         {
-          "name": "???",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -10964,7 +10964,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         },
         {
@@ -10996,7 +10996,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -11223,7 +11223,7 @@
           "type": "u16"
         },
         {
-          "name": "variable",
+          "name": "destVar",
           "type": "var"
         }
       ]
@@ -11284,7 +11284,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "recordID",
           "type": "u16"
         },
         {
@@ -11316,8 +11316,8 @@
           "type": "u16"
         },
         {
-          "name": "variable",
-          "type": "u16"
+          "name": "ret",
+          "type": "var"
         }
       ]
     },
@@ -11365,7 +11365,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "bottomSide",
           "type": "u8"
         }
       ]
