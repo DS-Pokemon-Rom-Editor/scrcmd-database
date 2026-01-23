@@ -496,7 +496,8 @@
         },
         {
           "name": "var_dest",
-          "type": "var"
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -507,7 +508,7 @@
       "description": "Sets the flag of Trainer ID, so marks it as beaten trainer",
       "params": [
         {
-          "name": "trainer_id",
+          "name": "var_or_trno",
           "type": "var"
         }
       ]
@@ -519,7 +520,7 @@
       "description": "Clears the flag of Trainer ID, so marks it as unbeaten trainer",
       "params": [
         {
-          "name": "trainer_id",
+          "name": "var_or_trno",
           "type": "var"
         }
       ]
@@ -531,7 +532,7 @@
       "description": "Checks if Trainer ID has been beaten",
       "params": [
         {
-          "name": "trainer_id",
+          "name": "var_or_trno",
           "type": "var"
         }
       ]
@@ -547,7 +548,7 @@
           "type": "var"
         },
         {
-          "name": "operand",
+          "name": "var_or_addend",
           "type": "var"
         }
       ]
@@ -563,7 +564,7 @@
           "type": "var"
         },
         {
-          "name": "operand",
+          "name": "var_or_addend",
           "type": "var"
         }
       ]
@@ -1888,7 +1889,8 @@
         },
         {
           "name": "retvar",
-          "type": "var"
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -9654,7 +9656,7 @@
       "description": "",
       "params": [
         {
-          "name": "result",
+          "name": "var_result",
           "type": "var"
         }
       ]
@@ -12496,9 +12498,19 @@
           "type": "u16"
         }
       ],
-      "expansion": [
-        "compare_var_to_var $var, $arg",
-        "compare_var_to_value $var, $arg"
+      "variants": [
+        {
+          "condition": "((arg >= VARS_START && arg <= VARS_END) || (arg >= SPECIAL_VARS_START && arg <= SPECIAL_VARS_END))",
+          "expansion": [
+            "compare_var_to_var $var, $arg"
+          ]
+        },
+        {
+          "condition": "else",
+          "expansion": [
+            "compare_var_to_value $var, $arg"
+          ]
+        }
       ]
     },
     "giveitem_no_check": {
@@ -12712,11 +12724,19 @@
           "default": "1"
         }
       ],
-      "expansion": [
-        "setvar VAR_SPECIAL_x8004, $item",
-        "copyvar VAR_SPECIAL_x8004, $item",
-        "setvar VAR_SPECIAL_x8005, $quantity",
-        "copyvar VAR_SPECIAL_x8005, $quantity"
+      "variants": [
+        {
+          "condition": "item < 0x4000",
+          "expansion": [
+            "setvar VAR_SPECIAL_x8004, $item"
+          ]
+        },
+        {
+          "condition": "else",
+          "expansion": [
+            "copyvar VAR_SPECIAL_x8004, $item"
+          ]
+        }
       ]
     },
     "phone_call": {

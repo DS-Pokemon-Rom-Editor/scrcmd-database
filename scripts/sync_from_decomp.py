@@ -65,23 +65,6 @@ SKIP_MACROS = {
     "InitScriptEnd",
 }
 
-# Manual primitive definitions for macros that wrap primitives but don't have
-# the /* PrimitiveName */ comment pattern in decomp. These are injected into
-# the hidden primitives dict as if they were extracted from comments.
-# Format: macro_name -> (opcode, primitive_name, [param dicts])
-MANUAL_PRIMITIVES = {
-    # GoToIfCannotAddCoins wraps an unnamed primitive at opcode 630
-    # Macro: .short 630; .short VAR_RESULT; .short \amount; Noop; GoToIfEq ...
-    "GoToIfCannotAddCoins": (
-        630,
-        "CannotAddCoins",
-        [
-            {"name": "result", "type": "var"},
-            {"name": "amount", "type": "u16"},
-        ],
-    ),
-}
-
 
 @dataclass
 class MacroParam:
@@ -593,16 +576,7 @@ def extract_primitive_call_line(
     # First, find the primitive name and opcode from comment
     primitive_info = extract_primitive_from_comment(body)
 
-    # If no comment pattern, check for manual primitive override
     if not primitive_info:
-        if macro_name and macro_name in MANUAL_PRIMITIVES:
-            opcode, primitive_name, manual_params = MANUAL_PRIMITIVES[macro_name]
-            # Build the call line from manual params
-            args = [f"${p['name']}" for p in manual_params]
-            if args:
-                return f"{primitive_name} {', '.join(args)}"
-            else:
-                return primitive_name
         return None
 
     opcode, primitive_name = primitive_info
@@ -847,6 +821,105 @@ def parse_ifnb_expansion_variants(
     return variants
 
 
+def parse_if_else_macro_variants(
+    body: str, params: list[MacroParam]
+) -> list[dict] | None:
+    """
+    Parse .if/.else conditionals that call different macros based on condition.
+
+    Returns list of variants with condition and expansion, or None if not applicable.
+
+    Example input:
+        .if \\valueOrVarID < VARS_START
+            CompareVarToValue \\varID, \\valueOrVarID
+        .else
+            CompareVarToVar \\varID, \\valueOrVarID
+        .endif
+
+    Returns:
+        [
+            {"condition": "valueOrVarID < VARS_START", "expansion": ["CompareVarToValue $varID, $valueOrVarID"]},
+            {"condition": "else", "expansion": ["CompareVarToVar $varID, $valueOrVarID"]}
+        ]
+    """
+    lines = body.split("\n")
+
+    has_if = any(line.strip().startswith(".if ") for line in lines)
+    has_else = any(line.strip().startswith(".else") for line in lines)
+    has_endif = any(line.strip().startswith(".endif") for line in lines)
+
+    if not (has_if and has_else and has_endif):
+        return None
+
+    has_short = any(line.strip().startswith(".short") for line in lines)
+    if has_short:
+        return None
+
+    variants = []
+    current_condition = None
+    current_expansion = []
+
+    for line in lines:
+        stripped = line.strip()
+        if not stripped or stripped.startswith((";", "/*", "@", "#")):
+            continue
+        if stripped.startswith(".macro ") or stripped == ".endm":
+            continue
+
+        if stripped.startswith(".if "):
+            condition = stripped[4:].strip()
+            condition = re.sub(r"\\(\w+)", r"\1", condition)
+            current_condition = condition
+            current_expansion = []
+        elif stripped.startswith(".elseif "):
+            if current_condition and current_expansion:
+                variants.append(
+                    {
+                        "condition": current_condition,
+                        "expansion": [
+                            format_expansion_line(exp_line, params)
+                            for exp_line in current_expansion
+                        ],
+                    }
+                )
+            condition = stripped[8:].strip()
+            condition = re.sub(r"\\(\w+)", r"\1", condition)
+            current_condition = condition
+            current_expansion = []
+        elif stripped.startswith(".else"):
+            if current_condition and current_expansion:
+                variants.append(
+                    {
+                        "condition": current_condition,
+                        "expansion": [
+                            format_expansion_line(exp_line, params)
+                            for exp_line in current_expansion
+                        ],
+                    }
+                )
+            current_condition = "else"
+            current_expansion = []
+        elif stripped.startswith(".endif"):
+            if current_condition and current_expansion:
+                variants.append(
+                    {
+                        "condition": current_condition,
+                        "expansion": [
+                            format_expansion_line(exp_line, params)
+                            for exp_line in current_expansion
+                        ],
+                    }
+                )
+            break
+        elif not stripped.startswith("."):
+            if stripped[0].isupper() or "\\" in stripped:
+                current_expansion.append(stripped)
+
+    if len(variants) >= 2:
+        return variants
+    return None
+
+
 def detect_wrapper_macro(body: str, all_macro_names: set[str]) -> MacroExpansion | None:
     """
     Detect if this macro just calls another macro (wrapper/convenience macro).
@@ -854,9 +927,9 @@ def detect_wrapper_macro(body: str, all_macro_names: set[str]) -> MacroExpansion
     Returns MacroExpansion with target and args, or None.
     """
     lines = [
-        l.strip()
-        for l in body.split("\n")
-        if l.strip() and not l.strip().startswith(";")
+        line.strip()
+        for line in body.split("\n")
+        if line.strip() and not line.strip().startswith(";")
     ]
 
     # If body is just one line that calls another macro
@@ -1000,18 +1073,6 @@ def parse_scrcmd_inc(
                         # Extract params for this primitive
                         prim_params = extract_primitive_params(body)
                         primitives[prim_name] = (prim_opcode, prim_params)
-
-    # Inject manual primitives for macros that don't have the comment pattern
-    for macro_name, (opcode, prim_name, prim_params) in MANUAL_PRIMITIVES.items():
-        if (
-            macro_name in parsed
-            and prim_name not in primitives
-            and prim_name not in all_names
-        ):
-            primitives[prim_name] = (opcode, prim_params)
-            # Also update the parsed macro to know it wraps this primitive
-            parsed[macro_name].primitive_name = prim_name
-            parsed[macro_name].primitive_params = prim_params
 
     return parsed, primitives
 
@@ -1195,6 +1256,50 @@ def format_expansion_line(line: str, params: list[MacroParam]) -> str:
     return f"{cmd} {', '.join(clean_args)}"
 
 
+VAR_RESULT_PARAM_NAMES = frozenset(
+    {
+        "destvar",
+        "destvarid",
+        "sucessvar",
+        "var_dest",
+        "retvar",
+        "resultvar",
+        "checkdestvarid",
+    }
+)
+
+VAR_RESULT_EXCLUDED_COMMANDS = frozenset(
+    {
+        "setvar",
+        "setvarfromvalue",
+        "setvarfromvar",
+        "addvar",
+        "addvarfromvalue",
+        "addvarfromvar",
+        "subvar",
+        "subvarfromvalue",
+        "subvarfromvar",
+    }
+)
+
+
+def infer_param_default(name: str, command_name: str | None = None) -> str | None:
+    """Infer default value for a parameter based on its name.
+
+    Args:
+        name: The parameter name
+        command_name: Optional command/macro name to exclude certain commands
+    """
+    if not name:
+        return None
+    if command_name and command_name.lower() in VAR_RESULT_EXCLUDED_COMMANDS:
+        return None
+    name_lower = name.lower()
+    if name_lower in VAR_RESULT_PARAM_NAMES:
+        return "VAR_RESULT"
+    return None
+
+
 def infer_param_type(name: str, context: str = "") -> str:
     """Infer parameter type from name and context."""
     name_lower = name.lower()
@@ -1284,31 +1389,14 @@ def extract_macros_for_db(
 
         v2_params = []
         for p in macro.params:
+            default = p.default or infer_param_default(p.name, name)
             v2_params.append(
                 {
                     "name": p.name,
                     "type": infer_param_type(p.name),
-                    **({"default": p.default} if p.default else {}),
+                    **({"default": default} if default else {}),
                 }
             )
-
-        if name in MANUAL_PRIMITIVES:
-            _, _, manual_params = MANUAL_PRIMITIVES[name]
-            existing_names = {p["name"] for p in v2_params}
-
-            for mp in manual_params:
-                if mp["name"] not in existing_names:
-                    hardcoded_value = _find_hardcoded_param_value(
-                        macro.body, mp["name"], manual_params
-                    )
-                    v2_params.insert(
-                        0,
-                        {
-                            "name": mp["name"],
-                            "type": mp.get("type", "var"),
-                            "default": hardcoded_value or "VAR_RESULT",
-                        },
-                    )
 
         # 1. Handle Opcode Switchers (Conditional Macros)
         if macro.opcode_switches and id_to_name:
@@ -1324,7 +1412,17 @@ def extract_macros_for_db(
             macros[name] = {"type": "macro", "params": v2_params, "variants": variants}
             continue
 
-        # 2. Handle .ifnb optional params (e.g., TVBroadcastDummy)
+        # 2. Handle .if/.else conditionals that call different macros
+        if_else_variants = parse_if_else_macro_variants(macro.body, macro.params)
+        if if_else_variants:
+            macros[name] = {
+                "type": "macro",
+                "params": v2_params,
+                "variants": if_else_variants,
+            }
+            continue
+
+        # 3. Handle .ifnb optional params (e.g., TVBroadcastDummy)
         optional_params = detect_ifnb_optional_params(macro.body, macro.params)
         if optional_params:
             # Mark optional params in v2_params
@@ -1724,6 +1822,113 @@ def update_param_defaults(db_params: list, macro: ParsedMacro) -> bool:
             ):
                 db_params[i]["default"] = arg_def.default
                 changes = True
+
+    return changes
+
+
+def is_generic_param_name(name: str) -> bool:
+    """Check if a parameter name is generic and should be updated from decomp."""
+    if not name:
+        return True
+    name_lower = name.lower()
+    if name.startswith("???"):
+        return True
+    generic_exact = {"variable", "value", "arg", "flag", "param", "offset", "data"}
+    if name_lower in generic_exact:
+        return True
+    if re.match(r"^(arg|param|var)\d*$", name_lower):
+        return True
+    return False
+
+
+def is_standard_var_pattern(name: str) -> bool:
+    """Check if a parameter name follows standard variable naming patterns from decomp."""
+    if not name:
+        return False
+    name_lower = name.lower()
+    var_patterns = (
+        "varid",
+        "var_",
+        "destvar",
+        "srcvar",
+        "retvar",
+        "flagid",
+        "flag_",
+        "msgid",
+        "scriptid",
+        "eventid",
+    )
+    return any(pattern in name_lower for pattern in var_patterns)
+
+
+def update_param_names(db_params: list, macro: ParsedMacro) -> bool:
+    """
+    Update database parameter names based on decomp macro parameter names.
+
+    Decomp is the source of truth for parameter names. Update when:
+    - DB name is generic (variable, value, arg, etc.)
+    - Decomp name follows standard naming patterns (destVarID, flagID, etc.)
+
+    This handles cases where the DB has:
+    - A generic name like "variable" that should be "destVarID"
+    - A wrong specific name like "pokémon" that should be "destVarID"
+
+    Returns True if changes were made.
+    """
+    if not macro.emitted_params or not db_params:
+        return False
+
+    if len(macro.emitted_params) != len(db_params):
+        return False
+
+    changes = False
+
+    for i, emitted_name in enumerate(macro.emitted_params):
+        if not emitted_name:
+            continue
+        if is_generic_param_name(emitted_name):
+            continue
+
+        current_name = db_params[i].get("name", "")
+
+        should_update = is_generic_param_name(current_name) or is_standard_var_pattern(
+            emitted_name
+        )
+
+        if should_update and current_name != emitted_name:
+            db_params[i]["name"] = emitted_name
+            changes = True
+
+    return changes
+
+
+def update_inferred_param_defaults(
+    db_params: list, macro: ParsedMacro, command_name: str
+) -> bool:
+    """
+    Update database parameters with inferred default values (e.g., VAR_RESULT for destVar).
+    Returns True if changes were made.
+    """
+    if not macro.emitted_params or not db_params:
+        return False
+
+    if len(macro.emitted_params) != len(db_params):
+        return False
+
+    changes = False
+
+    for i, emitted_name in enumerate(macro.emitted_params):
+        if not emitted_name:
+            continue
+
+        inferred_default = infer_param_default(emitted_name, command_name)
+        if not inferred_default:
+            continue
+
+        current_default = db_params[i].get("default")
+        if current_default is None:
+            db_params[i]["default"] = inferred_default
+            changes = True
 
     return changes
 
@@ -2156,6 +2361,88 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     with open(db_path, "w", encoding="utf-8") as f:
                         json.dump(db, f, indent=2)
 
+            # Update parameter names from decomp macro definitions
+            if update:
+                print("  Checking parameter names...")
+                names_updated = 0
+                db_commands = db.get("commands", {})
+                db_name_to_id = {
+                    name: data["id"]
+                    for name, data in db_commands.items()
+                    if data.get("type") == "script_cmd"
+                }
+                db_id_to_name = {v: k for k, v in db_name_to_id.items()}
+
+                for name, macro in decomp_macros.items():
+                    if (
+                        macro.is_wrapper
+                        or macro.is_conditional
+                        or len(macro.opcodes) > 1
+                    ):
+                        continue
+                    if not macro.opcodes:
+                        continue
+
+                    target_name = None
+                    if name in db_name_to_id:
+                        target_name = name
+                    elif macro.opcodes[0] in db_id_to_name:
+                        target_name = db_id_to_name[macro.opcodes[0]]
+
+                    if target_name and target_name in db_commands:
+                        cmd = db_commands[target_name]
+                        if update_param_names(cmd.get("params", []), macro):
+                            names_updated += 1
+
+                if names_updated > 0:
+                    print(f"  Updated names for {names_updated} commands")
+                    has_changes = True
+                    with open(db_path, "w", encoding="utf-8") as f:
+                        json.dump(db, f, indent=2)
+
+            # Update inferred param defaults (VAR_RESULT for destVar params)
+            if update:
+                print("  Checking inferred param defaults...")
+                inferred_defaults_updated = 0
+                db_commands = db.get("commands", {})
+                db_name_to_id = {
+                    name: data["id"]
+                    for name, data in db_commands.items()
+                    if data.get("type") == "script_cmd"
+                }
+                db_id_to_name = {v: k for k, v in db_name_to_id.items()}
+
+                for name, macro in decomp_macros.items():
+                    if (
+                        macro.is_wrapper
+                        or macro.is_conditional
+                        or len(macro.opcodes) > 1
+                    ):
+                        continue
+                    if not macro.opcodes:
+                        continue
+
+                    target_name = None
+                    if name in db_name_to_id:
+                        target_name = name
+                    elif macro.opcodes[0] in db_id_to_name:
+                        target_name = db_id_to_name[macro.opcodes[0]]
+
+                    if target_name and target_name in db_commands:
+                        cmd = db_commands[target_name]
+                        if update_inferred_param_defaults(
+                            cmd.get("params", []), macro, target_name
+                        ):
+                            inferred_defaults_updated += 1
+
+                if inferred_defaults_updated > 0:
+                    print(
+                        f"  Updated inferred defaults for {inferred_defaults_updated} commands"
+                    )
+                    has_changes = True
+                    with open(db_path, "w", encoding="utf-8") as f:
+                        json.dump(db, f, indent=2)
+
             # Update params with hardcoded defaults (for unused params like `.short 0`)
             if update:
                 print("  Checking for hardcoded/unused params...")
@@ -2226,16 +2513,6 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                                 elif decomp_name and not decomp_p.get("is_literal"):
                                     seen_param_names[decomp_name] = i
 
-                                if decomp_name and (
-                                    db_name.startswith("???")
-                                    or (
-                                        db_name in ("variable", "value", "arg")
-                                        and decomp_name
-                                        not in ("variable", "value", "arg")
-                                    )
-                                ):
-                                    db_params[i]["name"] = decomp_name
-                                    changed = True
                                 if (
                                     decomp_p.get("is_literal")
                                     and decomp_p.get("default") is not None
