@@ -1504,8 +1504,8 @@
       "name": "SetOWMovement",
       "decomp_name": "scrcmd_109",
       "parameters": [2, 2],
-      "parameter_types": ["Overworld", "Action"],
-      "parameter_values": ["Flex: Event ID", "u16: Movement"],
+      "parameter_types": ["Overworld", "OwMovementType"],
+      "parameter_values": ["Flex: Event ID", "u16: MovementType"],
       "description": "Changes the Event ID's movement number to Movement"
     },
     "0x006E": {
