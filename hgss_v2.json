@@ -11693,637 +11693,1475 @@
       "type": "movement",
       "id": 0,
       "legacy_name": "FaceNorth",
-      "description": "Event faces up"
+      "description": "Event faces up",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "FaceSouth": {
       "type": "movement",
       "id": 1,
       "legacy_name": "FaceSouth",
-      "description": "Event faces down"
+      "description": "Event faces down",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "FaceWest": {
       "type": "movement",
       "id": 2,
       "legacy_name": "FaceWest",
-      "description": "Event faces left"
+      "description": "Event faces left",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "FaceEast": {
       "type": "movement",
       "id": 3,
       "legacy_name": "FaceEast",
-      "description": "Event faces right"
+      "description": "Event faces right",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlowerNorth": {
       "type": "movement",
       "id": 4,
       "legacy_name": "WalkNorth32",
-      "description": "Event faces up and moves northwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+      "description": "Event faces up and moves northwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlowerSouth": {
       "type": "movement",
       "id": 5,
       "legacy_name": "WalkSouth32",
-      "description": "Event faces down and moves southwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+      "description": "Event faces down and moves southwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlowerWest": {
       "type": "movement",
       "id": 6,
       "legacy_name": "WalkWest32",
-      "description": "Event faces left and moves westwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+      "description": "Event faces left and moves westwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlowerEast": {
       "type": "movement",
       "id": 7,
       "legacy_name": "WalkEast32",
-      "description": "Event faces right and moves eastwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+      "description": "Event faces right and moves eastwards at 1 tile per 32 frames; Equivalent to 0.94 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlowNorth": {
       "type": "movement",
       "id": 8,
       "legacy_name": "WalkNorth16",
-      "description": "Event faces up and moves northwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces up and moves northwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlowSouth": {
       "type": "movement",
       "id": 9,
       "legacy_name": "WalkSouth16",
-      "description": "Event faces down and moves southwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces down and moves southwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlowWest": {
       "type": "movement",
       "id": 10,
       "legacy_name": "WalkWest16",
-      "description": "Event faces left and moves westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces left and moves westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlowEast": {
       "type": "movement",
       "id": 11,
       "legacy_name": "WalkEast16",
-      "description": "Event faces right and moves eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces right and moves eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkNormalNorth": {
       "type": "movement",
       "id": 12,
       "legacy_name": "WalkNorth8",
-      "description": "Event faces up and moves northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+      "description": "Event faces up and moves northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkNormalSouth": {
       "type": "movement",
       "id": 13,
       "legacy_name": "WalkSouth8",
-      "description": "Event faces down and moves southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+      "description": "Event faces down and moves southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkNormalWest": {
       "type": "movement",
       "id": 14,
       "legacy_name": "WalkWest8",
-      "description": "Event faces left and moves westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+      "description": "Event faces left and moves westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkNormalEast": {
       "type": "movement",
       "id": 15,
       "legacy_name": "WalkEast8",
-      "description": "Event faces right and moves eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+      "description": "Event faces right and moves eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFastNorth": {
       "type": "movement",
       "id": 16,
       "legacy_name": "WalkNorth4",
-      "description": "Event faces up and moves northwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+      "description": "Event faces up and moves northwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFastSouth": {
       "type": "movement",
       "id": 17,
       "legacy_name": "WalkSouth4",
-      "description": "Event faces down and moves southwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+      "description": "Event faces down and moves southwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFastWest": {
       "type": "movement",
       "id": 18,
       "legacy_name": "WalkWest4",
-      "description": "Event faces left and moves westwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+      "description": "Event faces left and moves westwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFastEast": {
       "type": "movement",
       "id": 19,
       "legacy_name": "WalkEast4",
-      "description": "Event faces right and moves eastwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+      "description": "Event faces right and moves eastwards at 1 tile per 4 frames; Equivalent to 7.5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFasterNorth": {
       "type": "movement",
       "id": 20,
       "legacy_name": "WalkNorth2",
-      "description": "Event faces up and moves northwards at 1 tile per 2 frames; Equivalent to 15 tiles per second."
+      "description": "Event faces up and moves northwards at 1 tile per 2 frames; Equivalent to 15 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFasterSouth": {
       "type": "movement",
       "id": 21,
       "legacy_name": "WalkSouth2",
-      "description": "Event faces down and moves southwards at 1 tile per 2 frames; Equivalent to 15 tiles per second."
+      "description": "Event faces down and moves southwards at 1 tile per 2 frames; Equivalent to 15 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFasterWest": {
       "type": "movement",
       "id": 22,
       "legacy_name": "WalkWest2",
-      "description": "Event faces left and moves westwards at 1 tile per 2 frames; Equivalent to 15 tiles per second."
+      "description": "Event faces left and moves westwards at 1 tile per 2 frames; Equivalent to 15 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFasterEast": {
       "type": "movement",
       "id": 23,
       "legacy_name": "WalkEast2",
-      "description": "Event faces right and moves eastwards at 1 tile per 2 frames; Equivalent to 15 tiles per second."
+      "description": "Event faces right and moves eastwards at 1 tile per 2 frames; Equivalent to 15 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotSlowerNorth": {
       "type": "movement",
       "id": 24,
       "legacy_name": "WalkOnSpotNorth32",
-      "description": "Event faces up and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+      "description": "Event faces up and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotSlowerSouth": {
       "type": "movement",
       "id": 25,
       "legacy_name": "WalkOnSpotSouth32",
-      "description": "Event faces down and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+      "description": "Event faces down and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotSlowerWest": {
       "type": "movement",
       "id": 26,
       "legacy_name": "WalkOnSpotWest32",
-      "description": "Event faces left and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+      "description": "Event faces left and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotSlowerEast": {
       "type": "movement",
       "id": 27,
       "legacy_name": "WalkOnSpotEast32",
-      "description": "Event faces right and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second."
+      "description": "Event faces right and moves on the spot at 1 tile per 32 frames; Equivalent to 0.94 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotSlowNorth": {
       "type": "movement",
       "id": 28,
       "legacy_name": "WalkOnSpotNorth16",
-      "description": "Event faces up and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces up and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotSlowSouth": {
       "type": "movement",
       "id": 29,
       "legacy_name": "WalkOnSpotSouth16",
-      "description": "Event faces down and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces down and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotSlowWest": {
       "type": "movement",
       "id": 30,
       "legacy_name": "WalkOnSpotWest16",
-      "description": "Event faces left and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces left and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotSlowEast": {
       "type": "movement",
       "id": 31,
       "legacy_name": "WalkOnSpotEast16",
-      "description": "Event faces right and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces right and moves on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotNormalNorth": {
       "type": "movement",
       "id": 32,
       "legacy_name": "WalkOnSpotNorth8",
-      "description": "Event faces up and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+      "description": "Event faces up and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotNormalSouth": {
       "type": "movement",
       "id": 33,
       "legacy_name": "WalkOnSpotSouth8",
-      "description": "Event faces down and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+      "description": "Event faces down and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotNormalWest": {
       "type": "movement",
       "id": 34,
       "legacy_name": "WalkOnSpotWest8",
-      "description": "Event faces left and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+      "description": "Event faces left and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotNormalEast": {
       "type": "movement",
       "id": 35,
       "legacy_name": "WalkOnSpotEast8",
-      "description": "Event faces right and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed."
+      "description": "Event faces right and moves on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second. This should be taken as the standard speed.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotFastNorth": {
       "type": "movement",
       "id": 36,
       "legacy_name": "WalkOnSpotNorth4",
-      "description": "Event faces up and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+      "description": "Event faces up and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotFastSouth": {
       "type": "movement",
       "id": 37,
       "legacy_name": "WalkOnSpotSouth4",
-      "description": "Event faces down and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+      "description": "Event faces down and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotFastWest": {
       "type": "movement",
       "id": 38,
       "legacy_name": "WalkOnSpotWest4",
-      "description": "Event faces left and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+      "description": "Event faces left and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotFastEast": {
       "type": "movement",
       "id": 39,
       "legacy_name": "WalkOnSpotEast4",
-      "description": "Event faces right and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second."
+      "description": "Event faces right and moves on the spot at 1 tile per 4 frames; Equivalent to 7.5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotFasterNorth": {
       "type": "movement",
       "id": 40,
       "legacy_name": "WalkOnSpotNorth2",
-      "description": "Event faces up and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second."
+      "description": "Event faces up and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotFasterSouth": {
       "type": "movement",
       "id": 41,
       "legacy_name": "WalkOnSpotSouth2",
-      "description": "Event faces down and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second."
+      "description": "Event faces down and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotFasterWest": {
       "type": "movement",
       "id": 42,
       "legacy_name": "WalkOnSpotWest2",
-      "description": "Event faces left and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second."
+      "description": "Event faces left and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkOnSpotFasterEast": {
       "type": "movement",
       "id": 43,
       "legacy_name": "WalkOnSpotEast2",
-      "description": "Event faces right and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second."
+      "description": "Event faces right and moves on the spot at 1 tile per 2 frames; Equivalent to 15 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpOnSpotSlowNorth": {
       "type": "movement",
       "id": 44,
       "legacy_name": "JumpOnSpotNorth16",
-      "description": "Event faces up and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces up and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpOnSpotSlowSouth": {
       "type": "movement",
       "id": 45,
       "legacy_name": "JumpOnSpotSouth16",
-      "description": "Event faces down and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces down and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpOnSpotSlowWest": {
       "type": "movement",
       "id": 46,
       "legacy_name": "JumpOnSpotWest16",
-      "description": "Event faces left and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces left and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpOnSpotSlowEast": {
       "type": "movement",
       "id": 47,
       "legacy_name": "JumpOnSpotEast16",
-      "description": "Event faces right and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces right and jumps on the spot at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpOnSpotFastNorth": {
       "type": "movement",
       "id": 48,
       "legacy_name": "JumpOnSpotNorth8",
-      "description": "Event faces up and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
+      "description": "Event faces up and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpOnSpotFastSouth": {
       "type": "movement",
       "id": 49,
       "legacy_name": "JumpOnSpotSouth8",
-      "description": "Event faces down and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
+      "description": "Event faces down and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpOnSpotFastWest": {
       "type": "movement",
       "id": 50,
       "legacy_name": "JumpOnSpotWest8",
-      "description": "Event faces left and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
+      "description": "Event faces left and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpOnSpotFastEast": {
       "type": "movement",
       "id": 51,
       "legacy_name": "JumpOnSpotEast8",
-      "description": "Event faces right and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
+      "description": "Event faces right and jumps on the spot at 1 tile per 8 frames; Equivalent to 3.75 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpNearFastNorth": {
       "type": "movement",
       "id": 52,
       "legacy_name": "JumpNorth8",
-      "description": "Event faces up and jumps northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
+      "description": "Event faces up and jumps northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpNearFastSouth": {
       "type": "movement",
       "id": 53,
       "legacy_name": "JumpSouth8",
-      "description": "Event faces down and jumps southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
+      "description": "Event faces down and jumps southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpNearFastWest": {
       "type": "movement",
       "id": 54,
       "legacy_name": "JumpWest8",
-      "description": "Event faces left and jumps westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
+      "description": "Event faces left and jumps westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpNearFastEast": {
       "type": "movement",
       "id": 55,
       "legacy_name": "JumpEast8",
-      "description": "Event faces right and jumps eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second."
+      "description": "Event faces right and jumps eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpFarNorth": {
       "type": "movement",
       "id": 56,
       "legacy_name": "JumpFarNorth",
-      "description": "Event faces up and jumps 2 tiles northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total."
+      "description": "Event faces up and jumps 2 tiles northwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpFarSouth": {
       "type": "movement",
       "id": 57,
       "legacy_name": "JumpFarSouth",
-      "description": "Event faces down and jumps 2 tiles southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total."
+      "description": "Event faces down and jumps 2 tiles southwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpFarWest": {
       "type": "movement",
       "id": 58,
       "legacy_name": "JumpFarWest",
-      "description": "Event faces left and jumps 2 tiles westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total."
+      "description": "Event faces left and jumps 2 tiles westwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpFarEast": {
       "type": "movement",
       "id": 59,
       "legacy_name": "JumpFarEast",
-      "description": "Event faces right and jumps 2 tiles eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total."
+      "description": "Event faces right and jumps 2 tiles eastwards at 1 tile per 8 frames; Equivalent to 3.75 tiles per second; 16 frames in total.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "Delay1": {
       "type": "movement",
       "id": 60,
       "legacy_name": "Delay1",
-      "description": "Event waits for 1 frame; Equivalent to ~0.033 seconds (1/30s)."
+      "description": "Event waits for 1 frame; Equivalent to ~0.033 seconds (1/30s).",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "Delay2": {
       "type": "movement",
       "id": 61,
       "legacy_name": "Delay2",
-      "description": "Event waits for 2 frames; Equivalent to ~0.067 seconds (2/30s)."
+      "description": "Event waits for 2 frames; Equivalent to ~0.067 seconds (2/30s).",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "Delay4": {
       "type": "movement",
       "id": 62,
       "legacy_name": "Delay4",
-      "description": "Event waits for 4 frames; Equivalent to ~0.133 seconds (4/30s)."
+      "description": "Event waits for 4 frames; Equivalent to ~0.133 seconds (4/30s).",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "Delay8": {
       "type": "movement",
       "id": 63,
       "legacy_name": "Delay8",
-      "description": "Event waits for 8 frames; Equivalent to ~0.267 seconds (8/30s)."
+      "description": "Event waits for 8 frames; Equivalent to ~0.267 seconds (8/30s).",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "Delay15": {
       "type": "movement",
       "id": 64,
       "legacy_name": "Delay15",
-      "description": "Event waits for 15 frames; Equivalent to 0.5 seconds (15/30s)."
+      "description": "Event waits for 15 frames; Equivalent to 0.5 seconds (15/30s).",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "Delay16": {
       "type": "movement",
       "id": 65,
       "legacy_name": "Delay16",
-      "description": "Event waits for 16 frames; Equivalent to ~0.533 seconds (16/30s)."
+      "description": "Event waits for 16 frames; Equivalent to ~0.533 seconds (16/30s).",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "Delay32": {
       "type": "movement",
       "id": 66,
       "legacy_name": "Delay32",
-      "description": "Event waits for 32 frames; Equivalent to ~1.067 seconds (32/30s)."
+      "description": "Event waits for 32 frames; Equivalent to ~1.067 seconds (32/30s).",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WarpOut": {
       "type": "movement",
       "id": 67,
       "legacy_name": "TeleportUp",
-      "description": "Makes overworld ascend to the sky. No rotation involved."
+      "description": "Makes overworld ascend to the sky. No rotation involved.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WarpIn": {
       "type": "movement",
       "id": 68,
       "legacy_name": "TeleportDown",
-      "description": "Makes overworld fall from the sky. No rotation involved."
+      "description": "Makes overworld fall from the sky. No rotation involved.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "SetInvisible": {
       "type": "movement",
       "id": 69,
       "legacy_name": "SetInvisible",
-      "description": "Makes event invisible. It can still be interacted with and will still have collision."
+      "description": "Makes event invisible. It can still be interacted with and will still have collision.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "SetVisible": {
       "type": "movement",
       "id": 70,
       "legacy_name": "SetVisible",
-      "description": "Makes event visible."
+      "description": "Makes event visible.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "LockDir": {
       "type": "movement",
       "id": 71,
       "legacy_name": "LockDir",
-      "description": "Prevents event from changing direction. It can still move, but it will always face the same direction."
+      "description": "Prevents event from changing direction. It can still move, but it will always face the same direction.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "UnlockDir": {
       "type": "movement",
       "id": 72,
       "legacy_name": "ReleaseDir",
-      "description": "Allows event to change direction again."
+      "description": "Allows event to change direction again.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "PauseAnimation": {
       "type": "movement",
       "id": 73,
       "legacy_name": "PauseAnimation",
-      "description": "Disables event's animation. It can still move, but it will not animate."
+      "description": "Disables event's animation. It can still move, but it will not animate.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "ResumeAnimation": {
       "type": "movement",
       "id": 74,
       "legacy_name": "ResumeAnimation",
-      "description": "Resumes event's animation."
+      "description": "Resumes event's animation.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "EmoteExclamationMark": {
       "type": "movement",
       "id": 75,
       "legacy_name": "EmoteExclamation",
-      "description": "Shows an exclamation mark above the event's head. Used commonly to indicate that the event is surprised or has noticed something."
+      "description": "Shows an exclamation mark above the event's head. Used commonly to indicate that the event is surprised or has noticed something.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlightlyFastNorth": {
       "type": "movement",
       "id": 76,
       "legacy_name": "WalkNorth6",
-      "description": "Event faces up and walks northwards at 1 tile per 6 frames; Equivalent to 5 tiles per second."
+      "description": "Event faces up and walks northwards at 1 tile per 6 frames; Equivalent to 5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlightlyFastSouth": {
       "type": "movement",
       "id": 77,
       "legacy_name": "WalkSouth6",
-      "description": "Event faces down and walks southwards at 1 tile per 6 frames; Equivalent to 5 tiles per second."
+      "description": "Event faces down and walks southwards at 1 tile per 6 frames; Equivalent to 5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlightlyFastWest": {
       "type": "movement",
       "id": 78,
       "legacy_name": "WalkWest6",
-      "description": "Event faces right and walks westwards at 1 tile per 6 frames; Equivalent to 5 tiles per second."
+      "description": "Event faces right and walks westwards at 1 tile per 6 frames; Equivalent to 5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlightlyFastEast": {
       "type": "movement",
       "id": 79,
       "legacy_name": "WalkEast6",
-      "description": "Event faces right and walks eastwards at 1 tile per 6 frames; Equivalent to 5 tiles per second."
+      "description": "Event faces right and walks eastwards at 1 tile per 6 frames; Equivalent to 5 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlightlyFasterNorth": {
       "type": "movement",
       "id": 80,
       "legacy_name": "WalkNorth3",
-      "description": "Event faces up and walks northwards at 1 tile per 3 frames; Equivalent to 10 tiles per second."
+      "description": "Event faces up and walks northwards at 1 tile per 3 frames; Equivalent to 10 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlightlyFasterSouth": {
       "type": "movement",
       "id": 81,
       "legacy_name": "WalkSouth3",
-      "description": "Event faces down and walks southwards at 1 tile per 3 frames; Equivalent to 10 tiles per second."
+      "description": "Event faces down and walks southwards at 1 tile per 3 frames; Equivalent to 10 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlightlyFasterWest": {
       "type": "movement",
       "id": 82,
       "legacy_name": "WalkWest3",
-      "description": "Event faces left and walks westwards at 1 tile per 3 frames; Equivalent to 10 tiles per second."
+      "description": "Event faces left and walks westwards at 1 tile per 3 frames; Equivalent to 10 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkSlightlyFasterEast": {
       "type": "movement",
       "id": 83,
       "legacy_name": "WalkEast3",
-      "description": "Event faces right and walks eastwards at 1 tile per 3 frames; Equivalent to 10 tiles per second."
+      "description": "Event faces right and walks eastwards at 1 tile per 3 frames; Equivalent to 10 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFastestNorth": {
       "type": "movement",
       "id": 84,
       "legacy_name": "WalkNorth1",
-      "description": "Event faces up and walks nothwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered."
+      "description": "Event faces up and walks nothwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFastestSouth": {
       "type": "movement",
       "id": 85,
       "legacy_name": "WalkSouth1",
-      "description": "Event faces down and walks southwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered."
+      "description": "Event faces down and walks southwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFastestWest": {
       "type": "movement",
       "id": 86,
       "legacy_name": "WalkWest1",
-      "description": "Event faces left and walks westwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered."
+      "description": "Event faces left and walks westwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkFastestEast": {
       "type": "movement",
       "id": 87,
       "legacy_name": "WalkEast1",
-      "description": "Event faces right and walks eastwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered."
+      "description": "Event faces right and walks eastwards at 1 tile per frame; Equivalent to 30 tiles per second. Walk animation isn't triggered.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "RunNorth": {
       "type": "movement",
       "id": 88,
       "legacy_name": "RunNorth",
-      "description": "Event faces up and walks northwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+      "description": "Event faces up and walks northwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "RunSouth": {
       "type": "movement",
       "id": 89,
       "legacy_name": "RunSouth",
-      "description": "Event faces down and walks southwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+      "description": "Event faces down and walks southwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "RunWest": {
       "type": "movement",
       "id": 90,
       "legacy_name": "RunWest",
-      "description": "Event faces left and walks westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+      "description": "Event faces left and walks westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "RunEast": {
       "type": "movement",
       "id": 91,
       "legacy_name": "RunEast",
-      "description": "Event faces right and walks eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered."
+      "description": "Event faces right and walks eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpNearSlowWest": {
       "type": "movement",
       "id": 92,
       "legacy_name": "JumpWest16",
-      "description": "Event faces left and jumps westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces left and jumps westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpNearSlowEast": {
       "type": "movement",
       "id": 93,
       "legacy_name": "JumpEast16",
-      "description": "Event faces right and jumps eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second."
+      "description": "Event faces right and jumps eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpFartherWest": {
       "type": "movement",
       "id": 94,
       "legacy_name": "JumpVeryFarWest",
-      "description": "Event faces left and jumps 3 tiles westwards at 1 tile per 4 frames; Equivalent to 10 tiles per second. 12 frames in total."
+      "description": "Event faces left and jumps 3 tiles westwards at 1 tile per 4 frames; Equivalent to 10 tiles per second. 12 frames in total.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "JumpFartherEast": {
       "type": "movement",
       "id": 95,
       "legacy_name": "JumpVeryFarEast",
-      "description": "Event faces right and jumps 3 tiles eastwards at 1 tile per 4 frames; Equivalent to 10 tiles per second. 12 frames in total."
+      "description": "Event faces right and jumps 3 tiles eastwards at 1 tile per 4 frames; Equivalent to 10 tiles per second. 12 frames in total.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkEverSoSlightlyFastNorth": {
       "type": "movement",
       "id": 96,
       "legacy_name": "WalkNorth7",
-      "description": "Event faces up and moves northwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second."
+      "description": "Event faces up and moves northwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkEverSoSlightlyFastSouth": {
       "type": "movement",
       "id": 97,
       "legacy_name": "WalkSouth7",
-      "description": "Event faces down and moves southwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second."
+      "description": "Event faces down and moves southwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkEverSoSlightlyFastWest": {
       "type": "movement",
       "id": 98,
       "legacy_name": "WalkWest7",
-      "description": "Event faces left and moves westwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second."
+      "description": "Event faces left and moves westwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "WalkEverSoSlightlyFastEast": {
       "type": "movement",
       "id": 99,
       "legacy_name": "WalkEast7",
-      "description": "Event faces right and moves eastwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second."
+      "description": "Event faces right and moves eastwards at 1 tile per 7 frames; Equivalent to 4.29 tiles per second.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "NurseJoyBow": {
       "type": "movement",
       "id": 100,
       "legacy_name": "NurseJoyBow",
-      "description": "Nurse Joy bows. Used in the Pok\u00e9mon Center."
+      "description": "Nurse Joy bows. Used in the Pok\u00e9mon Center.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "RevealTrainer": {
       "type": "movement",
       "id": 101,
       "legacy_name": "RevealTrainer",
-      "description": "Used by the ninja boys when popping out of the ground."
+      "description": "Used by the ninja boys when popping out of the ground.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "PlayerGive": {
       "type": "movement",
       "id": 102,
-      "legacy_name": "PlayerGive"
+      "legacy_name": "PlayerGive",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "EmoteQuestionMark": {
       "type": "movement",
       "id": 103,
       "legacy_name": "EmoteDoubleExclamation",
-      "description": "Shows a double exclamation mark above the event's head."
+      "description": "Shows a double exclamation mark above the event's head.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "PlayerReceive": {
       "type": "movement",
       "id": 104,
-      "legacy_name": "PlayerReceive"
+      "legacy_name": "PlayerReceive",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_105": {
+      "type": "movement",
+      "id": 105,
+      "description": "Imported from decomp: MoveAction_105",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_106": {
+      "type": "movement",
+      "id": 106,
+      "description": "Imported from decomp: MoveAction_106",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_107": {
+      "type": "movement",
+      "id": 107,
+      "description": "Imported from decomp: MoveAction_107",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_108": {
+      "type": "movement",
+      "id": 108,
+      "description": "Imported from decomp: MoveAction_108",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_109": {
+      "type": "movement",
+      "id": 109,
+      "description": "Imported from decomp: MoveAction_109",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_110": {
+      "type": "movement",
+      "id": 110,
+      "description": "Imported from decomp: MoveAction_110",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_111": {
+      "type": "movement",
+      "id": 111,
+      "description": "Imported from decomp: MoveAction_111",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_112": {
+      "type": "movement",
+      "id": 112,
+      "description": "Imported from decomp: MoveAction_112",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "EmoteExclamation2": {
       "type": "movement",
       "id": 153,
       "legacy_name": "EmoteExclamation2",
-      "description": "Shows an exclamation mark above the event's head. Duplicate of EmoteExclamation (0x004B)."
+      "description": "Shows an exclamation mark above the event's head. Duplicate of EmoteExclamation (0x004B).",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
-    "End": {
+    "EndMovement": {
       "type": "movement",
       "id": 254,
       "legacy_name": "End",

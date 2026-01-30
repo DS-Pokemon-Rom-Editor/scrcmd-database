@@ -39,7 +39,7 @@ DECOMP_SOURCES = {
     },
     "HeartGold/SoulSilver": {
         "scrcmd": "https://raw.githubusercontent.com/pret/pokeheartgold/master/asm/macros/script.inc",
-        # HGSS doesn't have a separate movement.inc - movements use raw constants
+        "movement": "https://raw.githubusercontent.com/pret/pokeheartgold/master/asm/macros/movement.inc",
     },
     # Diamond/Pearl decomp isn't as mature, skip for now
 }
