@@ -1684,9 +1684,9 @@
     "0x0088": {
       "name": "DummyTakeTrap",
       "decomp_name": "ScrCmd_088",
-      "parameters": [2, 2, 2],
-      "parameter_types": ["Integer", "Integer", "Variable"],
-      "parameter_values": ["u16: Unused", "u16: Unused", "Var: Variable"],
+      "parameters": [],
+      "parameter_types": [],
+      "parameter_values": [],
       "description": "Nothing"
     },
     "0x0089": {
