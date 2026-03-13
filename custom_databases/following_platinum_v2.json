@@ -1446,7 +1446,7 @@
         }
       ]
     },
-    "KeepOverworld": {
+    "SetObjectFlagIsPersistent": {
       "type": "script_cmd",
       "id": 108,
       "legacy_name": "KeepOverworld",
@@ -1462,7 +1462,7 @@
         }
       ]
     },
-    "SetOWMovement": {
+    "SetMovementType": {
       "type": "script_cmd",
       "id": 109,
       "legacy_name": "SetOWMovement",
@@ -2329,8 +2329,9 @@
           "type": "u16"
         },
         {
-          "name": "???",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         },
         {
           "name": "???",
@@ -2338,7 +2339,7 @@
         }
       ]
     },
-    "DisplayDressedPokemon": {
+    "ShowDressUpPhoto": {
       "type": "script_cmd",
       "id": 167,
       "legacy_name": "DisplayDressedPokemon",
@@ -2349,8 +2350,9 @@
           "type": "u16"
         },
         {
-          "name": "variable",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -2552,7 +2554,7 @@
         }
       ]
     },
-    "ChoosePokemonNickname": {
+    "OpenPokemonNamingScreen": {
       "type": "script_cmd",
       "id": 187,
       "legacy_name": "ChoosePokemonNickname",
@@ -2563,8 +2565,9 @@
           "type": "u16"
         },
         {
-          "name": "variable",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -4080,7 +4083,7 @@
         }
       ]
     },
-    "CheckPortrait": {
+    "DressUpPhotoHasData": {
       "type": "script_cmd",
       "id": 302,
       "legacy_name": "CheckPortrait",
@@ -4091,8 +4094,9 @@
           "type": "u16"
         },
         {
-          "name": "variable",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -4131,15 +4135,16 @@
       "description": "Activates the Poketch",
       "params": []
     },
-    "PoketchFlag": {
+    "CheckPoketchEnabled": {
       "type": "script_cmd",
       "id": 306,
       "legacy_name": "PoketchFlag",
       "description": "Stores 1 in Variable if player has the Poketch, stores 0 otherwise",
       "params": [
         {
-          "name": "variable",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -4479,7 +4484,7 @@
       "description": "nan",
       "params": []
     },
-    "SetPlayerDirComm": {
+    "SetCommPlayerDir": {
       "type": "script_cmd",
       "id": 338,
       "legacy_name": "SetPlayerDirComm",
@@ -4505,7 +4510,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_341": {
+    "GetTrainerInfoTrainerClass": {
       "type": "script_cmd",
       "id": 341,
       "legacy_name": "CMD_341",
@@ -4513,15 +4518,16 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "var"
         },
         {
-          "name": "arg_1",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
-    "CMD_342": {
+    "SetTrainerInfoAppearance": {
       "type": "script_cmd",
       "id": 342,
       "legacy_name": "CMD_342",
@@ -5171,7 +5177,7 @@
         }
       ]
     },
-    "SetSpawnablePosition": {
+    "SetBgEventPos": {
       "type": "script_cmd",
       "id": 395,
       "legacy_name": "SetSpawnablePosition",
@@ -5437,12 +5443,13 @@
           "type": "u16"
         },
         {
-          "name": "arg_1",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
-    "CMD_415": {
+    "UndergroundNPCMessage": {
       "type": "script_cmd",
       "id": 415,
       "legacy_name": "CMD_415",
@@ -5454,14 +5461,14 @@
         }
       ]
     },
-    "CMD_416": {
+    "CloseUndergroundNPCMessage": {
       "type": "script_cmd",
       "id": 416,
       "legacy_name": "CMD_416",
       "description": "nan",
       "params": []
     },
-    "CMD_417": {
+    "BufferTreasureNameForUndergroundVendor_Unused": {
       "type": "script_cmd",
       "id": 417,
       "legacy_name": "CMD_417",
@@ -5477,7 +5484,7 @@
         }
       ]
     },
-    "CMD_418": {
+    "BufferTrapNameForUndergroundVendor_Unused": {
       "type": "script_cmd",
       "id": 418,
       "legacy_name": "CMD_418",
@@ -8102,7 +8109,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_579": {
+    "ChooseCustomMessageWord": {
       "type": "script_cmd",
       "id": 579,
       "legacy_name": "CMD_579",
@@ -8114,15 +8121,17 @@
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "var",
+          "default": "VAR_RESULT"
         },
         {
-          "name": "arg_2",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
-    "CMD_580": {
+    "ChooseTwoCustomMessageWords": {
       "type": "script_cmd",
       "id": 580,
       "legacy_name": "CMD_580",
@@ -8134,19 +8143,20 @@
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "var",
+          "default": "VAR_RESULT"
         },
         {
-          "name": "arg_2",
-          "type": "u16"
+          "name": "destVar1",
+          "type": "var"
         },
         {
-          "name": "arg_3",
-          "type": "u16"
+          "name": "destVar2",
+          "type": "var"
         }
       ]
     },
-    "CMD_581": {
+    "BufferCustomMessageWord": {
       "type": "script_cmd",
       "id": 581,
       "legacy_name": "CMD_581",
@@ -8207,15 +8217,16 @@
         }
       ]
     },
-    "CMD_585": {
+    "GetWallpaperFromCustomMessageWords": {
       "type": "script_cmd",
       "id": 585,
       "legacy_name": "CMD_585",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         },
         {
           "name": "arg_1",
@@ -9192,7 +9203,7 @@
         }
       ]
     },
-    "CMD_658": {
+    "CheckShouldShowGhost": {
       "type": "script_cmd",
       "id": 658,
       "legacy_name": "CMD_658",
@@ -9203,8 +9214,9 @@
           "type": "u8"
         },
         {
-          "name": "arg_1",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -9327,7 +9339,7 @@
         }
       ]
     },
-    "CMD_668": {
+    "CalculateTrainerInfoAppearance": {
       "type": "script_cmd",
       "id": 668,
       "legacy_name": "CMD_668",
@@ -9335,11 +9347,12 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "var"
         },
         {
-          "name": "arg_1",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -9427,7 +9440,7 @@
         }
       ]
     },
-    "TrySetUnusedUndergroundField": {
+    "TrySetUnusedCollectedOrbFlag": {
       "type": "script_cmd",
       "id": 674,
       "legacy_name": "CMD_674",
@@ -9535,15 +9548,16 @@
         }
       ]
     },
-    "CMD_682": {
+    "CheckIsMysteryGiftPhrase": {
       "type": "script_cmd",
       "id": 682,
       "legacy_name": "CMD_682",
       "description": "nan",
       "params": [
         {
-          "name": "var_0",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         },
         {
           "name": "arg_1",
@@ -9978,34 +9992,34 @@
       "description": "Sets the default weather to the current map",
       "params": []
     },
-    "CMD_719": {
+    "BattleHallCheckUsingSameSpeciesAsPartner": {
       "type": "script_cmd",
       "id": 719,
       "legacy_name": "CMD_719",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "species",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "result",
           "type": "u16"
         }
       ]
     },
-    "CMD_720": {
+    "GetBattleHallSelectedSlots": {
       "type": "script_cmd",
       "id": 720,
       "legacy_name": "CMD_720",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "slot1",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "slot2",
           "type": "u16"
         }
       ]
@@ -11180,7 +11194,7 @@
       "description": "Prepares 3D data of Distortion World's portal and plays the animation (also with sound effect 0x5D3 #1491).",
       "params": []
     },
-    "CMD_801": {
+    "StartDistortionWorldGiratinaShadowEvent": {
       "type": "script_cmd",
       "id": 801,
       "legacy_name": "CMD_801",
@@ -11192,7 +11206,7 @@
         }
       ]
     },
-    "CMD_802": {
+    "FinishDistortionWorldGiratinaShadowEvent": {
       "type": "script_cmd",
       "id": 802,
       "legacy_name": "CMD_802",
@@ -11211,58 +11225,58 @@
         }
       ]
     },
-    "CMD_804": {
+    "GetBattleHallRecordKeeperStats": {
       "type": "script_cmd",
       "id": 804,
       "legacy_name": "CMD_804",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "curStreakIdx",
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "passedMilestoneIdx",
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "nextMilestoneIdx",
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "earnedBPIdx",
           "type": "u8"
         },
         {
-          "name": "???",
+          "name": "nextMilestone",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "response",
           "type": "u16"
         }
       ]
     },
-    "CMD_805": {
+    "GetNumSpeciesWithBattleHallRecords": {
       "type": "script_cmd",
       "id": 805,
       "legacy_name": "CMD_805",
       "description": "nan",
       "params": [
         {
-          "name": "variable",
+          "name": "result",
           "type": "u16"
         }
       ]
     },
-    "CMD_806": {
+    "GetBattleHallTotalSinglesRecord": {
       "type": "script_cmd",
       "id": 806,
       "legacy_name": "CMD_806",
       "description": "nan",
       "params": [
         {
-          "name": "variable",
+          "name": "result",
           "type": "u16"
         }
       ]
@@ -13839,7 +13853,7 @@
           "type": "label"
         }
       ],
-      "expansion": ["ApplyMovement 241, $movementOffset"]
+      "expansion": ["ApplyMovement LOCALID_CAMERA, $movementOffset"]
     },
     "AssertHeapMemory": {
       "type": "macro",
@@ -14049,6 +14063,181 @@
       "params": [],
       "expansion": ["SetClearInCatchingShowFlag 1"]
     },
+    "Common_CallPokecenterNurse": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "nurseLocalID",
+          "type": "u16"
+        }
+      ],
+      "expansion": [
+        "SetVar VAR_0x8007, $nurseLocalID",
+        "CallCommonScript 0x7D2"
+      ]
+    },
+    "Common_CheckAllFrontierGoldPrintsObtained": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x806",
+      "params": [],
+      "expansion": ["CallCommonScript 0x806"]
+    },
+    "Common_CheckBagPocketForItem": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7D1",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7D1"]
+    },
+    "Common_FadeToDefaultMusic": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7F9",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7F9"]
+    },
+    "Common_FadeToDefaultMusic2": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FB",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7FB"]
+    },
+    "Common_FadeToDefaultMusic3": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x801",
+      "params": [],
+      "expansion": ["CallCommonScript 0x801"]
+    },
+    "Common_FadeToDefaultMusic4": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x808",
+      "params": [],
+      "expansion": ["CallCommonScript 0x808"]
+    },
+    "Common_GiveAccessory": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FF",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7FF"]
+    },
+    "Common_GiveAccessoryWaitForConfirm": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7DF",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7DF"]
+    },
+    "Common_GiveItemQuantity": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FC",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7FC"]
+    },
+    "Common_GiveItemQuantityNoLineFeed": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7E0",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7E0"]
+    },
+    "Common_GivePoketchApp": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7D9",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7D9"]
+    },
+    "Common_GriseousOrbCouldNotBeRemoved": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x809",
+      "params": [],
+      "expansion": ["CallCommonScript 0x809"]
+    },
+    "Common_HandleSignpostInput": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7D0",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7D0"]
+    },
+    "Common_MessageBagIsFull": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7E1",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7E1"]
+    },
+    "Common_ObtainContestBackdrop": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FD",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7FD"]
+    },
+    "Common_ObtainContestBackdropWaitForConfirm": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7F4",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7F4"]
+    },
+    "Common_ObtainUndergroundSphere": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7DE",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7DE"]
+    },
+    "Common_ObtainUndergroundTrap": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7DD",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7DD"]
+    },
+    "Common_PrintPlateObtainedMessage": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7F6",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7F6"]
+    },
+    "Common_SaveGame": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7D6",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7D6"]
+    },
+    "Common_SendToUndergroundPC": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7DC",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7DC"]
+    },
+    "Common_SendToUndergroundPCWithLinefeed": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FE",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7FE"]
+    },
+    "Common_SetCounterpartBGM": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7F8",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7F8"]
+    },
+    "Common_SetFollowMeBGM": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x800",
+      "params": [],
+      "expansion": ["CallCommonScript 0x800"]
+    },
+    "Common_SetLookerBGM": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x807",
+      "params": [],
+      "expansion": ["CallCommonScript 0x807"]
+    },
+    "Common_SetRivalBGM": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7FA",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7FA"]
+    },
+    "Common_VendorGreeting": {
+      "type": "macro",
+      "description": "Convenience wrapper for CallCommonScript 0x7E3",
+      "params": [],
+      "expansion": ["CallCommonScript 0x7E3"]
+    },
     "CompareVar": {
       "type": "macro",
       "params": [
@@ -14063,12 +14252,12 @@
       ],
       "variants": [
         {
-          "condition": "valueOrVarID < VARS_START",
-          "expansion": ["CompareVarToValue $varID, $valueOrVarID"]
+          "condition": "((valueOrVarID >= VARS_START && valueOrVarID <= VARS_END) || (valueOrVarID >= SCRIPT_LOCAL_VARS_START && valueOrVarID <= SCRIPT_LOCAL_VARS_END))",
+          "expansion": ["CompareVarToVar $varID, $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": ["CompareVarToVar $varID, $valueOrVarID"]
+          "expansion": ["CompareVarToValue $varID, $valueOrVarID"]
         }
       ]
     },
@@ -14096,6 +14285,23 @@
       "type": "macro",
       "params": [],
       "expansion": ["StartEndSafariGame SAFARI_GAME_INACTIVE"]
+    },
+    "EventMessage": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "messageID",
+          "type": "msg_id"
+        }
+      ],
+      "expansion": [
+        "PlayFanfare SEQ_SE_CONFIRM",
+        "LockAll",
+        "Message $messageID",
+        "WaitABXPadPress",
+        "CloseMessage",
+        "ReleaseAll"
+      ]
     },
     "FadeScreenIn": {
       "type": "macro",
@@ -14225,12 +14431,6 @@
       "type": "macro",
       "params": [],
       "expansion": ["MysteryGiftGive MYSTERY_GIFT_GIVE"]
-    },
-    "GivePoketchApp": {
-      "type": "macro",
-      "description": "Convenience wrapper for CallCommonScript 0x7D9",
-      "params": [],
-      "expansion": ["CallCommonScript 0x7D9"]
     },
     "GoToIfAmitySquareManGiftIsNotAccessory": {
       "type": "macro",
@@ -14377,6 +14577,32 @@
         }
       ],
       "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 2, $offset"]
+    },
+    "GoToIfInRange": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "varID",
+          "type": "var"
+        },
+        {
+          "name": "lower",
+          "type": "u16"
+        },
+        {
+          "name": "upper",
+          "type": "u16"
+        },
+        {
+          "name": "offset",
+          "type": "label"
+        }
+      ],
+      "expansion": [
+        "CompareVar $varID, $lower",
+        "GoToIf 1, $offset",
+        "GoToIfInRange $varID, $lower, +, 1, $upper, $offset"
+      ]
     },
     "GoToIfLe": {
       "type": "macro",
@@ -14530,12 +14756,12 @@
       ],
       "variants": [
         {
-          "condition": "valueOrVarID < VARS_START",
-          "expansion": ["HasCoinsFromValue $varID, $valueOrVarID"]
+          "condition": "((valueOrVarID >= VARS_START && valueOrVarID <= VARS_END) || (valueOrVarID >= SCRIPT_LOCAL_VARS_START && valueOrVarID <= SCRIPT_LOCAL_VARS_END))",
+          "expansion": ["HasCoinsFromVar $varID, $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": ["HasCoinsFromVar $varID, $valueOrVarID"]
+          "expansion": ["HasCoinsFromValue $varID, $valueOrVarID"]
         }
       ]
     },
@@ -14712,6 +14938,24 @@
       "params": [],
       "expansion": ["CallCommonScript 0x7E1"]
     },
+    "NPCMessage": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "messageID",
+          "type": "msg_id"
+        }
+      ],
+      "expansion": [
+        "PlayFanfare SEQ_SE_CONFIRM",
+        "LockAll",
+        "FacePlayer",
+        "Message $messageID",
+        "WaitABXPadPress",
+        "CloseMessage",
+        "ReleaseAll"
+      ]
+    },
     "ObtainContestBackdrop": {
       "type": "macro",
       "description": "Convenience wrapper for CallCommonScript 0x7FD",
@@ -14745,6 +14989,73 @@
       "type": "macro",
       "params": [],
       "expansion": ["OpenBag 0"]
+    },
+    "PokeMartCommonWithGreeting": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "unused",
+          "type": "u16",
+          "default": "1"
+        }
+      ],
+      "expansion": [
+        "PlayFanfare SEQ_SE_CONFIRM",
+        "LockAll",
+        "FacePlayer",
+        "Common_VendorGreeting",
+        "CloseMessageWithoutErasing",
+        "PokeMartCommon $unused",
+        "ReleaseAll"
+      ]
+    },
+    "PokeMartSpecialtiesWithGreeting": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "martID",
+          "type": "u16"
+        }
+      ],
+      "expansion": [
+        "PlayFanfare SEQ_SE_CONFIRM",
+        "LockAll",
+        "FacePlayer",
+        "Common_VendorGreeting",
+        "CloseMessageWithoutErasing",
+        "PokeMartSpecialties $martID",
+        "ReleaseAll"
+      ]
+    },
+    "PokemonCryAndMessage": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "species",
+          "type": "species"
+        },
+        {
+          "name": "messageID",
+          "type": "msg_id"
+        },
+        {
+          "name": "unused",
+          "type": "u16",
+          "default": "0"
+        }
+      ],
+      "expansion": [
+        "PlayFanfare SEQ_SE_CONFIRM",
+        "LockAll",
+        "FacePlayer",
+        "WaitFanfare SEQ_SE_CONFIRM",
+        "PlayCry $species, $unused",
+        "Message $messageID",
+        "WaitCry",
+        "WaitABXPadPress",
+        "CloseMessage",
+        "ReleaseAll"
+      ]
     },
     "PrepareMysterGiftCantReceiveMsg": {
       "type": "macro",
@@ -14788,12 +15099,6 @@
       "type": "macro",
       "params": [],
       "expansion": ["CheckHeapMemory FALSE"]
-    },
-    "SaveGame": {
-      "type": "macro",
-      "description": "Convenience wrapper for CallCommonScript 0x7D6",
-      "params": [],
-      "expansion": ["CallCommonScript 0x7D6"]
     },
     "SaveTVInterviewResponse": {
       "type": "macro",
@@ -14901,8 +15206,7 @@
       "params": [
         {
           "name": "destVarID",
-          "type": "var",
-          "default": "VAR_RESULT"
+          "type": "var"
         },
         {
           "name": "valueOrVarID",
@@ -14911,12 +15215,12 @@
       ],
       "variants": [
         {
-          "condition": "valueOrVarID < VARS_START",
-          "expansion": ["SetVarFromValue $destVarID, $valueOrVarID"]
+          "condition": "((valueOrVarID >= VARS_START && valueOrVarID <= VARS_END) || (valueOrVarID >= SCRIPT_LOCAL_VARS_START && valueOrVarID <= SCRIPT_LOCAL_VARS_END))",
+          "expansion": ["SetVarFromVar $destVarID, $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": ["SetVarFromVar $destVarID, $valueOrVarID"]
+          "expansion": ["SetVarFromValue $destVarID, $valueOrVarID"]
         }
       ]
     },
@@ -14933,7 +15237,7 @@
         "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
         "WaitForSignpostDone",
         "GetSignpostInput VAR_RESULT",
-        "HandleSignpostInput"
+        "Common_HandleSignpostInput"
       ]
     },
     "ShowLandmarkSign": {
@@ -14949,7 +15253,7 @@
         "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
         "WaitForSignpostDone",
         "GetSignpostInput VAR_RESULT",
-        "HandleSignpostInput"
+        "Common_HandleSignpostInput"
       ]
     },
     "ShowMapSign": {
@@ -14965,7 +15269,7 @@
         "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
         "WaitForSignpostDone",
         "GetSignpostInput VAR_RESULT",
-        "HandleSignpostInput"
+        "Common_HandleSignpostInput"
       ]
     },
     "ShowScrollingSign": {
@@ -14981,7 +15285,7 @@
         "SetSignpostCommand SIGNPOST_CMD_SCROLL_IN",
         "WaitForSignpostDone",
         "DrawSignpostScrollingMessage $messageID, VAR_RESULT",
-        "HandleSignpostInput"
+        "Common_HandleSignpostInput"
       ]
     },
     "StartSafariGame": {
@@ -14999,12 +15303,12 @@
       ],
       "variants": [
         {
-          "condition": "valueOrVarID < VARS_START",
-          "expansion": ["SubtractCoinsFromValue $valueOrVarID"]
+          "condition": "((valueOrVarID >= VARS_START && valueOrVarID <= VARS_END) || (valueOrVarID >= SCRIPT_LOCAL_VARS_START && valueOrVarID <= SCRIPT_LOCAL_VARS_END))",
+          "expansion": ["SubtractCoinsFromVar $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": ["SubtractCoinsFromVar $valueOrVarID"]
+          "expansion": ["SubtractCoinsFromValue $valueOrVarID"]
         }
       ]
     },
