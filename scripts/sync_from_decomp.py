@@ -827,6 +827,10 @@ def parse_if_else_macro_variants(
     """
     Parse .if/.else conditionals that call different macros based on condition.
 
+    Also handles `.if ... .endif` blocks with no `.else`, preserving the base
+    expansion as an implicit `else` branch when macro call lines exist outside
+    the conditional block.
+
     Returns list of variants with condition and expansion, or None if not applicable.
 
     Example input:
@@ -845,10 +849,9 @@ def parse_if_else_macro_variants(
     lines = body.split("\n")
 
     has_if = any(line.strip().startswith(".if ") for line in lines)
-    has_else = any(line.strip().startswith(".else") for line in lines)
     has_endif = any(line.strip().startswith(".endif") for line in lines)
 
-    if not (has_if and has_else and has_endif):
+    if not (has_if and has_endif):
         return None
 
     has_short = any(line.strip().startswith(".short") for line in lines)
@@ -856,8 +859,10 @@ def parse_if_else_macro_variants(
         return None
 
     variants = []
+    base_expansion = []
     current_condition = None
     current_expansion = []
+    in_conditional = False
 
     for line in lines:
         stripped = line.strip()
@@ -867,10 +872,21 @@ def parse_if_else_macro_variants(
             continue
 
         if stripped.startswith(".if "):
+            if current_condition and current_expansion:
+                variants.append(
+                    {
+                        "condition": current_condition,
+                        "expansion": [
+                            format_expansion_line(exp_line, params)
+                            for exp_line in current_expansion
+                        ],
+                    }
+                )
             condition = stripped[4:].strip()
             condition = re.sub(r"\\(\w+)", r"\1", condition)
             current_condition = condition
-            current_expansion = []
+            current_expansion = list(base_expansion)
+            in_conditional = True
         elif stripped.startswith(".elseif "):
             if current_condition and current_expansion:
                 variants.append(
@@ -885,7 +901,8 @@ def parse_if_else_macro_variants(
             condition = stripped[8:].strip()
             condition = re.sub(r"\\(\w+)", r"\1", condition)
             current_condition = condition
-            current_expansion = []
+            current_expansion = list(base_expansion)
+            in_conditional = True
         elif stripped.startswith(".else"):
             if current_condition and current_expansion:
                 variants.append(
@@ -898,7 +915,8 @@ def parse_if_else_macro_variants(
                     }
                 )
             current_condition = "else"
-            current_expansion = []
+            current_expansion = list(base_expansion)
+            in_conditional = True
         elif stripped.startswith(".endif"):
             if current_condition and current_expansion:
                 variants.append(
@@ -910,10 +928,30 @@ def parse_if_else_macro_variants(
                         ],
                     }
                 )
-            break
+            current_condition = None
+            current_expansion = []
+            in_conditional = False
         elif not stripped.startswith("."):
             if stripped[0].isupper() or "\\" in stripped:
-                current_expansion.append(stripped)
+                if in_conditional and current_condition is not None:
+                    current_expansion.append(stripped)
+                else:
+                    base_expansion.append(stripped)
+
+    if not variants:
+        return None
+
+    has_else = any(variant["condition"] == "else" for variant in variants)
+    if not has_else and base_expansion:
+        variants.append(
+            {
+                "condition": "else",
+                "expansion": [
+                    format_expansion_line(exp_line, params)
+                    for exp_line in base_expansion
+                ],
+            }
+        )
 
     if len(variants) >= 2:
         return variants
@@ -945,8 +983,7 @@ def detect_wrapper_macro(body: str, all_macro_names: set[str]) -> MacroExpansion
                 # Extract arguments
                 if " " in line:
                     args_str = line[len(macro_name) :].strip()
-                    # Split on comma, handling backslash-prefixed params
-                    args = [a.strip() for a in args_str.split(",") if a.strip()]
+                    args = split_macro_args(args_str)
                 else:
                     args = []
                 return MacroExpansion(target_macro=macro_name, args=args)
@@ -1213,6 +1250,76 @@ def parse_macro_expansion_lines(body: str) -> list[str]:
     return lines
 
 
+def split_macro_args(args_str: str) -> list[str]:
+    """
+    Split a macro argument string into normalized arguments.
+
+    Rules:
+    - Split on top-level commas first
+    - Within each comma-separated segment, split on whitespace only when the
+      segment is just multiple plain tokens (e.g. "CONST \\arg")
+    - Keep arithmetic/comparison expressions together (e.g. "\\lower + 1")
+    """
+    comma_parts = []
+    current = []
+    paren_depth = 0
+
+    for char in args_str:
+        if char == "," and paren_depth == 0:
+            part = "".join(current).strip()
+            if part:
+                comma_parts.append(part)
+            current = []
+            continue
+
+        if char == "(":
+            paren_depth += 1
+        elif char == ")" and paren_depth > 0:
+            paren_depth -= 1
+
+        current.append(char)
+
+    tail = "".join(current).strip()
+    if tail:
+        comma_parts.append(tail)
+
+    args = []
+    operator_tokens = {
+        "+",
+        "-",
+        "*",
+        "/",
+        "%",
+        "<<",
+        ">>",
+        "&",
+        "|",
+        "^",
+        "&&",
+        "||",
+        "==",
+        "!=",
+        "<",
+        ">",
+        "<=",
+        ">=",
+    }
+
+    for part in comma_parts:
+        tokens = part.split()
+        if len(tokens) <= 1:
+            args.append(part)
+            continue
+
+        if any(token in operator_tokens for token in tokens):
+            args.append(part)
+            continue
+
+        args.extend(tokens)
+
+    return args
+
+
 def format_expansion_line(line: str, params: list[MacroParam]) -> str:
     """
     Convert a macro call line to expansion format with $param syntax.
@@ -1231,22 +1338,23 @@ def format_expansion_line(line: str, params: list[MacroParam]) -> str:
         return line
 
     # Always split by whitespace first to get command name
-    tokens = line.split()
-    cmd = tokens[0]
+    parts = line.split(None, 1)
+    cmd = parts[0]
 
-    # Remaining tokens are arguments (comma-separated or space-separated in source)
-    all_args = tokens[1:] if len(tokens) > 1 else []
+    if len(parts) == 1:
+        return cmd
 
-    # Clean each argument: replace \param with $param, strip whitespace and commas
+    raw_args = split_macro_args(parts[1])
+
+    # Clean each argument: replace \param with $param, strip whitespace
     clean_args = []
-    for arg in all_args:
+    for arg in raw_args:
         # Replace \param with $param for all params
         for p in params:
             arg = arg.replace(f"\\{p.name}", f"${p.name}")
         # Also handle any remaining backslash-prefixed identifiers
         arg = re.sub(r"\\([a-zA-Z_][a-zA-Z0-9_]*)", r"$\1", arg)
-        # Strip whitespace and trailing commas
-        arg = arg.strip().rstrip(",")
+        arg = arg.strip()
         if arg:
             clean_args.append(arg)
 
@@ -1268,6 +1376,23 @@ VAR_RESULT_PARAM_NAMES = frozenset(
     }
 )
 
+VAR_RESULT_DEST_PARAM_NAMES = frozenset(
+    {
+        "destvar",
+        "destvarid",
+        "var_dest",
+        "checkdestvarid",
+    }
+)
+
+VAR_RESULT_RESULT_PARAM_NAMES = frozenset(
+    {
+        "sucessvar",
+        "retvar",
+        "resultvar",
+    }
+)
+
 VAR_RESULT_EXCLUDED_COMMANDS = frozenset(
     {
         "setvar",
@@ -1283,21 +1408,40 @@ VAR_RESULT_EXCLUDED_COMMANDS = frozenset(
 )
 
 
-def infer_param_default(name: str, command_name: str | None = None) -> str | None:
+def infer_param_default(
+    name: str,
+    command_name: str | None = None,
+    emitted_param_names: list[str] | None = None,
+) -> str | None:
     """Infer default value for a parameter based on its name.
 
     Args:
         name: The parameter name
         command_name: Optional command/macro name to exclude certain commands
+        emitted_param_names: Optional full emitted parameter list for context-sensitive
+            inference when both destination and result vars are present
     """
     if not name:
         return None
     if command_name and command_name.lower() in VAR_RESULT_EXCLUDED_COMMANDS:
         return None
+
     name_lower = name.lower()
-    if name_lower in VAR_RESULT_PARAM_NAMES:
-        return "VAR_RESULT"
-    return None
+    if name_lower not in VAR_RESULT_PARAM_NAMES:
+        return None
+
+    emitted_names_lower = {
+        emitted_name.lower()
+        for emitted_name in (emitted_param_names or [])
+        if emitted_name
+    }
+    has_dest_var = bool(emitted_names_lower & VAR_RESULT_DEST_PARAM_NAMES)
+    has_result_var = bool(emitted_names_lower & VAR_RESULT_RESULT_PARAM_NAMES)
+
+    if has_dest_var and has_result_var and name_lower in VAR_RESULT_DEST_PARAM_NAMES:
+        return None
+
+    return "VAR_RESULT"
 
 
 def infer_param_type(name: str, context: str = "") -> str:
@@ -1440,7 +1584,18 @@ def extract_macros_for_db(
                 }
                 continue
 
-        # 3. Handle Standard Macros (Expansion Lines)
+        # 4. Handle recursive macros with meaningful conditions (e.g. GoToIfInRange)
+        if macro.name in macro.body and ".if " in macro.body:
+            recursive_variants = parse_if_else_macro_variants(macro.body, macro.params)
+            if recursive_variants:
+                macros[name] = {
+                    "type": "macro",
+                    "params": v2_params,
+                    "variants": recursive_variants,
+                }
+                continue
+
+        # 5. Handle Standard Macros (Expansion Lines)
         expansion_lines = parse_macro_expansion_lines(macro.body)
 
         # Check if this macro wraps a primitive (has .short OPCODE /* Name */ pattern or manual override)
@@ -1907,6 +2062,10 @@ def update_inferred_param_defaults(
 ) -> bool:
     """
     Update database parameters with inferred default values (e.g., VAR_RESULT for destVar).
+
+    This also removes stale inferred defaults, but only for duplicate default pairs:
+    when a command has both a destination var and a separate result var, and both
+    currently default to the same value, only the result-style param should keep it.
     Returns True if changes were made.
     """
     if not macro.emitted_params or not db_params:
@@ -1917,16 +2076,51 @@ def update_inferred_param_defaults(
 
     changes = False
 
+    emitted_names_lower = [
+        emitted_name.lower() if emitted_name else ""
+        for emitted_name in macro.emitted_params
+    ]
+    has_dest_var = any(
+        name in VAR_RESULT_DEST_PARAM_NAMES for name in emitted_names_lower
+    )
+    has_result_var = any(
+        name in VAR_RESULT_RESULT_PARAM_NAMES for name in emitted_names_lower
+    )
+
+    duplicate_default_pairs = set()
+    if has_dest_var and has_result_var:
+        defaults_to_indexes: dict[str, list[int]] = {}
+        for i, default_value in enumerate(p.get("default") for p in db_params):
+            if default_value is None:
+                continue
+            defaults_to_indexes.setdefault(default_value, []).append(i)
+
+        duplicate_default_pairs = {
+            i
+            for indexes in defaults_to_indexes.values()
+            if len(indexes) >= 2
+            for i in indexes
+        }
+
     for i, emitted_name in enumerate(macro.emitted_params):
         if not emitted_name:
             continue
 
-        inferred_default = infer_param_default(emitted_name, command_name)
-        if not inferred_default:
+        inferred_default = infer_param_default(
+            emitted_name, command_name, macro.emitted_params
+        )
+        current_default = db_params[i].get("default")
+
+        if inferred_default is None:
+            if (
+                i in duplicate_default_pairs
+                and emitted_names_lower[i] in VAR_RESULT_DEST_PARAM_NAMES
+            ):
+                db_params[i].pop("default", None)
+                changes = True
             continue
 
-        current_default = db_params[i].get("default")
-        if current_default is None:
+        if current_default != inferred_default:
             db_params[i]["default"] = inferred_default
             changes = True
 

@@ -1463,7 +1463,7 @@
           "type": "u16"
         },
         {
-          "name": "movement",
+          "name": "movement_type",
           "type": "u16"
         }
       ]
@@ -13179,10 +13179,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "checktrainerflag $trainer",
-        "call_if TRUE, $dest"
-      ]
+      "expansion": ["checktrainerflag $trainer", "call_if TRUE, $dest"]
     },
     "call_if_eq": {
       "type": "macro",
@@ -13192,9 +13189,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "call_if 1, $dest"
-      ]
+      "expansion": ["call_if 1, $dest"]
     },
     "call_if_ge": {
       "type": "macro",
@@ -13204,9 +13199,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "call_if 4, $dest"
-      ]
+      "expansion": ["call_if 4, $dest"]
     },
     "call_if_gt": {
       "type": "macro",
@@ -13216,9 +13209,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "call_if 2, $dest"
-      ]
+      "expansion": ["call_if 2, $dest"]
     },
     "call_if_le": {
       "type": "macro",
@@ -13228,9 +13219,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "call_if 3, $dest"
-      ]
+      "expansion": ["call_if 3, $dest"]
     },
     "call_if_lt": {
       "type": "macro",
@@ -13240,9 +13229,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "call_if 0, $dest"
-      ]
+      "expansion": ["call_if 0, $dest"]
     },
     "call_if_ne": {
       "type": "macro",
@@ -13252,9 +13239,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "call_if 5, $dest"
-      ]
+      "expansion": ["call_if 5, $dest"]
     },
     "call_if_not_defeated": {
       "type": "macro",
@@ -13268,10 +13253,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "checktrainerflag $trainer",
-        "call_if FALSE, $dest"
-      ]
+      "expansion": ["checktrainerflag $trainer", "call_if FALSE, $dest"]
     },
     "call_if_set": {
       "type": "macro",
@@ -13285,10 +13267,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "checkflag $flag",
-        "call_if TRUE, $dest"
-      ]
+      "expansion": ["checkflag $flag", "call_if TRUE, $dest"]
     },
     "call_if_unset": {
       "type": "macro",
@@ -13302,10 +13281,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "checkflag $flag",
-        "call_if FALSE, $dest"
-      ]
+      "expansion": ["checkflag $flag", "call_if FALSE, $dest"]
     },
     "case": {
       "type": "macro",
@@ -13319,10 +13295,7 @@
           "type": "u16"
         }
       ],
-      "expansion": [
-        "compare VAR_SPECIAL_x8008, $value",
-        "goto_if eq, $target"
-      ]
+      "expansion": ["compare VAR_SPECIAL_x8008, $value", "goto_if eq, $target"]
     },
     "compare": {
       "type": "macro",
@@ -13339,15 +13312,11 @@
       "variants": [
         {
           "condition": "((arg >= VARS_START && arg <= VARS_END) || (arg >= SPECIAL_VARS_START && arg <= SPECIAL_VARS_END))",
-          "expansion": [
-            "compare_var_to_var $var, $arg"
-          ]
+          "expansion": ["compare_var_to_var $var, $arg"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "compare_var_to_value $var, $arg"
-          ]
+          "expansion": ["compare_var_to_value $var, $arg"]
         }
       ]
     },
@@ -13363,9 +13332,7 @@
           "type": "u16"
         }
       ],
-      "expansion": [
-        "item_vars $item, $quantity"
-      ]
+      "expansion": ["item_vars $item, $quantity"]
     },
     "goto_if_defeated": {
       "type": "macro",
@@ -13379,10 +13346,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "checktrainerflag $trainer",
-        "goto_if TRUE, $dest"
-      ]
+      "expansion": ["checktrainerflag $trainer", "goto_if TRUE, $dest"]
     },
     "goto_if_eq": {
       "type": "macro",
@@ -13392,9 +13356,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "goto_if 1, $dest"
-      ]
+      "expansion": ["goto_if 1, $dest"]
     },
     "goto_if_ge": {
       "type": "macro",
@@ -13404,9 +13366,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "goto_if 4, $dest"
-      ]
+      "expansion": ["goto_if 4, $dest"]
     },
     "goto_if_gt": {
       "type": "macro",
@@ -13416,9 +13376,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "goto_if 2, $dest"
-      ]
+      "expansion": ["goto_if 2, $dest"]
     },
     "goto_if_le": {
       "type": "macro",
@@ -13428,9 +13386,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "goto_if 3, $dest"
-      ]
+      "expansion": ["goto_if 3, $dest"]
     },
     "goto_if_lt": {
       "type": "macro",
@@ -13440,9 +13396,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "goto_if 0, $dest"
-      ]
+      "expansion": ["goto_if 0, $dest"]
     },
     "goto_if_ne": {
       "type": "macro",
@@ -13452,9 +13406,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "goto_if 5, $dest"
-      ]
+      "expansion": ["goto_if 5, $dest"]
     },
     "goto_if_no_item_space": {
       "type": "macro",
@@ -13472,10 +13424,7 @@
           "type": "u16"
         }
       ],
-      "expansion": [
-        "item_vars $item, $quantity",
-        "goto_if eq, $target"
-      ]
+      "expansion": ["item_vars $item, $quantity", "goto_if eq, $target"]
     },
     "goto_if_no_item_space_2": {
       "type": "macro",
@@ -13493,10 +13442,7 @@
           "type": "u16"
         }
       ],
-      "expansion": [
-        "item_vars $item, $quantity",
-        "goto_if ne, $target"
-      ]
+      "expansion": ["item_vars $item, $quantity", "goto_if ne, $target"]
     },
     "goto_if_not_defeated": {
       "type": "macro",
@@ -13510,10 +13456,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "checktrainerflag $trainer",
-        "goto_if FALSE, $dest"
-      ]
+      "expansion": ["checktrainerflag $trainer", "goto_if FALSE, $dest"]
     },
     "goto_if_set": {
       "type": "macro",
@@ -13527,10 +13470,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "checkflag $flag",
-        "goto_if TRUE, $dest"
-      ]
+      "expansion": ["checkflag $flag", "goto_if TRUE, $dest"]
     },
     "goto_if_unset": {
       "type": "macro",
@@ -13544,10 +13484,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "checkflag $flag",
-        "goto_if FALSE, $dest"
-      ]
+      "expansion": ["checkflag $flag", "goto_if FALSE, $dest"]
     },
     "item_vars": {
       "type": "macro",
@@ -13565,15 +13502,11 @@
       "variants": [
         {
           "condition": "item < 0x4000",
-          "expansion": [
-            "setvar VAR_SPECIAL_x8004, $item"
-          ]
+          "expansion": ["setvar VAR_SPECIAL_x8004, $item"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "copyvar VAR_SPECIAL_x8004, $item"
-          ]
+          "expansion": ["copyvar VAR_SPECIAL_x8004, $item"]
         }
       ]
     },
@@ -13607,9 +13540,7 @@
           "type": "msg_id"
         }
       ],
-      "expansion": [
-        "npc_msg $msgid"
-      ]
+      "expansion": ["npc_msg $msgid"]
     },
     "switch": {
       "type": "macro",
@@ -13619,9 +13550,7 @@
           "type": "var"
         }
       ],
-      "expansion": [
-        "copyvar VAR_SPECIAL_x8008, $var"
-      ]
+      "expansion": ["copyvar VAR_SPECIAL_x8008, $var"]
     },
     "takeitem_no_check": {
       "type": "macro",
@@ -13635,9 +13564,7 @@
           "type": "u16"
         }
       ],
-      "expansion": [
-        "item_vars $item, $quantity"
-      ]
+      "expansion": ["item_vars $item, $quantity"]
     }
   },
   "sounds": {

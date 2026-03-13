@@ -1473,7 +1473,7 @@
           "type": "u16"
         },
         {
-          "name": "movement",
+          "name": "movement_type",
           "type": "u16"
         }
       ]
@@ -8126,8 +8126,7 @@
         },
         {
           "name": "destVar",
-          "type": "var",
-          "default": "VAR_RESULT"
+          "type": "var"
         }
       ]
     },
@@ -14456,10 +14455,19 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $lower",
-        "GoToIf 1, $offset",
-        "GoToIfInRange $varID, $lower, +, 1, $upper, $offset"
+      "variants": [
+        {
+          "condition": "lower < upper",
+          "expansion": [
+            "CompareVar $varID, $lower",
+            "GoToIf 1, $offset",
+            "GoToIfInRange $varID, $lower + 1, $upper, $offset"
+          ]
+        },
+        {
+          "condition": "else",
+          "expansion": ["CompareVar $varID, $lower", "GoToIf 1, $offset"]
+        }
       ]
     },
     "GoToIfLe": {

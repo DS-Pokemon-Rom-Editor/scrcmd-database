@@ -1457,7 +1457,7 @@
           "type": "u16"
         },
         {
-          "name": "movement",
+          "name": "movement_type",
           "type": "u16"
         }
       ]
