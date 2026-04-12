@@ -1,7 +1,7 @@
 {
   "meta": {
     "version": "Diamond/Pearl",
-    "generated_at": "2026-01-07T15:00:23.183364+00:00",
+    "generated_at": "2026-04-12T18:43:49.305839+00:00",
     "generated_from": "diamond_pearl_scrcmd_database.json"
   },
   "commands": {
@@ -1457,7 +1457,7 @@
           "type": "u16"
         },
         {
-          "name": "movement_type",
+          "name": "movement",
           "type": "u16"
         }
       ]
@@ -8356,7 +8356,7 @@
           "type": "u8"
         },
         {
-          "name": "accessory",
+          "name": "accesory",
           "type": "u16"
         }
       ]

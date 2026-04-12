@@ -156,19 +156,19 @@ DSPRE currently uses the legacy `*_scrcmd_database.json` files. Support for the 
 ## Scripts
 
 ```bash
-# Compare database with pret decomp projects (read-only)
-python scripts/sync_from_decomp.py --all -v
+# Regenerate every v2 database from the legacy DSPRE-format JSON files
+python scripts/db_migration.py
 
-# Sync and apply all changes from decomp
-python scripts/sync_from_decomp.py --all --update
+# Import decomp-derived names, params, movements, and macros into every v2 database
+python scripts/sync_from_decomp.py
 ```
 
-### Sync Options
+`db_migration.py` rewrites every `*_v2.json` file next to its matching
+`*_scrcmd_database.json` source, including custom databases under `custom_databases/`.
 
-| Flag | Description |
-|------|-------------|
-| `--update` | Apply changes to database (names, opcodes, params, defaults, types, macros) |
-| `-v` | Verbose output |
+`sync_from_decomp.py` then enriches every v2 database with data from the supported
+decomp projects. Diamond/Pearl is skipped automatically because there is no configured
+decomp source yet.
 
 ### Dependencies
 
@@ -192,7 +192,7 @@ Command definitions are sourced from:
 ## Contributing
 
 1. Edit the `*_v2.json` files directly (V2 format is the source of truth)
-2. Run sync script to verify against decomp projects: `python scripts/sync_from_decomp.py --all --update`
+2. Run `python scripts/sync_from_decomp.py` to refresh decomp-derived metadata
 
 ## License
 

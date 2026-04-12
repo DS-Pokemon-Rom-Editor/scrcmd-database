@@ -1,16 +1,17 @@
 #!/usr/bin/env python3
 """
-Migration script for converting old scrcmd database format to new schema.
+Migrate every legacy scrcmd database in the repository to the v2 schema.
 
-Old format: Parallel arrays with hex string keys, conditional commands marked with 255 prefix
-New format: Decomp name as key, explicit variants for conditionals, proper type annotations
+This script scans the repo root and `custom_databases/` for
+`*_scrcmd_database.json` files and refreshes their sibling `*_v2.json` outputs.
 """
 
-import argparse
 import json
 import os
 import re
+import sys
 from datetime import datetime, timezone
+from pathlib import Path
 
 
 def size_to_type(size: int) -> str:
@@ -223,11 +224,8 @@ def extract_game_version(filename: str) -> str:
     return "Unknown"
 
 
-def migrate_db(old_path: str, new_path: str) -> None:
-    """Migrate old database format to new schema."""
-    with open(old_path, "r", encoding="utf-8") as f:
-        old_data = json.load(f)
-
+def build_migrated_output(old_path: str, old_data: dict) -> dict:
+    """Build migrated v2 data for one legacy database."""
     new_commands = {}
 
     # 1. Process Script Commands
@@ -348,54 +346,109 @@ def migrate_db(old_path: str, new_path: str) -> None:
         "special_overworlds": special_overworlds,
     }
 
+    return output
+
+
+def count_command_types(commands: dict) -> dict[str, int]:
+    """Count commands by type for status output."""
+    type_counts: dict[str, int] = {}
+    for cmd in commands.values():
+        cmd_type = cmd.get("type", "unknown")
+        type_counts[cmd_type] = type_counts.get(cmd_type, 0) + 1
+    return type_counts
+
+
+def strip_generated_at(data: dict) -> dict:
+    """Normalize generated output for equality checks."""
+    normalized = json.loads(json.dumps(data))
+    normalized.get("meta", {}).pop("generated_at", None)
+    return normalized
+
+
+def migrate_db(old_path: str | Path, new_path: str | Path) -> bool:
+    """Migrate one legacy database and write the v2 output if it changed."""
+    old_path = Path(old_path)
+    new_path = Path(new_path)
+
+    with open(old_path, "r", encoding="utf-8") as f:
+        old_data = json.load(f)
+
+    output = build_migrated_output(str(old_path), old_data)
+    type_counts = count_command_types(output["commands"])
+
+    if new_path.exists():
+        with open(new_path, "r", encoding="utf-8") as f:
+            existing_output = json.load(f)
+
+        if strip_generated_at(existing_output) == strip_generated_at(output):
+            print(f"Up to date: {new_path}")
+            return False
+
     with open(new_path, "w", encoding="utf-8") as f:
         json.dump(output, f, indent=2)
 
-    # Count by type
-    type_counts = {}
-    for cmd in new_commands.values():
-        t = cmd.get("type", "unknown")
-        type_counts[t] = type_counts.get(t, 0) + 1
-
-    print(f"Migrated to {new_path}:")
+    print(f"Migrated {old_path} -> {new_path}:")
     for t, count in sorted(type_counts.items()):
         print(f"  {t}: {count}")
-    print(f"  sounds: {len(sounds)}")
-    if comparison_operators:
-        print(f"  comparison_operators: {len(comparison_operators)}")
-    if overworld_directions:
-        print(f"  overworld_directions: {len(overworld_directions)}")
-    if special_overworlds:
-        print(f"  special_overworlds: {len(special_overworlds)}")
+    print(f"  sounds: {len(output['sounds'])}")
+    if output["comparison_operators"]:
+        print(f"  comparison_operators: {len(output['comparison_operators'])}")
+    if output["overworld_directions"]:
+        print(f"  overworld_directions: {len(output['overworld_directions'])}")
+    if output["special_overworlds"]:
+        print(f"  special_overworlds: {len(output['special_overworlds'])}")
+    return True
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Migrate old scrcmd database format to new schema"
+def get_repo_root() -> Path:
+    """Return the repository root."""
+    return Path(__file__).resolve().parent.parent
+
+
+def find_legacy_database_paths() -> list[Path]:
+    """Find every legacy database that should be migrated."""
+    repo_root = get_repo_root()
+    paths = sorted(repo_root.glob("*_scrcmd_database.json"))
+
+    custom_db_dir = repo_root / "custom_databases"
+    if custom_db_dir.is_dir():
+        paths.extend(sorted(custom_db_dir.rglob("*_scrcmd_database.json")))
+
+    return paths
+
+
+def legacy_to_v2_path(old_path: Path) -> Path:
+    """Map `*_scrcmd_database.json` to the sibling `*_v2.json` path."""
+    if not old_path.name.endswith("_scrcmd_database.json"):
+        raise ValueError(f"Unexpected legacy database name: {old_path}")
+
+    return old_path.with_name(
+        old_path.name.removesuffix("_scrcmd_database.json") + "_v2.json"
     )
-    parser.add_argument("input", help="Input JSON file (old format)")
-    parser.add_argument(
-        "-o",
-        "--output",
-        help="Output JSON file (new format). Defaults to <input>_v2.json",
-    )
 
-    args = parser.parse_args()
 
-    input_path = args.input
-    if args.output:
-        output_path = args.output
-    else:
-        base, ext = os.path.splitext(input_path)
-        output_path = f"{base}_v2{ext}"
+def main() -> int:
+    if len(sys.argv) > 1:
+        print("db_migration.py no longer accepts arguments.")
+        print("Run `python scripts/db_migration.py` to migrate every legacy database.")
+        return 2
 
-    if not os.path.exists(input_path):
-        print(f"Error: Input file not found: {input_path}")
+    legacy_paths = find_legacy_database_paths()
+    if not legacy_paths:
+        print("No *_scrcmd_database.json files found in repository")
         return 1
 
-    migrate_db(input_path, output_path)
+    changed_count = 0
+    for old_path in legacy_paths:
+        if migrate_db(old_path, legacy_to_v2_path(old_path)):
+            changed_count += 1
+
+    print(
+        f"\nProcessed {len(legacy_paths)} legacy database(s); "
+        f"{changed_count} file(s) changed."
+    )
     return 0
 
 
 if __name__ == "__main__":
-    exit(main())
+    raise SystemExit(main())

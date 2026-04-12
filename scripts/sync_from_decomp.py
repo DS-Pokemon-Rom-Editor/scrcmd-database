@@ -1,32 +1,19 @@
 #!/usr/bin/env python3
 """
-Sync database with decomp project definitions.
+Import decomp-derived data into every v2 database in the repository.
 
-Fetches .inc macro files from pret decomp repos and compares/updates
-the v2 database with canonical decomp names, opcodes, and parameter info.
-
-Handles:
-- Simple commands with fixed opcodes
-- Conditional commands (.if/.else based on parameter values)
-- Opcode-switching commands (different opcodes based on param range)
-- Wrapper macros (macros that call other macros)
-- Optional parameters (.ifnb)
-
-Usage:
-    python sync_from_decomp.py platinum_v2.json
-    python sync_from_decomp.py platinum_v2.json --update
-    python sync_from_decomp.py --all
-    python sync_from_decomp.py --dump platinum  # Dump parsed macros
+This script refreshes script commands, movements, parameter metadata, and
+convenience macros for every `*_v2.json` file under the repo root and
+`custom_databases/`.
 """
 
-import argparse
 import json
 import os
 import re
 import subprocess
 import sys
-import tempfile
 from dataclasses import dataclass, field
+from functools import lru_cache
 from pathlib import Path
 from urllib.error import URLError
 from urllib.request import urlopen
@@ -44,11 +31,16 @@ DECOMP_SOURCES = {
     # Diamond/Pearl decomp isn't as mature, skip for now
 }
 
+PLATINUM_SCRCMD_HEADER_URL = (
+    "https://raw.githubusercontent.com/pret/pokeplatinum/main/include/data/scripts/scrcmd.h"
+)
+
 # Helper/utility macro names to skip (they don't emit actual script commands)
 SKIP_MACROS = {
     "scrdef",
     "map_script",
     "ScriptEntry",
+    "ScriptEntryEnd",
     "save_game_normal",
     "script_entry",
     "script_entry_fixed",
@@ -100,6 +92,7 @@ class ParsedMacro:
     name: str
     params: list[MacroParam]
     opcodes: list[int]  # Can have multiple if opcode-switching
+    description: str | None = None
     is_conditional: bool = False
     variants: list[Variant] = field(default_factory=list)
     opcode_switches: list[tuple[str, int]] = field(default_factory=list)
@@ -133,6 +126,16 @@ class MovementMacro:
     params: list[MacroParam] = field(default_factory=list)  # Empty for EndMovement
 
 
+@dataclass
+class RawMacroDefinition:
+    """A raw macro definition extracted from the decomp source."""
+
+    name: str
+    params_str: str
+    body: str
+    description: str | None = None
+
+
 def is_placeholder_name(name: str) -> bool:
     """Check if a name is a placeholder (like ScrCmd_21D, scrcmd_465, ScrCmd_Unused_XXX).
 
@@ -149,6 +152,7 @@ def is_placeholder_name(name: str) -> bool:
     return bool(re.match(r"^(ScrCmd_|scrcmd_|Dummy|CMD_)\w+$", name, re.IGNORECASE))
 
 
+@lru_cache(maxsize=None)
 def fetch_url(url: str) -> str | None:
     """Fetch content from URL, return None on error."""
     try:
@@ -159,26 +163,83 @@ def fetch_url(url: str) -> str | None:
         return None
 
 
-def extract_macros(content: str) -> list[tuple[str, str, str]]:
-    """
-    Extract all macro definitions from content.
+def _extract_preceding_comment_block(content: str, start: int) -> str | None:
+    """Extract contiguous comment lines immediately above a macro definition."""
+    line_start = content.rfind("\n", 0, start) + 1
+    lines = content[:line_start].splitlines()
+    if not lines:
+        return None
 
-    Returns list of (name, params_str, body) tuples.
-    """
+    description_lines: list[str] = []
+    saw_comment = False
+
+    for line in reversed(lines):
+        stripped = line.strip()
+        if not stripped:
+            if saw_comment:
+                break
+            return None
+
+        comment_text = None
+        if stripped.startswith("//"):
+            comment_text = stripped[2:].strip()
+        elif stripped.startswith(";"):
+            comment_text = stripped[1:].strip()
+        elif stripped.startswith("/*") and stripped.endswith("*/"):
+            comment_text = stripped.removeprefix("/*").removesuffix("*/").strip()
+
+        if comment_text is None:
+            if saw_comment:
+                break
+            return None
+
+        description_lines.append(comment_text)
+        saw_comment = True
+
+    if not description_lines:
+        return None
+
+    description = " ".join(reversed(description_lines))
+    description = re.sub(r"\s+", " ", description).strip()
+    return description or None
+
+
+def extract_macro_definitions(content: str) -> list[RawMacroDefinition]:
+    """Extract macro definitions with optional preceding comment descriptions."""
     # Pattern to match .macro Name [params] ... .endm
     # Use [ \t]* instead of \s* to avoid consuming newlines before params
     macro_pattern = re.compile(
         r"\.macro\s+(\w+)[ \t]*([^\n]*)\n(.*?)\.endm", re.MULTILINE | re.DOTALL
     )
 
-    macros = []
+    macros: list[RawMacroDefinition] = []
     for match in macro_pattern.finditer(content):
         name = match.group(1)
         params_str = match.group(2).strip()
         body = match.group(3)
-        macros.append((name, params_str, body))
+        description = _extract_preceding_comment_block(content, match.start())
+        macros.append(
+            RawMacroDefinition(
+                name=name,
+                params_str=params_str,
+                body=body,
+                description=description,
+            )
+        )
 
     return macros
+
+
+def extract_macros(content: str) -> list[tuple[str, str, str]]:
+    """
+    Extract all macro definitions from content.
+
+    Returns list of (name, params_str, body) tuples.
+    """
+    return [
+        (macro.name, macro.params_str, macro.body)
+        for macro in extract_macro_definitions(content)
+    ]
 
 
 def parse_params(params_str: str) -> list[MacroParam]:
@@ -387,15 +448,76 @@ def extract_param_types(body: str, param_names: list[str]) -> dict[str, str]:
     return type_map
 
 
-def extract_opcodes(body: str) -> list[int]:
-    """Extract all numeric opcode emissions from macro body."""
-    # Match .short/.byte/.2byte/.hword followed by numeric value
-    # Must be at the start of emissions (first .short is the opcode)
-    opcode_pattern = re.compile(r"\.(?:short|2byte|hword)\s+(\d+)")
+def parse_scrcmd_symbol_table(script_commands_header_content: str) -> dict[str, int]:
+    """
+    Parse pokeplatinum's script command header and build SCRCMD -> opcode order.
+
+    The first entry is opcode 0 and increments by 1.
+    """
+    symbol_to_opcode: dict[str, int] = {}
+    entry_pattern = re.compile(
+        r"(?:ScriptCommand|ScriptCommandTableEntry)\(\s*(SCRCMD_[A-Z0-9_]+)\s*,",
+        re.MULTILINE,
+    )
+
+    for opcode, match in enumerate(
+        entry_pattern.finditer(script_commands_header_content)
+    ):
+        symbol = match.group(1)
+        symbol_to_opcode[symbol] = opcode
+
+    return symbol_to_opcode
+
+
+@lru_cache(maxsize=1)
+def get_platinum_scrcmd_symbol_table() -> dict[str, int] | None:
+    """Fetch and cache Platinum's SCRCMD symbol table."""
+    header_content = fetch_url(PLATINUM_SCRCMD_HEADER_URL)
+    if not header_content:
+        return None
+
+    mapping = parse_scrcmd_symbol_table(header_content)
+    return mapping or None
+
+
+def _parse_opcode_token(
+    value: str, scrcmd_symbol_to_opcode: dict[str, int] | None = None
+) -> int | None:
+    """Parse an opcode token that can be numeric or SCRCMD_* symbolic."""
+    token = value.strip()
+
+    if token.startswith("0x"):
+        try:
+            return int(token, 16)
+        except ValueError:
+            return None
+
+    if token.isdigit():
+        try:
+            return int(token)
+        except ValueError:
+            return None
+
+    if scrcmd_symbol_to_opcode and token in scrcmd_symbol_to_opcode:
+        return scrcmd_symbol_to_opcode[token]
+
+    return None
+
+
+def extract_opcodes(
+    body: str, scrcmd_symbol_to_opcode: dict[str, int] | None = None
+) -> list[int]:
+    """Extract opcode emissions from macro body (numeric or SCRCMD_* symbolic)."""
+    opcode_pattern = re.compile(r"\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)")
 
     opcodes = []
     for match in opcode_pattern.finditer(body):
-        opcodes.append(int(match.group(1)))
+        token = match.group(1)
+        opcode = _parse_opcode_token(token, scrcmd_symbol_to_opcode)
+        if opcode is None and token.startswith("SCRCMD_"):
+            return []
+        if opcode is not None:
+            opcodes.append(opcode)
 
     # Deduplicate while preserving order
     seen = set()
@@ -408,7 +530,9 @@ def extract_opcodes(body: str) -> list[int]:
     return unique
 
 
-def extract_first_opcode(body: str) -> int | None:
+def extract_first_opcode(
+    body: str, scrcmd_symbol_to_opcode: dict[str, int] | None = None
+) -> int | None:
     """Extract the first opcode emission (before any conditionals)."""
     lines = body.split("\n")
     for line in lines:
@@ -420,13 +544,15 @@ def extract_first_opcode(body: str) -> int | None:
         if line.startswith(".if"):
             return None  # Opcode is inside conditional
         # Look for opcode emission
-        match = re.match(r"\.(?:short|2byte|hword)\s+(\d+)", line)
+        match = re.match(r"\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)", line)
         if match:
-            return int(match.group(1))
+            return _parse_opcode_token(match.group(1), scrcmd_symbol_to_opcode)
     return None
 
 
-def extract_primitive_from_comment(body: str) -> tuple[int, str] | None:
+def extract_primitive_from_comment(
+    body: str, scrcmd_symbol_to_opcode: dict[str, int] | None = None
+) -> tuple[int, str] | None:
     """
     Extract the primitive command name from a .short OPCODE /* PrimitiveName */ pattern.
 
@@ -439,20 +565,24 @@ def extract_primitive_from_comment(body: str) -> tuple[int, str] | None:
     # Match: .short OPCODE /* CommandName */
     # The command name should be a valid identifier (PascalCase typically)
     pattern = re.compile(
-        r"\.(?:short|2byte|hword)\s+(\d+)\s*/\*\s*([A-Z][a-zA-Z0-9_]+)\s*\*/",
+        r"\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)\s*/\*\s*([A-Z][a-zA-Z0-9_]+)\s*\*/",
         re.MULTILINE,
     )
 
     match = pattern.search(body)
     if match:
-        opcode = int(match.group(1))
+        opcode = _parse_opcode_token(match.group(1), scrcmd_symbol_to_opcode)
+        if opcode is None:
+            return None
         primitive_name = match.group(2)
         return (opcode, primitive_name)
 
     return None
 
 
-def extract_all_primitives_from_comments(body: str) -> list[tuple[int, str]]:
+def extract_all_primitives_from_comments(
+    body: str, scrcmd_symbol_to_opcode: dict[str, int] | None = None
+) -> list[tuple[int, str]]:
     """
     Extract ALL primitive command names from .short OPCODE /* PrimitiveName */ patterns.
 
@@ -463,20 +593,24 @@ def extract_all_primitives_from_comments(body: str) -> list[tuple[int, str]]:
     Returns list of (opcode, primitive_name) tuples.
     """
     pattern = re.compile(
-        r"\.(?:short|2byte|hword)\s+(\d+)\s*/\*\s*([A-Z][a-zA-Z0-9_]+)\s*\*/",
+        r"\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)\s*/\*\s*([A-Z][a-zA-Z0-9_]+)\s*\*/",
         re.MULTILINE,
     )
 
     primitives = []
     for match in pattern.finditer(body):
-        opcode = int(match.group(1))
+        opcode = _parse_opcode_token(match.group(1), scrcmd_symbol_to_opcode)
+        if opcode is None:
+            continue
         primitive_name = match.group(2)
         primitives.append((opcode, primitive_name))
 
     return primitives
 
 
-def extract_primitive_params(body: str) -> list[dict]:
+def extract_primitive_params(
+    body: str, scrcmd_symbol_to_opcode: dict[str, int] | None = None
+) -> list[dict]:
     """
     Extract parameter info for a primitive command from macro body.
 
@@ -502,7 +636,10 @@ def extract_primitive_params(body: str) -> list[dict]:
 
         # Skip until we find the opcode (with comment pattern)
         if not found_opcode:
-            if re.match(r"\.(?:short|2byte|hword)\s+\d+\s*/\*", line):
+            match = re.match(
+                r"\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)\s*/\*", line
+            )
+            if match and _parse_opcode_token(match.group(1), scrcmd_symbol_to_opcode) is not None:
                 found_opcode = True
             continue
 
@@ -558,7 +695,10 @@ def extract_primitive_params(body: str) -> list[dict]:
 
 
 def extract_primitive_call_line(
-    body: str, id_to_name: dict[int, str] | None = None, macro_name: str | None = None
+    body: str,
+    id_to_name: dict[int, str] | None = None,
+    macro_name: str | None = None,
+    scrcmd_symbol_to_opcode: dict[str, int] | None = None,
 ) -> str | None:
     """
     Extract a primitive call expansion line from a macro body.
@@ -574,7 +714,7 @@ def extract_primitive_call_line(
     Returns None if no primitive comment pattern is found and no manual override exists.
     """
     # First, find the primitive name and opcode from comment
-    primitive_info = extract_primitive_from_comment(body)
+    primitive_info = extract_primitive_from_comment(body, scrcmd_symbol_to_opcode)
 
     if not primitive_info:
         return None
@@ -601,7 +741,10 @@ def extract_primitive_call_line(
 
         # Find the opcode line
         if not found_opcode:
-            if re.match(r"\.(?:short|2byte|hword)\s+\d+\s*/\*", line):
+            match = re.match(
+                r"\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)\s*/\*", line
+            )
+            if match and _parse_opcode_token(match.group(1), scrcmd_symbol_to_opcode) is not None:
                 found_opcode = True
             continue
 
@@ -635,7 +778,9 @@ def extract_primitive_call_line(
         return f"{primitive_name}"
 
 
-def detect_opcode_switching(body: str) -> list[tuple[str, int]]:
+def detect_opcode_switching(
+    body: str, scrcmd_symbol_to_opcode: dict[str, int] | None = None
+) -> list[tuple[str, int]]:
     """
     Detect if macro emits different opcodes based on conditions.
 
@@ -643,24 +788,28 @@ def detect_opcode_switching(body: str) -> list[tuple[str, int]]:
     """
     switches = []
 
-    # Pattern: .if CONDITION followed by .short OPCODE
+    # Pattern: .if CONDITION followed by .short OPCODE_TOKEN
     if_pattern = re.compile(
-        r"\.if\s+(.+?)\n\s*\.(?:short|2byte|hword)\s+(\d+)\s*/\*\s*(\w+)", re.MULTILINE
+        r"\.if\s+(.+?)\n\s*\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)(?:\s*/\*\s*(\w+))?",
+        re.MULTILINE,
     )
 
     for match in if_pattern.finditer(body):
         condition = match.group(1).strip()
-        opcode = int(match.group(2))
-        switches.append((condition, opcode))
+        opcode = _parse_opcode_token(match.group(2), scrcmd_symbol_to_opcode)
+        if opcode is not None:
+            switches.append((condition, opcode))
 
-    # Pattern: .else followed by .short OPCODE
+    # Pattern: .else followed by .short OPCODE_TOKEN
     else_pattern = re.compile(
-        r"\.else\s*\n\s*\.(?:short|2byte|hword)\s+(\d+)\s*/\*\s*(\w+)", re.MULTILINE
+        r"\.else\s*\n\s*\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)(?:\s*/\*\s*(\w+))?",
+        re.MULTILINE,
     )
 
     for match in else_pattern.finditer(body):
-        opcode = int(match.group(1))
-        switches.append(("else", opcode))
+        opcode = _parse_opcode_token(match.group(1), scrcmd_symbol_to_opcode)
+        if opcode is not None:
+            switches.append(("else", opcode))
 
     return switches
 
@@ -689,7 +838,7 @@ def parse_conditionals(body: str, params: list[MacroParam]) -> list[Variant]:
         block = match.group(2)
 
         # Skip opcode-switching conditions (those emit .short with numeric + comment)
-        if re.search(r"\.short\s+\d+\s*/\*", block):
+        if re.search(r"\.(?:short|2byte|hword)\s+[A-Za-z0-9_]+\s*/\*", block):
             continue
 
         # Find params emitted in this block
@@ -992,7 +1141,12 @@ def detect_wrapper_macro(body: str, all_macro_names: set[str]) -> MacroExpansion
 
 
 def parse_macro(
-    name: str, params_str: str, body: str, all_macro_names: set[str]
+    name: str,
+    params_str: str,
+    body: str,
+    all_macro_names: set[str],
+    description: str | None = None,
+    scrcmd_symbol_to_opcode: dict[str, int] | None = None,
 ) -> ParsedMacro | None:
     """Parse a single macro definition into a ParsedMacro object."""
     if name in SKIP_MACROS:
@@ -1004,11 +1158,16 @@ def parse_macro(
     expansion = detect_wrapper_macro(body, all_macro_names)
     if expansion:
         return ParsedMacro(
-            name=name, params=params, opcodes=[], expansion=expansion, body=body.strip()
+            name=name,
+            params=params,
+            opcodes=[],
+            description=description,
+            expansion=expansion,
+            body=body.strip(),
         )
 
     # Check for primitive command name in comment (e.g., .short 624 /* SetHiddenLocation */)
-    primitive_info = extract_primitive_from_comment(body)
+    primitive_info = extract_primitive_from_comment(body, scrcmd_symbol_to_opcode)
     primitive_name = None
     primitive_params = []
 
@@ -1017,13 +1176,13 @@ def parse_macro(
         # If the comment name differs from the macro name, this macro wraps a primitive
         if comment_name != name:
             primitive_name = comment_name
-            primitive_params = extract_primitive_params(body)
+            primitive_params = extract_primitive_params(body, scrcmd_symbol_to_opcode)
 
     # Get first opcode (before any conditionals)
-    first_opcode = extract_first_opcode(body)
+    first_opcode = extract_first_opcode(body, scrcmd_symbol_to_opcode)
 
     # Check for opcode-switching
-    opcode_switches = detect_opcode_switching(body)
+    opcode_switches = detect_opcode_switching(body, scrcmd_symbol_to_opcode)
 
     if opcode_switches:
         # This macro can emit different opcodes
@@ -1034,6 +1193,7 @@ def parse_macro(
             name=name,
             params=params,
             opcodes=opcodes,
+            description=description,
             opcode_switches=opcode_switches,
             is_conditional=True,
             body=body.strip(),
@@ -1044,7 +1204,11 @@ def parse_macro(
     # Check for conditional parameter emission
     variants = parse_conditionals(body, params)
 
-    opcodes = [first_opcode] if first_opcode is not None else extract_opcodes(body)[:1]
+    opcodes = (
+        [first_opcode]
+        if first_opcode is not None
+        else extract_opcodes(body, scrcmd_symbol_to_opcode)[:1]
+    )
 
     if not opcodes:
         # No numeric opcode found - check if it's a multi-line wrapper macro
@@ -1052,7 +1216,13 @@ def parse_macro(
         expansion_lines = parse_macro_expansion_lines(body)
         if expansion_lines:
             # This is a multi-line wrapper macro
-            return ParsedMacro(name=name, params=params, opcodes=[], body=body.strip())
+            return ParsedMacro(
+                name=name,
+                params=params,
+                opcodes=[],
+                description=description,
+                body=body.strip(),
+            )
         return None
 
     emitted_params = extract_emitted_params(body)
@@ -1062,6 +1232,7 @@ def parse_macro(
         name=name,
         params=params,
         opcodes=opcodes,
+        description=description,
         is_conditional=bool(variants),
         variants=variants,
         emitted_params=emitted_params,
@@ -1074,6 +1245,7 @@ def parse_macro(
 
 def parse_scrcmd_inc(
     content: str,
+    scrcmd_symbol_to_opcode: dict[str, int] | None = None,
 ) -> tuple[dict[str, ParsedMacro], dict[str, tuple[int, list[dict]]]]:
     """
     Parse scrcmd.inc into dict of name -> ParsedMacro.
@@ -1087,28 +1259,39 @@ def parse_scrcmd_inc(
         - primitives: dict of primitive_name -> (opcode, params) for commands
                      that don't have their own macro definition
     """
-    raw_macros = extract_macros(content)
-    all_names = {name for name, _, _ in raw_macros}
+    raw_macros = extract_macro_definitions(content)
+    all_names = {macro.name for macro in raw_macros}
 
     parsed = {}
     primitives = {}  # primitive_name -> (opcode, params)
 
-    for name, params_str, body in raw_macros:
-        macro = parse_macro(name, params_str, body, all_names)
+    for raw_macro in raw_macros:
+        macro = parse_macro(
+            raw_macro.name,
+            raw_macro.params_str,
+            raw_macro.body,
+            all_names,
+            description=raw_macro.description,
+            scrcmd_symbol_to_opcode=scrcmd_symbol_to_opcode,
+        )
         if macro:
-            parsed[name] = macro
+            parsed[raw_macro.name] = macro
 
             # Extract ALL primitives from comments in this macro's body
             # This handles both simple wrappers and opcode-switching macros
-            all_prims = extract_all_primitives_from_comments(body)
+            all_prims = extract_all_primitives_from_comments(
+                raw_macro.body, scrcmd_symbol_to_opcode
+            )
             for prim_opcode, prim_name in all_prims:
                 # Only add if:
                 # 1. The primitive name differs from the macro name
                 # 2. The primitive doesn't already have its own macro
-                if prim_name != name and prim_name not in all_names:
+                if prim_name != raw_macro.name and prim_name not in all_names:
                     if prim_name not in primitives:
                         # Extract params for this primitive
-                        prim_params = extract_primitive_params(body)
+                        prim_params = extract_primitive_params(
+                            raw_macro.body, scrcmd_symbol_to_opcode
+                        )
                         primitives[prim_name] = (prim_opcode, prim_params)
 
     return parsed, primitives
@@ -1174,6 +1357,7 @@ def parse_movement_inc(
     return movements
 
 
+@lru_cache(maxsize=1)
 def get_movement_action_constants() -> dict[str, int]:
     """
     Fetch movement_actions.txt from decomp and use metang to build constant map.
@@ -1516,7 +1700,10 @@ def _find_hardcoded_param_value(
 
 
 def extract_macros_for_db(
-    content: str, id_to_name: dict[int, str] | None = None
+    content: str,
+    id_to_name: dict[int, str] | None = None,
+    commands: dict | None = None,
+    scrcmd_symbol_to_opcode: dict[str, int] | None = None,
 ) -> dict[str, dict]:
     """
     Extract convenience macros from decomp and format for v2 database.
@@ -1524,7 +1711,15 @@ def extract_macros_for_db(
     Returns dict of macro_name -> macro entry in v2 schema format.
     Handles standard macros and opcode-switching conditional macros.
     """
-    parsed_macros, _ = parse_scrcmd_inc(content)
+    parsed_macros, decomp_primitives = parse_scrcmd_inc(
+        content, scrcmd_symbol_to_opcode=scrcmd_symbol_to_opcode
+    )
+    resolver = build_macro_reference_resolver(
+        commands or {},
+        id_to_name or {},
+        parsed_macros,
+        decomp_primitives,
+    )
     macros = {}
 
     for name, macro in parsed_macros.items():
@@ -1553,17 +1748,29 @@ def extract_macros_for_db(
                     {"condition": cond, "expansion": [f"{target_cmd} {args}"]}
                 )
 
-            macros[name] = {"type": "macro", "params": v2_params, "variants": variants}
+            entry = {"type": "macro", "params": v2_params, "variants": variants}
+            if macro.description:
+                entry["description"] = macro.description
+            macros[name] = resolve_macro_entry_references(
+                entry,
+                resolver,
+            )
             continue
 
         # 2. Handle .if/.else conditionals that call different macros
         if_else_variants = parse_if_else_macro_variants(macro.body, macro.params)
         if if_else_variants:
-            macros[name] = {
+            entry = {
                 "type": "macro",
                 "params": v2_params,
                 "variants": if_else_variants,
             }
+            if macro.description:
+                entry["description"] = macro.description
+            macros[name] = resolve_macro_entry_references(
+                entry,
+                resolver,
+            )
             continue
 
         # 3. Handle .ifnb optional params (e.g., TVBroadcastDummy)
@@ -1577,29 +1784,46 @@ def extract_macros_for_db(
             # Generate variants for different argument counts
             ifnb_variants = parse_ifnb_expansion_variants(macro.body, macro.params)
             if ifnb_variants:
-                macros[name] = {
+                entry = {
                     "type": "macro",
                     "params": v2_params,
                     "variants": ifnb_variants,
                 }
+                if macro.description:
+                    entry["description"] = macro.description
+                macros[name] = resolve_macro_entry_references(
+                    entry,
+                    resolver,
+                )
                 continue
 
         # 4. Handle recursive macros with meaningful conditions (e.g. GoToIfInRange)
         if macro.name in macro.body and ".if " in macro.body:
             recursive_variants = parse_if_else_macro_variants(macro.body, macro.params)
             if recursive_variants:
-                macros[name] = {
+                entry = {
                     "type": "macro",
                     "params": v2_params,
                     "variants": recursive_variants,
                 }
+                if macro.description:
+                    entry["description"] = macro.description
+                macros[name] = resolve_macro_entry_references(
+                    entry,
+                    resolver,
+                )
                 continue
 
         # 5. Handle Standard Macros (Expansion Lines)
         expansion_lines = parse_macro_expansion_lines(macro.body)
 
         # Check if this macro wraps a primitive (has .short OPCODE /* Name */ pattern or manual override)
-        primitive_call = extract_primitive_call_line(macro.body, id_to_name, name)
+        primitive_call = extract_primitive_call_line(
+            macro.body,
+            id_to_name,
+            name,
+            scrcmd_symbol_to_opcode=scrcmd_symbol_to_opcode,
+        )
 
         # If no expansion lines and no primitive call, skip
         if not expansion_lines and not primitive_call:
@@ -1632,11 +1856,17 @@ def extract_macros_for_db(
         )
 
         if v2_expansion:
-            macros[name] = {
+            entry = {
                 "type": "macro",
                 "params": v2_params,
                 "expansion": v2_expansion,
             }
+            if macro.description:
+                entry["description"] = macro.description
+            macros[name] = resolve_macro_entry_references(
+                entry,
+                resolver,
+            )
 
     return macros
 
@@ -1669,32 +1899,42 @@ def inject_macros_into_db(db_path: str, verbose: bool = False) -> int:
     if not content:
         return 0
 
-    macros = extract_macros_for_db(content, id_to_name)
+    scrcmd_symbol_to_opcode = (
+        get_platinum_scrcmd_symbol_table() if version == "Platinum" else None
+    )
+
+    macros = extract_macros_for_db(
+        content,
+        id_to_name,
+        commands=commands,
+        scrcmd_symbol_to_opcode=scrcmd_symbol_to_opcode,
+    )
     print(f"  Extracted {len(macros)} macros from decomp")
 
     # Add/update macros in commands section
     # commands = db.get("commands", {}) # Already got above
     added = 0
     updated = 0
+    matched_aliases = 0
 
     for name, macro_data in macros.items():
-        if name in commands:
-            if commands[name].get("type") == "macro":
-                # Update existing macro
-                commands[name] = macro_data
-                updated += 1
-            # else: skip - don't overwrite real commands with macros
-        else:
-            commands[name] = macro_data
+        action = upsert_imported_macro(commands, name, macro_data)
+        if action == "added":
             added += 1
+        elif action == "updated":
+            updated += 1
+        elif action == "matched_alias":
+            matched_aliases += 1
 
     db["commands"] = commands
 
-    # Write back
-    with open(db_path, "w", encoding="utf-8") as f:
-        json.dump(db, f, indent=2)
+    if added or updated:
+        write_db_if_changed(db_path, db)
 
-    print(f"  Added {added} new macros, updated {updated} existing")
+    print(
+        f"  Added {added} new macros, updated {updated} existing, "
+        f"matched {matched_aliases} existing aliases"
+    )
     if verbose and added + updated > 0:
         print(f"  Sample macros:")
         for name in list(macros.keys())[:5]:
@@ -1712,6 +1952,51 @@ def get_game_version(db: dict) -> str:
     return db.get("meta", {}).get("version", "Unknown")
 
 
+def validate_unique_command_ids(db: dict) -> None:
+    """Reject databases that contain duplicate non-macro command IDs."""
+    seen: dict[tuple[str, int], str] = {}
+
+    for name, entry in db.get("commands", {}).items():
+        cmd_type = entry.get("type")
+        opcode = entry.get("id")
+
+        if cmd_type == "macro" or opcode is None:
+            continue
+
+        key = (cmd_type, opcode)
+        if key in seen:
+            other = seen[key]
+            raise ValueError(
+                f"Duplicate command ID detected for {cmd_type} 0x{opcode:04X}: "
+                f"{other} and {name}"
+            )
+
+        seen[key] = name
+
+
+def is_generated_description(description: str | None) -> bool:
+    """Check whether a description is an importer placeholder."""
+    if not description:
+        return True
+    return description.startswith("Imported from decomp:")
+
+
+def write_db_if_changed(db_path: str | Path, db: dict) -> bool:
+    """Write a database file only when its semantic JSON content changed."""
+    validate_unique_command_ids(db)
+
+    db_path = Path(db_path)
+    if db_path.exists():
+        with open(db_path, "r", encoding="utf-8") as f:
+            current = json.load(f)
+        if current == db:
+            return False
+
+    with open(db_path, "w", encoding="utf-8") as f:
+        json.dump(db, f, indent=2)
+    return True
+
+
 def build_id_to_name_map(commands: dict, cmd_type: str) -> dict[int, str]:
     """Build opcode -> name mapping for commands of a given type."""
     id_map = {}
@@ -1719,6 +2004,381 @@ def build_id_to_name_map(commands: dict, cmd_type: str) -> dict[int, str]:
         if data.get("type") == cmd_type:
             id_map[data["id"]] = name
     return id_map
+
+
+def build_name_to_id_map(commands: dict, cmd_type: str) -> dict[str, int]:
+    """Build name -> opcode mapping for commands of a given type."""
+    return {
+        name: data["id"]
+        for name, data in commands.items()
+        if data.get("type") == cmd_type
+    }
+
+
+def resolve_command_name_from_maps(
+    id_to_name: dict[int, str],
+    name_to_id: dict[str, int],
+    opcode: int | None,
+    *candidate_names: str | None,
+) -> tuple[str | None, str | None]:
+    """Resolve a primitive command by opcode first, then by same-type name."""
+    if opcode is not None and opcode in id_to_name:
+        return id_to_name[opcode], "id"
+
+    for candidate_name in candidate_names:
+        if candidate_name and candidate_name in name_to_id:
+            return candidate_name, "name"
+
+    return None, None
+
+
+def resolve_command_name_for_sync(
+    commands: dict, cmd_type: str, opcode: int | None, *candidate_names: str | None
+) -> tuple[str | None, str | None]:
+    """Resolve the current DB key for a primitive sync item."""
+    return resolve_command_name_from_maps(
+        build_id_to_name_map(commands, cmd_type),
+        build_name_to_id_map(commands, cmd_type),
+        opcode,
+        *candidate_names,
+    )
+
+
+def build_canonical_name_by_opcode(
+    decomp_macros: dict[str, ParsedMacro],
+    decomp_primitives: dict[str, tuple[int, list[dict]]] | None = None,
+) -> dict[int, str]:
+    """Build the preferred decomp command name for each opcode."""
+    canonical: dict[int, str] = {}
+
+    for name, macro in decomp_macros.items():
+        if is_placeholder_name(name) or macro.is_wrapper or len(macro.opcodes) != 1:
+            continue
+        canonical.setdefault(macro.opcodes[0], name)
+
+    if decomp_primitives:
+        for name, (opcode, _params) in decomp_primitives.items():
+            if is_placeholder_name(name):
+                continue
+            canonical.setdefault(opcode, name)
+
+    return canonical
+
+
+def repair_duplicate_command_ids(
+    db: dict, cmd_type: str, canonical_name_by_opcode: dict[int, str]
+) -> int:
+    """
+    Remove duplicate command entries that share an opcode with the canonical decomp name.
+
+    Returns the number of stale duplicate entries removed.
+    """
+    commands = db.get("commands", {})
+    names_by_opcode: dict[int, list[str]] = {}
+
+    for name, entry in commands.items():
+        if entry.get("type") != cmd_type or entry.get("id") is None:
+            continue
+        names_by_opcode.setdefault(entry["id"], []).append(name)
+
+    removed = 0
+    for opcode, names in names_by_opcode.items():
+        if len(names) < 2:
+            continue
+
+        canonical_name = canonical_name_by_opcode.get(opcode)
+        if canonical_name not in names:
+            raise ValueError(
+                f"Duplicate {cmd_type} opcode 0x{opcode:04X} with no canonical "
+                f"decomp match: {', '.join(sorted(names))}"
+            )
+
+        canonical_entry = commands[canonical_name]
+        stale_names = [name for name in names if name != canonical_name]
+
+        for stale_name in stale_names:
+            stale_entry = commands.pop(stale_name)
+            if "legacy_name" not in canonical_entry and not is_placeholder_name(
+                stale_name
+            ):
+                canonical_entry["legacy_name"] = stale_entry.get(
+                    "legacy_name", stale_name
+                )
+            if is_generated_description(canonical_entry.get("description")) and not is_generated_description(
+                stale_entry.get("description")
+            ):
+                canonical_entry["description"] = stale_entry["description"]
+            removed += 1
+
+        commands[canonical_name] = canonical_entry
+
+    db["commands"] = commands
+    return removed
+
+
+def build_temp_command_name(commands: dict, name: str) -> str:
+    """Build a temporary key for parking a conflicting command entry."""
+    conflict_entry = commands[name]
+    temp_name = (
+        f"__tmp__{conflict_entry.get('type', 'command')}__"
+        f"{name}__{conflict_entry.get('id', 'noid')}"
+    )
+    suffix = 1
+    while temp_name in commands:
+        temp_name = (
+            f"__tmp__{conflict_entry.get('type', 'command')}__"
+            f"{name}__{conflict_entry.get('id', 'noid')}__{suffix}"
+        )
+        suffix += 1
+    return temp_name
+
+
+def displace_command_key_preserving_order(
+    commands: dict, conflict_name: str
+) -> tuple[dict, str]:
+    """Move an existing key aside without disturbing the surrounding order."""
+    temp_name = build_temp_command_name(commands, conflict_name)
+
+    displaced: dict = {}
+    for name, data in commands.items():
+        if name == conflict_name:
+            displaced[temp_name] = data
+        else:
+            displaced[name] = data
+
+    return displaced, temp_name
+
+
+def rename_command_key_preserving_order(
+    commands: dict, old_name: str, new_name: str
+) -> dict:
+    """Rename a command key while preserving the surrounding object order."""
+    if new_name in commands and new_name != old_name:
+        commands, _temp_name = displace_command_key_preserving_order(commands, new_name)
+
+    renamed: dict = {}
+    for name, data in commands.items():
+        if name == old_name:
+            renamed[new_name] = data
+        else:
+            renamed[name] = data
+    return renamed
+
+
+def insert_command_key_preserving_order(commands: dict, name: str, data: dict) -> dict:
+    """Insert a new key without overwriting an existing entry of another type."""
+    if name in commands:
+        commands, _temp_name = displace_command_key_preserving_order(commands, name)
+
+    inserted = dict(commands)
+    inserted[name] = data
+    return inserted
+
+
+def normalize_symbol_name(name: str) -> str:
+    """Normalize a command/macro identifier for loose alias matching."""
+    return re.sub(r"[^a-z0-9]", "", name.lower())
+
+
+def build_legacy_name_map(commands: dict) -> dict[str, str]:
+    """Build a reverse lookup of legacy_name -> current database key."""
+    legacy_map: dict[str, str] = {}
+    ambiguous = set()
+
+    for name, data in commands.items():
+        legacy_name = data.get("legacy_name")
+        if not legacy_name:
+            continue
+        if legacy_name in legacy_map and legacy_map[legacy_name] != name:
+            ambiguous.add(legacy_name)
+            continue
+        legacy_map[legacy_name] = name
+
+    for legacy_name in ambiguous:
+        legacy_map.pop(legacy_name, None)
+
+    return legacy_map
+
+
+def build_normalized_name_map(commands: dict) -> dict[str, str]:
+    """Build a collision-safe normalized-name -> current database key map."""
+    normalized_map: dict[str, str] = {}
+    ambiguous = set()
+
+    for name in commands:
+        normalized = normalize_symbol_name(name)
+        if not normalized:
+            continue
+        if normalized in normalized_map and normalized_map[normalized] != name:
+            ambiguous.add(normalized)
+            continue
+        normalized_map[normalized] = name
+
+    for normalized in ambiguous:
+        normalized_map.pop(normalized, None)
+
+    return normalized_map
+
+
+def build_decomp_opcode_name_map(
+    decomp_macros: dict[str, ParsedMacro],
+    decomp_primitives: dict[str, tuple[int, list[dict]]] | None = None,
+) -> dict[str, int]:
+    """Build a name -> opcode map for decomp-defined primitives/commands."""
+    name_to_opcode: dict[str, int] = {}
+
+    for name, macro in decomp_macros.items():
+        if len(macro.opcodes) == 1:
+            name_to_opcode[name] = macro.opcodes[0]
+
+    if decomp_primitives:
+        for name, (opcode, _params) in decomp_primitives.items():
+            name_to_opcode.setdefault(name, opcode)
+
+    return name_to_opcode
+
+
+def build_macro_reference_resolver(
+    commands: dict,
+    id_to_name: dict[int, str],
+    decomp_macros: dict[str, ParsedMacro],
+    decomp_primitives: dict[str, tuple[int, list[dict]]] | None = None,
+):
+    """Resolve decomp macro call targets to the actual keys used in this database."""
+    legacy_name_map = build_legacy_name_map(commands)
+    normalized_name_map = build_normalized_name_map(commands)
+    decomp_name_to_opcode = build_decomp_opcode_name_map(
+        decomp_macros, decomp_primitives
+    )
+
+    def resolve(name: str) -> str:
+        if name in commands:
+            return name
+
+        if name in legacy_name_map:
+            return legacy_name_map[name]
+
+        opcode = decomp_name_to_opcode.get(name)
+        if opcode is not None and opcode in id_to_name:
+            return id_to_name[opcode]
+
+        normalized = normalize_symbol_name(name)
+        if normalized in normalized_name_map:
+            return normalized_name_map[normalized]
+
+        return name
+
+    return resolve
+
+
+def resolve_expansion_line_reference(line: str, resolver) -> str:
+    """Resolve the command/macro identifier at the start of an expansion line."""
+    if not line or not line.strip():
+        return line
+
+    parts = line.split(None, 1)
+    target = resolver(parts[0])
+    if len(parts) == 1:
+        return target
+    return f"{target} {parts[1]}"
+
+
+def resolve_macro_entry_references(entry: dict, resolver) -> dict:
+    """Apply expansion-line reference resolution across a macro entry."""
+    resolved = json.loads(json.dumps(entry))
+
+    if "expansion" in resolved:
+        resolved["expansion"] = [
+            resolve_expansion_line_reference(line, resolver)
+            for line in resolved["expansion"]
+        ]
+
+    if "variants" in resolved:
+        for variant in resolved["variants"]:
+            variant["expansion"] = [
+                resolve_expansion_line_reference(line, resolver)
+                for line in variant.get("expansion", [])
+            ]
+
+    return resolved
+
+
+def get_macro_semantic_view(entry: dict) -> dict:
+    """Return the importer-owned fields used to compare macro semantics."""
+    view = {
+        "type": "macro",
+        "params": entry.get("params", []),
+    }
+
+    if "expansion" in entry:
+        view["expansion"] = entry["expansion"]
+    if "variants" in entry:
+        view["variants"] = entry["variants"]
+    if "description" in entry:
+        view["description"] = entry["description"]
+
+    return view
+
+
+def merge_imported_macro_entry(existing: dict, imported: dict) -> dict:
+    """Merge decomp-managed macro fields while preserving local metadata."""
+    merged = dict(existing)
+    merged["type"] = "macro"
+    merged["params"] = imported.get("params", [])
+    if "description" in imported:
+        merged["description"] = imported["description"]
+
+    if "expansion" in imported:
+        merged["expansion"] = imported["expansion"]
+        merged.pop("variants", None)
+    if "variants" in imported:
+        merged["variants"] = imported["variants"]
+        merged.pop("expansion", None)
+
+    return merged
+
+
+def find_equivalent_macro_name(
+    commands: dict, imported_name: str, imported_entry: dict
+) -> str | None:
+    """Find an existing macro with the same semantics under a different name."""
+    imported_view = get_macro_semantic_view(imported_entry)
+
+    for name, entry in commands.items():
+        if name == imported_name or entry.get("type") != "macro":
+            continue
+        if get_macro_semantic_view(entry) == imported_view:
+            return name
+
+    return None
+
+
+def upsert_imported_macro(commands: dict, name: str, imported_entry: dict) -> str:
+    """
+    Insert/update one imported macro.
+
+    Returns one of: `added`, `updated`, `matched_alias`, `skipped`.
+    """
+    if name in commands:
+        if commands[name].get("type") != "macro":
+            return "skipped"
+
+        merged = merge_imported_macro_entry(commands[name], imported_entry)
+        if merged != commands[name]:
+            commands[name] = merged
+            return "updated"
+        return "skipped"
+
+    alias_name = find_equivalent_macro_name(commands, name, imported_entry)
+    if alias_name:
+        merged = merge_imported_macro_entry(commands[alias_name], imported_entry)
+        if merged != commands[alias_name]:
+            commands[alias_name] = merged
+            return "updated"
+        return "matched_alias"
+
+    commands[name] = imported_entry
+    return "added"
 
 
 def compare_macros_with_db(
@@ -1744,11 +2404,7 @@ def compare_macros_with_db(
     """
     db_commands = db.get("commands", {})
     db_id_to_name = build_id_to_name_map(db_commands, cmd_type)
-    db_name_to_id = {
-        name: data["id"]
-        for name, data in db_commands.items()
-        if data.get("type") == cmd_type
-    }
+    db_name_to_id = build_name_to_id_map(db_commands, cmd_type)
 
     missing = []
     mismatched = []
@@ -1758,54 +2414,50 @@ def compare_macros_with_db(
     # First, check hidden primitives from comments (like SetHiddenLocation, CheckHasEnoughMonForCatchingShow)
     if decomp_primitives:
         for prim_name, (prim_opcode, prim_params) in decomp_primitives.items():
-            if prim_name in db_name_to_id:
-                # Primitive exists in DB - check opcode
-                if db_name_to_id[prim_name] != prim_opcode:
+            if is_placeholder_name(prim_name):
+                continue
+
+            if prim_opcode in db_id_to_name:
+                db_name = db_id_to_name[prim_opcode]
+                if db_name != prim_name:
                     mismatched.append(
                         {
                             "name": prim_name,
                             "decomp_opcode": prim_opcode,
-                            "db_opcode": db_name_to_id[prim_name],
+                            "db_name": db_name,
                             "is_conditional": False,
                             "all_opcodes": [prim_opcode],
-                            "params": [
-                                p.get("name", f"arg_{i}")
-                                for i, p in enumerate(prim_params)
-                            ],
+                            "params": prim_params,
                             "is_hidden_primitive": True,
+                            "description": None,
                         }
                     )
                 else:
-                    # Name and opcode match - check if params need updating
-                    # Compare param count (decomp has more than DB)
                     db_cmd = db_commands.get(prim_name, {})
                     db_params = db_cmd.get("params", [])
                     if len(prim_params) > len(db_params):
                         param_updates.append(
                             {
                                 "name": prim_name,
+                                "opcode": prim_opcode,
                                 "params": prim_params,
                                 "is_hidden_primitive": True,
                             }
                         )
-            elif prim_opcode in db_id_to_name:
-                # Opcode exists with different name - this is a renaming situation
-                # The DB has a command (possibly a wrapper name) but decomp says
-                # the primitive at this opcode has a different name
-                db_name = db_id_to_name[prim_opcode]
+            elif prim_name in db_name_to_id:
                 mismatched.append(
                     {
                         "name": prim_name,
                         "decomp_opcode": prim_opcode,
-                        "db_name": db_name,
+                        "db_opcode": db_name_to_id[prim_name],
                         "is_conditional": False,
                         "all_opcodes": [prim_opcode],
-                        "params": prim_params,  # Pass full param info for hidden primitives
+                        "params": prim_params,
                         "is_hidden_primitive": True,
+                        "description": None,
                     }
                 )
             else:
-                # Completely missing - add to missing list
                 missing.append(
                     {
                         "name": prim_name,
@@ -1817,10 +2469,14 @@ def compare_macros_with_db(
                         "param_types": prim_params,  # Include full param info
                         "variants": [],
                         "is_hidden_primitive": True,
+                        "description": None,
                     }
                 )
 
     for name, macro in decomp_macros.items():
+        if is_placeholder_name(name):
+            continue
+
         # Handle wrapper macros
         if macro.is_wrapper and macro.expansion:
             wrappers.append(
@@ -1831,38 +2487,6 @@ def compare_macros_with_db(
                     "params": [p.name for p in macro.params],
                 }
             )
-
-            # For CallCommonScript wrappers, also add them to missing list
-            # with opcode 20 so they get added to the database
-            if macro.expansion.target_macro == "CallCommonScript":
-                # Extract the script ID constant from the call
-                # e.g., "CallCommonScript 0x7D6" -> script ID 0x7D6
-                import re
-
-                call_match = re.search(
-                    r"CallCommonScript\s+(0x[0-9A-Fa-f]+|\d+)", macro.body
-                )
-                if call_match:
-                    script_id_str = call_match.group(1)
-                    try:
-                        if script_id_str.startswith("0x"):
-                            script_id = int(script_id_str, 16)
-                        else:
-                            script_id = int(script_id_str)
-
-                        # Add to missing so it gets created in the database
-                        missing.append(
-                            {
-                                "name": name,
-                                "opcode": 20,  # CallCommonScript opcode
-                                "is_conditional": False,
-                                "params": [p.name for p in macro.params],
-                                "script_id": script_id,  # Store for documentation
-                                "is_wrapper_cmd": True,  # Mark as wrapper command
-                            }
-                        )
-                    except ValueError:
-                        pass
 
             continue
 
@@ -1875,33 +2499,24 @@ def compare_macros_with_db(
 
         primary_opcode = macro.opcodes[0]
 
-        if name in db_name_to_id:
-            # Name exists - check opcode matches
-            if db_name_to_id[name] != primary_opcode:
-                mismatched.append(
-                    {
-                        "name": name,
-                        "decomp_opcode": primary_opcode,
-                        "db_opcode": db_name_to_id[name],
-                        "is_conditional": macro.is_conditional,
-                        "all_opcodes": macro.opcodes,
-                        "params": [p.name for p in macro.params],
-                    }
-                )
-        elif primary_opcode in db_id_to_name:
-            # Opcode exists with different name
+        if primary_opcode in db_id_to_name:
             db_name = db_id_to_name[primary_opcode]
 
             # Skip if this macro wraps a hidden primitive - the primitive is the real command
+            if db_name == name:
+                continue
+
             if macro.wraps_primitive:
                 continue
 
             # Check if existing DB name is also a valid decomp name (alias)
-            # If so, don't rename it (prevent flip-flopping between aliases)
+            # If it resolves to the same opcode, don't rename it.
             if db_name in decomp_macros:
-                # But only if it's NOT a wrapper - wrappers don't emit opcodes
-                # so they shouldn't block adding the actual command
-                if not decomp_macros[db_name].is_wrapper:
+                db_name_macro = decomp_macros[db_name]
+                if (
+                    not db_name_macro.is_wrapper
+                    and primary_opcode in db_name_macro.opcodes
+                ):
                     continue
 
             # Check if DB name is a hidden primitive - don't rename primitives to wrapper names
@@ -1916,6 +2531,19 @@ def compare_macros_with_db(
                     "is_conditional": macro.is_conditional,
                     "all_opcodes": macro.opcodes,
                     "params": [p.name for p in macro.params],
+                    "description": macro.description,
+                }
+            )
+        elif name in db_name_to_id:
+            mismatched.append(
+                {
+                    "name": name,
+                    "decomp_opcode": primary_opcode,
+                    "db_opcode": db_name_to_id[name],
+                    "is_conditional": macro.is_conditional,
+                    "all_opcodes": macro.opcodes,
+                    "params": [p.name for p in macro.params],
+                    "description": macro.description,
                 }
             )
         else:
@@ -1930,6 +2558,7 @@ def compare_macros_with_db(
                         {"condition": v.condition, "emits": v.params_emitted}
                         for v in macro.variants
                     ],
+                    "description": macro.description,
                 }
             )
 
@@ -2164,6 +2793,37 @@ def update_param_types(db_params: list, macro: ParsedMacro) -> bool:
     return changes
 
 
+def update_description_from_decomp(command: dict, macro: ParsedMacro) -> bool:
+    """Update a command description when the decomp provides one."""
+    if not macro.description:
+        return False
+
+    if command.get("description") == macro.description:
+        return False
+
+    command["description"] = macro.description
+    return True
+
+
+def build_sync_param_list(raw_params: list) -> list[dict]:
+    """Convert sync item params into the v2 parameter representation."""
+    params = []
+
+    for i, raw_param in enumerate(raw_params):
+        if isinstance(raw_param, dict):
+            param_name = raw_param.get("name", f"arg_{i}")
+            param_type = raw_param.get("type", "u16")
+        else:
+            param_name = (
+                raw_param.name if hasattr(raw_param, "name") else str(raw_param)
+            )
+            param_type = infer_param_type(param_name)
+
+        params.append({"name": param_name, "type": param_type})
+
+    return params
+
+
 def update_db_from_sync(
     db: dict, missing: list, mismatched: list, cmd_type: str
 ) -> int:
@@ -2174,83 +2834,77 @@ def update_db_from_sync(
     commands = db.get("commands", {})
     changes = 0
 
-    # Handle mismatches (Potential Renames or Opcode fixes)
-    for item in mismatched:
+    # Handle renames before opcode corrections so split commands like
+    # PlaySE/PlayFanfare converge in one pass instead of two.
+    ordered_mismatches = [
+        *[item for item in mismatched if "db_name" in item],
+        *[item for item in mismatched if "db_opcode" in item],
+    ]
+
+    for item in ordered_mismatches:
         decomp_name = item["name"]
+        decomp_opcode = item["decomp_opcode"]
 
         # skip if decomp name is unused/placeholder
         if is_placeholder_name(decomp_name):
             continue
 
-        if "db_name" in item:
-            # ID match, Name mismatch -> Rename
-            old_name = item["db_name"]
+        current_name, match_mode = resolve_command_name_for_sync(
+            commands,
+            cmd_type,
+            decomp_opcode,
+            decomp_name,
+            item.get("db_name"),
+        )
 
-            # If DB name is NOT a placeholder and Decomp name IS (already checked above),
-            # we would keep DB name. But here we know Decomp name is valid.
-            # So we rename Old -> New
+        if current_name is None:
+            entry = {
+                "type": cmd_type,
+                "id": decomp_opcode,
+                "description": item.get("description") or "",
+                "params": build_sync_param_list(item.get("params", [])),
+            }
+            commands = insert_command_key_preserving_order(commands, decomp_name, entry)
+            changes += 1
+            print(
+                f"    Re-added {decomp_name} (0x{decomp_opcode:04X}) after rename collision"
+            )
+            continue
 
-            # Retrieve data using old name
-            if old_name in commands:
-                data = commands[old_name]
-                del commands[old_name]
-                commands[decomp_name] = data
-                # Update legacy_name only if it's missing (preserve original legacy name)
-                if "legacy_name" not in data:
-                    data["legacy_name"] = old_name
+        old_name = current_name
+        data = commands[current_name]
+        changed = False
 
-                # For hidden primitives, also update params from the primitive info
-                if item.get("is_hidden_primitive") and item.get("params"):
-                    data["params"] = [
-                        {
-                            "name": p.get("name", f"arg_{i}")
-                            if isinstance(p, dict)
-                            else p,
-                            "type": p.get("type", "u16")
-                            if isinstance(p, dict)
-                            else "u16",
-                        }
-                        for i, p in enumerate(item["params"])
-                    ]
+        if current_name != decomp_name:
+            commands = rename_command_key_preserving_order(
+                commands, current_name, decomp_name
+            )
+            data = commands[decomp_name]
+            if "legacy_name" not in data:
+                data["legacy_name"] = old_name
+            changed = True
+            print(f"    Renamed {old_name} -> {decomp_name}")
 
-                changes += 1
-                print(f"    Renamed {old_name} -> {decomp_name}")
+        if data.get("id") != decomp_opcode:
+            previous_opcode = data.get("id")
+            data["id"] = decomp_opcode
+            changed = True
+            print(
+                f"    Updated opcode for {decomp_name}: {previous_opcode} -> {decomp_opcode}"
+            )
 
-        elif "db_opcode" in item:
-            # Name match, Opcode mismatch -> Update Opcode
-            # This is dangerous if ID is the primary key in some contexts, but here Name is key
-            if decomp_name in commands:
-                commands[decomp_name]["id"] = item["decomp_opcode"]
-                changes += 1
-                print(
-                    f"    Updated opcode for {decomp_name}: {item['db_opcode']} -> {item['decomp_opcode']}"
-                )
-            else:
-                # Key missing? Might have been renamed away in this same batch.
-                # Treat as new command.
-                entry = {
-                    "type": cmd_type,
-                    "id": item["decomp_opcode"],
-                    "description": f"Imported from decomp: {decomp_name}",
-                    "params": [],
-                }
+        if item.get("description") and data.get("description") != item["description"]:
+            data["description"] = item["description"]
+            changed = True
 
-                if item.get("params"):
-                    entry["params"] = [
-                        {
-                            "name": p.name if hasattr(p, "name") else p,
-                            "type": infer_param_type(
-                                p.name if hasattr(p, "name") else p
-                            ),
-                        }
-                        for p in item["params"]
-                    ]
+        if item.get("is_hidden_primitive") and item.get("params"):
+            new_params = build_sync_param_list(item["params"])
+            if data.get("params") != new_params:
+                data["params"] = new_params
+                changed = True
 
-                commands[decomp_name] = entry
-                changes += 1
-                print(
-                    f"    Re-added {decomp_name} (0x{item['decomp_opcode']:04X}) after rename collision"
-                )
+        if changed:
+            changes += 1
 
     # Handle missing (New Commands)
     for item in missing:
@@ -2258,93 +2912,57 @@ def update_db_from_sync(
         if is_placeholder_name(name):
             continue
 
-        # For CallCommonScript wrappers, add as macro with expansion
-        if item.get("is_wrapper_cmd") and item.get("script_id"):
-            script_id = item["script_id"]
-            script_id_str = (
-                f"0x{script_id:03X}" if script_id < 0x1000 else f"0x{script_id:04X}"
-            )
+        opcode = item["opcode"]
+        current_name, _match_mode = resolve_command_name_for_sync(
+            commands, cmd_type, opcode, name
+        )
 
-            # Build expansion lines
-            expansion = []
+        if current_name is not None:
+            data = commands[current_name]
+            changed = False
+
+            if current_name != name:
+                commands = rename_command_key_preserving_order(commands, current_name, name)
+                data = commands[name]
+                if "legacy_name" not in data:
+                    data["legacy_name"] = current_name
+                changed = True
+                print(f"    Renamed {current_name} -> {name}")
+
+            if data.get("id") != opcode:
+                data["id"] = opcode
+                changed = True
+
+            if item.get("description") and data.get("description") != item["description"]:
+                data["description"] = item["description"]
+                changed = True
+
             if item.get("params"):
-                # Has params - need to format them (e.g., "SetVar VAR_0x8007, $nurseLocalID")
-                for p in item["params"]:
-                    pname = p.name if hasattr(p, "name") else p
-                    # Check if this is a special SetVar call for CallCommonScript
-                    if name == "CallPokecenterNurse":
-                        expansion.append(f"SetVar VAR_0x8007, ${pname}")
-                    else:
-                        # Just pass through the param
-                        pass
-            expansion.append(f"CallCommonScript {script_id_str}")
+                new_params = build_sync_param_list(item["params"])
+                if data.get("params") != new_params:
+                    data["params"] = new_params
+                    changed = True
 
-            # Create macro entry
-            entry = {
-                "type": "macro",
-                "description": f"Convenience wrapper for CallCommonScript {script_id_str}",
-                "params": [],
-                "expansion": expansion,
-            }
-
-            # Add params if available
-            if item.get("params"):
-                entry["params"] = [
-                    {
-                        "name": p.name if hasattr(p, "name") else p,
-                        "type": infer_param_type(p.name if hasattr(p, "name") else p),
-                    }
-                    for p in item["params"]
-                ]
-
-            commands[name] = entry
-            changes += 1
-            print(f"    Added new macro: {name}")
+            if changed:
+                changes += 1
             continue
 
-        # Create description for regular commands
-        description = f"Imported from decomp: {name}"
-
-        # Create new entry
         entry = {
             "type": cmd_type,
-            "id": item["opcode"],
-            "description": description,
-            "params": [],
+            "id": opcode,
+            "description": item.get("description") or "",
+            "params": build_sync_param_list(item.get("params", [])),
         }
-
-        # Add params if available
-        if item.get("params"):
-            entry["params"] = [
-                {
-                    "name": p.name if hasattr(p, "name") else p,
-                    "type": infer_param_type(p.name if hasattr(p, "name") else p),
-                }
-                for p in item["params"]
-            ]
 
         if item.get("is_conditional"):
             # TODO: Better handling of conditional variants from sync
             pass
 
-        commands[name] = entry
+        commands = insert_command_key_preserving_order(commands, name, entry)
         changes += 1
-        print(f"    Added new command: {name} (0x{item['opcode']:04X})")
+        print(f"    Added new command: {name} (0x{opcode:04X})")
 
-    # Sort commands by Type then ID
-    def get_sort_key(item):
-        name, data = item
-        type_priority = {
-            "script_cmd": 0,
-            "movement": 1,
-            "levelscript_cmd": 2,
-            "macro": 3,
-        }
-        priority = type_priority.get(data.get("type"), 4)
-        return priority, data.get("id", 999999), name
-
-    sorted_commands = dict(sorted(commands.items(), key=get_sort_key))
-    db["commands"] = sorted_commands
+    db["commands"] = commands
     return changes
 
 
@@ -2378,7 +2996,13 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
         print("  Fetching scrcmd.inc...")
         content = fetch_url(sources["scrcmd"])
         if content:
-            decomp_macros, decomp_primitives = parse_scrcmd_inc(content)
+            scrcmd_symbol_to_opcode = (
+                get_platinum_scrcmd_symbol_table() if version == "Platinum" else None
+            )
+
+            decomp_macros, decomp_primitives = parse_scrcmd_inc(
+                content, scrcmd_symbol_to_opcode=scrcmd_symbol_to_opcode
+            )
 
             # Count types
             simple = sum(
@@ -2397,7 +3021,22 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     f"  Found {len(decomp_primitives)} hidden primitives from comments"
                 )
 
-            missing, extra, mismatched, wrappers, param_updates = (
+            if update:
+                canonical_name_by_opcode = build_canonical_name_by_opcode(
+                    decomp_macros, decomp_primitives
+                )
+                duplicates_removed = repair_duplicate_command_ids(
+                    db, "script_cmd", canonical_name_by_opcode
+                )
+                if duplicates_removed > 0:
+                    print(
+                        f"  Removed {duplicates_removed} duplicate script command "
+                        f"entr{'y' if duplicates_removed == 1 else 'ies'} by opcode"
+                    )
+                    has_changes = True
+                    write_db_if_changed(db_path, db)
+
+            missing, _extra, mismatched, wrappers, param_updates = (
                 compare_macros_with_db(
                     db, decomp_macros, "script_cmd", decomp_primitives
                 )
@@ -2443,48 +3082,33 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 if count > 0:
                     print(f"  Applied {count} changes to commands")
                     # Save immediately to avoid losing progress if next steps fail
-                    with open(db_path, "w", encoding="utf-8") as f:
-                        json.dump(db, f, indent=2)
+                    write_db_if_changed(db_path, db)
 
             # Apply param updates for hidden primitives
             if update and param_updates:
                 db_commands = db.get("commands", {})
                 param_updates_count = 0
                 for item in param_updates:
-                    name = item["name"]
-                    if name in db_commands:
-                        new_params = [
-                            {
-                                "name": p.get("name", f"arg_{i}")
-                                if isinstance(p, dict)
-                                else str(p),
-                                "type": p.get("type", "u16")
-                                if isinstance(p, dict)
-                                else "u16",
-                            }
-                            for i, p in enumerate(item["params"])
-                        ]
-                        db_commands[name]["params"] = new_params
+                    target_name, _match_mode = resolve_command_name_for_sync(
+                        db_commands, "script_cmd", item.get("opcode"), item["name"]
+                    )
+                    if target_name:
+                        new_params = build_sync_param_list(item["params"])
+                        db_commands[target_name]["params"] = new_params
                         param_updates_count += 1
                         print(
-                            f"    Updated params for {name}: {len(new_params)} params"
+                            f"    Updated params for {target_name}: {len(new_params)} params"
                         )
                 if param_updates_count > 0:
-                    with open(db_path, "w", encoding="utf-8") as f:
-                        json.dump(db, f, indent=2)
+                    write_db_if_changed(db_path, db)
 
             # Update parameter defaults if requested
             if update:
                 print("  Checking parameter defaults...")
                 defaults_updated = 0
                 db_commands = db.get("commands", {})
-                # Rebuild map as updates might have changed things
-                db_name_to_id = {
-                    name: data["id"]
-                    for name, data in db_commands.items()
-                    if data.get("type") == "script_cmd"
-                }
-                db_id_to_name = {v: k for k, v in db_name_to_id.items()}
+                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
 
                 for name, macro in decomp_macros.items():
                     if (
@@ -2496,12 +3120,9 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     if not macro.opcodes:
                         continue
 
-                    # Find corresponding DB command
-                    target_name = None
-                    if name in db_name_to_id:
-                        target_name = name
-                    elif macro.opcodes[0] in db_id_to_name:
-                        target_name = db_id_to_name[macro.opcodes[0]]
+                    target_name, _match_mode = resolve_command_name_from_maps(
+                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                    )
 
                     if target_name and target_name in db_commands:
                         cmd = db_commands[target_name]
@@ -2511,21 +3132,15 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 if defaults_updated > 0:
                     print(f"  Updated defaults for {defaults_updated} commands")
                     has_changes = True
-                    with open(db_path, "w", encoding="utf-8") as f:
-                        json.dump(db, f, indent=2)
+                    write_db_if_changed(db_path, db)
 
             # Update parameter types from macro body directives
             if update:
                 print("  Checking parameter types...")
                 types_updated = 0
                 db_commands = db.get("commands", {})
-                # Rebuild map as updates might have changed things
-                db_name_to_id = {
-                    name: data["id"]
-                    for name, data in db_commands.items()
-                    if data.get("type") == "script_cmd"
-                }
-                db_id_to_name = {v: k for k, v in db_name_to_id.items()}
+                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
 
                 for name, macro in decomp_macros.items():
                     if (
@@ -2537,12 +3152,9 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     if not macro.opcodes:
                         continue
 
-                    # Find corresponding DB command
-                    target_name = None
-                    if name in db_name_to_id:
-                        target_name = name
-                    elif macro.opcodes[0] in db_id_to_name:
-                        target_name = db_id_to_name[macro.opcodes[0]]
+                    target_name, _match_mode = resolve_command_name_from_maps(
+                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                    )
 
                     if target_name and target_name in db_commands:
                         cmd = db_commands[target_name]
@@ -2552,20 +3164,15 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 if types_updated > 0:
                     print(f"  Updated types for {types_updated} commands")
                     has_changes = True
-                    with open(db_path, "w", encoding="utf-8") as f:
-                        json.dump(db, f, indent=2)
+                    write_db_if_changed(db_path, db)
 
             # Update parameter names from decomp macro definitions
             if update:
                 print("  Checking parameter names...")
                 names_updated = 0
                 db_commands = db.get("commands", {})
-                db_name_to_id = {
-                    name: data["id"]
-                    for name, data in db_commands.items()
-                    if data.get("type") == "script_cmd"
-                }
-                db_id_to_name = {v: k for k, v in db_name_to_id.items()}
+                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
 
                 for name, macro in decomp_macros.items():
                     if (
@@ -2577,11 +3184,9 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     if not macro.opcodes:
                         continue
 
-                    target_name = None
-                    if name in db_name_to_id:
-                        target_name = name
-                    elif macro.opcodes[0] in db_id_to_name:
-                        target_name = db_id_to_name[macro.opcodes[0]]
+                    target_name, _match_mode = resolve_command_name_from_maps(
+                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                    )
 
                     if target_name and target_name in db_commands:
                         cmd = db_commands[target_name]
@@ -2591,20 +3196,50 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 if names_updated > 0:
                     print(f"  Updated names for {names_updated} commands")
                     has_changes = True
-                    with open(db_path, "w", encoding="utf-8") as f:
-                        json.dump(db, f, indent=2)
+                    write_db_if_changed(db_path, db)
+
+            # Update descriptions from decomp comment blocks
+            if update:
+                print("  Checking descriptions...")
+                descriptions_updated = 0
+                db_commands = db.get("commands", {})
+                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
+
+                for name, macro in decomp_macros.items():
+                    if (
+                        macro.is_wrapper
+                        or macro.is_conditional
+                        or len(macro.opcodes) > 1
+                        or not macro.description
+                    ):
+                        continue
+                    if not macro.opcodes:
+                        continue
+
+                    target_name, _match_mode = resolve_command_name_from_maps(
+                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                    )
+
+                    if target_name and target_name in db_commands:
+                        cmd = db_commands[target_name]
+                        if update_description_from_decomp(cmd, macro):
+                            descriptions_updated += 1
+
+                if descriptions_updated > 0:
+                    print(
+                        f"  Updated descriptions for {descriptions_updated} commands"
+                    )
+                    has_changes = True
+                    write_db_if_changed(db_path, db)
 
             # Update inferred param defaults (VAR_RESULT for destVar params)
             if update:
                 print("  Checking inferred param defaults...")
                 inferred_defaults_updated = 0
                 db_commands = db.get("commands", {})
-                db_name_to_id = {
-                    name: data["id"]
-                    for name, data in db_commands.items()
-                    if data.get("type") == "script_cmd"
-                }
-                db_id_to_name = {v: k for k, v in db_name_to_id.items()}
+                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
 
                 for name, macro in decomp_macros.items():
                     if (
@@ -2616,11 +3251,9 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     if not macro.opcodes:
                         continue
 
-                    target_name = None
-                    if name in db_name_to_id:
-                        target_name = name
-                    elif macro.opcodes[0] in db_id_to_name:
-                        target_name = db_id_to_name[macro.opcodes[0]]
+                    target_name, _match_mode = resolve_command_name_from_maps(
+                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                    )
 
                     if target_name and target_name in db_commands:
                         cmd = db_commands[target_name]
@@ -2634,21 +3267,15 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                         f"  Updated inferred defaults for {inferred_defaults_updated} commands"
                     )
                     has_changes = True
-                    with open(db_path, "w", encoding="utf-8") as f:
-                        json.dump(db, f, indent=2)
+                    write_db_if_changed(db_path, db)
 
             # Update params with hardcoded defaults (for unused params like `.short 0`)
             if update:
                 print("  Checking for hardcoded/unused params...")
                 unused_params_updated = 0
                 db_commands = db.get("commands", {})
-                # Rebuild map as updates might have changed things
-                db_name_to_id = {
-                    name: data["id"]
-                    for name, data in db_commands.items()
-                    if data.get("type") == "script_cmd"
-                }
-                db_id_to_name = {v: k for k, v in db_name_to_id.items()}
+                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
 
                 for name, macro in decomp_macros.items():
                     if (
@@ -2673,12 +3300,9 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     if not has_hardcoded and not has_duplicates:
                         continue
 
-                    # Find corresponding DB command
-                    target_name = None
-                    if name in db_name_to_id:
-                        target_name = name
-                    elif macro.opcodes[0] in db_id_to_name:
-                        target_name = db_id_to_name[macro.opcodes[0]]
+                    target_name, _match_mode = resolve_command_name_from_maps(
+                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                    )
 
                     if target_name and target_name in db_commands:
                         cmd = db_commands[target_name]
@@ -2729,8 +3353,7 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                         f"  Updated {unused_params_updated} commands with hardcoded param defaults"
                     )
                     has_changes = True
-                    with open(db_path, "w", encoding="utf-8") as f:
-                        json.dump(db, f, indent=2)
+                    write_db_if_changed(db_path, db)
 
             if wrappers and verbose:
                 print(f"  Wrapper macros found: {len(wrappers)}")
@@ -2741,9 +3364,6 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     )
                 if len(wrappers) > 5:
                     print(f"    ... and {len(wrappers) - 5} more")
-
-            if extra:
-                print(f"  Extra in DB (not in decomp): {len(extra)}")
 
     # Sync movements
     if "movement" in sources:
@@ -2758,30 +3378,16 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
             # Use simple comparison for movements
             db_commands = db.get("commands", {})
             db_id_to_name = build_id_to_name_map(db_commands, "movement")
-            db_name_to_id = {
-                name: data["id"]
-                for name, data in db_commands.items()
-                if data.get("type") == "movement"
-            }
+            db_name_to_id = build_name_to_id_map(db_commands, "movement")
 
             missing = []
             mismatched = []
 
             for name, (opcode, move_params) in decomp_moves.items():
-                if name in db_name_to_id:
-                    if opcode is not None and db_name_to_id[name] != opcode:
-                        mismatched.append(
-                            {
-                                "name": name,
-                                "decomp_opcode": opcode,
-                                "db_opcode": db_name_to_id[name],
-                                "params": move_params,
-                            }
-                        )
-                elif opcode is not None and opcode in db_id_to_name:
+                if opcode is not None and opcode in db_id_to_name:
                     db_name = db_id_to_name[opcode]
                     # Check if existing DB name is also a valid decomp name (alias)
-                    if db_name in decomp_moves:
+                    if db_name == name or db_name in decomp_moves:
                         continue
 
                     mismatched.append(
@@ -2789,6 +3395,15 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                             "name": name,
                             "decomp_opcode": opcode,
                             "db_name": db_name,
+                            "params": move_params,
+                        }
+                    )
+                elif opcode is not None and name in db_name_to_id:
+                    mismatched.append(
+                        {
+                            "name": name,
+                            "decomp_opcode": opcode,
+                            "db_opcode": db_name_to_id[name],
                             "params": move_params,
                         }
                     )
@@ -2820,23 +3435,24 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 count = update_db_from_sync(db, missing, mismatched, "movement")
                 if count > 0:
                     print(f"  Applied {count} changes to movements")
-                    with open(db_path, "w", encoding="utf-8") as f:
-                        json.dump(db, f, indent=2)
+                    write_db_if_changed(db_path, db)
 
             # Update movement params if requested
             if update:
                 print("  Checking movement params...")
                 params_updated = 0
                 db_commands = db.get("commands", {})
+                db_name_to_id = build_name_to_id_map(db_commands, "movement")
+                db_id_to_name = build_id_to_name_map(db_commands, "movement")
 
                 for name, (opcode, move_params) in decomp_moves.items():
-                    if name not in db_commands:
+                    target_name, _match_mode = resolve_command_name_from_maps(
+                        db_id_to_name, db_name_to_id, opcode, name
+                    )
+                    if not target_name or target_name not in db_commands:
                         continue
 
-                    cmd = db_commands[name]
-                    if cmd.get("type") != "movement":
-                        continue
-
+                    cmd = db_commands[target_name]
                     # Build expected params list from decomp
                     decomp_param_list = []
                     for p in move_params:
@@ -2857,8 +3473,7 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 if params_updated > 0:
                     print(f"  Updated params for {params_updated} movements")
                     has_changes = True
-                    with open(db_path, "w", encoding="utf-8") as f:
-                        json.dump(db, f, indent=2)
+                    write_db_if_changed(db_path, db)
 
     if not has_changes:
         print("  ✓ Database is in sync with decomp")
@@ -2892,7 +3507,13 @@ def dump_macros(game: str) -> None:
     if not content:
         return
 
-    macros, primitives = parse_scrcmd_inc(content)
+    scrcmd_symbol_to_opcode = None
+    if version == "Platinum":
+        scrcmd_symbol_to_opcode = get_platinum_scrcmd_symbol_table()
+
+    macros, primitives = parse_scrcmd_inc(
+        content, scrcmd_symbol_to_opcode=scrcmd_symbol_to_opcode
+    )
 
     # Group by type
     simple = []
@@ -2955,116 +3576,62 @@ def dump_macros(game: str) -> None:
             print(f"  0x{opcode:04X} {name}({param_str})")
 
 
-def main():
-    parser = argparse.ArgumentParser(
-        description="Sync database with decomp project definitions"
-    )
-    parser.add_argument("database", nargs="?", help="Path to v2 database file")
-    parser.add_argument(
-        "--all", action="store_true", help="Sync all *_v2.json files in the repository"
-    )
-    parser.add_argument(
-        "--update",
-        action="store_true",
-        help="Update database with decomp names (not yet implemented)",
-    )
-    parser.add_argument(
-        "--verbose",
-        "-v",
-        action="store_true",
-        help="Show more details including wrapper macros and variant conditions",
-    )
-    parser.add_argument(
-        "--dump",
-        metavar="GAME",
-        help="Dump all parsed macros for a game (platinum, hgss)",
-    )
-    parser.add_argument(
-        "--inject-macros",
-        action="store_true",
-        default=True,
-        help="Inject convenience macros from decomp into the v2 database (default: enabled)",
-    )
-    parser.add_argument(
-        "--no-inject-macros",
-        action="store_true",
-        help="Disable automatic macro injection",
-    )
+def get_repo_root() -> Path:
+    """Return the repository root."""
+    return Path(__file__).resolve().parent.parent
 
-    args = parser.parse_args()
 
-    if args.dump:
-        dump_macros(args.dump)
-        return 0
+def find_v2_database_paths() -> list[Path]:
+    """Find every v2 database the importer should refresh."""
+    repo_root = get_repo_root()
+    paths = sorted(repo_root.glob("*_v2.json"))
 
-    if args.inject_macros and not args.no_inject_macros:
-        if args.all:
-            repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-            v2_files = [
-                os.path.join(repo_root, f)
-                for f in os.listdir(repo_root)
-                if f.endswith("_v2.json")
-            ]
+    custom_db_dir = repo_root / "custom_databases"
+    if custom_db_dir.is_dir():
+        paths.extend(sorted(custom_db_dir.rglob("*_v2.json")))
 
-            custom_db_dir = os.path.join(repo_root, "custom_databases")
-            if os.path.isdir(custom_db_dir):
-                for f in os.listdir(custom_db_dir):
-                    if f.endswith("_v2.json"):
-                        v2_files.append(os.path.join(custom_db_dir, f))
+    return paths
 
-            if not v2_files:
-                print("No *_v2.json files found in repository")
-                return 1
 
-            for path in sorted(v2_files):
-                print(f"\nInjecting macros into {path}")
-                inject_macros_into_db(path, args.verbose)
+def import_decomp_data(db_path: Path, verbose: bool = False) -> bool:
+    """Refresh one v2 database from the configured decomp sources."""
+    with open(db_path, "r", encoding="utf-8") as f:
+        db = json.load(f)
 
-            if args.update:
-                for path in sorted(v2_files):
-                    sync_database(path, args.update, args.verbose)
-            return 0
-        elif args.database:
-            print(f"Injecting macros into {args.database}")
-            inject_macros_into_db(args.database, args.verbose)
-            if args.update:
-                sync_database(args.database, args.update, args.verbose)
-            return 0
-        else:
-            print("Error: --inject-macros requires --all or a database path")
-            return 1
+    version = get_game_version(db)
+    print(f"\nImporting decomp data into {db_path} ({version})")
 
-    if args.all:
-        # Find all v2 files in repo root + custom_databases
-        repo_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-        v2_files = [
-            os.path.join(repo_root, f)
-            for f in os.listdir(repo_root)
-            if f.endswith("_v2.json")
-        ]
+    if version not in DECOMP_SOURCES:
+        print(f"  Skipping: No decomp source configured for {version}")
+        return False
 
-        # Also check custom_databases directory
-        custom_db_dir = os.path.join(repo_root, "custom_databases")
-        if os.path.isdir(custom_db_dir):
-            for f in os.listdir(custom_db_dir):
-                if f.endswith("_v2.json"):
-                    v2_files.append(os.path.join(custom_db_dir, f))
+    before = db_path.read_text(encoding="utf-8")
+    sync_database(str(db_path), update=True, verbose=verbose)
+    inject_macros_into_db(str(db_path), verbose=verbose)
+    after = db_path.read_text(encoding="utf-8")
+    return before != after
 
-        if not v2_files:
-            print("No *_v2.json files found in repository")
-            return 1
 
-        for path in sorted(v2_files):
-            sync_database(path, args.update, args.verbose)
-    elif args.database:
-        if not os.path.exists(args.database):
-            print(f"Error: File not found: {args.database}")
-            return 1
-        sync_database(args.database, args.update, args.verbose)
-    else:
-        parser.print_help()
+def main() -> int:
+    if len(sys.argv) > 1:
+        print("sync_from_decomp.py no longer accepts arguments.")
+        print("Run `python scripts/sync_from_decomp.py` to refresh every v2 database.")
+        return 2
+
+    v2_files = find_v2_database_paths()
+    if not v2_files:
+        print("No *_v2.json files found in repository")
         return 1
 
+    changed_count = 0
+    for path in v2_files:
+        if import_decomp_data(path):
+            changed_count += 1
+
+    print(
+        f"\nProcessed {len(v2_files)} v2 database(s); "
+        f"{changed_count} file(s) changed."
+    )
     return 0
 
 
