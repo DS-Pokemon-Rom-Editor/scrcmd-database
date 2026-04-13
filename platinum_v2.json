@@ -42,7 +42,7 @@
         }
       ]
     },
-    "RegValueSet": {
+    "ScrCmd_Unused_004": {
       "type": "script_cmd",
       "id": 4,
       "legacy_name": "RegValueSet",
@@ -58,7 +58,7 @@
         }
       ]
     },
-    "RegDataSet": {
+    "ScrCmd_Unused_005": {
       "type": "script_cmd",
       "id": 5,
       "legacy_name": "RegDataSet",
@@ -74,7 +74,7 @@
         }
       ]
     },
-    "RegAdrsSet": {
+    "ScrCmd_Unused_006": {
       "type": "script_cmd",
       "id": 6,
       "legacy_name": "RegAdrsSet",
@@ -90,7 +90,7 @@
         }
       ]
     },
-    "AdrsValueSet": {
+    "ScrCmd_Unused_007": {
       "type": "script_cmd",
       "id": 7,
       "legacy_name": "AdrsValueSet",
@@ -106,7 +106,7 @@
         }
       ]
     },
-    "AdrsRegSet": {
+    "ScrCmd_Unused_008": {
       "type": "script_cmd",
       "id": 8,
       "legacy_name": "AdrsRegSet",
@@ -122,7 +122,7 @@
         }
       ]
     },
-    "RegRegSet": {
+    "ScrCmd_Unused_009": {
       "type": "script_cmd",
       "id": 9,
       "legacy_name": "RegRegSet",
@@ -138,7 +138,7 @@
         }
       ]
     },
-    "AdrsAdrsSet": {
+    "ScrCmd_Unused_00A": {
       "type": "script_cmd",
       "id": 10,
       "legacy_name": "AdrsAdrsSet",
@@ -154,7 +154,7 @@
         }
       ]
     },
-    "CompareRegs": {
+    "ScrCmd_Unused_00B": {
       "type": "script_cmd",
       "id": 11,
       "legacy_name": "CompareRegs",
@@ -170,7 +170,7 @@
         }
       ]
     },
-    "CompareRegValue": {
+    "ScrCmd_Unused_00C": {
       "type": "script_cmd",
       "id": 12,
       "legacy_name": "CompareRegValue",
@@ -186,7 +186,7 @@
         }
       ]
     },
-    "CompareRegAdrs": {
+    "ScrCmd_Unused_00D": {
       "type": "script_cmd",
       "id": 13,
       "legacy_name": "CompareRegAdrs",
@@ -202,7 +202,7 @@
         }
       ]
     },
-    "CompareAdrsReg": {
+    "ScrCmd_Unused_00E": {
       "type": "script_cmd",
       "id": 14,
       "legacy_name": "CompareAdrsReg",
@@ -218,7 +218,7 @@
         }
       ]
     },
-    "CompareAdrsValue": {
+    "ScrCmd_Unused_00F": {
       "type": "script_cmd",
       "id": 15,
       "legacy_name": "CompareAdrsValue",
@@ -234,7 +234,7 @@
         }
       ]
     },
-    "CompareAdrsAdrs": {
+    "ScrCmd_Unused_010": {
       "type": "script_cmd",
       "id": 16,
       "legacy_name": "CompareAdrsAdrs",
@@ -282,7 +282,7 @@
         }
       ]
     },
-    "ParallelCommonScript": {
+    "ScrCmd_Unused_013": {
       "type": "script_cmd",
       "id": 19,
       "legacy_name": "ParallelCommonScript",
@@ -325,7 +325,7 @@
         }
       ]
     },
-    "JumpIfObjID": {
+    "ScrCmd_Unused_017": {
       "type": "script_cmd",
       "id": 23,
       "legacy_name": "JumpIfObjID",
@@ -341,7 +341,7 @@
         }
       ]
     },
-    "JumpIfEventID": {
+    "ScrCmd_Unused_018": {
       "type": "script_cmd",
       "id": 24,
       "legacy_name": "JumpIfEventID",
@@ -357,7 +357,7 @@
         }
       ]
     },
-    "JumpIfPlayerDir": {
+    "ScrCmd_Unused_019": {
       "type": "script_cmd",
       "id": 25,
       "legacy_name": "JumpIfPlayerDir",
@@ -589,7 +589,7 @@
         }
       ]
     },
-    "SetVarFromFlexible": {
+    "ScrCmd_Unused_02A": {
       "type": "script_cmd",
       "id": 42,
       "legacy_name": "SetVarFromFlexible",
@@ -1406,7 +1406,7 @@
         }
       ]
     },
-    "GetOWPosition": {
+    "ScrCmd_Unused_06A": {
       "type": "script_cmd",
       "id": 106,
       "legacy_name": "GetOWPosition",
@@ -1478,7 +1478,7 @@
         }
       ]
     },
-    "SetFollowingOverworld": {
+    "ScrCmd_Unused_06E": {
       "type": "script_cmd",
       "id": 110,
       "legacy_name": "SetFollowingOverworld",
@@ -1776,7 +1776,7 @@
         }
       ]
     },
-    "ScrCmd_084": {
+    "Dummy084": {
       "type": "script_cmd",
       "id": 132,
       "legacy_name": "DummyTakeGoods",
@@ -1817,7 +1817,7 @@
         }
       ]
     },
-    "ScrCmd_086": {
+    "Dummy086": {
       "type": "script_cmd",
       "id": 134,
       "legacy_name": "DummyCheckGoods",
@@ -1858,7 +1858,7 @@
         }
       ]
     },
-    "ScrCmd_088": {
+    "Dummy088": {
       "type": "script_cmd",
       "id": 136,
       "legacy_name": "DummyTakeTrap",
@@ -1878,7 +1878,7 @@
         }
       ]
     },
-    "ScrCmd_089": {
+    "Dummy089": {
       "type": "script_cmd",
       "id": 137,
       "legacy_name": "DummyCheckTrapSpace",
@@ -1898,7 +1898,7 @@
         }
       ]
     },
-    "ScrCmd_08A": {
+    "Dummy08A": {
       "type": "script_cmd",
       "id": 138,
       "legacy_name": "DummyCheckTrap",
@@ -1918,7 +1918,7 @@
         }
       ]
     },
-    "ScrCmd_08B": {
+    "Dummy08B": {
       "type": "script_cmd",
       "id": 139,
       "legacy_name": "DummyGiveTreasure",
@@ -1938,7 +1938,7 @@
         }
       ]
     },
-    "ScrCmd_08C": {
+    "Dummy08C": {
       "type": "script_cmd",
       "id": 140,
       "legacy_name": "DummyTakeTreasure",
@@ -1958,7 +1958,7 @@
         }
       ]
     },
-    "ScrCmd_08D": {
+    "Dummy08D": {
       "type": "script_cmd",
       "id": 141,
       "legacy_name": "DummyCheckTreasureSpace",
@@ -1978,7 +1978,7 @@
         }
       ]
     },
-    "ScrCmd_08E": {
+    "Dummy08E": {
       "type": "script_cmd",
       "id": 142,
       "legacy_name": "DummyCheckTreasure",
@@ -2019,7 +2019,7 @@
         }
       ]
     },
-    "ScrCmd_090": {
+    "Dummy090": {
       "type": "script_cmd",
       "id": 144,
       "legacy_name": "DummyTakeSphere",
@@ -2039,7 +2039,7 @@
         }
       ]
     },
-    "ScrCmd_091": {
+    "Dummy091": {
       "type": "script_cmd",
       "id": 145,
       "legacy_name": "DummyCheckSphereSpace",
@@ -2059,7 +2059,7 @@
         }
       ]
     },
-    "ScrCmd_092": {
+    "Dummy092": {
       "type": "script_cmd",
       "id": 146,
       "legacy_name": "DummyCheckSphere",
@@ -2272,7 +2272,7 @@
       "description": "Nothing",
       "params": []
     },
-    "ScrCmd_0A0": {
+    "Dummy0A0": {
       "type": "script_cmd",
       "id": 160,
       "legacy_name": "DummyCountPartyPokemon",
@@ -2286,21 +2286,21 @@
       "description": "Restores the normal overworld screen",
       "params": []
     },
-    "CMD_162": {
+    "ScrCmd_0A2": {
       "type": "script_cmd",
       "id": 162,
       "legacy_name": "CMD_162",
       "description": "nan",
       "params": []
     },
-    "CMD_163": {
+    "ScrCmd_0A3": {
       "type": "script_cmd",
       "id": 163,
       "legacy_name": "CMD_163",
       "description": "nan",
       "params": []
     },
-    "CMD_164": {
+    "ScrCmd_Unused_0A4": {
       "type": "script_cmd",
       "id": 164,
       "legacy_name": "CMD_164",
@@ -2312,14 +2312,14 @@
         }
       ]
     },
-    "CMD_165": {
+    "ScrCmd_0A5": {
       "type": "script_cmd",
       "id": 165,
       "legacy_name": "CMD_165",
       "description": "nan",
       "params": []
     },
-    "DressPokemon": {
+    "ScrCmd_0A6": {
       "type": "script_cmd",
       "id": 166,
       "legacy_name": "DressPokemon",
@@ -2357,7 +2357,7 @@
         }
       ]
     },
-    "DisplayContestPokemon": {
+    "ScrCmd_0A8": {
       "type": "script_cmd",
       "id": 168,
       "legacy_name": "DisplayContestPokemon",
@@ -2399,28 +2399,28 @@
         }
       ]
     },
-    "DrawUnion": {
+    "ScrCmd_0AC": {
       "type": "script_cmd",
       "id": 172,
       "legacy_name": "DrawUnion",
       "description": "nan",
       "params": []
     },
-    "TrainerCaseUnion": {
+    "ScrCmd_0AD": {
       "type": "script_cmd",
       "id": 173,
       "legacy_name": "TrainerCaseUnion",
       "description": "nan",
       "params": []
     },
-    "TradeUnion": {
+    "ScrCmd_0AE": {
       "type": "script_cmd",
       "id": 174,
       "legacy_name": "TradeUnion",
       "description": "nan",
       "params": []
     },
-    "RecordMixingUnion": {
+    "ScrCmd_0AF": {
       "type": "script_cmd",
       "id": 175,
       "legacy_name": "RecordMixingUnion",
@@ -2434,7 +2434,7 @@
       "description": "Opens the Hall of Fame and game ending screens",
       "params": []
     },
-    "CMD_177": {
+    "ScrCmd_0B1": {
       "type": "script_cmd",
       "id": 177,
       "legacy_name": "CMD_177",
@@ -2458,7 +2458,7 @@
         }
       ]
     },
-    "CMD_179": {
+    "ScrCmd_0B3": {
       "type": "script_cmd",
       "id": 179,
       "legacy_name": "CMD_179",
@@ -2484,7 +2484,7 @@
       "description": "Stores the selected starter Pok\u00e9mon in the save data and frees the Pok\u00e9mon selection screen resources",
       "params": []
     },
-    "CMD_182": {
+    "ScrCmd_0B6": {
       "type": "script_cmd",
       "id": 182,
       "legacy_name": "CMD_182",
@@ -2513,7 +2513,7 @@
         }
       ]
     },
-    "CMD_184": {
+    "ScrCmd_0B8": {
       "type": "script_cmd",
       "id": 184,
       "legacy_name": "CMD_184",
@@ -2543,7 +2543,7 @@
         }
       ]
     },
-    "ChoosePlayerName": {
+    "ScrCmd_Unused_0BA": {
       "type": "script_cmd",
       "id": 186,
       "legacy_name": "ChoosePlayerName",
@@ -2687,21 +2687,21 @@
         }
       ]
     },
-    "FlashAnimation": {
+    "ScrCmd_0C3": {
       "type": "script_cmd",
       "id": 195,
       "legacy_name": "FlashAnimation",
       "description": "Sets weather to 0 (sunny) and then updates the weather graphics",
       "params": []
     },
-    "DefogAnimation": {
+    "ScrCmd_0C4": {
       "type": "script_cmd",
       "id": 196,
       "legacy_name": "DefogAnimation",
       "description": "Sets weather to 0 (sunny) and then updates the weather graphics",
       "params": []
     },
-    "CutAnimation": {
+    "ScrCmd_0C5": {
       "type": "script_cmd",
       "id": 197,
       "legacy_name": "CutAnimation",
@@ -3367,7 +3367,7 @@
         }
       ]
     },
-    "CMD_244": {
+    "ScrCmd_Unused_0F4": {
       "type": "script_cmd",
       "id": 244,
       "legacy_name": "CMD_244",
@@ -3379,7 +3379,7 @@
         }
       ]
     },
-    "CMD_245": {
+    "ScrCmd_Unused_0F5": {
       "type": "script_cmd",
       "id": 245,
       "legacy_name": "CMD_245",
@@ -3398,7 +3398,7 @@
       "description": "nan",
       "params": []
     },
-    "PokemonContest": {
+    "ScrCmd_Unused_0F7": {
       "type": "script_cmd",
       "id": 247,
       "legacy_name": "PokemonContest",
@@ -4044,14 +4044,14 @@
       "description": "Starts the honey tree wild encounter",
       "params": []
     },
-    "StopHoneyTreeAnimation": {
+    "ScrCmd_12A": {
       "type": "script_cmd",
       "id": 298,
       "legacy_name": "StopHoneyTreeAnimation",
       "description": "Removes the honey tree 3D animation",
       "params": []
     },
-    "SignatureScreen": {
+    "ScrCmd_12B": {
       "type": "script_cmd",
       "id": 299,
       "legacy_name": "SignatureScreen",
@@ -4130,7 +4130,7 @@
         }
       ]
     },
-    "GivePoketch": {
+    "ScrCmd_131": {
       "type": "script_cmd",
       "id": 305,
       "legacy_name": "GivePoketch",
@@ -4179,7 +4179,7 @@
         }
       ]
     },
-    "CMD_309": {
+    "ScrCmd_135": {
       "type": "script_cmd",
       "id": 309,
       "legacy_name": "CMD_309",
@@ -4198,7 +4198,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_311": {
+    "ScrCmd_Unused_137": {
       "type": "script_cmd",
       "id": 311,
       "legacy_name": "CMD_311",
@@ -4210,7 +4210,7 @@
         }
       ]
     },
-    "CMD_312": {
+    "ScrCmd_138": {
       "type": "script_cmd",
       "id": 312,
       "legacy_name": "CMD_312",
@@ -4222,7 +4222,7 @@
         }
       ]
     },
-    "CMD_313": {
+    "ScrCmd_139": {
       "type": "script_cmd",
       "id": 313,
       "legacy_name": "CMD_313",
@@ -4234,21 +4234,21 @@
         }
       ]
     },
-    "CMD_314": {
+    "ScrCmd_13A": {
       "type": "script_cmd",
       "id": 314,
       "legacy_name": "CMD_314",
       "description": "nan",
       "params": []
     },
-    "CMD_315": {
+    "ScrCmd_13B": {
       "type": "script_cmd",
       "id": 315,
       "legacy_name": "CMD_315",
       "description": "nan",
       "params": []
     },
-    "CMD_316": {
+    "ScrCmd_13C": {
       "type": "script_cmd",
       "id": 316,
       "legacy_name": "CMD_316",
@@ -4260,21 +4260,21 @@
         }
       ]
     },
-    "CMD_317": {
+    "ScrCmd_13D": {
       "type": "script_cmd",
       "id": 317,
       "legacy_name": "CMD_317",
       "description": "nan",
       "params": []
     },
-    "CMD_318": {
+    "ScrCmd_13E": {
       "type": "script_cmd",
       "id": 318,
       "legacy_name": "CMD_318",
       "description": "nan",
       "params": []
     },
-    "CMD_319": {
+    "ScrCmd_13F": {
       "type": "script_cmd",
       "id": 319,
       "legacy_name": "CMD_319",
@@ -4290,7 +4290,7 @@
         }
       ]
     },
-    "CMD_320": {
+    "ScrCmd_140": {
       "type": "script_cmd",
       "id": 320,
       "legacy_name": "CMD_320",
@@ -4302,7 +4302,7 @@
         }
       ]
     },
-    "CMD_321": {
+    "ScrCmd_141": {
       "type": "script_cmd",
       "id": 321,
       "legacy_name": "CMD_321",
@@ -4314,14 +4314,14 @@
         }
       ]
     },
-    "CMD_322": {
+    "ScrCmd_142": {
       "type": "script_cmd",
       "id": 322,
       "legacy_name": "CMD_322",
       "description": "nan",
       "params": []
     },
-    "CMD_323": {
+    "ScrCmd_143": {
       "type": "script_cmd",
       "id": 323,
       "legacy_name": "CMD_323",
@@ -4337,7 +4337,7 @@
         }
       ]
     },
-    "CMD_324": {
+    "ScrCmd_144": {
       "type": "script_cmd",
       "id": 324,
       "legacy_name": "CMD_324",
@@ -4349,7 +4349,7 @@
         }
       ]
     },
-    "CMD_325": {
+    "ScrCmd_145": {
       "type": "script_cmd",
       "id": 325,
       "legacy_name": "CMD_325",
@@ -4361,7 +4361,7 @@
         }
       ]
     },
-    "CMD_326": {
+    "ScrCmd_146": {
       "type": "script_cmd",
       "id": 326,
       "legacy_name": "CMD_326",
@@ -4465,7 +4465,7 @@
       "description": "Heals every Pok\u00e9mon in the player's party",
       "params": []
     },
-    "ScrCmd_14F": {
+    "Dummy14F": {
       "type": "script_cmd",
       "id": 335,
       "legacy_name": "DummyUnderground",
@@ -4479,7 +4479,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_337": {
+    "ScrCmd_151": {
       "type": "script_cmd",
       "id": 337,
       "legacy_name": "CMD_337",
@@ -4498,7 +4498,7 @@
         }
       ]
     },
-    "CMD_339": {
+    "ScrCmd_153": {
       "type": "script_cmd",
       "id": 339,
       "legacy_name": "CMD_339",
@@ -4834,7 +4834,7 @@
       "description": "Initializes Hearthome Gym internal data and 3D model animations",
       "params": []
     },
-    "HearthomeGymLift": {
+    "ScrCmd_172": {
       "type": "script_cmd",
       "id": 370,
       "legacy_name": "HearthomeGymLift",
@@ -5199,7 +5199,7 @@
         }
       ]
     },
-    "SetOWDirection": {
+    "ScrCmd_18C": {
       "type": "script_cmd",
       "id": 396,
       "legacy_name": "SetOWDirection",
@@ -5434,7 +5434,7 @@
         }
       ]
     },
-    "CMD_414": {
+    "Dummy19E": {
       "type": "script_cmd",
       "id": 414,
       "legacy_name": "CMD_414",
@@ -5530,7 +5530,7 @@
         }
       ]
     },
-    "CMD_421": {
+    "Dummy1A5": {
       "type": "script_cmd",
       "id": 421,
       "legacy_name": "CMD_421",
@@ -5542,14 +5542,14 @@
         }
       ]
     },
-    "CMD_422": {
+    "Dummy1A6": {
       "type": "script_cmd",
       "id": 422,
       "legacy_name": "CMD_422",
       "description": "nan",
       "params": []
     },
-    "CMD_423": {
+    "Dummy1A7": {
       "type": "script_cmd",
       "id": 423,
       "legacy_name": "CMD_423",
@@ -5697,14 +5697,14 @@
         }
       ]
     },
-    "MailScreen": {
+    "ScrCmd_1B3": {
       "type": "script_cmd",
       "id": 435,
       "legacy_name": "MailScreen",
       "description": "Opens the mail screen",
       "params": []
     },
-    "CountMail": {
+    "ScrCmd_1B4": {
       "type": "script_cmd",
       "id": 436,
       "legacy_name": "CountMail",
@@ -6114,7 +6114,7 @@
         }
       ]
     },
-    "CMD_462": {
+    "ScrCmd_Unused_1CE": {
       "type": "script_cmd",
       "id": 462,
       "legacy_name": "CMD_462",
@@ -6284,7 +6284,7 @@
         }
       ]
     },
-    "CMD_468": {
+    "ScrCmd_Unused_1D4": {
       "type": "script_cmd",
       "id": 468,
       "legacy_name": "CMD_468",
@@ -6333,7 +6333,7 @@
         }
       ]
     },
-    "CMD_471": {
+    "ScrCmd_1D7": {
       "type": "script_cmd",
       "id": 471,
       "legacy_name": "CMD_471",
@@ -6345,7 +6345,7 @@
         }
       ]
     },
-    "CMD_472": {
+    "ScrCmd_1D8": {
       "type": "script_cmd",
       "id": 472,
       "legacy_name": "CMD_472",
@@ -6357,7 +6357,7 @@
         }
       ]
     },
-    "CMD_473": {
+    "ScrCmd_1D9": {
       "type": "script_cmd",
       "id": 473,
       "legacy_name": "CMD_473",
@@ -6448,7 +6448,7 @@
         }
       ]
     },
-    "CMD_479": {
+    "ScrCmd_1DF": {
       "type": "script_cmd",
       "id": 479,
       "legacy_name": "CMD_479",
@@ -6460,7 +6460,7 @@
         }
       ]
     },
-    "CMD_480": {
+    "ScrCmd_1E0": {
       "type": "script_cmd",
       "id": 480,
       "legacy_name": "CMD_480",
@@ -6472,7 +6472,7 @@
         }
       ]
     },
-    "CMD_481": {
+    "ScrCmd_1E1": {
       "type": "script_cmd",
       "id": 481,
       "legacy_name": "CMD_481",
@@ -6492,7 +6492,7 @@
         }
       ]
     },
-    "CMD_482": {
+    "ScrCmd_1E2": {
       "type": "script_cmd",
       "id": 482,
       "legacy_name": "CMD_482",
@@ -6508,7 +6508,7 @@
         }
       ]
     },
-    "CMD_483": {
+    "ScrCmd_1E3": {
       "type": "script_cmd",
       "id": 483,
       "legacy_name": "CMD_483",
@@ -6524,7 +6524,7 @@
         }
       ]
     },
-    "CMD_484": {
+    "ScrCmd_1E4": {
       "type": "script_cmd",
       "id": 484,
       "legacy_name": "CMD_484",
@@ -6548,7 +6548,7 @@
         }
       ]
     },
-    "CMD_486": {
+    "ScrCmd_Unused_1E6": {
       "type": "script_cmd",
       "id": 486,
       "legacy_name": "CMD_486",
@@ -6568,7 +6568,7 @@
         }
       ]
     },
-    "CMD_487": {
+    "ScrCmd_Unused_1E7": {
       "type": "script_cmd",
       "id": 487,
       "legacy_name": "CMD_487",
@@ -6668,7 +6668,7 @@
         }
       ]
     },
-    "CMD_495": {
+    "ScrCmd_Unused_1EF": {
       "type": "script_cmd",
       "id": 495,
       "legacy_name": "CMD_495",
@@ -6705,14 +6705,14 @@
         }
       ]
     },
-    "CMD_498": {
+    "ScrCmd_Dummy_1F2": {
       "type": "script_cmd",
       "id": 498,
       "legacy_name": "CMD_498",
       "description": "Does absolutely nothing.",
       "params": []
     },
-    "CMD_499": {
+    "ScrCmd_Dummy_1F3": {
       "type": "script_cmd",
       "id": 499,
       "legacy_name": "CMD_499",
@@ -6964,7 +6964,7 @@
         }
       ]
     },
-    "BattleRoomWarp": {
+    "ScrCmd_203": {
       "type": "script_cmd",
       "id": 515,
       "legacy_name": "BattleRoomWarp",
@@ -6992,14 +6992,14 @@
         }
       ]
     },
-    "ExitBattleRoom": {
+    "ScrCmd_204": {
       "type": "script_cmd",
       "id": 516,
       "legacy_name": "ExitBattleRoom",
       "description": "Returns to previous map once wireless communication ends",
       "params": []
     },
-    "GeonetScreen": {
+    "ScrCmd_205": {
       "type": "script_cmd",
       "id": 517,
       "legacy_name": "GeonetScreen",
@@ -7049,7 +7049,7 @@
       "description": "Hides the window of a Pok\u00e9mon picture",
       "params": []
     },
-    "CMD_522": {
+    "ScrCmd_20A": {
       "type": "script_cmd",
       "id": 522,
       "legacy_name": "CMD_522",
@@ -7061,7 +7061,7 @@
         }
       ]
     },
-    "CMD_523": {
+    "ScrCmd_20B": {
       "type": "script_cmd",
       "id": 523,
       "legacy_name": "CMD_523",
@@ -7075,7 +7075,7 @@
       "description": "nan",
       "params": []
     },
-    "SpearPillarSequence": {
+    "ScrCmd_20D": {
       "type": "script_cmd",
       "id": 525,
       "legacy_name": "SpearPillarSequence",
@@ -7283,7 +7283,7 @@
         }
       ]
     },
-    "UnionGroup": {
+    "ScrCmd_21D": {
       "type": "script_cmd",
       "id": 541,
       "legacy_name": "UnionGroup",
@@ -7401,7 +7401,7 @@
         }
       ]
     },
-    "CMD_542": {
+    "Dummy21E": {
       "type": "script_cmd",
       "id": 542,
       "legacy_name": "CMD_542",
@@ -7425,7 +7425,7 @@
         }
       ]
     },
-    "CMD_544": {
+    "ScrCmd_220": {
       "type": "script_cmd",
       "id": 544,
       "legacy_name": "CMD_544",
@@ -7550,7 +7550,7 @@
       "description": "Frees the current trade data from the memory",
       "params": []
     },
-    "ActivateInternationalDex": {
+    "ScrCmd_22B": {
       "type": "script_cmd",
       "id": 555,
       "legacy_name": "ActivateInternationalDex",
@@ -7817,7 +7817,7 @@
         }
       ]
     },
-    "CMD_566": {
+    "ScrCmd_236": {
       "type": "script_cmd",
       "id": 566,
       "legacy_name": "CMD_566",
@@ -7870,7 +7870,7 @@
         }
       ]
     },
-    "ShowRulesList": {
+    "ScrCmd_239": {
       "type": "script_cmd",
       "id": 569,
       "legacy_name": "ShowRulesList",
@@ -8084,28 +8084,28 @@
         }
       ]
     },
-    "CMD_575": {
+    "Dummy23F": {
       "type": "script_cmd",
       "id": 575,
       "legacy_name": "CMD_575",
       "description": "nan",
       "params": []
     },
-    "CMD_576": {
+    "Dummy240": {
       "type": "script_cmd",
       "id": 576,
       "legacy_name": "CMD_576",
       "description": "nan",
       "params": []
     },
-    "CMD_577": {
+    "Dummy241": {
       "type": "script_cmd",
       "id": 577,
       "legacy_name": "CMD_577",
       "description": "nan",
       "params": []
     },
-    "CMD_578": {
+    "Dummy242": {
       "type": "script_cmd",
       "id": 578,
       "legacy_name": "CMD_578",
@@ -8425,14 +8425,14 @@
       "description": "nan",
       "params": []
     },
-    "CMD_600": {
+    "ScrCmd_258": {
       "type": "script_cmd",
       "id": 600,
       "legacy_name": "CMD_600",
       "description": "nan",
       "params": []
     },
-    "CMD_601": {
+    "ScrCmd_259": {
       "type": "script_cmd",
       "id": 601,
       "legacy_name": "CMD_601",
@@ -8576,7 +8576,7 @@
       "description": "nan",
       "params": []
     },
-    "SlotMachine": {
+    "ScrCmd_267": {
       "type": "script_cmd",
       "id": 615,
       "legacy_name": "SlotMachine",
@@ -8722,7 +8722,7 @@
         }
       ]
     },
-    "WriteStone": {
+    "ScrCmd_271": {
       "type": "script_cmd",
       "id": 625,
       "legacy_name": "WriteStone",
@@ -8829,7 +8829,7 @@
         }
       ]
     },
-    "CMD_633": {
+    "ScrCmd_RemoveAccessory": {
       "type": "script_cmd",
       "id": 633,
       "legacy_name": "CMD_633",
@@ -8845,7 +8845,7 @@
         }
       ]
     },
-    "SunyshoreBinoculars": {
+    "ScrCmd_27A": {
       "type": "script_cmd",
       "id": 634,
       "legacy_name": "SunyshoreBinoculars",
@@ -8859,7 +8859,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_636": {
+    "ScrCmd_27C": {
       "type": "script_cmd",
       "id": 636,
       "legacy_name": "CMD_636",
@@ -8875,7 +8875,7 @@
         }
       ]
     },
-    "CMD_637": {
+    "ScrCmd_27D": {
       "type": "script_cmd",
       "id": 637,
       "legacy_name": "CMD_637",
@@ -8904,7 +8904,7 @@
         }
       ]
     },
-    "CMD_639": {
+    "ScrCmd_27F": {
       "type": "script_cmd",
       "id": 639,
       "legacy_name": "CMD_639",
@@ -9137,14 +9137,14 @@
         }
       ]
     },
-    "CMD_653": {
+    "ScrCmd_28D": {
       "type": "script_cmd",
       "id": 653,
       "legacy_name": "CMD_653",
       "description": "nan",
       "params": []
     },
-    "CMD_654": {
+    "ScrCmd_28E": {
       "type": "script_cmd",
       "id": 654,
       "legacy_name": "CMD_654",
@@ -9180,7 +9180,7 @@
         }
       ]
     },
-    "CMD_657": {
+    "ScrCmd_291": {
       "type": "script_cmd",
       "id": 657,
       "legacy_name": "CMD_657",
@@ -9256,7 +9256,7 @@
       "description": "nan",
       "params": []
     },
-    "GetBP": {
+    "ScrCmd_297": {
       "type": "script_cmd",
       "id": 663,
       "legacy_name": "GetBP",
@@ -9268,7 +9268,7 @@
         }
       ]
     },
-    "AddBP": {
+    "ScrCmd_298": {
       "type": "script_cmd",
       "id": 664,
       "legacy_name": "AddBP",
@@ -9280,7 +9280,7 @@
         }
       ]
     },
-    "SubBP": {
+    "ScrCmd_299": {
       "type": "script_cmd",
       "id": 665,
       "legacy_name": "SubBP",
@@ -9292,7 +9292,7 @@
         }
       ]
     },
-    "CompareBP": {
+    "ScrCmd_29A": {
       "type": "script_cmd",
       "id": 666,
       "legacy_name": "CompareBP",
@@ -9308,7 +9308,7 @@
         }
       ]
     },
-    "CMD_667": {
+    "ScrCmd_29B": {
       "type": "script_cmd",
       "id": 667,
       "legacy_name": "CMD_667",
@@ -9365,7 +9365,7 @@
         }
       ]
     },
-    "CMD_670": {
+    "ScrCmd_29E": {
       "type": "script_cmd",
       "id": 670,
       "legacy_name": "CMD_670",
@@ -9381,7 +9381,7 @@
         }
       ]
     },
-    "ShakeCamera": {
+    "ScrCmd_29F": {
       "type": "script_cmd",
       "id": 671,
       "legacy_name": "ShakeCamera",
@@ -9413,7 +9413,7 @@
         }
       ]
     },
-    "CMD_673": {
+    "ScrCmd_Unused_2A1": {
       "type": "script_cmd",
       "id": 673,
       "legacy_name": "CMD_673",
@@ -9445,7 +9445,7 @@
         }
       ]
     },
-    "CMD_675": {
+    "ScrCmd_2A3": {
       "type": "script_cmd",
       "id": 675,
       "legacy_name": "CMD_675",
@@ -9457,7 +9457,7 @@
         }
       ]
     },
-    "CMD_676": {
+    "ScrCmd_2A4": {
       "type": "script_cmd",
       "id": 676,
       "legacy_name": "CMD_676",
@@ -9570,7 +9570,7 @@
         }
       ]
     },
-    "CMD_683": {
+    "ScrCmd_2AB": {
       "type": "script_cmd",
       "id": 683,
       "legacy_name": "CMD_683",
@@ -9623,7 +9623,7 @@
         }
       ]
     },
-    "CMD_687": {
+    "ScrCmd_2AF": {
       "type": "script_cmd",
       "id": 687,
       "legacy_name": "CMD_687",
@@ -9635,7 +9635,7 @@
         }
       ]
     },
-    "CMD_688": {
+    "ScrCmd_2B0": {
       "type": "script_cmd",
       "id": 688,
       "legacy_name": "CMD_688",
@@ -9649,7 +9649,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_690": {
+    "ScrCmd_2B2": {
       "type": "script_cmd",
       "id": 690,
       "legacy_name": "CMD_690",
@@ -9679,7 +9679,7 @@
       "description": "this is unused, but the underlying function is called from LockAll",
       "params": []
     },
-    "CMD_693": {
+    "ScrCmd_2B5": {
       "type": "script_cmd",
       "id": 693,
       "legacy_name": "CMD_693",
@@ -9699,7 +9699,7 @@
         }
       ]
     },
-    "CMD_694": {
+    "ScrCmd_2B6": {
       "type": "script_cmd",
       "id": 694,
       "legacy_name": "CMD_694",
@@ -9728,7 +9728,7 @@
         }
       ]
     },
-    "CMD_696": {
+    "ScrCmd_2B8": {
       "type": "script_cmd",
       "id": 696,
       "legacy_name": "CMD_696",
@@ -9747,7 +9747,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_698": {
+    "ScrCmd_2BA": {
       "type": "script_cmd",
       "id": 698,
       "legacy_name": "CMD_698",
@@ -9759,7 +9759,7 @@
         }
       ]
     },
-    "CMD_699": {
+    "ScrCmd_2BB": {
       "type": "script_cmd",
       "id": 699,
       "legacy_name": "CMD_699",
@@ -9841,7 +9841,7 @@
       "description": "Hides the save data box",
       "params": []
     },
-    "ScopeMode": {
+    "ScrCmd_Unused_2C3": {
       "type": "script_cmd",
       "id": 707,
       "legacy_name": "ScopeMode",
@@ -9853,7 +9853,7 @@
         }
       ]
     },
-    "CMD_708": {
+    "ScrCmd_2C4": {
       "type": "script_cmd",
       "id": 708,
       "legacy_name": "CMD_708",
@@ -9865,7 +9865,7 @@
         }
       ]
     },
-    "CMD_709": {
+    "ScrCmd_2C5": {
       "type": "script_cmd",
       "id": 709,
       "legacy_name": "CMD_709",
@@ -9881,14 +9881,14 @@
         }
       ]
     },
-    "SpinTradeScreen": {
+    "ScrCmd_2C6": {
       "type": "script_cmd",
       "id": 710,
       "legacy_name": "SpinTradeScreen",
       "description": "Starts the Spin Trade screen.",
       "params": []
     },
-    "CMD_711": {
+    "ScrCmd_2C7": {
       "type": "script_cmd",
       "id": 711,
       "legacy_name": "CMD_711",
@@ -9951,7 +9951,7 @@
         }
       ]
     },
-    "CMD_716": {
+    "ScrCmd_2CC": {
       "type": "script_cmd",
       "id": 716,
       "legacy_name": "CMD_716",
@@ -9971,14 +9971,14 @@
         }
       ]
     },
-    "SetDarkFog": {
+    "ScrCmd_2CD": {
       "type": "script_cmd",
       "id": 717,
       "legacy_name": "SetDarkFog",
       "description": "Sets weather #26 to the current map",
       "params": []
     },
-    "ClearDarkFog": {
+    "ScrCmd_Unused_2CE": {
       "type": "script_cmd",
       "id": 718,
       "legacy_name": "ClearDarkFog",
@@ -10017,7 +10017,7 @@
         }
       ]
     },
-    "CMD_721": {
+    "ScrCmd_2D1": {
       "type": "script_cmd",
       "id": 721,
       "legacy_name": "CMD_721",
@@ -10029,7 +10029,7 @@
         }
       ]
     },
-    "CMD_722": {
+    "ScrCmd_2D2": {
       "type": "script_cmd",
       "id": 722,
       "legacy_name": "CMD_722",
@@ -10049,7 +10049,7 @@
         }
       ]
     },
-    "CMD_723": {
+    "ScrCmd_2D3": {
       "type": "script_cmd",
       "id": 723,
       "legacy_name": "CMD_723",
@@ -10069,7 +10069,7 @@
         }
       ]
     },
-    "CMD_724": {
+    "ScrCmd_2D4": {
       "type": "script_cmd",
       "id": 724,
       "legacy_name": "CMD_724",
@@ -10089,7 +10089,7 @@
         }
       ]
     },
-    "CMD_725": {
+    "ScrCmd_2D5": {
       "type": "script_cmd",
       "id": 725,
       "legacy_name": "CMD_725",
@@ -10133,7 +10133,7 @@
         }
       ]
     },
-    "CMD_729": {
+    "ScrCmd_2D9": {
       "type": "script_cmd",
       "id": 729,
       "legacy_name": "CMD_729",
@@ -10153,7 +10153,7 @@
         }
       ]
     },
-    "CMD_730": {
+    "ScrCmd_2DA": {
       "type": "script_cmd",
       "id": 730,
       "legacy_name": "CMD_730",
@@ -10173,7 +10173,7 @@
         }
       ]
     },
-    "CMD_731": {
+    "ScrCmd_2DB": {
       "type": "script_cmd",
       "id": 731,
       "legacy_name": "CMD_731",
@@ -10193,7 +10193,7 @@
         }
       ]
     },
-    "CMD_732": {
+    "ScrCmd_2DC": {
       "type": "script_cmd",
       "id": 732,
       "legacy_name": "CMD_732",
@@ -10295,21 +10295,21 @@
         }
       ]
     },
-    "ScratchOffScreen": {
+    "ScrCmd_2E2": {
       "type": "script_cmd",
       "id": 738,
       "legacy_name": "ScratchOffScreen",
       "description": "Loads and displays Scratch-off card interface.",
       "params": []
     },
-    "ReleaseScriptApp": {
+    "ScrCmd_2E3": {
       "type": "script_cmd",
       "id": 739,
       "legacy_name": "ReleaseScriptApp",
       "description": "Releases resources that were previously allocated by a script command that runs an app.",
       "params": []
     },
-    "CMD_740": {
+    "ScrCmd_2E4": {
       "type": "script_cmd",
       "id": 740,
       "legacy_name": "CMD_740",
@@ -10526,7 +10526,7 @@
       "description": "Initializes Villa internal data and 3D model animations",
       "params": []
     },
-    "ChangePokemonForm": {
+    "ScrCmd_2F1": {
       "type": "script_cmd",
       "id": 753,
       "legacy_name": "ChangePokemonForm",
@@ -10565,7 +10565,7 @@
         }
       ]
     },
-    "CMD_756": {
+    "ScrCmd_2F4": {
       "type": "script_cmd",
       "id": 756,
       "legacy_name": "CMD_756",
@@ -10613,7 +10613,7 @@
         }
       ]
     },
-    "CMD_758": {
+    "ScrCmd_2F6": {
       "type": "script_cmd",
       "id": 758,
       "legacy_name": "CMD_758",
@@ -10633,7 +10633,7 @@
         }
       ]
     },
-    "CMD_759": {
+    "ScrCmd_2F7": {
       "type": "script_cmd",
       "id": 759,
       "legacy_name": "CMD_759",
@@ -10677,14 +10677,14 @@
         }
       ]
     },
-    "SpearPillarSequence2": {
+    "ScrCmd_2FB": {
       "type": "script_cmd",
       "id": 763,
       "legacy_name": "SpearPillarSequence2",
       "description": "Starts part 2 of the Spear Pillar Sequence (Giratina Cutscene)",
       "params": []
     },
-    "CMD_764": {
+    "ScrCmd_2FC": {
       "type": "script_cmd",
       "id": 764,
       "legacy_name": "CMD_764",
@@ -10746,14 +10746,14 @@
         }
       ]
     },
-    "CMD_768": {
+    "ScrCmd_300": {
       "type": "script_cmd",
       "id": 768,
       "legacy_name": "CMD_768",
       "description": "nan",
       "params": []
     },
-    "CMD_769": {
+    "ScrCmd_301": {
       "type": "script_cmd",
       "id": 769,
       "legacy_name": "CMD_769",
@@ -10922,21 +10922,21 @@
         }
       ]
     },
-    "CMD_779": {
+    "ScrCmd_30B": {
       "type": "script_cmd",
       "id": 779,
       "legacy_name": "CMD_779",
       "description": "nan",
       "params": []
     },
-    "CMD_780": {
+    "ScrCmd_30C": {
       "type": "script_cmd",
       "id": 780,
       "legacy_name": "CMD_780",
       "description": "nan",
       "params": []
     },
-    "CMD_781": {
+    "ScrCmd_30D": {
       "type": "script_cmd",
       "id": 781,
       "legacy_name": "CMD_781",
@@ -10948,7 +10948,7 @@
         }
       ]
     },
-    "CMD_782": {
+    "ScrCmd_30E": {
       "type": "script_cmd",
       "id": 782,
       "legacy_name": "CMD_782",
@@ -10960,7 +10960,7 @@
         }
       ]
     },
-    "CMD_783": {
+    "ScrCmd_30F": {
       "type": "script_cmd",
       "id": 783,
       "legacy_name": "CMD_783",
@@ -11045,7 +11045,7 @@
         }
       ]
     },
-    "CMD_790": {
+    "Dummy316": {
       "type": "script_cmd",
       "id": 790,
       "legacy_name": "CMD_790",
@@ -11146,7 +11146,7 @@
         }
       ]
     },
-    "CMD_797": {
+    "ScrCmd_31D": {
       "type": "script_cmd",
       "id": 797,
       "legacy_name": "CMD_797",
@@ -11208,7 +11208,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_803": {
+    "ScrCmd_323": {
       "type": "script_cmd",
       "id": 803,
       "legacy_name": "CMD_803",
@@ -11300,7 +11300,7 @@
         }
       ]
     },
-    "CMD_809": {
+    "ScrCmd_329": {
       "type": "script_cmd",
       "id": 809,
       "legacy_name": "CMD_809",
@@ -11324,7 +11324,7 @@
         }
       ]
     },
-    "CMD_810": {
+    "ScrCmd_32A": {
       "type": "script_cmd",
       "id": 810,
       "legacy_name": "CMD_810",
@@ -11374,14 +11374,14 @@
         }
       ]
     },
-    "CMD_813": {
+    "ScrCmd_32D": {
       "type": "script_cmd",
       "id": 813,
       "legacy_name": "CMD_813",
       "description": "nan",
       "params": []
     },
-    "CMD_814": {
+    "ScrCmd_32E": {
       "type": "script_cmd",
       "id": 814,
       "legacy_name": "CMD_814",
@@ -11412,21 +11412,21 @@
       "description": "nan",
       "params": []
     },
-    "CMD_817": {
+    "ScrCmd_331": {
       "type": "script_cmd",
       "id": 817,
       "legacy_name": "CMD_817",
       "description": "nan",
       "params": []
     },
-    "CMD_818": {
+    "ScrCmd_332": {
       "type": "script_cmd",
       "id": 818,
       "legacy_name": "CMD_818",
       "description": "nan",
       "params": []
     },
-    "SetFieldVolume": {
+    "ScrCmd_333": {
       "type": "script_cmd",
       "id": 819,
       "legacy_name": "SetFieldVolume",
@@ -11470,7 +11470,7 @@
         }
       ]
     },
-    "CMD_822": {
+    "ScrCmd_336": {
       "type": "script_cmd",
       "id": 822,
       "legacy_name": "CMD_822",
@@ -11498,14 +11498,14 @@
         }
       ]
     },
-    "CMD_824": {
+    "ScrCmd_338": {
       "type": "script_cmd",
       "id": 824,
       "legacy_name": "CMD_824",
       "description": "nan",
       "params": []
     },
-    "CMD_825": {
+    "ScrCmd_339": {
       "type": "script_cmd",
       "id": 825,
       "legacy_name": "CMD_825",

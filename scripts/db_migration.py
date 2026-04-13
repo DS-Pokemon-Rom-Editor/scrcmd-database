@@ -46,30 +46,11 @@ def map_semantic_type(legacy_type: str, size: int) -> str:
 
     return "u16"  # Fallback
 
-
-def is_placeholder_name(name: str) -> bool:
-    """Check if a name is a placeholder (like ScrCmd_21D, scrcmd_465, or contains Unused)."""
-    if not name:
-        return True
-
-    # Check for "Unused" in name
-    if "unused" in name.lower():
-        return True
-
-    # Match patterns like ScrCmd_XXX, scrcmd_XXX, Dummy_XXX
-    return bool(re.match(r"^(ScrCmd_|scrcmd_|Dummy)\w+$", name, re.IGNORECASE))
-
-
 def get_best_name(data: dict) -> str:
-    """Get the best name for a command, preferring meaningful names over placeholders."""
+    """Get the best name for a command, preferring the decomp name when present."""
     decomp_name = data.get("decomp_name", "")
     legacy_name = data.get("name", "")
 
-    # If decomp_name is a placeholder but legacy_name isn't, use legacy_name
-    if is_placeholder_name(decomp_name) and not is_placeholder_name(legacy_name):
-        return legacy_name
-
-    # Otherwise prefer decomp_name
     if decomp_name:
         return decomp_name
 

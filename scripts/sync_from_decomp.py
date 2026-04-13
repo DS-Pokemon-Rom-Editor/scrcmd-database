@@ -138,22 +138,6 @@ class RawMacroDefinition:
     description: str | None = None
 
 
-def is_placeholder_name(name: str) -> bool:
-    """Check if a name is a placeholder (like ScrCmd_21D, scrcmd_465, ScrCmd_Unused_XXX).
-
-    NOTE: Names like TrySetUnusedUndergroundField are NOT placeholders - they are
-    descriptive names where "Unused" is part of the description (the field itself is unused).
-    We only filter placeholder patterns like ScrCmd_Unused_XXX where the name format indicates
-    the command itself hasn't been properly identified yet.
-    """
-    if not name:
-        return True
-
-    # Match patterns like ScrCmd_XXX, scrcmd_XXX, Dummy_XXX, CMD_XXX
-    # This includes ScrCmd_Unused_XXX patterns naturally
-    return bool(re.match(r"^(ScrCmd_|scrcmd_|Dummy|CMD_)\w+$", name, re.IGNORECASE))
-
-
 @lru_cache(maxsize=None)
 def fetch_url(url: str) -> str | None:
     """Fetch content from URL, return None on error."""
@@ -2037,14 +2021,12 @@ def build_canonical_name_by_opcode(
     canonical: dict[int, str] = {}
 
     for name, macro in decomp_macros.items():
-        if is_placeholder_name(name) or macro.is_wrapper or len(macro.opcodes) != 1:
+        if macro.is_wrapper or len(macro.opcodes) != 1:
             continue
         canonical.setdefault(macro.opcodes[0], name)
 
     if decomp_primitives:
         for name, (opcode, _params) in decomp_primitives.items():
-            if is_placeholder_name(name):
-                continue
             canonical.setdefault(opcode, name)
 
     return canonical
@@ -2083,9 +2065,7 @@ def repair_duplicate_command_ids(
 
         for stale_name in stale_names:
             stale_entry = commands.pop(stale_name)
-            if "legacy_name" not in canonical_entry and not is_placeholder_name(
-                stale_name
-            ):
+            if "legacy_name" not in canonical_entry:
                 canonical_entry["legacy_name"] = stale_entry.get(
                     "legacy_name", stale_name
                 )
@@ -2399,9 +2379,6 @@ def compare_macros_with_db(
     # First, check hidden primitives from comments (like SetHiddenLocation, CheckHasEnoughMonForCatchingShow)
     if decomp_primitives:
         for prim_name, (prim_opcode, prim_params) in decomp_primitives.items():
-            if is_placeholder_name(prim_name):
-                continue
-
             if prim_opcode in db_id_to_name:
                 db_name = db_id_to_name[prim_opcode]
                 if db_name != prim_name:
@@ -2459,9 +2436,6 @@ def compare_macros_with_db(
                 )
 
     for name, macro in decomp_macros.items():
-        if is_placeholder_name(name):
-            continue
-
         # Handle wrapper macros
         if macro.is_wrapper and macro.expansion:
             wrappers.append(
@@ -2830,10 +2804,6 @@ def update_db_from_sync(
         decomp_name = item["name"]
         decomp_opcode = item["decomp_opcode"]
 
-        # skip if decomp name is unused/placeholder
-        if is_placeholder_name(decomp_name):
-            continue
-
         current_name, match_mode = resolve_command_name_for_sync(
             commands,
             cmd_type,
@@ -2894,8 +2864,6 @@ def update_db_from_sync(
     # Handle missing (New Commands)
     for item in missing:
         name = item["name"]
-        if is_placeholder_name(name):
-            continue
 
         opcode = item["opcode"]
         current_name, _match_mode = resolve_command_name_for_sync(

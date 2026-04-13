@@ -9,6 +9,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from sync_from_decomp import (
     MacroExpansion,
     ParsedMacro,
+    build_canonical_name_by_opcode,
     build_id_to_name_map,
     compare_macros_with_db,
     detect_wrapper_macro,
@@ -929,6 +930,86 @@ def test_repair_duplicate_command_ids_keeps_canonical_decomp_name():
     print("  [PASS] Duplicate opcode entries collapse to canonical decomp names")
 
 
+def test_placeholder_decomp_names_are_renamed_into_db_keys():
+    """Placeholder decomp names should stay canonical instead of being skipped."""
+    db = {
+        "commands": {
+            "DummyTakeGoods": {
+                "type": "script_cmd",
+                "id": 0x84,
+                "description": "Legacy descriptive alias",
+                "params": [],
+            }
+        }
+    }
+    decomp_macros = {
+        "ScrCmd_084": ParsedMacro(name="ScrCmd_084", params=[], opcodes=[0x84]),
+    }
+
+    missing, extra, mismatched, wrappers, param_updates = compare_macros_with_db(
+        db, decomp_macros, "script_cmd"
+    )
+
+    assert missing == [], missing
+    assert extra == [], extra
+    assert wrappers == [], wrappers
+    assert param_updates == [], param_updates
+    assert len(mismatched) == 1, mismatched
+    assert mismatched[0]["name"] == "ScrCmd_084", mismatched
+    assert mismatched[0]["db_name"] == "DummyTakeGoods", mismatched
+
+    changes = update_db_from_sync(db, missing, mismatched, "script_cmd")
+
+    assert changes == 1, f"Expected 1 change, got {changes}"
+    assert "ScrCmd_084" in db["commands"], db["commands"]
+    assert "DummyTakeGoods" not in db["commands"], db["commands"]
+    assert db["commands"]["ScrCmd_084"]["legacy_name"] == "DummyTakeGoods", (
+        db["commands"]["ScrCmd_084"]
+    )
+
+    print("  [PASS] Placeholder decomp names remain canonical during sync")
+
+
+def test_repair_duplicate_command_ids_keeps_placeholder_canonical_name():
+    """Duplicate repair should preserve a placeholder decomp key when that is the canonical name."""
+    db = {
+        "commands": {
+            "ScrCmd_084": {
+                "type": "script_cmd",
+                "id": 0x84,
+                "description": "Imported from decomp: ScrCmd_084",
+                "params": [],
+            },
+            "DummyTakeGoods": {
+                "type": "script_cmd",
+                "id": 0x84,
+                "description": "Legacy descriptive alias",
+                "params": [],
+            },
+        }
+    }
+    decomp_macros = {
+        "ScrCmd_084": ParsedMacro(name="ScrCmd_084", params=[], opcodes=[0x84]),
+    }
+    canonical_name_by_opcode = build_canonical_name_by_opcode(decomp_macros)
+
+    removed = repair_duplicate_command_ids(
+        db, "script_cmd", canonical_name_by_opcode
+    )
+
+    assert removed == 1, f"Expected 1 duplicate removed, got {removed}"
+    assert "ScrCmd_084" in db["commands"], db["commands"]
+    assert "DummyTakeGoods" not in db["commands"], db["commands"]
+    assert db["commands"]["ScrCmd_084"]["legacy_name"] == "DummyTakeGoods", (
+        db["commands"]["ScrCmd_084"]
+    )
+    assert db["commands"]["ScrCmd_084"]["description"] == "Legacy descriptive alias", (
+        db["commands"]["ScrCmd_084"]
+    )
+
+    print("  [PASS] Duplicate repair preserves placeholder canonical keys")
+
+
 def test_recursive_macro_condition_becomes_variant():
     """Regression test: recursive macro conditions should be preserved as variants."""
     content = """
@@ -1059,6 +1140,8 @@ def run_all_tests():
     test_update_db_from_sync_prefers_opcode_owner_over_stale_mismatch_name()
     test_update_db_from_sync_preserves_cross_type_name_collisions_until_later_pass()
     test_repair_duplicate_command_ids_keeps_canonical_decomp_name()
+    test_placeholder_decomp_names_are_renamed_into_db_keys()
+    test_repair_duplicate_command_ids_keeps_placeholder_canonical_name()
     print()
 
     # Param parsing tests
