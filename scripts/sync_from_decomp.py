@@ -10,7 +10,6 @@ convenience macros for every `*_v2.json` file under the repo root and
 import json
 import os
 import re
-import subprocess
 import sys
 from dataclasses import dataclass, field
 from functools import lru_cache
@@ -33,6 +32,9 @@ DECOMP_SOURCES = {
 
 PLATINUM_SCRCMD_HEADER_URL = (
     "https://raw.githubusercontent.com/pret/pokeplatinum/main/include/data/scripts/scrcmd.h"
+)
+PLATINUM_MOVEMENT_ACTIONS_URL = (
+    "https://raw.githubusercontent.com/pret/pokeplatinum/main/generated/movement_actions.txt"
 )
 
 # Helper/utility macro names to skip (they don't emit actual script commands)
@@ -478,6 +480,25 @@ def get_platinum_scrcmd_symbol_table() -> dict[str, int] | None:
 
     mapping = parse_scrcmd_symbol_table(header_content)
     return mapping or None
+
+
+def parse_movement_action_table(movement_actions_content: str) -> dict[str, int]:
+    """
+    Parse pokeplatinum's movement actions list and build MOVEMENT_ACTION -> opcode order.
+
+    The first entry is opcode 0 and increments by 1.
+    """
+    symbol_to_opcode: dict[str, int] = {}
+    entry_pattern = re.compile(
+        r"^\s*(MOVEMENT_ACTION_[A-Z0-9_]+)\b",
+        re.MULTILINE,
+    )
+
+    for opcode, match in enumerate(entry_pattern.finditer(movement_actions_content)):
+        symbol = match.group(1)
+        symbol_to_opcode[symbol] = opcode
+
+    return symbol_to_opcode
 
 
 def _parse_opcode_token(
@@ -1358,58 +1379,22 @@ def parse_movement_inc(
 
 
 @lru_cache(maxsize=1)
-def get_movement_action_constants() -> dict[str, int]:
+def get_platinum_movement_action_constants() -> dict[str, int]:
     """
-    Fetch movement_actions.txt from decomp and use metang to build constant map.
+    Fetch and cache Platinum's movement action table.
 
     Returns dict of MOVEMENT_ACTION_* constant name -> numeric value.
     """
-    constants = {
-        "MOVEMENT_ACTION_END": 254,
-        "MOVEMENT_ACTION_NONE": 255,
-    }
+    content = fetch_url(PLATINUM_MOVEMENT_ACTIONS_URL)
+    if not content:
+        return {
+            "MOVEMENT_ACTION_END": 254,
+            "MOVEMENT_ACTION_NONE": 255,
+        }
 
-    try:
-        # Fetch movement_actions.txt from decomp
-        url = "https://raw.githubusercontent.com/pret/pokeplatinum/main/generated/movement_actions.txt"
-        with urlopen(url, timeout=10) as response:
-            content = response.read().decode("utf-8")
-
-        # Run metang to generate Python enum using stdin
-        metang_path = Path(__file__).parent.parent / "metang" / "metang.py"
-        result = subprocess.run(
-            [
-                "python",
-                str(metang_path),
-                "enum",
-                "-",
-                "-L",
-                "py",
-                "-t",
-                "MOVEMENT_ACTION",
-            ],
-            input=content,
-            capture_output=True,
-            text=True,
-            cwd=str(Path(__file__).parent.parent / "metang"),
-        )
-
-        if result.returncode != 0:
-            return constants
-
-        # Parse the generated enum
-        enum_code = result.stdout
-
-        # Extract constant values using regex
-        pattern = r"(MOVEMENT_ACTION_\w+)\s*=\s*(\d+)"
-        for match in re.finditer(pattern, enum_code):
-            name = match.group(1)
-            value = int(match.group(2))
-            constants[name] = value
-
-    except Exception:
-        pass
-
+    constants = parse_movement_action_table(content)
+    constants.setdefault("MOVEMENT_ACTION_END", 254)
+    constants.setdefault("MOVEMENT_ACTION_NONE", 255)
     return constants
 
 
@@ -3370,8 +3355,11 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
         print("  Fetching movement.inc...")
         content = fetch_url(sources["movement"])
         if content:
-            # Fetch movement action constants for resolving opcodes
-            movement_constants = get_movement_action_constants()
+            movement_constants = (
+                get_platinum_movement_action_constants()
+                if version == "Platinum"
+                else None
+            )
             decomp_moves = parse_movement_inc(content, movement_constants)
             print(f"  Parsed {len(decomp_moves)} movements from decomp")
 

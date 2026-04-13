@@ -18,6 +18,8 @@ from sync_from_decomp import (
     extract_opcodes,
     format_expansion_line,
     infer_param_default,
+    parse_movement_action_table,
+    parse_movement_inc,
     parse_params,
     parse_scrcmd_inc,
     parse_scrcmd_symbol_table,
@@ -359,6 +361,61 @@ def test_parse_scrcmd_inc_with_symbolic_opcode():
     assert primitives == {}, f"Expected no primitives, got {primitives}"
 
     print("  [PASS] parse_scrcmd_inc symbolic opcode resolution")
+
+
+def test_parse_movement_action_table_uses_line_order():
+    """Platinum movement action constants should be derived from file order."""
+    content = """
+MOVEMENT_ACTION_FACE_NORTH
+MOVEMENT_ACTION_FACE_SOUTH
+MOVEMENT_ACTION_POKECENTER_NURSE_BOW
+MOVEMENT_ACTION_JUMP_DISTORTION_WORLD_WEST
+"""
+    mapping = parse_movement_action_table(content)
+
+    assert mapping["MOVEMENT_ACTION_FACE_NORTH"] == 0, mapping
+    assert mapping["MOVEMENT_ACTION_FACE_SOUTH"] == 1, mapping
+    assert mapping["MOVEMENT_ACTION_POKECENTER_NURSE_BOW"] == 2, mapping
+    assert mapping["MOVEMENT_ACTION_JUMP_DISTORTION_WORLD_WEST"] == 3, mapping
+
+    print("  [PASS] parse_movement_action_table indexed resolution")
+
+
+def test_parse_movement_inc_with_symbolic_platinum_movement_opcode():
+    """Platinum movement macros should resolve MOVEMENT_ACTION_* opcodes by table index."""
+    mapping = parse_movement_action_table(
+        """
+MOVEMENT_ACTION_FACE_NORTH
+MOVEMENT_ACTION_POKECENTER_NURSE_BOW
+MOVEMENT_ACTION_JUMP_DISTORTION_WORLD_WEST
+"""
+    )
+
+    content = r"""
+    .macro PokecenterNurseBow length=1
+    .short MOVEMENT_ACTION_POKECENTER_NURSE_BOW
+    .short \length
+    .endm
+
+    .macro JumpDistortionWorldWest length=1
+    .short MOVEMENT_ACTION_JUMP_DISTORTION_WORLD_WEST
+    .short \length
+    .endm
+"""
+    parsed = parse_movement_inc(content, mapping)
+
+    assert parsed["PokecenterNurseBow"][0] == 1, parsed["PokecenterNurseBow"]
+    assert parsed["JumpDistortionWorldWest"][0] == 2, (
+        parsed["JumpDistortionWorldWest"]
+    )
+    assert parsed["PokecenterNurseBow"][1][0].name == "length", (
+        parsed["PokecenterNurseBow"]
+    )
+    assert parsed["PokecenterNurseBow"][1][0].default == "1", (
+        parsed["PokecenterNurseBow"]
+    )
+
+    print("  [PASS] parse_movement_inc symbolic movement resolution")
 
 
 def test_parse_scrcmd_inc_extracts_preceding_comment_descriptions():
@@ -988,6 +1045,8 @@ def run_all_tests():
     test_parse_scrcmd_symbol_table_from_script_commands_header()
     test_extract_symbolic_opcode_and_first_opcode()
     test_parse_scrcmd_inc_with_symbolic_opcode()
+    test_parse_movement_action_table_uses_line_order()
+    test_parse_movement_inc_with_symbolic_platinum_movement_opcode()
     test_parse_scrcmd_inc_extracts_preceding_comment_descriptions()
     test_parse_scrcmd_inc_skips_unresolved_symbolic_opcode_instead_of_using_trailing_zero()
     test_parse_scrcmd_inc_skips_script_entry_end_helper_macro()

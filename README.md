@@ -172,14 +172,14 @@ decomp source yet.
 
 ### Dependencies
 
-The sync script uses [metang](https://github.com/lhearachel/metang) to resolve movement action constants from decomp projects. Metang is included as a git submodule:
+`sync_from_decomp.py` fetches Platinum's indexed command tables directly from the
+decomp:
 
-```bash
-# Initialize submodules after cloning
-git submodule update --init --recursive
-```
+- `include/data/scripts/scrcmd.h` for `SCRCMD_*` command IDs
+- `generated/movement_actions.txt` for `MOVEMENT_ACTION_*` movement IDs
 
-This allows the sync script to fetch `movement_actions.txt` from decomp and generate proper numeric opcodes for all movement commands.
+Both tables are resolved by entry order, so no extra tooling or submodules are
+required to sync symbolic Platinum opcodes.
 
 ## Data Sources
 

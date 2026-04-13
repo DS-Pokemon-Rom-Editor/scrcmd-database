@@ -13030,11 +13030,18 @@
         }
       ]
     },
-    "NurseJoyBow": {
+    "PokecenterNurseBow": {
       "type": "movement",
       "id": 100,
       "legacy_name": "NurseJoyBow",
-      "description": "Nurse Joy bows. Used in the Pok\u00e9mon Center."
+      "description": "Nurse Joy bows. Used in the Pok\u00e9mon Center.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "RevealTrainer": {
       "type": "movement",
@@ -13061,11 +13068,18 @@
         }
       ]
     },
-    "EmoteQuestionMark": {
+    "EmoteDoubleExclamationMark": {
       "type": "movement",
       "id": 103,
       "legacy_name": "EmoteDoubleExclamation",
-      "description": "Shows a double exclamation mark above the event's head."
+      "description": "Shows a double exclamation mark above the event's head.",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "PlayerReceive": {
       "type": "movement",
@@ -13079,11 +13093,18 @@
         }
       ]
     },
-    "EmoteExclamation2": {
+    "MoveAction_153": {
       "type": "movement",
       "id": 153,
       "legacy_name": "EmoteExclamation2",
-      "description": "Shows an exclamation mark above the event's head. Duplicate of EmoteExclamation (0x004B)."
+      "description": "Shows an exclamation mark above the event's head. Duplicate of EmoteExclamation (0x004B).",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
     },
     "EndMovement": {
       "type": "movement",
@@ -14679,6 +14700,582 @@
       "params": [],
       "expansion": [
         "CallCommonScript 0x809"
+      ]
+    },
+    "MoveAction_105": {
+      "type": "movement",
+      "id": 105,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_106": {
+      "type": "movement",
+      "id": 106,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_107": {
+      "type": "movement",
+      "id": 107,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_108": {
+      "type": "movement",
+      "id": 108,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_109": {
+      "type": "movement",
+      "id": 109,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_110": {
+      "type": "movement",
+      "id": 110,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_111": {
+      "type": "movement",
+      "id": 111,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_112": {
+      "type": "movement",
+      "id": 112,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_113": {
+      "type": "movement",
+      "id": 113,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_114": {
+      "type": "movement",
+      "id": 114,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_115": {
+      "type": "movement",
+      "id": 115,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_116": {
+      "type": "movement",
+      "id": 116,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "JumpDistortionWorldNorth": {
+      "type": "movement",
+      "id": 117,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "JumpDistortionWorldSouth": {
+      "type": "movement",
+      "id": 118,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "JumpDistortionWorldWest": {
+      "type": "movement",
+      "id": 119,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "JumpDistortionWorldEast": {
+      "type": "movement",
+      "id": 120,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_121": {
+      "type": "movement",
+      "id": 121,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_122": {
+      "type": "movement",
+      "id": 122,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_123": {
+      "type": "movement",
+      "id": 123,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_124": {
+      "type": "movement",
+      "id": 124,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_125": {
+      "type": "movement",
+      "id": 125,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_126": {
+      "type": "movement",
+      "id": 126,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_127": {
+      "type": "movement",
+      "id": 127,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_128": {
+      "type": "movement",
+      "id": 128,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_129": {
+      "type": "movement",
+      "id": 129,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_130": {
+      "type": "movement",
+      "id": 130,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_131": {
+      "type": "movement",
+      "id": 131,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_132": {
+      "type": "movement",
+      "id": 132,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_133": {
+      "type": "movement",
+      "id": 133,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_134": {
+      "type": "movement",
+      "id": 134,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_135": {
+      "type": "movement",
+      "id": 135,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_136": {
+      "type": "movement",
+      "id": 136,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_137": {
+      "type": "movement",
+      "id": 137,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_138": {
+      "type": "movement",
+      "id": 138,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_139": {
+      "type": "movement",
+      "id": 139,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_140": {
+      "type": "movement",
+      "id": 140,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_141": {
+      "type": "movement",
+      "id": 141,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_142": {
+      "type": "movement",
+      "id": 142,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_143": {
+      "type": "movement",
+      "id": 143,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_144": {
+      "type": "movement",
+      "id": 144,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_145": {
+      "type": "movement",
+      "id": 145,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_146": {
+      "type": "movement",
+      "id": 146,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_147": {
+      "type": "movement",
+      "id": 147,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_148": {
+      "type": "movement",
+      "id": 148,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_149": {
+      "type": "movement",
+      "id": 149,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_150": {
+      "type": "movement",
+      "id": 150,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_151": {
+      "type": "movement",
+      "id": 151,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "MoveAction_152": {
+      "type": "movement",
+      "id": 152,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
       ]
     }
   },
