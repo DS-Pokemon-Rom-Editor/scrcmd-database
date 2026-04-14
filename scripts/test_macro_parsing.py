@@ -9,6 +9,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from sync_from_decomp import (
     MacroExpansion,
     ParsedMacro,
+    build_custom_call_shape_variants,
     build_canonical_name_by_opcode,
     build_id_to_name_map,
     compare_macros_with_db,
@@ -25,6 +26,7 @@ from sync_from_decomp import (
     parse_scrcmd_inc,
     parse_scrcmd_symbol_table,
     repair_duplicate_command_ids,
+    sync_custom_call_shape_variants,
     upsert_imported_macro,
     update_db_from_sync,
     update_inferred_param_defaults,
@@ -1010,6 +1012,77 @@ def test_repair_duplicate_command_ids_keeps_placeholder_canonical_name():
     print("  [PASS] Duplicate repair preserves placeholder canonical keys")
 
 
+def test_build_custom_call_shape_variants_detects_packed_macro_args():
+    """Packed argument expressions should produce a custom call-shape variant."""
+    content = r"""
+    .macro ViewRankings scope, page, record
+    .short 378
+    .short \scope * 3 + \page
+    .short \record
+    .endm
+"""
+    parsed, _ = parse_scrcmd_inc(content)
+    variants = build_custom_call_shape_variants(parsed["ViewRankings"])
+
+    assert variants == [
+        {
+            "params": [
+                {"name": "scope", "type": "u16"},
+                {"name": "page", "type": "u16"},
+                {"name": "record", "type": "u16"},
+            ],
+            "condition": "3 args",
+            "emit_args": ["$scope * 3 + $page", "$record"],
+        }
+    ], variants
+
+    print("  [PASS] Packed macro arguments become custom call-shape variants")
+
+
+def test_sync_custom_call_shape_variants_preserves_manual_variants():
+    """Automatically detected call shapes should not overwrite manual variants."""
+    content = r"""
+    .macro ViewRankings scope, page, record
+    .short 378
+    .short \scope * 3 + \page
+    .short \record
+    .endm
+"""
+    decomp_macros, _ = parse_scrcmd_inc(content)
+    db = {
+        "commands": {
+            "ViewRankings": {
+                "type": "script_cmd",
+                "id": 378,
+                "params": [
+                    {"name": "packed_page", "type": "u16"},
+                    {"name": "record", "type": "u16"},
+                ],
+                "variants": [
+                    {
+                        "params": [
+                            {"name": "scope", "type": "u16"},
+                            {"name": "page", "type": "u16"},
+                            {"name": "record", "type": "u16"},
+                        ],
+                        "condition": "manual",
+                        "emit_args": ["$scope * 3 + $page", "$record"],
+                    }
+                ],
+            }
+        }
+    }
+
+    updated = sync_custom_call_shape_variants(db, decomp_macros)
+
+    assert updated == 0, f"Expected 0 updates, got {updated}"
+    assert db["commands"]["ViewRankings"]["variants"][0]["condition"] == "manual", (
+        db["commands"]["ViewRankings"]
+    )
+
+    print("  [PASS] Manual custom call-shape variants are preserved")
+
+
 def test_recursive_macro_condition_becomes_variant():
     """Regression test: recursive macro conditions should be preserved as variants."""
     content = """
@@ -1142,6 +1215,8 @@ def run_all_tests():
     test_repair_duplicate_command_ids_keeps_canonical_decomp_name()
     test_placeholder_decomp_names_are_renamed_into_db_keys()
     test_repair_duplicate_command_ids_keeps_placeholder_canonical_name()
+    test_build_custom_call_shape_variants_detects_packed_macro_args()
+    test_sync_custom_call_shape_variants_preserves_manual_variants()
     print()
 
     # Param parsing tests

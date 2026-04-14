@@ -388,6 +388,102 @@ def extract_all_emitted_values(body: str) -> list[dict]:
     return result
 
 
+def extract_emitted_arg_expressions(body: str) -> list[str]:
+    r"""
+    Extract emitted argument expressions from a macro body after the opcode.
+
+    Returns normalized expressions like `$scope * 3 + $page` or `$record`.
+    Stops at conditionals or nested macro calls because the emitted shape is no
+    longer a single linear primitive call.
+    """
+    expressions = []
+    lines = body.split("\n")
+    first_short_seen = False
+
+    for line in lines:
+        line = line.strip()
+        if not line or line.startswith((";", "/*", "@", "#")):
+            continue
+
+        if line.startswith((".if", ".else", ".endif", ".macro", ".endm")):
+            break
+
+        if not line.startswith(".") and line[0].isupper():
+            break
+
+        match = re.match(r"\.(\w+)\s+(.+?)(?:\s*[@;/].*)?$", line)
+        if not match:
+            continue
+
+        directive = match.group(1).lower()
+        if directive not in {"byte", "short", "2byte", "hword", "word", "long"}:
+            continue
+
+        value_str = match.group(2).strip()
+        if directive in ("short", "2byte", "hword") and not first_short_seen:
+            first_short_seen = True
+            continue
+
+        expressions.append(re.sub(r"\\(\w+)", r"$\1", value_str))
+
+    return expressions
+
+
+def is_simple_emit_arg_expression(expression: str) -> bool:
+    """Return True when an emitted argument is a plain param reference or literal."""
+    expr = expression.strip()
+    if not expr:
+        return False
+
+    if re.fullmatch(r"\$\w+", expr):
+        return True
+    if re.fullmatch(r"-?(?:0x[0-9A-Fa-f]+|\d+)", expr):
+        return True
+    if re.fullmatch(r"[A-Z][A-Z0-9_]*", expr):
+        return True
+
+    return False
+
+
+def build_custom_call_shape_variants(macro: ParsedMacro) -> list[dict] | None:
+    r"""
+    Build variant metadata for commands whose macro call shape differs from the
+    emitted binary argument shape.
+
+    This captures simple packing transforms like:
+        .short \scope * 3 + \page
+    """
+    if macro.is_wrapper or macro.is_conditional or len(macro.opcodes) != 1:
+        return None
+    if not macro.params:
+        return None
+
+    emit_args = extract_emitted_arg_expressions(macro.body)
+    if not emit_args:
+        return None
+
+    has_nontrivial_expression = any(
+        not is_simple_emit_arg_expression(arg) for arg in emit_args
+    )
+    if not has_nontrivial_expression:
+        return None
+
+    variant_params = []
+    for p in macro.params:
+        entry = {"name": p.name, "type": infer_param_type(p.name)}
+        if p.default:
+            entry["default"] = p.default
+        variant_params.append(entry)
+
+    return [
+        {
+            "params": variant_params,
+            "condition": f"{len(macro.params)} args",
+            "emit_args": emit_args,
+        }
+    ]
+
+
 def extract_param_types(body: str, param_names: list[str]) -> dict[str, str]:
     """
     Extract parameter types from macro body based on directive used.
@@ -2764,6 +2860,44 @@ def update_description_from_decomp(command: dict, macro: ParsedMacro) -> bool:
     return True
 
 
+def sync_custom_call_shape_variants(
+    db: dict, decomp_macros: dict[str, ParsedMacro]
+) -> int:
+    """
+    Add custom call-shape variants for simple primitive macros with packed args.
+
+    Existing variants are preserved to avoid overwriting manual schema work.
+    """
+    commands = db.get("commands", {})
+    id_to_name = build_id_to_name_map(commands, "script_cmd")
+    name_to_id = build_name_to_id_map(commands, "script_cmd")
+    updated = 0
+
+    for name, macro in decomp_macros.items():
+        variants = build_custom_call_shape_variants(macro)
+        if not variants:
+            continue
+
+        target_name, _match_mode = resolve_command_name_from_maps(
+            id_to_name, name_to_id, macro.opcodes[0], name
+        )
+        if not target_name or target_name not in commands:
+            continue
+
+        command = commands[target_name]
+        existing_variants = command.get("variants")
+
+        if existing_variants == variants:
+            continue
+        if existing_variants:
+            continue
+
+        command["variants"] = variants
+        updated += 1
+
+    return updated
+
+
 def build_sync_param_list(raw_params: list) -> list[dict]:
     """Convert sync item params into the v2 parameter representation."""
     params = []
@@ -3304,6 +3438,18 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 if unused_params_updated > 0:
                     print(
                         f"  Updated {unused_params_updated} commands with hardcoded param defaults"
+                    )
+                    has_changes = True
+                    write_db_if_changed(db_path, db)
+
+            if update:
+                print("  Checking custom call shapes...")
+                call_shapes_updated = sync_custom_call_shape_variants(
+                    db, decomp_macros
+                )
+                if call_shapes_updated > 0:
+                    print(
+                        f"  Added custom call shapes for {call_shapes_updated} commands"
                     )
                     has_changes = True
                     write_db_if_changed(db_path, db)

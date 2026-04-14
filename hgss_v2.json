@@ -4919,12 +4919,32 @@
       "description": "",
       "params": [
         {
-          "name": "arg_0",
+          "name": "packed_page",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "record",
           "type": "u16"
+        }
+      ],
+      "variants": [
+        {
+          "params": [
+            {
+              "name": "scope",
+              "type": "u16"
+            },
+            {
+              "name": "page",
+              "type": "u16"
+            },
+            {
+              "name": "record",
+              "type": "u16"
+            }
+          ],
+          "condition": "3 args",
+          "emit_args": ["$scope * 3 + $page", "$record"]
         }
       ]
     },
@@ -13182,15 +13202,11 @@
       "variants": [
         {
           "condition": "((arg >= VARS_START && arg <= VARS_END) || (arg >= SPECIAL_VARS_START && arg <= SPECIAL_VARS_END))",
-          "expansion": [
-            "CompareVarToVar $var, $arg"
-          ]
+          "expansion": ["CompareVarToVar $var, $arg"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "CompareVarToValue $var, $arg"
-          ]
+          "expansion": ["CompareVarToValue $var, $arg"]
         }
       ],
       "description": "Generic compare macro which attempts to deduce argument types based on their values Any values between 0x4000 to 0x40FF and 0x8000 to 0x8015 are considered event variable identifiers"
@@ -13207,10 +13223,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flag",
-        "GoToIf FALSE, $dest"
-      ]
+      "expansion": ["CheckFlag $flag", "GoToIf FALSE, $dest"]
     },
     "GoToIfSet": {
       "type": "macro",
@@ -13224,10 +13237,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flag",
-        "GoToIf TRUE, $dest"
-      ]
+      "expansion": ["CheckFlag $flag", "GoToIf TRUE, $dest"]
     },
     "GoToIfLt": {
       "type": "macro",
@@ -13237,9 +13247,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "GoToIf 0, $dest"
-      ]
+      "expansion": ["GoToIf 0, $dest"]
     },
     "GoToIfEq": {
       "type": "macro",
@@ -13249,9 +13257,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "GoToIf 1, $dest"
-      ]
+      "expansion": ["GoToIf 1, $dest"]
     },
     "GoToIfGt": {
       "type": "macro",
@@ -13261,9 +13267,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "GoToIf 2, $dest"
-      ]
+      "expansion": ["GoToIf 2, $dest"]
     },
     "GoToIfLe": {
       "type": "macro",
@@ -13273,9 +13277,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "GoToIf 3, $dest"
-      ]
+      "expansion": ["GoToIf 3, $dest"]
     },
     "GoToIfGe": {
       "type": "macro",
@@ -13285,9 +13287,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "GoToIf 4, $dest"
-      ]
+      "expansion": ["GoToIf 4, $dest"]
     },
     "GoToIfNe": {
       "type": "macro",
@@ -13297,9 +13297,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "GoToIf 5, $dest"
-      ]
+      "expansion": ["GoToIf 5, $dest"]
     },
     "CallIfUnset": {
       "type": "macro",
@@ -13313,10 +13311,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flag",
-        "CallIf FALSE, $dest"
-      ]
+      "expansion": ["CheckFlag $flag", "CallIf FALSE, $dest"]
     },
     "CallIfSet": {
       "type": "macro",
@@ -13330,10 +13325,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flag",
-        "CallIf TRUE, $dest"
-      ]
+      "expansion": ["CheckFlag $flag", "CallIf TRUE, $dest"]
     },
     "CallIfLt": {
       "type": "macro",
@@ -13343,9 +13335,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CallIf 0, $dest"
-      ]
+      "expansion": ["CallIf 0, $dest"]
     },
     "CallIfEq": {
       "type": "macro",
@@ -13355,9 +13345,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CallIf 1, $dest"
-      ]
+      "expansion": ["CallIf 1, $dest"]
     },
     "CallIfGt": {
       "type": "macro",
@@ -13367,9 +13355,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CallIf 2, $dest"
-      ]
+      "expansion": ["CallIf 2, $dest"]
     },
     "CallIfLe": {
       "type": "macro",
@@ -13379,9 +13365,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CallIf 3, $dest"
-      ]
+      "expansion": ["CallIf 3, $dest"]
     },
     "CallIfGe": {
       "type": "macro",
@@ -13391,9 +13375,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CallIf 4, $dest"
-      ]
+      "expansion": ["CallIf 4, $dest"]
     },
     "CallIfNe": {
       "type": "macro",
@@ -13403,9 +13385,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CallIf 5, $dest"
-      ]
+      "expansion": ["CallIf 5, $dest"]
     },
     "GoToIfDefeated": {
       "type": "macro",
@@ -13419,10 +13399,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckTrainerFlag $trainer",
-        "GoToIf TRUE, $dest"
-      ]
+      "expansion": ["CheckTrainerFlag $trainer", "GoToIf TRUE, $dest"]
     },
     "GoToIfNotDefeated": {
       "type": "macro",
@@ -13436,10 +13413,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckTrainerFlag $trainer",
-        "GoToIf FALSE, $dest"
-      ]
+      "expansion": ["CheckTrainerFlag $trainer", "GoToIf FALSE, $dest"]
     },
     "CallIfDefeated": {
       "type": "macro",
@@ -13453,10 +13427,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckTrainerFlag $trainer",
-        "CallIf TRUE, $dest"
-      ]
+      "expansion": ["CheckTrainerFlag $trainer", "CallIf TRUE, $dest"]
     },
     "CallIfNotDefeated": {
       "type": "macro",
@@ -13470,10 +13441,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckTrainerFlag $trainer",
-        "CallIf FALSE, $dest"
-      ]
+      "expansion": ["CheckTrainerFlag $trainer", "CallIf FALSE, $dest"]
     },
     "ItemVars": {
       "type": "macro",
@@ -13491,27 +13459,19 @@
       "variants": [
         {
           "condition": "item < 0x4000",
-          "expansion": [
-            "SetVar VAR_SPECIAL_x8004, $item"
-          ]
+          "expansion": ["SetVar VAR_SPECIAL_x8004, $item"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "CopyVar VAR_SPECIAL_x8004, $item"
-          ]
+          "expansion": ["CopyVar VAR_SPECIAL_x8004, $item"]
         },
         {
           "condition": "quantity < 0x4000",
-          "expansion": [
-            "SetVar VAR_SPECIAL_x8005, $quantity"
-          ]
+          "expansion": ["SetVar VAR_SPECIAL_x8005, $quantity"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "CopyVar VAR_SPECIAL_x8005, $quantity"
-          ]
+          "expansion": ["CopyVar VAR_SPECIAL_x8005, $quantity"]
         }
       ]
     },
@@ -13603,9 +13563,7 @@
           "type": "var"
         }
       ],
-      "expansion": [
-        "CopyVar VAR_SPECIAL_x8008, $var"
-      ]
+      "expansion": ["CopyVar VAR_SPECIAL_x8008, $var"]
     },
     "Case": {
       "type": "macro",
@@ -13619,10 +13577,7 @@
           "type": "u16"
         }
       ],
-      "expansion": [
-        "Compare VAR_SPECIAL_x8008, $value",
-        "GoToIf eq, $target"
-      ]
+      "expansion": ["Compare VAR_SPECIAL_x8008, $value", "GoToIf eq, $target"]
     },
     "PhoneCall": {
       "type": "macro",
