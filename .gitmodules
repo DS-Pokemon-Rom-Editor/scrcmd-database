@@ -1,0 +1,4 @@
+[submodule "metang"]
+	path = metang
+	url = https://github.com/lhearachel/metang.git
+	branch = python

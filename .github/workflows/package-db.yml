@@ -1,0 +1,55 @@
+name: Package V2 Databases
+
+on:
+  push:
+    branches:
+      - db-rework-for-rotom
+
+jobs:
+  package-db:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Stage database package contents
+        run: |
+          mkdir -p dist/db-latest
+          python - <<'PY'
+          import os
+          import shutil
+          from pathlib import Path
+
+          revision = os.environ["GITHUB_RUN_NUMBER"]
+          repo_root = Path(".")
+          output_dir = repo_root / "dist" / "db-latest"
+
+          v2_files = sorted(
+              path for path in repo_root.rglob("*_v2.json")
+              if ".git" not in path.parts and "dist" not in path.parts
+          )
+
+          if not v2_files:
+              raise SystemExit("No *_v2.json files found to package.")
+
+          (output_dir / "revision.txt").write_text(f"{revision}\n", encoding="utf-8")
+
+          for path in v2_files:
+              destination = output_dir / path
+              destination.parent.mkdir(parents=True, exist_ok=True)
+              shutil.copy2(path, destination)
+
+          print(f"Staged package contents in {output_dir}")
+          print("Packaged files:")
+          print(" - revision.txt")
+          for path in v2_files:
+              print(f" - {path}")
+          PY
+
+      - name: Upload packaged database artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: db-latest
+          path: dist/db-latest
+          if-no-files-found: error

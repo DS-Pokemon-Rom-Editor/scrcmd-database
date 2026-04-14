@@ -503,7 +503,7 @@
     "0x0064": {
       "name": "NurseJoyBow",
       "decomp_name": "NurseJoyBow",
-      "description": "Nurse Joy bows. Used in the Pokémon Center."
+      "description": "Nurse Joy bows. Used in the Pok\u00e9mon Center."
     },
     "0x0065": {
       "name": "RevealTrainer",
@@ -1241,8 +1241,8 @@
       "decomp_name": "play_cry",
       "parameters": [2, 2],
       "parameter_types": ["Pokemon", "Flex"],
-      "parameter_values": ["Flex: Pokémon", "Flex: Unused"],
-      "description": "Plays a Pokémon cry"
+      "parameter_values": ["Flex: Pok\u00e9mon", "Flex: Unused"],
+      "description": "Plays a Pok\u00e9mon cry"
     },
     "0x004D": {
       "name": "WaitCry",
@@ -1681,8 +1681,8 @@
       "decomp_name": "set_starter_choice",
       "parameters": [2],
       "parameter_types": ["Pokemon"],
-      "parameter_values": ["Flex: Pokémon"],
-      "description": "Stores Pokémon as the starting Pokémon in the game save data"
+      "parameter_values": ["Flex: Pok\u00e9mon"],
+      "description": "Stores Pok\u00e9mon as the starting Pok\u00e9mon in the game save data"
     },
     "0x0084": {
       "name": "GenderMessage",
@@ -1747,22 +1747,22 @@
         "Variable"
       ],
       "parameter_values": [
-        "Flex: Pokémon",
+        "Flex: Pok\u00e9mon",
         "Flex: Level",
         "Flex: Item",
         "Flex: Form",
         "Flex: Ability",
         "Var: Variable"
       ],
-      "description": "Gives Pokémon at level Level, store 1 in Variable if succeed and 0 otherwise"
+      "description": "Gives Pok\u00e9mon at level Level, store 1 in Variable if succeed and 0 otherwise"
     },
     "0x008A": {
       "name": "GivePokemonEgg",
       "decomp_name": "give_egg",
       "parameters": [2, 2],
       "parameter_types": ["Pokemon", "Flex"],
-      "parameter_values": ["Flex: Pokémon", "Flex: Location"],
-      "description": "Gives a Pokémon egg received from Location text slot at text bank #281"
+      "parameter_values": ["Flex: Pok\u00e9mon", "Flex: Location"],
+      "description": "Gives a Pok\u00e9mon egg received from Location text slot at text bank #281"
     },
     "0x008B": {
       "name": "ReplaceMove",
@@ -1774,7 +1774,7 @@
         "Flex: Move Slot",
         "u16: Move ID"
       ],
-      "description": "Overwrites Move Slot of the Pokémon at the specified Party Slot with Move ID."
+      "description": "Overwrites Move Slot of the Pok\u00e9mon at the specified Party Slot with Move ID."
     },
     "0x008C": {
       "name": "CheckPokemonHasMove",
@@ -1786,7 +1786,7 @@
         "Flex: Move ID",
         "Flex: Party Slot"
       ],
-      "description": "Checks if a Pokémon at the specified Party Slot knows a move with given Move ID.\nStores 1 into Variable if yes, 0 otherwise."
+      "description": "Checks if a Pok\u00e9mon at the specified Party Slot knows a move with given Move ID.\nStores 1 into Variable if yes, 0 otherwise."
     },
     "0x008D": {
       "name": "CheckMoveInParty",
@@ -1794,7 +1794,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Move"],
       "parameter_values": ["Var: Variable", "Flex: Move ID"],
-      "description": "Checks if any Pokémon in the party knows Move ID move, stores in Variable the position of the first Pokémon that knows it or stores 6 if no Pokémon in the party knows the move"
+      "description": "Checks if any Pok\u00e9mon in the party knows Move ID move, stores in Variable the position of the first Pok\u00e9mon that knows it or stores 6 if no Pok\u00e9mon in the party knows the move"
     },
     "0x008E": {
       "name": "CheckPokeGearRematch",
@@ -2002,7 +2002,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Opens the starter Pokémon selection screen"
+      "description": "Opens the starter Pok\u00e9mon selection screen"
     },
     "0x00A8": {
       "name": "GetTrainerPathToPlayer",
@@ -2050,7 +2050,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Flex: Party Position", "Var: Variable"],
-      "description": "Opens the keyboard for naming a Pokémon in Party Position, stores 1 in Variable if user cancels the proccess"
+      "description": "Opens the keyboard for naming a Pok\u00e9mon in Party Position, stores 1 in Variable if user cancels the proccess"
     },
     "0x00AE": {
       "name": "FadeScreen",
@@ -2099,7 +2099,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Flex: Party Position"],
-      "description": "Uses rock climb with the Pokémon at Party Position position"
+      "description": "Uses rock climb with the Pok\u00e9mon at Party Position position"
     },
     "0x00B2": {
       "name": "SurfAnimation",
@@ -2107,7 +2107,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Flex: Party Position"],
-      "description": "Uses surf with the Pokémon at Party Position position"
+      "description": "Uses surf with the Pok\u00e9mon at Party Position position"
     },
     "0x00B3": {
       "name": "WaterfallAnimation",
@@ -2115,7 +2115,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Flex: Party Position"],
-      "description": "Uses waterfall with the Pokémon at Party Position position"
+      "description": "Uses waterfall with the Pok\u00e9mon at Party Position position"
     },
     "0x00B4": {
       "name": "FlyAnimation",
@@ -2139,7 +2139,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Flex: Party Position"],
-      "description": "Uses whirlpool with the Pokémon at Party Position position"
+      "description": "Uses whirlpool with the Pok\u00e9mon at Party Position position"
     },
     "0x00B7": {
       "name": "CutAnimation",
@@ -2147,7 +2147,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Flex: Party Position"],
-      "description": "Displays the Hidden Machine summon animation with the Pokémon at Party Position position"
+      "description": "Displays the Hidden Machine summon animation with the Pok\u00e9mon at Party Position position"
     },
     "0x00B8": {
       "name": "CheckBike",
@@ -2227,7 +2227,7 @@
       "parameters": [1, 2],
       "parameter_types": ["Integer", "Variable"],
       "parameter_values": ["u8: String Buffer", "Flex: Party Position"],
-      "description": "Stores the name of the Pokémon in Party Position in String Buffer"
+      "description": "Stores the name of the Pok\u00e9mon in Party Position in String Buffer"
     },
     "0x00C2": {
       "name": "TextItem",
@@ -2275,7 +2275,7 @@
       "parameters": [1, 2],
       "parameter_types": ["Integer", "Variable"],
       "parameter_values": ["u8: String Buffer", "Flex: Party Position"],
-      "description": "Stores the nickname of the Pokémon in Party Position in String Buffer"
+      "description": "Stores the nickname of the Pok\u00e9mon in Party Position in String Buffer"
     },
     "0x00C8": {
       "name": "CMD_200",
@@ -2300,11 +2300,11 @@
       "parameter_types": ["Integer", "Pokemon", "Integer", "Integer"],
       "parameter_values": [
         "u8: String Buffer",
-        "Flex: Pokémon",
+        "Flex: Pok\u00e9mon",
         "u16: Unused",
         "u8: Unused"
       ],
-      "description": "Stores Pokémon's name in String Buffer"
+      "description": "Stores Pok\u00e9mon's name in String Buffer"
     },
     "0x00CB": {
       "name": "TextStarterPokemon",
@@ -2312,7 +2312,7 @@
       "parameters": [1],
       "parameter_types": ["Integer"],
       "parameter_values": ["u8: String Buffer"],
-      "description": "Stores the name of the player' starter Pokémon in String Buffer"
+      "description": "Stores the name of the player' starter Pok\u00e9mon in String Buffer"
     },
     "0x00CC": {
       "name": "TextRivalStarter",
@@ -2320,7 +2320,7 @@
       "parameters": [1],
       "parameter_types": ["Integer"],
       "parameter_values": ["u8: String Buffer"],
-      "description": "Stores the name of the rival' starter Pokémon in String Buffer"
+      "description": "Stores the name of the rival' starter Pok\u00e9mon in String Buffer"
     },
     "0x00CD": {
       "name": "TextCounterpartStarter",
@@ -2328,7 +2328,7 @@
       "parameters": [1],
       "parameter_types": ["Integer"],
       "parameter_values": ["u8: String Buffer"],
-      "description": "Stores the name of the counterpart' starter Pokémon in String Buffer"
+      "description": "Stores the name of the counterpart' starter Pok\u00e9mon in String Buffer"
     },
     "0x00CE": {
       "name": "CheckStarter",
@@ -2336,7 +2336,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores the starter Pokémon ID in Variable"
+      "description": "Stores the starter Pok\u00e9mon ID in Variable"
     },
     "0x00CF": {
       "name": "DummyTextGoods",
@@ -2375,8 +2375,8 @@
       "decomp_name": "scrcmd_211",
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Pokemon"],
-      "parameter_values": ["Var: Map", "Var: Pokémon"],
-      "description": "Selects a zone depending on a random seed, then stores the zone ID in Map and the corresponding swarm Pokémon of that zone in Pokémon"
+      "parameter_values": ["Var: Map", "Var: Pok\u00e9mon"],
+      "description": "Selects a zone depending on a random seed, then stores the zone ID in Map and the corresponding swarm Pok\u00e9mon of that zone in Pok\u00e9mon"
     },
     "0x00D4": {
       "name": "TrainerID",
@@ -2412,16 +2412,24 @@
       "decomp_name": "get_trainer_msg_params",
       "parameters": [2, 2, 2],
       "parameter_types": ["Variable", "Variable", "Variable"],
-      "parameter_values": ["Var: Noticing", "Var: Defeat", "Var: One Pokémon"],
-      "description": "If the script ID corresponds to a single battle trainer, stores 0 in Noticing, 2 in Defeat and 0 in One Pokémon. If it corresponds to a double battle, stores 3, 5 and 6 or 7, 9 and 10 depending on whether it's the first or the second trainer"
+      "parameter_values": [
+        "Var: Noticing",
+        "Var: Defeat",
+        "Var: One Pok\u00e9mon"
+      ],
+      "description": "If the script ID corresponds to a single battle trainer, stores 0 in Noticing, 2 in Defeat and 0 in One Pok\u00e9mon. If it corresponds to a double battle, stores 3, 5 and 6 or 7, 9 and 10 depending on whether it's the first or the second trainer"
     },
     "0x00D8": {
       "name": "TrainerRematchMsgCheck",
       "decomp_name": "get_rematch_msg_params",
       "parameters": [2, 2, 2],
       "parameter_types": ["Variable", "Variable", "Variable"],
-      "parameter_values": ["Var: Noticing", "Var: Defeat", "Var: One Pokémon"],
-      "description": "If the script ID corresponds to a single battle trainer, stores 17 in Noticing, 0 in Defeat and 0 in One Pokémon. If it corresponds to a double battle, stores 18, 0 and 6 or 19, 0 and 10 depending on whether it's the first or the second trainer"
+      "parameter_values": [
+        "Var: Noticing",
+        "Var: Defeat",
+        "Var: One Pok\u00e9mon"
+      ],
+      "description": "If the script ID corresponds to a single battle trainer, stores 17 in Noticing, 0 in Defeat and 0 in One Pok\u00e9mon. If it corresponds to a double battle, stores 18, 0 and 6 or 19, 0 and 10 depending on whether it's the first or the second trainer"
     },
     "0x00D9": {
       "name": "TrainerTypeCheck",
@@ -2445,7 +2453,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Return to Pokémon Center or player's house after being defeated"
+      "description": "Return to Pok\u00e9mon Center or player's house after being defeated"
     },
     "0x00DC": {
       "name": "CheckBattleIsLost",
@@ -2469,7 +2477,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores 1 in Variable if player has at least 2 not fainted Pokémon, stores 0 otherwise"
+      "description": "Stores 1 in Variable if player has at least 2 not fainted Pok\u00e9mon, stores 0 otherwise"
     },
     "0x00DF": {
       "name": "DummyTrainerBattle",
@@ -2597,7 +2605,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores 1 in Variable if one or more Pokémon in the party are infected with the Pokérus"
+      "description": "Stores 1 in Variable if one or more Pok\u00e9mon in the party are infected with the Pok\u00e9rus"
     },
     "0x00EF": {
       "name": "GetPokemonGender",
@@ -2605,7 +2613,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Flex: Party Position", "Var: Variable"],
-      "description": "Stores 0 in Variable if Pokémon at Party Position is male, 1 if is female and 2 if gender is unknown"
+      "description": "Stores 0 in Variable if Pok\u00e9mon at Party Position is male, 1 if is female and 2 if gender is unknown"
     },
     "0x00F0": {
       "name": "SetElevatorWarp",
@@ -2637,7 +2645,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the total seen Pokemon in the Johto Pokédex"
+      "description": "Stores in Variable the total seen Pokemon in the Johto Pok\u00e9dex"
     },
     "0x00F4": {
       "name": "CountJohtoDexObtained",
@@ -2645,7 +2653,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the total obtained Pokemon in the Johto Pokédex"
+      "description": "Stores in Variable the total obtained Pokemon in the Johto Pok\u00e9dex"
     },
     "0x00F5": {
       "name": "CountNationalDexSeen",
@@ -2653,7 +2661,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the total seen Pokemon in the National Pokédex"
+      "description": "Stores in Variable the total seen Pokemon in the National Pok\u00e9dex"
     },
     "0x00F6": {
       "name": "CountNationalDexObtained",
@@ -2661,7 +2669,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the total obtained Pokemon in the National Pokédex"
+      "description": "Stores in Variable the total obtained Pokemon in the National Pok\u00e9dex"
     },
     "0x00F7": {
       "name": "DummyNationalDexCheck",
@@ -2677,23 +2685,23 @@
       "parameters": [1, 2, 2],
       "parameter_types": ["Integer", "Variable", "Variable"],
       "parameter_values": ["u8: Mode", "Var: Message", "Var: Unknown"],
-      "description": "Checks the number of seen Pokémon in the Johto Pokédex (if Mode is 0) or the number of obtained Pokémon in the National Pokédex (otherwise) and stores the corresponding Professor message in Message, also storing 0x4AA in Unknown"
+      "description": "Checks the number of seen Pok\u00e9mon in the Johto Pok\u00e9dex (if Mode is 0) or the number of obtained Pok\u00e9mon in the National Pok\u00e9dex (otherwise) and stores the corresponding Professor message in Message, also storing 0x4AA in Unknown"
     },
     "0x00F9": {
       "name": "WildBattle",
       "decomp_name": "rocket_trap_battle",
       "parameters": [2, 2],
       "parameter_types": ["Pokemon", "Flex"],
-      "parameter_values": ["Flex: Pokémon", "Flex: Level"],
-      "description": "Starts a wild battle against a Pokémon of level Level"
+      "parameter_values": ["Flex: Pok\u00e9mon", "Flex: Level"],
+      "description": "Starts a wild battle against a Pok\u00e9mon of level Level"
     },
     "0x00FA": {
       "name": "WildBattleNoButtons",
       "decomp_name": "scrcmd_250",
       "parameters": [2, 2],
       "parameter_types": ["Pokemon", "Flex"],
-      "parameter_values": ["Flex: Pokémon", "Flex: Level"],
-      "description": "Starts a first wild battle against a Pokémon of level Level"
+      "parameter_values": ["Flex: Pok\u00e9mon", "Flex: Level"],
+      "description": "Starts a first wild battle against a Pok\u00e9mon of level Level"
     },
     "0x00FB": {
       "name": "CatchTutorial",
@@ -2925,7 +2933,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Return to Pokémon Center or player's house after being defeated"
+      "description": "Return to Pok\u00e9mon Center or player's house after being defeated"
     },
     "0x0118": {
       "name": "SetLastWarp",
@@ -2949,7 +2957,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Heals every Pokémon in the player's party"
+      "description": "Heals every Pok\u00e9mon in the player's party"
     },
     "0x011B": {
       "name": "EndWirelessComms",
@@ -3013,7 +3021,7 @@
       "parameters": [2],
       "parameter_types": ["Flex"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores 1 in Variable if player has the Pokédex, stores 0 otherwise"
+      "description": "Stores 1 in Variable if player has the Pok\u00e9dex, stores 0 otherwise"
     },
     "0x0123": {
       "name": "GivePokedex",
@@ -3021,7 +3029,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Gives the Pokédex to the player"
+      "description": "Gives the Pok\u00e9dex to the player"
     },
     "0x0124": {
       "name": "CheckShoes",
@@ -3195,7 +3203,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Stores first daycare Pokémon nickname in string buffer 0, the second daycare Pokémon nickname in string buffer 1 and the first Pokémon trainer's name in buffer 2"
+      "description": "Stores first daycare Pok\u00e9mon nickname in string buffer 0, the second daycare Pok\u00e9mon nickname in string buffer 1 and the first Pok\u00e9mon trainer's name in buffer 2"
     },
     "0x0139": {
       "name": "GetDaycareStatus",
@@ -3203,7 +3211,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "If daycare Pokémon have an egg, stores 1 in Variable. Otherwise it stores 0 if no Pokémon is in the daycare, 2 if only one Pokémon is in the daycare or 3 if there are two Pokémon"
+      "description": "If daycare Pok\u00e9mon have an egg, stores 1 in Variable. Otherwise it stores 0 if no Pok\u00e9mon is in the daycare, 2 if only one Pok\u00e9mon is in the daycare or 3 if there are two Pok\u00e9mon"
     },
     "0x013A": {
       "name": "InitEcruteakGym",
@@ -3355,7 +3363,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the current number of Pokémon in the party"
+      "description": "Stores in Variable the current number of Pok\u00e9mon in the party"
     },
     "0x014D": {
       "name": "BagScreen",
@@ -3503,7 +3511,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Opens up the UI to select a Pokémon from the party"
+      "description": "Opens up the UI to select a Pok\u00e9mon from the party"
     },
     "0x015E": {
       "name": "UnionChoosePKMNSelection",
@@ -3519,7 +3527,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the selected party slot in a party Pokémon screen, or 0xFF is user cancelled the selection"
+      "description": "Stores in Variable the selected party slot in a party Pok\u00e9mon screen, or 0xFF is user cancelled the selection"
     },
     "0x0160": {
       "name": "PokemonSummaryScreen",
@@ -3543,7 +3551,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Var: Party Position", "Var: Variable"],
-      "description": "Stores in Variable the ID of the Pokémon at Party Position"
+      "description": "Stores in Variable the ID of the Pok\u00e9mon at Party Position"
     },
     "0x0163": {
       "name": "CheckTradedPokemon",
@@ -3551,7 +3559,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Var: Party Position", "Var: Variable"],
-      "description": "Stores 0 in Variable if trainer ID and secret ID of the Pokémon at Party Position are the player's ones, stores 1 otherwise"
+      "description": "Stores 0 in Variable if trainer ID and secret ID of the Pok\u00e9mon at Party Position are the player's ones, stores 1 otherwise"
     },
     "0x0164": {
       "name": "CountPartyBornPokemon",
@@ -3559,7 +3567,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the number of Pokémon in the Pokémon party, excluding the eggs"
+      "description": "Stores in Variable the number of Pok\u00e9mon in the Pok\u00e9mon party, excluding the eggs"
     },
     "0x0165": {
       "name": "CountAlivePokemonExceptFirst",
@@ -3567,7 +3575,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Var: Variable", "Flex: Party Position"],
-      "description": "Stores in Variable how many alive Pokémon are in the party, except for the chosen Party Position"
+      "description": "Stores in Variable how many alive Pok\u00e9mon are in the party, except for the chosen Party Position"
     },
     "0x0166": {
       "name": "CountTotalAlivePokemon",
@@ -3575,7 +3583,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the number of Pokémon in the Pokémon party and PC boxes, excluding the eggs and fainted Pokémon"
+      "description": "Stores in Variable the number of Pok\u00e9mon in the Pok\u00e9mon party and PC boxes, excluding the eggs and fainted Pok\u00e9mon"
     },
     "0x0167": {
       "name": "CountPartyEggs",
@@ -3583,7 +3591,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the number of eggs in the Pokémon party"
+      "description": "Stores in Variable the number of eggs in the Pok\u00e9mon party"
     },
     "0x0168": {
       "name": "TakeMoneyFlex",
@@ -3606,8 +3614,8 @@
       "decomp_name": "give_loan_mon",
       "parameters": [1, 1, 2],
       "parameter_types": ["Pokemon", "Integer", "Flex"],
-      "parameter_values": ["u8: Pokémon", "u8: Level", "u16: Header"],
-      "description": "Gives you Pokémon at Level with Header name on the summary screen. Used for NPC-given Pokémon"
+      "parameter_values": ["u8: Pok\u00e9mon", "u8: Level", "u16: Header"],
+      "description": "Gives you Pok\u00e9mon at Level with Header name on the summary screen. Used for NPC-given Pok\u00e9mon"
     },
     "0x016B": {
       "name": "CheckReturnLoanPokemon",
@@ -3623,7 +3631,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Flex: Party Position"],
-      "description": "Deletes the Pokémon at Party Position from the party"
+      "description": "Deletes the Pok\u00e9mon at Party Position from the party"
     },
     "0x016D": {
       "name": "RemoveDayCareEgg",
@@ -3663,7 +3671,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Opens the egg hatching screen with an egg in the Pokémon party that has 0 steps left for hatching"
+      "description": "Opens the egg hatching screen with an egg in the Pok\u00e9mon party that has 0 steps left for hatching"
     },
     "0x0172": {
       "name": "CMD_370",
@@ -3679,7 +3687,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Var: Variable", "Flex: Position"],
-      "description": "Stores the amount of levels a Pokémon in the Daycare has gained from being in the Daycare"
+      "description": "Stores the amount of levels a Pok\u00e9mon in the Daycare has gained from being in the Daycare"
     },
     "0x0174": {
       "name": "GetDayCareSpeciesandNick",
@@ -3767,7 +3775,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Var: Variable", "Flex: Party Position"],
-      "description": "Stores in Variable the happiness of Pokémon in Party Position"
+      "description": "Stores in Variable the happiness of Pok\u00e9mon in Party Position"
     },
     "0x017F": {
       "name": "AddHappiness",
@@ -3775,7 +3783,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Flex", "Variable"],
       "parameter_values": ["Flex: Happiness", "Flex: Party Position"],
-      "description": "Adds Happiness to the happiness of Pokémon in Party Position"
+      "description": "Adds Happiness to the happiness of Pok\u00e9mon in Party Position"
     },
     "0x0180": {
       "name": "SubHappiness",
@@ -3783,7 +3791,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Flex", "Flex"],
       "parameter_values": ["Flex: Happiness", "Flex: Party Position"],
-      "description": "Subs Happiness to the happiness of Pokémon in Party Position"
+      "description": "Subs Happiness to the happiness of Pok\u00e9mon in Party Position"
     },
     "0x0181": {
       "name": "TextDaycareMonData",
@@ -3822,8 +3830,8 @@
       "decomp_name": "player_has_species",
       "parameters": [2, 2],
       "parameter_types": ["Flex", "Pokemon"],
-      "parameter_values": ["Flex: Variable", "Var: Pokémon"],
-      "description": "Stores 1 in Variable if Pokémon is currently in the Pokémon party, stores 0 otherwise"
+      "parameter_values": ["Flex: Variable", "Var: Pok\u00e9mon"],
+      "description": "Stores 1 in Variable if Pok\u00e9mon is currently in the Pok\u00e9mon party, stores 0 otherwise"
     },
     "0x0186": {
       "name": "ComparePokemonPlayerSize",
@@ -3831,7 +3839,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Var: Variable", "Flex: Party Position"],
-      "description": "Stores 0 in Variable if Pokémon at Party Position does not have a bigger relative size than player's record, stores 1 if it's the same size and stores 2 if it has a bigger relative size"
+      "description": "Stores 0 in Variable if Pok\u00e9mon at Party Position does not have a bigger relative size than player's record, stores 1 if it's the same size and stores 2 if it has a bigger relative size"
     },
     "0x0187": {
       "name": "SetPokemonSizeRecord",
@@ -3839,7 +3847,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Flex: Party Position"],
-      "description": "Stores the relative size of Pokémon at Party Position as player's record"
+      "description": "Stores the relative size of Pok\u00e9mon at Party Position as player's record"
     },
     "0x0188": {
       "name": "TextPartyPokemonSize",
@@ -3851,7 +3859,7 @@
         "Flex: Decimal String Buffer",
         "Flex: Party Position"
       ],
-      "description": "Stores the Integer part of Pokémon at Party Position size in Integer String Buffer (1 to 3 digits) and the decimal part of the size in Decimal String Buffer (1 digit)"
+      "description": "Stores the Integer part of Pok\u00e9mon at Party Position size in Integer String Buffer (1 to 3 digits) and the decimal part of the size in Decimal String Buffer (1 digit)"
     },
     "0x0189": {
       "name": "TextPokemonRecordSize",
@@ -3861,9 +3869,9 @@
       "parameter_values": [
         "Flex: Integer String Buffer",
         "Flex: Decimal String Buffer",
-        "Flex: Pokémon ID"
+        "Flex: Pok\u00e9mon ID"
       ],
-      "description": "Stores the Integer part of player's record size, normalized to Pokémon ID range, in Integer String Buffer (1 to 3 digits) and the decimal part of the size in Decimal String Buffer (1 digit)"
+      "description": "Stores the Integer part of player's record size, normalized to Pok\u00e9mon ID range, in Integer String Buffer (1 to 3 digits) and the decimal part of the size in Decimal String Buffer (1 digit)"
     },
     "0x018A": {
       "name": "CMD_394",
@@ -3887,7 +3895,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Var: Variable", "Flex: Party Position"],
-      "description": "Stores in Variable the total amount of moves that the Pokémon at Party Position currently has"
+      "description": "Stores in Variable the total amount of moves that the Pok\u00e9mon at Party Position currently has"
     },
     "0x018D": {
       "name": "DeleteMove",
@@ -3895,7 +3903,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Flex: Party Position", "Flex: Move Slot"],
-      "description": "Deletes the move in Move Slot from the Pokémon at Party Position"
+      "description": "Deletes the move in Move Slot from the Pok\u00e9mon at Party Position"
     },
     "0x018E": {
       "name": "GetPartyPokemonMove",
@@ -3907,7 +3915,7 @@
         "Flex: Party Position",
         "Flex: Move Slot"
       ],
-      "description": "Stores in Variable the ID of the move in Move Slot from the Pokémon at Party Position"
+      "description": "Stores in Variable the ID of the move in Move Slot from the Pok\u00e9mon at Party Position"
     },
     "0x018F": {
       "name": "TextPartyPokemonMove",
@@ -3919,7 +3927,7 @@
         "Flex: Party Position",
         "Flex: Move Slot"
       ],
-      "description": "Stores the name of the move in Move Slot from the Pokémon at Party Position in String Buffer"
+      "description": "Stores the name of the move in Move Slot from the Pok\u00e9mon at Party Position in String Buffer"
     },
     "0x0190": {
       "name": "Strength",
@@ -4146,7 +4154,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores 1 in Variable if every Pokémon in the Johto Pokédex has been seen, stores 0 otherwise"
+      "description": "Stores 1 in Variable if every Pok\u00e9mon in the Johto Pok\u00e9dex has been seen, stores 0 otherwise"
     },
     "0x01A8": {
       "name": "CheckCompleteNationalDex",
@@ -4154,7 +4162,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores 1 in Variable if every Pokémon in the National Pokédex has been caught, stores 0 otherwise"
+      "description": "Stores 1 in Variable if every Pok\u00e9mon in the National Pok\u00e9dex has been caught, stores 0 otherwise"
     },
     "0x01A9": {
       "name": "OpenPokedexScreen",
@@ -4210,7 +4218,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Starts the PokéGear phone call that was previously set."
+      "description": "Starts the Pok\u00e9Gear phone call that was previously set."
     },
     "0x01B0": {
       "name": "GetPokeNameFromFossil",
@@ -4218,7 +4226,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Item"],
       "parameter_values": ["Var: Variable", "Flex: Item ID"],
-      "description": "Stores in Variable the ID of the Pokémon to which Item ID fossil belongs"
+      "description": "Stores in Variable the ID of the Pok\u00e9mon to which Item ID fossil belongs"
     },
     "0x01B1": {
       "name": "CheckFossil",
@@ -4234,7 +4242,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Flex"],
       "parameter_values": ["Var: Variable", "Flex: Level"],
-      "description": "Stores in Variable the amount of Pokémon in party whose level is equal or lower than Level"
+      "description": "Stores in Variable the amount of Pok\u00e9mon in party whose level is equal or lower than Level"
     },
     "0x01B3": {
       "name": "SurvivePoison",
@@ -4242,7 +4250,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Var: Variable", "Flex: Party Position"],
-      "description": "If Pokémon at Party Position is poisoned and at 1 HP, it cures the poison and stores 1 in Variable, otherwise it stores 0"
+      "description": "If Pok\u00e9mon at Party Position is poisoned and at 1 HP, it cures the poison and stores 1 in Variable, otherwise it stores 0"
     },
     "0x01B4": {
       "name": "FinishOverworldScreen",
@@ -4377,8 +4385,8 @@
       "decomp_name": "scrcmd_452",
       "parameters": [2, 2],
       "parameter_types": ["Pokemon", "Flex"],
-      "parameter_values": ["Flex: Pokémon", "Flex: Gender"],
-      "description": "Opens a window with the picture of Pokémon with Gender gender and registers the Pokémon in the Pokédex as seen"
+      "parameter_values": ["Flex: Pok\u00e9mon", "Flex: Gender"],
+      "description": "Opens a window with the picture of Pok\u00e9mon with Gender gender and registers the Pok\u00e9mon in the Pok\u00e9dex as seen"
     },
     "0x01C5": {
       "name": "HidePokemonPic",
@@ -4386,7 +4394,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Hides the window of a Pokémon picture"
+      "description": "Hides the window of a Pok\u00e9mon picture"
     },
     "0x01C6": {
       "name": "CMD_454",
@@ -4474,7 +4482,7 @@
       "parameters": [1],
       "parameter_types": ["Integer"],
       "parameter_values": ["u8: ID"],
-      "description": "Activates a roaming Pokémon depending on the ID"
+      "description": "Activates a roaming Pok\u00e9mon depending on the ID"
     },
     "0x01D1": {
       "name": "UnionGroup",
@@ -4517,7 +4525,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Var: Variable", "Flex: Party Slot"],
-      "description": "Returns 0 to Var if the Pokémon has no learnable moves in its learnset at that level."
+      "description": "Returns 0 to Var if the Pok\u00e9mon has no learnable moves in its learnset at that level."
     },
     "0x01D3": {
       "name": "RememberMoveScreen",
@@ -4557,7 +4565,7 @@
       "parameters": [2],
       "parameter_types": ["Flex"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the ID of the offered Pokémon of the current trade data"
+      "description": "Stores in Variable the ID of the offered Pok\u00e9mon of the current trade data"
     },
     "0x01D8": {
       "name": "GetRequestedPokemon",
@@ -4565,7 +4573,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the ID of the requested Pokémon of the current trade data"
+      "description": "Stores in Variable the ID of the requested Pok\u00e9mon of the current trade data"
     },
     "0x01D9": {
       "name": "TradePokemonScreen",
@@ -4573,7 +4581,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Flex: Party Position"],
-      "description": "Opens the trade Pokémon screen, giving the Pokémon at Party Position and receiving the offered Pokémon of the current trade data"
+      "description": "Opens the trade Pok\u00e9mon screen, giving the Pok\u00e9mon at Party Position and receiving the offered Pok\u00e9mon of the current trade data"
     },
     "0x01DA": {
       "name": "EndTrade",
@@ -4609,7 +4617,7 @@
         "Var: Unused\nu8: 2",
         "Var: Variable"
       ],
-      "description": "Function depends on the first parameter:\n1: Activates the National Pokédex mode\n2: Stores 1 in Variable if player has the National Pokédex, otherwise it stores 0"
+      "description": "Function depends on the first parameter:\n1: Activates the National Pok\u00e9dex mode\n2: Stores 1 in Variable if player has the National Pok\u00e9dex, otherwise it stores 0"
     },
     "0x01DE": {
       "name": "PokemonRibbonCount",
@@ -4617,7 +4625,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Var: Variable", "Flex: Party Position"],
-      "description": "Stores in Variable the amount of ribbons that the Pokémon in Party Position has"
+      "description": "Stores in Variable the amount of ribbons that the Pok\u00e9mon in Party Position has"
     },
     "0x01DF": {
       "name": "PartyRibbonCount",
@@ -4625,7 +4633,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the total amount of different ribbons in the current Pokémon party"
+      "description": "Stores in Variable the total amount of different ribbons in the current Pok\u00e9mon party"
     },
     "0x01E0": {
       "name": "CheckRibbon",
@@ -4637,7 +4645,7 @@
         "Flex: Party Position",
         "Flex: Ribbon"
       ],
-      "description": "Stores 1 in Variable if the Pokémon in Party Position has the Ribbon ribbon, stores 0 otherwise"
+      "description": "Stores 1 in Variable if the Pok\u00e9mon in Party Position has the Ribbon ribbon, stores 0 otherwise"
     },
     "0x01E1": {
       "name": "GiveRibbon",
@@ -4645,7 +4653,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Flex"],
       "parameter_values": ["Flex: Party Position", "Flex: Ribbon"],
-      "description": "Gives the Ribbon ribbon to Pokémon in Party Position"
+      "description": "Gives the Ribbon ribbon to Pok\u00e9mon in Party Position"
     },
     "0x01E2": {
       "name": "TextRibbon",
@@ -4661,7 +4669,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Var: Variable", "Flex: Party Position"],
-      "description": "Stores in Variable the total amount of effort values of Pokémon in Party Position"
+      "description": "Stores in Variable the total amount of effort values of Pok\u00e9mon in Party Position"
     },
     "0x01E4": {
       "name": "GetDayOfWeek",
@@ -4692,8 +4700,8 @@
       "decomp_name": "pokecen_anim",
       "parameters": [2],
       "parameter_types": ["Variable"],
-      "parameter_values": ["Flex: PokéBalls"],
-      "description": "Triggers the Pokémon Center healing animation with PokéBalls number of player's Pokémon"
+      "parameter_values": ["Flex: Pok\u00e9Balls"],
+      "description": "Triggers the Pok\u00e9mon Center healing animation with Pok\u00e9Balls number of player's Pok\u00e9mon"
     },
     "0x01E8": {
       "name": "ElevatorAnimation",
@@ -4789,7 +4797,7 @@
       "parameters": [2],
       "parameter_types": ["Flex"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the slot of the first Pokémon in the party that is not an egg"
+      "description": "Stores in Variable the slot of the first Pok\u00e9mon in the party that is not an egg"
     },
     "0x01F1": {
       "name": "GetPartyPokemonTypes",
@@ -4801,7 +4809,7 @@
         "Var: Type 2",
         "Flex: Party position"
       ],
-      "description": "Return Type 1 and Type 2 of the Pokémon in Party Position in Variables"
+      "description": "Return Type 1 and Type 2 of the Pok\u00e9mon in Party Position in Variables"
     },
     "0x01F2": {
       "name": "CheckPrimoPasswordWallpaper",
@@ -4886,7 +4894,7 @@
         "Var: PC",
         "Flex: Winning Number"
       ],
-      "description": "Takes a Winning Number as input and responds as follows.\nIf no matching Pokémon could be found or an error occurs: \nMatchPos: 0; Digits: 0; PC: 0.\n\nFor all other cases:\n\nIf the matching Pokémon is in the Player's party, PC will be assigned 0.\nOtherwise, if it's in the Player's Storage System, PC will be assigned 1.\n\nMatchPos stores the zero-based position of the winning Pokémon (either as Party pos or Storage System pos, depending on the value of PC).\n\nWhen there's a match, the Digits var is assigned the number of matching digits of the Winning Pokémon's PID.\nIn case of multiple matches, priority is always given to the one with the most matching digits."
+      "description": "Takes a Winning Number as input and responds as follows.\nIf no matching Pok\u00e9mon could be found or an error occurs: \nMatchPos: 0; Digits: 0; PC: 0.\n\nFor all other cases:\n\nIf the matching Pok\u00e9mon is in the Player's party, PC will be assigned 0.\nOtherwise, if it's in the Player's Storage System, PC will be assigned 1.\n\nMatchPos stores the zero-based position of the winning Pok\u00e9mon (either as Party pos or Storage System pos, depending on the value of PC).\n\nWhen there's a match, the Digits var is assigned the number of matching digits of the Winning Pok\u00e9mon's PID.\nIn case of multiple matches, priority is always given to the one with the most matching digits."
     },
     "0x01F9": {
       "name": "InitLotto",
@@ -4910,7 +4918,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the amount of free Pokémon slots in PC boxes"
+      "description": "Stores in Variable the amount of free Pok\u00e9mon slots in PC boxes"
     },
     "0x01FC": {
       "name": "PalParkControl",
@@ -4989,8 +4997,8 @@
       "decomp_name": "scrcmd_517",
       "parameters": [2, 2],
       "parameter_types": ["Pokemon", "Variable"],
-      "parameter_values": ["Flex: Pokémon", "Var: Variable"],
-      "description": "Stores 1 in Variable if Pokémon (or its egg) is currently in the Pokémon party, stores 0 otherwise"
+      "parameter_values": ["Flex: Pok\u00e9mon", "Var: Variable"],
+      "description": "Stores 1 in Variable if Pok\u00e9mon (or its egg) is currently in the Pok\u00e9mon party, stores 0 otherwise"
     },
     "0x0206": {
       "name": "SetDeoxysForm",
@@ -4998,7 +5006,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Flex: Form"],
-      "description": "Sets every Deoxys in the Pokémon party the Form form"
+      "description": "Sets every Deoxys in the Pok\u00e9mon party the Form form"
     },
     "0x0207": {
       "name": "CheckBurmyForms",
@@ -5006,7 +5014,7 @@
       "parameters": [2],
       "parameter_types": ["Flex"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the number of current different Burmy forms in the Pokémon party"
+      "description": "Stores in Variable the number of current different Burmy forms in the Pok\u00e9mon party"
     },
     "0x0208": {
       "name": "CMD_520",
@@ -5098,7 +5106,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores in Variable the slot of the first Pokémon in the party that is not an egg nor is fainted"
+      "description": "Stores in Variable the slot of the first Pok\u00e9mon in the party that is not an egg nor is fainted"
     },
     "0x0212": {
       "name": "SetMatrixAlternativeMap",
@@ -5146,7 +5154,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Flex", "Flex"],
       "parameter_values": ["Var: Result", "Flex: Party Slot"],
-      "description": "Stores into Result the level of the Pokémon at a given Party Slot."
+      "description": "Stores into Result the level of the Pok\u00e9mon at a given Party Slot."
     },
     "0x0218": {
       "name": "CMD_536",
@@ -5409,7 +5417,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Opens the party Pokémon screen for a trade"
+      "description": "Opens the party Pok\u00e9mon screen for a trade"
     },
     "0x0237": {
       "name": "GetDPPtPrizeItemIdAndCost",
@@ -5592,8 +5600,12 @@
       "decomp_name": "wild_battle",
       "parameters": [2, 2, 1],
       "parameter_types": ["Pokemon", "Flex", "Integer"],
-      "parameter_values": ["Flex: Pokémon", "Flex: Level", "u8: Shiny Flag"],
-      "description": "Starts a wild battle against a Pokémon of level Level, and shiny if Shiny Flag is 1"
+      "parameter_values": [
+        "Flex: Pok\u00e9mon",
+        "Flex: Level",
+        "u8: Shiny Flag"
+      ],
+      "description": "Starts a wild battle against a Pok\u00e9mon of level Level, and shiny if Shiny Flag is 1"
     },
     "0x024E": {
       "name": "CheckTrainerCardLevel",
@@ -5625,7 +5637,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Displays the save data box (current map name, player's name, the amount of badges, the Pokédex counter and the play time)"
+      "description": "Displays the save data box (current map name, player's name, the amount of badges, the Pok\u00e9dex counter and the play time)"
     },
     "0x0252": {
       "name": "HideSaveBox",
@@ -5649,7 +5661,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores 0 in Variable if the current following Pokémon is small and can follow the player indoors, stores 1 if it's big and can't follow the player indoors"
+      "description": "Stores 0 in Variable if the current following Pok\u00e9mon is small and can follow the player indoors, stores 1 if it's big and can't follow the player indoors"
     },
     "0x0255": {
       "name": "CMD_597",
@@ -5673,7 +5685,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Triggers the animation of sending the current following Pokémon back to its PokéBall over the Pokémon Center healing counter"
+      "description": "Triggers the animation of sending the current following Pok\u00e9mon back to its Pok\u00e9Ball over the Pok\u00e9mon Center healing counter"
     },
     "0x0258": {
       "name": "SendBackFollowingPoke",
@@ -5681,7 +5693,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Triggers the animation of sending the current following Pokémon back to its PokéBall and deactivates the following Pokémon until the game is reset or a warp is used"
+      "description": "Triggers the animation of sending the current following Pok\u00e9mon back to its Pok\u00e9Ball and deactivates the following Pok\u00e9mon until the game is reset or a warp is used"
     },
     "0x0259": {
       "name": "FollowingPokeFacePlayer",
@@ -5721,7 +5733,7 @@
       "parameters": [1, 1],
       "parameter_types": ["Integer", "OwMovementDirection"],
       "parameter_values": ["u8: Position", "u8: Direction"],
-      "description": "Moves the following Pokémon to one tile Position next to player and facing at Direction"
+      "description": "Moves the following Pok\u00e9mon to one tile Position next to player and facing at Direction"
     },
     "0x025E": {
       "name": "BallResetFollowingPoke",
@@ -5729,7 +5741,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Moves the following Pokémon to the current player's position, and triggers the animation of sending the Pokémon out of its PokéBall after the player walks a step"
+      "description": "Moves the following Pok\u00e9mon to the current player's position, and triggers the animation of sending the Pok\u00e9mon out of its Pok\u00e9Ball after the player walks a step"
     },
     "0x025F": {
       "name": "NoBallResetFollowingPoke",
@@ -5737,7 +5749,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Moves the following Pokémon to the current player's position"
+      "description": "Moves the following Pok\u00e9mon to the current player's position"
     },
     "0x0260": {
       "name": "SendOutFollowingPoke",
@@ -5745,7 +5757,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Triggers the animation of sending the first non-fainted Pokémon out of its PokéBall and spawns it on the last player position"
+      "description": "Triggers the animation of sending the first non-fainted Pok\u00e9mon out of its Pok\u00e9Ball and spawns it on the last player position"
     },
     "0x0261": {
       "name": "MecScript",
@@ -6118,7 +6130,7 @@
         "Flex: Page",
         "Var: Variable"
       ],
-      "description": "Choose a move for the Pokémon in Party Slot from Tutor on Page and returns the selected move slot from the list to Variable. Variable equals 0xFFFD if the NEXT button was selected, or 0xFFFE if the player cancels teaching a move"
+      "description": "Choose a move for the Pok\u00e9mon in Party Slot from Tutor on Page and returns the selected move slot from the list to Variable. Variable equals 0xFFFD if the NEXT button was selected, or 0xFFFE if the player cancels teaching a move"
     },
     "0x028E": {
       "name": "TutorMoveTeachInSlot",
@@ -6142,7 +6154,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Flex: Party Slot", "Var: Variable"],
-      "description": "Stores 1 into Variable if the Pokémon at the given Party Slot can learn Headbutt."
+      "description": "Stores 1 into Variable if the Pok\u00e9mon at the given Party Slot can learn Headbutt."
     },
     "0x0291": {
       "name": "IVCheckerJudge",
@@ -6491,7 +6503,7 @@
       "parameters": [1, 2, 2],
       "parameter_types": ["Integer", "Variable", "Variable"],
       "parameter_values": ["u8: Event", "Flex: Party Position", "Var: Result"],
-      "description": "Checks if the Pokémon in Party Position matches the criteria for the Event. Stores 1 in Var if true."
+      "description": "Checks if the Pok\u00e9mon in Party Position matches the criteria for the Event. Stores 1 in Var if true."
     },
     "0x02BB": {
       "name": "CMD_699",
@@ -6595,7 +6607,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "The following Pokémon triggers a random movement, and then a random following message"
+      "description": "The following Pok\u00e9mon triggers a random movement, and then a random following message"
     },
     "0x02C8": {
       "name": "CMD_712",
@@ -6735,7 +6747,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Returns the following Pokémon's party slot to Variable. Crashes if there are no alive Pokémon in the party"
+      "description": "Returns the following Pok\u00e9mon's party slot to Variable. Crashes if there are no alive Pok\u00e9mon in the party"
     },
     "0x02D8": {
       "name": "FollowingPokeFlash",
@@ -6743,7 +6755,7 @@
       "parameters": [1, 1],
       "parameter_types": ["Integer", "Integer"],
       "parameter_values": ["u8: ???", "u8: ???"],
-      "description": "Makes the following Pokémon flash white"
+      "description": "Makes the following Pok\u00e9mon flash white"
     },
     "0x02D9": {
       "name": "CheckPokemonAlive",
@@ -6751,7 +6763,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Checks if player has at least 1 not fainted Pokémon, stores the result in Variable"
+      "description": "Checks if player has at least 1 not fainted Pok\u00e9mon, stores the result in Variable"
     },
     "0x02DA": {
       "name": "CheckFollowingPoke",
@@ -6759,7 +6771,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Checks if player has a following Pokémon, stores the result in Variable. Returns False if you have a following Pokémon"
+      "description": "Checks if player has a following Pok\u00e9mon, stores the result in Variable. Returns False if you have a following Pok\u00e9mon"
     },
     "0x02DB": {
       "name": "CMD_731",
@@ -6775,7 +6787,7 @@
       "parameters": [1],
       "parameter_types": ["Integer"],
       "parameter_values": ["s8: Mood"],
-      "description": "Increases or decreases following Pokémon mood with a signed 8-bit Integer. Maximum values are 127 and -127"
+      "description": "Increases or decreases following Pok\u00e9mon mood with a signed 8-bit Integer. Maximum values are 127 and -127"
     },
     "0x02DD": {
       "name": "GetBornPokemonPartyPos",
@@ -6783,7 +6795,7 @@
       "parameters": [1, 2],
       "parameter_types": ["Integer", "Variable"],
       "parameter_values": ["u8: Type", "Var: Variable"],
-      "description": "Checks if the following Pokémon's type matches Type. Returns True if so"
+      "description": "Checks if the following Pok\u00e9mon's type matches Type. Returns True if so"
     },
     "0x02DE": {
       "name": "FollowingPokeJump",
@@ -6791,7 +6803,7 @@
       "parameters": [1],
       "parameter_types": ["Integer"],
       "parameter_values": ["u8: Jumps"],
-      "description": "Makes the following Pokémon jump in place Jumps number of times"
+      "description": "Makes the following Pok\u00e9mon jump in place Jumps number of times"
     },
     "0x02DF": {
       "name": "CheckKurtApricorn",
@@ -6887,7 +6899,7 @@
       "parameters": [],
       "parameter_types": [],
       "parameter_values": [],
-      "description": "Changes the low screen design to the green Pokéball background"
+      "description": "Changes the low screen design to the green Pok\u00e9ball background"
     },
     "0x02EB": {
       "name": "CloseTouchScreen",
@@ -6975,7 +6987,7 @@
         "Var: Result",
         "Var: Item"
       ],
-      "description": "Checks if an item was generated after using Rock Smash. If Following Poke Status is 0, the bonus granted from the following Pokémon being present is not granted. If an item is generated, Result equals TRUE. The item is returned to Item"
+      "description": "Checks if an item was generated after using Rock Smash. If Following Poke Status is 0, the bonus granted from the following Pok\u00e9mon being present is not granted. If an item is generated, Result equals TRUE. The item is returned to Item"
     },
     "0x02F2": {
       "name": "HeadbuttEncounter",
@@ -7183,7 +7195,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Flex: Seq", "Var: Result"],
-      "description": "Stores 1 in Result if the current Seq is playing from the Pokégear radio. Stores 0 otherwise."
+      "description": "Stores 1 in Result if the current Seq is playing from the Pok\u00e9gear radio. Stores 0 otherwise."
     },
     "0x030C": {
       "name": "OpenVoltorbFlip",
@@ -7215,7 +7227,7 @@
       "parameters": [1],
       "parameter_types": ["Integer"],
       "parameter_values": ["u8: Status"],
-      "description": "0 = Following Pokémon allowed\n1 = Following Pokémon unallowed"
+      "description": "0 = Following Pok\u00e9mon allowed\n1 = Following Pok\u00e9mon unallowed"
     },
     "0x0310": {
       "name": "OverlayManager",
@@ -7567,7 +7579,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Variable", "Variable"],
       "parameter_values": ["Flex: Party Slot", "Var: Variable"],
-      "description": "Checks what form Pokémon at Party Slot position has. The Variable stores the form ID."
+      "description": "Checks what form Pok\u00e9mon at Party Slot position has. The Variable stores the form ID."
     },
     "0x033C": {
       "name": "CMD_828",
@@ -7583,7 +7595,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Checks if the following Pokémon is next to the player in any direction"
+      "description": "Checks if the following Pok\u00e9mon is next to the player in any direction"
     },
     "0x033E": {
       "name": "CMD_830",
@@ -7639,7 +7651,7 @@
       "parameters": [2],
       "parameter_types": ["Variable"],
       "parameter_values": ["Var: Variable"],
-      "description": "Stores 1 in Variable if player has both Kyogre and Groudon in the Pokémon party and they have been caught in Johto, stores 0 otherwise"
+      "description": "Stores 1 in Variable if player has both Kyogre and Groudon in the Pok\u00e9mon party and they have been caught in Johto, stores 0 otherwise"
     },
     "0x0345": {
       "name": "CMD_837",
@@ -7703,7 +7715,7 @@
       "parameters": [1, 2],
       "parameter_types": ["Integer", "Variable"],
       "parameter_values": ["u8: String Buffer", "Flex: Party position"],
-      "description": "Stores the name of the Pokémon in Party Position in String Buffer with default color tags encoding"
+      "description": "Stores the name of the Pok\u00e9mon in Party Position in String Buffer with default color tags encoding"
     },
     "0x034E": {
       "name": "CMD_846",
@@ -7744,64 +7756,6 @@
       "parameter_types": ["Integer", "Integer"],
       "parameter_values": ["u8: String Buffer", "u8: Floor"],
       "description": "Stores Floor's name in String Buffer"
-    }
-  },
-  "lvlscrcmd": {
-    "InitScriptEntryEnd": {
-      "length": "u8",
-      "value": 0,
-      "parameters": [],
-      "parameter_types": [],
-      "description": "comes after the last InitScript entry but before InitScriptFrameTable"
-    },
-    "InitScriptEntry_OnFrameTable": {
-      "length": "u8",
-      "value": 1,
-      "parameters": [4],
-      "parameter_types": ["Function"],
-      "description": "Before each frame of input processing, a table of conditions for the map is checked. Runs the first script where its two condition variables are equal. Therefore, any script invoked this way must at some point make its own condition false. The first check only occurs after all other init script types have run."
-    },
-    "InitScriptEntry_OnTransition": {
-      "length": "u8",
-      "value": 2,
-      "parameters": [4],
-      "parameter_types": ["Integer"],
-      "description": "Runs upon first entering a map, including when starting a new game or loading a save. Runs before all other init script types, including ON_FRAME_TABLE. Primary roles: modify object events, manage persisted map features"
-    },
-    "InitScriptEntry_OnResume": {
-      "length": "u8",
-      "value": 3,
-      "parameters": [4],
-      "parameter_types": ["Integer"],
-      "description": "Runs after the map has been fully loaded and drawn. Can run again without leaving the map, e.g., when using a field move or item. Primary roles: hide the player, modify object events"
-    },
-    "InitScriptEntry_OnLoad": {
-      "length": "u8",
-      "value": 4,
-      "parameters": [4],
-      "parameter_types": ["Integer"],
-      "description": "Runs after the map layout is loaded (but not drawn yet). Can run again without leaving the map, e.g., when using a field move or item. Primary roles: modify warp events, set/unset flags tied to object events"
-    },
-    "InitScriptGoToIfEqual": {
-      "length": null,
-      "value": null,
-      "parameters": [2, 2, 2],
-      "parameter_types": ["Variable", "Integer", "Integer"],
-      "description": "Calls a Script in the associated Script File if the given Variable holds the given Value"
-    },
-    "InitScriptFrameTableEnd": {
-      "length": "u16",
-      "value": 0,
-      "parameters": [4],
-      "parameter_types": ["Integer"],
-      "description": ""
-    },
-    "InitScriptEnd": {
-      "length": null,
-      "value": null,
-      "parameters": [],
-      "parameter_types": [],
-      "description": "alignment"
     }
   },
   "sounds": {
@@ -8071,15 +8025,15 @@
     },
     "1063": {
       "name": "SEQ_GS_POKESEN",
-      "used_in": "Pokémon Centre"
+      "used_in": "Pok\u00e9mon Centre"
     },
     "1064": {
       "name": "SEQ_GS_FS",
-      "used_in": "Pokémon Mart"
+      "used_in": "Pok\u00e9mon Mart"
     },
     "1065": {
       "name": "SEQ_GS_GYM",
-      "used_in": "Pokémon Gym"
+      "used_in": "Pok\u00e9mon Gym"
     },
     "1066": {
       "name": "SEQ_GS_UTSUGI_RABO",
@@ -8087,7 +8041,7 @@
     },
     "1067": {
       "name": "SEQ_GS_OHKIDO",
-      "used_in": "Professor Oak's Theme - Used in the cutscene where Oak gives you the Pokédex"
+      "used_in": "Professor Oak's Theme - Used in the cutscene where Oak gives you the Pok\u00e9dex"
     },
     "1068": {
       "name": "SEQ_GS_KABURENJOU",
@@ -8215,11 +8169,11 @@
     },
     "1099": {
       "name": "SEQ_GS_RADIO_KOMORIUTA",
-      "used_in": "Radio: Pokémon Lullaby"
+      "used_in": "Radio: Pok\u00e9mon Lullaby"
     },
     "1100": {
       "name": "SEQ_GS_RADIO_MARCH",
-      "used_in": "Radio: Pokémon March"
+      "used_in": "Radio: Pok\u00e9mon March"
     },
     "1101": {
       "name": "SEQ_GS_RADIO_UNKNOWN",
@@ -8227,11 +8181,11 @@
     },
     "1102": {
       "name": "SEQ_GS_HUE",
-      "used_in": "Radio: Poké Flute"
+      "used_in": "Radio: Pok\u00e9 Flute"
     },
     "1103": {
       "name": "SEQ_GS_OHKIDO_RABO",
-      "used_in": "Professor Oak's Lab, Radio: Oak's Pokémon Talk"
+      "used_in": "Professor Oak's Lab, Radio: Oak's Pok\u00e9mon Talk"
     },
     "1104": {
       "name": "SEQ_GS_AIKOTOBA",
@@ -8283,7 +8237,7 @@
     },
     "1116": {
       "name": "SEQ_GS_VS_NORAPOKE",
-      "used_in": "Battle: Wild Pokémon (Johto)"
+      "used_in": "Battle: Wild Pok\u00e9mon (Johto)"
     },
     "1117": {
       "name": "SEQ_GS_VS_TRAINER",
@@ -8319,7 +8273,7 @@
     },
     "1125": {
       "name": "SEQ_GS_VS_NORAPOKE_KANTO",
-      "used_in": "Battle: Wild Pokémon (Kanto)"
+      "used_in": "Battle: Wild Pok\u00e9mon (Kanto)"
     },
     "1126": {
       "name": "SEQ_GS_VS_TRAINER_KANTO",
@@ -8355,39 +8309,39 @@
     },
     "1134": {
       "name": "SEQ_GS_PT_ENTR",
-      "used_in": "Pokéathlon Dome"
+      "used_in": "Pok\u00e9athlon Dome"
     },
     "1135": {
       "name": "SEQ_GS_PT_OPEN",
-      "used_in": "Pokéathlon Opening Ceremony"
+      "used_in": "Pok\u00e9athlon Opening Ceremony"
     },
     "1136": {
       "name": "SEQ_GS_PT_TITLE",
-      "used_in": "Pokéathlon Game Introduction"
+      "used_in": "Pok\u00e9athlon Game Introduction"
     },
     "1137": {
       "name": "SEQ_GS_PT_GAME",
-      "used_in": "Pokéathlon Mini-game"
+      "used_in": "Pok\u00e9athlon Mini-game"
     },
     "1138": {
       "name": "SEQ_GS_PT_GAMEF",
-      "used_in": "Pokéathlon Mini-game (Final Round)"
+      "used_in": "Pok\u00e9athlon Mini-game (Final Round)"
     },
     "1139": {
       "name": "SEQ_GS_PT_RESULT",
-      "used_in": "Pokéathlon Mini-game Results"
+      "used_in": "Pok\u00e9athlon Mini-game Results"
     },
     "1140": {
       "name": "SEQ_GS_PT_END",
-      "used_in": "Pokéathlon Closing Ceremony"
+      "used_in": "Pok\u00e9athlon Closing Ceremony"
     },
     "1141": {
       "name": "SEQ_GS_PT_END_FIELD",
-      "used_in": "Pokéathlon Dome: Friendship Room (Duplicate of Pokéathlon Closing Ceremony)"
+      "used_in": "Pok\u00e9athlon Dome: Friendship Room (Duplicate of Pok\u00e9athlon Closing Ceremony)"
     },
     "1142": {
       "name": "SEQ_GS_PT_VICTORY",
-      "used_in": "Pokéathlon Victor Announced"
+      "used_in": "Pok\u00e9athlon Victor Announced"
     },
     "1143": {
       "name": "SEQ_GS_BF_FACTORY",
@@ -8515,11 +8469,11 @@
     },
     "1174": {
       "name": "SEQ_GS_VS_KODAI",
-      "used_in": "Battle: Super Ancient Pokémon"
+      "used_in": "Battle: Super Ancient Pok\u00e9mon"
     },
     "1175": {
       "name": "SEQ_GS_PHC",
-      "used_in": "Pokéwalker Menu"
+      "used_in": "Pok\u00e9walker Menu"
     },
     "1176": {
       "name": "SEQ_GS_E_ARCEUS",
@@ -8527,23 +8481,23 @@
     },
     "1177": {
       "name": "SEQ_GS_R_1_29_PHC",
-      "used_in": "Pokéwalker: Stroll Summary A (Duplicate of Route 29)"
+      "used_in": "Pok\u00e9walker: Stroll Summary A (Duplicate of Route 29)"
     },
     "1178": {
       "name": "SEQ_GS_R_6_38_PHC",
-      "used_in": "Pokéwalker: Stroll Summary B (Duplicate of Route 38)"
+      "used_in": "Pok\u00e9walker: Stroll Summary B (Duplicate of Route 38)"
     },
     "1179": {
       "name": "SEQ_GS_R_7_42_PHC",
-      "used_in": "Pokéwalker: Stroll Summary C (Duplicate of Route 42)"
+      "used_in": "Pok\u00e9walker: Stroll Summary C (Duplicate of Route 42)"
     },
     "1180": {
       "name": "SEQ_GS_NAMINORI_PHC",
-      "used_in": "Pokéwalker: Stroll Summary D (Duplicate of Surfing)"
+      "used_in": "Pok\u00e9walker: Stroll Summary D (Duplicate of Surfing)"
     },
     "1181": {
       "name": "SEQ_GS_D_CHIKATSUURO_PHC",
-      "used_in": "Pokéwalker: Stroll Summary E (Duplicate of General Johto Dungeon (Rearranged to work with BANK_BASIC))"
+      "used_in": "Pok\u00e9walker: Stroll Summary E (Duplicate of General Johto Dungeon (Rearranged to work with BANK_BASIC))"
     },
     "1182": {
       "name": "SEQ_GS_SENKYO_R",
@@ -8551,7 +8505,7 @@
     },
     "1183": {
       "name": "SEQ_ME_ASA",
-      "used_in": "Fanfare: Pokémon Healed"
+      "used_in": "Fanfare: Pok\u00e9mon Healed"
     },
     "1184": {
       "name": "SEQ_ME_LVUP",
@@ -8567,11 +8521,11 @@
     },
     "1187": {
       "name": "SEQ_ME_POKEGET",
-      "used_in": "Fanfare: Caught a Pokémon"
+      "used_in": "Fanfare: Caught a Pok\u00e9mon"
     },
     "1188": {
       "name": "SEQ_ME_SHINKAOME",
-      "used_in": "Duplicate of Fanfare: Caught a Pokémon - Used for when a Pokémon evolves or an Egg Hatches"
+      "used_in": "Duplicate of Fanfare: Caught a Pok\u00e9mon - Used for when a Pok\u00e9mon evolves or an Egg Hatches"
     },
     "1189": {
       "name": "SEQ_ME_BADGE",
@@ -8595,27 +8549,27 @@
     },
     "1194": {
       "name": "SEQ_ME_HYOUKA1",
-      "used_in": "Fanfare: Pokédex Evaluation"
+      "used_in": "Fanfare: Pok\u00e9dex Evaluation"
     },
     "1195": {
       "name": "SEQ_ME_HYOUKA2",
-      "used_in": "Fanfare: Pokédex Evaluation"
+      "used_in": "Fanfare: Pok\u00e9dex Evaluation"
     },
     "1196": {
       "name": "SEQ_ME_HYOUKA3",
-      "used_in": "Fanfare: Pokédex Evaluation"
+      "used_in": "Fanfare: Pok\u00e9dex Evaluation"
     },
     "1197": {
       "name": "SEQ_ME_HYOUKA4",
-      "used_in": "Fanfare: Pokédex Evaluation"
+      "used_in": "Fanfare: Pok\u00e9dex Evaluation"
     },
     "1198": {
       "name": "SEQ_ME_HYOUKA5",
-      "used_in": "Fanfare: Pokédex Evaluation"
+      "used_in": "Fanfare: Pok\u00e9dex Evaluation"
     },
     "1199": {
       "name": "SEQ_ME_HYOUKA6",
-      "used_in": "Fanfare: Pokédex Evaluation"
+      "used_in": "Fanfare: Pok\u00e9dex Evaluation"
     },
     "1200": {
       "name": "SEQ_ME_TAMAGO_GET",
@@ -8643,7 +8597,7 @@
     },
     "1206": {
       "name": "SEQ_ME_POKEGEAR_REGIST",
-      "used_in": "Fanfare:  Registered No. in the Pokégear"
+      "used_in": "Fanfare:  Registered No. in the Pok\u00e9gear"
     },
     "1207": {
       "name": "SEQ_ME_GONIN",
@@ -8651,19 +8605,19 @@
     },
     "1208": {
       "name": "SEQ_ME_PT_NEW",
-      "used_in": "Fanfare: Changed Into Pokéathlete Gear"
+      "used_in": "Fanfare: Changed Into Pok\u00e9athlete Gear"
     },
     "1209": {
       "name": "SEQ_ME_PT_RESULTG",
-      "used_in": "Fanfare: Current Leader - Pokéathlon"
+      "used_in": "Fanfare: Current Leader - Pok\u00e9athlon"
     },
     "1210": {
       "name": "SEQ_ME_PT_SPECIAL",
-      "used_in": "Fanfare: Received a Pokémon"
+      "used_in": "Fanfare: Received a Pok\u00e9mon"
     },
     "1211": {
       "name": "SEQ_ME_PT_VICTORY",
-      "used_in": "Unused (Duplicate of Pokéathlon Victor Announced)"
+      "used_in": "Unused (Duplicate of Pok\u00e9athlon Victor Announced)"
     },
     "1212": {
       "name": "SEQ_ME_ROULETTE",
@@ -9911,7 +9865,7 @@
     },
     "1533": {
       "name": "SEQ_SE_DP_BOWA",
-      "used_in": "Poké Ball being placed"
+      "used_in": "Pok\u00e9 Ball being placed"
     },
     "1534": {
       "name": "SEQ_SE_DP_Z_SEARCH",
@@ -10971,7 +10925,7 @@
     },
     "1798": {
       "name": "SEQ_SE_DP_BOWA2",
-      "used_in": "Poké Ball opening; plays when switching in battle"
+      "used_in": "Pok\u00e9 Ball opening; plays when switching in battle"
     },
     "1799": {
       "name": "SEQ_SE_DP_BOWA3",
@@ -10979,7 +10933,7 @@
     },
     "1800": {
       "name": "SEQ_SE_DP_BOWA4",
-      "used_in": "Poké Ball hitting Wild Pokémon"
+      "used_in": "Pok\u00e9 Ball hitting Wild Pok\u00e9mon"
     },
     "1801": {
       "name": "SEQ_SE_DP_GETTING",
