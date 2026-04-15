@@ -496,7 +496,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -508,7 +508,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -520,7 +520,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -536,7 +536,7 @@
         },
         {
           "name": "operand",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -552,7 +552,7 @@
         },
         {
           "name": "operand",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -636,7 +636,7 @@
       "params": [
         {
           "name": "text_slot",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -652,7 +652,7 @@
         }
       ]
     },
-    "CMD_47": {
+    "MessageSynchronized": {
       "type": "script_cmd",
       "id": 47,
       "legacy_name": "CMD_47",
@@ -777,7 +777,7 @@
         },
         {
           "name": "variable",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -994,15 +994,15 @@
       "params": [
         {
           "name": "option_msg",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "highlight_msg",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "list_slot",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1033,7 +1033,7 @@
       "params": [
         {
           "name": "sound",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1045,7 +1045,7 @@
       "params": [
         {
           "name": "sound",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1057,7 +1057,7 @@
       "params": [
         {
           "name": "sound",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1069,11 +1069,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1267,7 +1267,7 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "relative_jump",
@@ -1328,7 +1328,7 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1340,7 +1340,7 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1352,11 +1352,11 @@
       "params": [
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1410,7 +1410,7 @@
         }
       ]
     },
-    "CMD_107": {
+    "MoveCamera": {
       "type": "script_cmd",
       "id": 107,
       "legacy_name": "CMD_107",
@@ -1517,11 +1517,11 @@
       "params": [
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1547,11 +1547,11 @@
       "params": [
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1589,7 +1589,7 @@
       "params": [
         {
           "name": "coins",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1601,7 +1601,7 @@
       "params": [
         {
           "name": "coins",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1613,11 +1613,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -1633,11 +1633,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -1653,11 +1653,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -1673,11 +1673,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -1693,7 +1693,7 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -1709,7 +1709,7 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -1751,7 +1751,7 @@
         }
       ]
     },
-    "ScrCmd_084": {
+    "Dummy084": {
       "type": "script_cmd",
       "id": 132,
       "legacy_name": "DummyTakeGoods",
@@ -1791,7 +1791,7 @@
         }
       ]
     },
-    "ScrCmd_086": {
+    "Dummy086": {
       "type": "script_cmd",
       "id": 134,
       "legacy_name": "DummyCheckGoods",
@@ -1831,7 +1831,7 @@
         }
       ]
     },
-    "ScrCmd_088": {
+    "Dummy088": {
       "type": "script_cmd",
       "id": 136,
       "legacy_name": "DummyTakeTrap",
@@ -1851,7 +1851,7 @@
         }
       ]
     },
-    "ScrCmd_089": {
+    "Dummy089": {
       "type": "script_cmd",
       "id": 137,
       "legacy_name": "DummyCheckTrapSpace",
@@ -1871,7 +1871,7 @@
         }
       ]
     },
-    "ScrCmd_08A": {
+    "Dummy08A": {
       "type": "script_cmd",
       "id": 138,
       "legacy_name": "DummyCheckTrap",
@@ -1891,7 +1891,7 @@
         }
       ]
     },
-    "ScrCmd_08B": {
+    "Dummy08B": {
       "type": "script_cmd",
       "id": 139,
       "legacy_name": "DummyGiveTreasure",
@@ -1911,7 +1911,7 @@
         }
       ]
     },
-    "ScrCmd_08C": {
+    "Dummy08C": {
       "type": "script_cmd",
       "id": 140,
       "legacy_name": "DummyTakeTreasure",
@@ -1931,7 +1931,7 @@
         }
       ]
     },
-    "ScrCmd_08D": {
+    "Dummy08D": {
       "type": "script_cmd",
       "id": 141,
       "legacy_name": "DummyCheckTreasureSpace",
@@ -1951,7 +1951,7 @@
         }
       ]
     },
-    "ScrCmd_08E": {
+    "Dummy08E": {
       "type": "script_cmd",
       "id": 142,
       "legacy_name": "DummyCheckTreasure",
@@ -1991,7 +1991,7 @@
         }
       ]
     },
-    "ScrCmd_090": {
+    "Dummy090": {
       "type": "script_cmd",
       "id": 144,
       "legacy_name": "DummyTakeSphere",
@@ -2011,7 +2011,7 @@
         }
       ]
     },
-    "ScrCmd_091": {
+    "Dummy091": {
       "type": "script_cmd",
       "id": 145,
       "legacy_name": "DummyCheckSphereSpace",
@@ -2031,7 +2031,7 @@
         }
       ]
     },
-    "ScrCmd_092": {
+    "Dummy092": {
       "type": "script_cmd",
       "id": 146,
       "legacy_name": "DummyCheckSphere",
@@ -2091,7 +2091,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -2107,15 +2107,15 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -2131,11 +2131,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "location",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2171,11 +2171,11 @@
         },
         {
           "name": "move_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2191,11 +2191,11 @@
         },
         {
           "name": "move_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
-    "CMD_155": {
+    "GetRematchTrainerID": {
       "type": "script_cmd",
       "id": 155,
       "legacy_name": "CMD_155",
@@ -2239,7 +2239,7 @@
       "description": "Nothing",
       "params": []
     },
-    "ScrCmd_0A0": {
+    "Dummy0A0": {
       "type": "script_cmd",
       "id": 160,
       "legacy_name": "DummyCountPartyPokemon",
@@ -2406,7 +2406,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_178": {
+    "TryStartGTSApp": {
       "type": "script_cmd",
       "id": 178,
       "legacy_name": "CMD_178",
@@ -2460,7 +2460,7 @@
         }
       ]
     },
-    "CMD_183": {
+    "CheckIsApproachingTrainerTaskDone": {
       "type": "script_cmd",
       "id": 183,
       "legacy_name": "CMD_183",
@@ -2488,7 +2488,7 @@
         }
       ]
     },
-    "CMD_185": {
+    "GetApproachingTrainerID": {
       "type": "script_cmd",
       "id": 185,
       "legacy_name": "CMD_185",
@@ -2571,7 +2571,7 @@
       "params": [
         {
           "name": "map",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "door",
@@ -2579,15 +2579,15 @@
         },
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "dir",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2599,7 +2599,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2611,7 +2611,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2623,7 +2623,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2795,7 +2795,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2811,7 +2811,7 @@
         },
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2827,7 +2827,7 @@
         },
         {
           "name": "pocket",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2843,7 +2843,7 @@
         },
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2859,7 +2859,7 @@
         },
         {
           "name": "move",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2875,7 +2875,7 @@
         },
         {
           "name": "number",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2891,7 +2891,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2907,7 +2907,7 @@
         },
         {
           "name": "pok\u00e9tch_app",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2923,7 +2923,7 @@
         },
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2951,7 +2951,7 @@
         },
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
@@ -3023,7 +3023,7 @@
         },
         {
           "name": "goods",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3039,7 +3039,7 @@
         },
         {
           "name": "trap",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3055,7 +3055,7 @@
         },
         {
           "name": "treasure",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3111,11 +3111,11 @@
       "params": [
         {
           "name": "trainer_1_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "trainer_2_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3127,11 +3127,11 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "type",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3195,7 +3195,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3249,14 +3249,14 @@
       "description": "Starts a battle against trainer with ID 1",
       "params": []
     },
-    "ScrCmd_0F0": {
+    "SetTargetTrainerDefeated": {
       "type": "script_cmd",
       "id": 240,
       "legacy_name": "DummyTrainerFlag",
       "description": "Sets the trainer flag with the same ID as the invoking event",
       "params": []
     },
-    "ScrCmd_0F1": {
+    "GoToIfTargetTrainerDefeated": {
       "type": "script_cmd",
       "id": 241,
       "legacy_name": "DummyTrainerFlagJump",
@@ -3276,15 +3276,15 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_2",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_3",
@@ -3300,15 +3300,15 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_2",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_3",
@@ -3354,7 +3354,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_248": {
+    "StartContestCommSync": {
       "type": "script_cmd",
       "id": 248,
       "legacy_name": "CMD_248",
@@ -3366,7 +3366,7 @@
         }
       ]
     },
-    "CMD_249": {
+    "WaitForCommSyncState": {
       "type": "script_cmd",
       "id": 249,
       "legacy_name": "CMD_249",
@@ -3378,7 +3378,7 @@
         }
       ]
     },
-    "CMD_250": {
+    "NewContest": {
       "type": "script_cmd",
       "id": 250,
       "legacy_name": "CMD_250",
@@ -3402,7 +3402,7 @@
         }
       ]
     },
-    "CMD_251": {
+    "EndContest": {
       "type": "script_cmd",
       "id": 251,
       "legacy_name": "CMD_251",
@@ -3414,7 +3414,7 @@
         }
       ]
     },
-    "CMD_252": {
+    "BufferJudgeName": {
       "type": "script_cmd",
       "id": 252,
       "legacy_name": "CMD_252",
@@ -3430,7 +3430,7 @@
         }
       ]
     },
-    "CMD_253": {
+    "BufferContestantTrainerName": {
       "type": "script_cmd",
       "id": 253,
       "legacy_name": "CMD_253",
@@ -3446,7 +3446,7 @@
         }
       ]
     },
-    "CMD_254": {
+    "BufferContestantMonName": {
       "type": "script_cmd",
       "id": 254,
       "legacy_name": "CMD_254",
@@ -3462,7 +3462,7 @@
         }
       ]
     },
-    "CMD_255": {
+    "BufferContestRegistrationEntryNumber": {
       "type": "script_cmd",
       "id": 255,
       "legacy_name": "CMD_255",
@@ -3478,21 +3478,21 @@
         }
       ]
     },
-    "CMD_256": {
+    "WaitForLinkContestSetup": {
       "type": "script_cmd",
       "id": 256,
       "legacy_name": "CMD_256",
       "description": "nan",
       "params": []
     },
-    "CMD_257": {
+    "RunContestApplication": {
       "type": "script_cmd",
       "id": 257,
       "legacy_name": "CMD_257",
       "description": "nan",
       "params": []
     },
-    "CMD_258": {
+    "BufferContestRank": {
       "type": "script_cmd",
       "id": 258,
       "legacy_name": "CMD_258",
@@ -3504,7 +3504,7 @@
         }
       ]
     },
-    "CMD_259": {
+    "BufferContestType": {
       "type": "script_cmd",
       "id": 259,
       "legacy_name": "CMD_259",
@@ -3516,7 +3516,7 @@
         }
       ]
     },
-    "CMD_260": {
+    "BufferWinningContestantTrainerName": {
       "type": "script_cmd",
       "id": 260,
       "legacy_name": "CMD_260",
@@ -3528,7 +3528,7 @@
         }
       ]
     },
-    "CMD_261": {
+    "SetTrue": {
       "type": "script_cmd",
       "id": 261,
       "legacy_name": "CMD_261",
@@ -3540,7 +3540,7 @@
         }
       ]
     },
-    "CMD_262": {
+    "BufferWinningContestantMonName": {
       "type": "script_cmd",
       "id": 262,
       "legacy_name": "CMD_262",
@@ -3552,7 +3552,7 @@
         }
       ]
     },
-    "CMD_263": {
+    "GetPlayerContestPlacement": {
       "type": "script_cmd",
       "id": 263,
       "legacy_name": "CMD_263",
@@ -3564,7 +3564,7 @@
         }
       ]
     },
-    "CMD_264": {
+    "GetWinningContestantEntryNum": {
       "type": "script_cmd",
       "id": 264,
       "legacy_name": "CMD_264",
@@ -3576,7 +3576,7 @@
         }
       ]
     },
-    "CMD_265": {
+    "GetContestRegistrationEntryNum": {
       "type": "script_cmd",
       "id": 265,
       "legacy_name": "CMD_265",
@@ -3588,7 +3588,7 @@
         }
       ]
     },
-    "CMD_266": {
+    "GetContestantObjEventGFX": {
       "type": "script_cmd",
       "id": 266,
       "legacy_name": "CMD_266",
@@ -3604,7 +3604,7 @@
         }
       ]
     },
-    "CMD_267": {
+    "GetContestantMonContestFame": {
       "type": "script_cmd",
       "id": 267,
       "legacy_name": "CMD_267",
@@ -3620,7 +3620,7 @@
         }
       ]
     },
-    "CMD_268": {
+    "GetContestMode": {
       "type": "script_cmd",
       "id": 268,
       "legacy_name": "CMD_268",
@@ -3632,7 +3632,7 @@
         }
       ]
     },
-    "CMD_269": {
+    "CheckPlayerMonHasRibbon": {
       "type": "script_cmd",
       "id": 269,
       "legacy_name": "CMD_269",
@@ -3644,7 +3644,7 @@
         }
       ]
     },
-    "CMD_270": {
+    "SetRibbonName": {
       "type": "script_cmd",
       "id": 270,
       "legacy_name": "CMD_270",
@@ -3656,7 +3656,7 @@
         }
       ]
     },
-    "CMD_271": {
+    "GetFirstTimeVictoryAccessory": {
       "type": "script_cmd",
       "id": 271,
       "legacy_name": "CMD_271",
@@ -3668,7 +3668,7 @@
         }
       ]
     },
-    "CMD_272": {
+    "GetContestInfo": {
       "type": "script_cmd",
       "id": 272,
       "legacy_name": "CMD_272",
@@ -3711,21 +3711,21 @@
       "description": "nan",
       "params": []
     },
-    "CMD_275": {
+    "StopHBlank": {
       "type": "script_cmd",
       "id": 275,
       "legacy_name": "CMD_275",
       "description": "nan",
       "params": []
     },
-    "CMD_276": {
+    "StartHBlank": {
       "type": "script_cmd",
       "id": 276,
       "legacy_name": "CMD_276",
       "description": "nan",
       "params": []
     },
-    "CMD_277": {
+    "GetShouldSkipAwardCeremony": {
       "type": "script_cmd",
       "id": 277,
       "legacy_name": "CMD_277",
@@ -3744,14 +3744,14 @@
       "description": "nan",
       "params": []
     },
-    "CMD_279": {
+    "LockAutoScrollForLinkContests": {
       "type": "script_cmd",
       "id": 279,
       "legacy_name": "CMD_279",
       "description": "nan",
       "params": []
     },
-    "CMD_280": {
+    "LockTextSpeed": {
       "type": "script_cmd",
       "id": 280,
       "legacy_name": "CMD_280",
@@ -3925,11 +3925,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4052,7 +4052,7 @@
         }
       ]
     },
-    "CMD_304": {
+    "SetDressUpPhotoTitle": {
       "type": "script_cmd",
       "id": 304,
       "legacy_name": "CMD_304",
@@ -4091,7 +4091,7 @@
       "params": [
         {
           "name": "app",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4103,7 +4103,7 @@
       "params": [
         {
           "name": "app",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -4123,7 +4123,7 @@
         }
       ]
     },
-    "CMD_310": {
+    "ClearReceivedTempDataAllPlayers": {
       "type": "script_cmd",
       "id": 310,
       "legacy_name": "CMD_310",
@@ -4317,7 +4317,7 @@
       "params": [
         {
           "name": "unused",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4329,7 +4329,7 @@
       "params": [
         {
           "name": "mart_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4341,7 +4341,7 @@
       "params": [
         {
           "name": "mart_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4353,11 +4353,11 @@
       "params": [
         {
           "name": "mart_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
-    "ScrCmd_14B": {
+    "BlackOutFromBattle2": {
       "type": "script_cmd",
       "id": 331,
       "legacy_name": "DummyLostBattle",
@@ -4395,14 +4395,14 @@
       "description": "Heals every Pok\u00e9mon in the player's party",
       "params": []
     },
-    "ScrCmd_14F": {
+    "Dummy14F": {
       "type": "script_cmd",
       "id": 335,
       "legacy_name": "DummyUnderground",
       "description": "Nothing",
       "params": []
     },
-    "CMD_336": {
+    "EndCommunication": {
       "type": "script_cmd",
       "id": 336,
       "legacy_name": "CMD_336",
@@ -4442,7 +4442,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_341": {
+    "GetTrainerInfoTrainerClass": {
       "type": "script_cmd",
       "id": 341,
       "legacy_name": "CMD_341",
@@ -4458,7 +4458,7 @@
         }
       ]
     },
-    "CMD_342": {
+    "SetTrainerInfoAppearance": {
       "type": "script_cmd",
       "id": 342,
       "legacy_name": "CMD_342",
@@ -4516,7 +4516,7 @@
       "params": [
         {
           "name": "badge_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -4532,7 +4532,7 @@
       "params": [
         {
           "name": "badge_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4998,15 +4998,15 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5046,11 +5046,11 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "movement_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5062,11 +5062,11 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "direction_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5078,15 +5078,15 @@
       "params": [
         {
           "name": "warp_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5126,21 +5126,21 @@
         }
       ]
     },
-    "CMD_397": {
+    "ShowSavingIcon": {
       "type": "script_cmd",
       "id": 397,
       "legacy_name": "CMD_397",
       "description": "nan",
       "params": []
     },
-    "CMD_398": {
+    "HideSavingIcon": {
       "type": "script_cmd",
       "id": 398,
       "legacy_name": "CMD_398",
       "description": "nan",
       "params": []
     },
-    "CMD_399": {
+    "StoreSaveResult": {
       "type": "script_cmd",
       "id": 399,
       "legacy_name": "CMD_399",
@@ -5160,7 +5160,7 @@
       "params": [
         {
           "name": "time",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5171,7 +5171,7 @@
       "description": "Calls the Pok\u00e9mon selection screen",
       "params": []
     },
-    "CMD_402": {
+    "OpenPartyMenuForUnionRoomBattle": {
       "type": "script_cmd",
       "id": 402,
       "legacy_name": "CMD_402",
@@ -5198,23 +5198,23 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_2",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_3",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
-    "CMD_405": {
+    "TryEnterContestMon": {
       "type": "script_cmd",
       "id": 405,
       "legacy_name": "CMD_405",
@@ -5230,7 +5230,7 @@
         }
       ]
     },
-    "CMD_406": {
+    "SetMonSummary": {
       "type": "script_cmd",
       "id": 406,
       "legacy_name": "CMD_406",
@@ -5242,7 +5242,7 @@
         }
       ]
     },
-    "CMD_407": {
+    "GetMonPartySlot": {
       "type": "script_cmd",
       "id": 407,
       "legacy_name": "CMD_407",
@@ -5310,7 +5310,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5338,7 +5338,7 @@
         }
       ]
     },
-    "CMD_414": {
+    "Dummy19E": {
       "type": "script_cmd",
       "id": 414,
       "legacy_name": "CMD_414",
@@ -5354,7 +5354,7 @@
         }
       ]
     },
-    "CMD_415": {
+    "UndergroundNPCMessage": {
       "type": "script_cmd",
       "id": 415,
       "legacy_name": "CMD_415",
@@ -5366,14 +5366,14 @@
         }
       ]
     },
-    "CMD_416": {
+    "CloseUndergroundNPCMessage": {
       "type": "script_cmd",
       "id": 416,
       "legacy_name": "CMD_416",
       "description": "nan",
       "params": []
     },
-    "CMD_417": {
+    "BufferTreasureNameForUndergroundVendor_Unused": {
       "type": "script_cmd",
       "id": 417,
       "legacy_name": "CMD_417",
@@ -5389,7 +5389,7 @@
         }
       ]
     },
-    "CMD_418": {
+    "BufferTrapNameForUndergroundVendor_Unused": {
       "type": "script_cmd",
       "id": 418,
       "legacy_name": "CMD_418",
@@ -5413,7 +5413,7 @@
       "params": [
         {
           "name": "money",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5433,7 +5433,7 @@
         }
       ]
     },
-    "CMD_421": {
+    "Dummy1A5": {
       "type": "script_cmd",
       "id": 421,
       "legacy_name": "CMD_421",
@@ -5445,14 +5445,14 @@
         }
       ]
     },
-    "CMD_422": {
+    "Dummy1A6": {
       "type": "script_cmd",
       "id": 422,
       "legacy_name": "CMD_422",
       "description": "nan",
       "params": []
     },
-    "CMD_423": {
+    "Dummy1A7": {
       "type": "script_cmd",
       "id": 423,
       "legacy_name": "CMD_423",
@@ -5501,7 +5501,7 @@
         },
         {
           "name": "money",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5536,7 +5536,7 @@
         },
         {
           "name": "position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5615,7 +5615,7 @@
         }
       ]
     },
-    "CMD_437": {
+    "StartRankingsMachine": {
       "type": "script_cmd",
       "id": 437,
       "legacy_name": "CMD_437",
@@ -5651,7 +5651,7 @@
         },
         {
           "name": "range",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5667,7 +5667,7 @@
         },
         {
           "name": "range",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5683,7 +5683,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5727,19 +5727,19 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5787,7 +5787,7 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -5807,7 +5807,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5819,7 +5819,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5831,15 +5831,15 @@
       "params": [
         {
           "name": "integer_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "decimal_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5851,15 +5851,15 @@
       "params": [
         {
           "name": "integer_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "decimal_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "pok\u00e9mon_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5906,7 +5906,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5938,11 +5938,11 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "move_slot",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5981,23 +5981,23 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6142,11 +6142,11 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6198,7 +6198,7 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6258,14 +6258,14 @@
         }
       ]
     },
-    "CMD_474": {
+    "SetBattleTowerNull": {
       "type": "script_cmd",
       "id": 474,
       "legacy_name": "CMD_474",
       "description": "nan",
       "params": []
     },
-    "CMD_475": {
+    "InitBattleTower": {
       "type": "script_cmd",
       "id": 475,
       "legacy_name": "CMD_475",
@@ -6281,14 +6281,14 @@
         }
       ]
     },
-    "CMD_476": {
+    "FreeBattleTower": {
       "type": "script_cmd",
       "id": 476,
       "legacy_name": "CMD_476",
       "description": "nan",
       "params": []
     },
-    "CMD_477": {
+    "CallBattleTowerFunction": {
       "type": "script_cmd",
       "id": 477,
       "legacy_name": "CMD_477",
@@ -6308,7 +6308,7 @@
         }
       ]
     },
-    "CMD_478": {
+    "GetBattleTowerPartnerSpeciesAndMove": {
       "type": "script_cmd",
       "id": 478,
       "legacy_name": "CMD_478",
@@ -6529,7 +6529,7 @@
         }
       ]
     },
-    "CMD_494": {
+    "GetPartyMonHeldItem_Unused": {
       "type": "script_cmd",
       "id": 494,
       "legacy_name": "CMD_494",
@@ -6557,7 +6557,7 @@
         }
       ]
     },
-    "CMD_496": {
+    "DeletePartyMonHeldItem_Unused": {
       "type": "script_cmd",
       "id": 496,
       "legacy_name": "CMD_496",
@@ -6581,14 +6581,14 @@
         }
       ]
     },
-    "CMD_498": {
+    "ScrCmd_Dummy_1F2": {
       "type": "script_cmd",
       "id": 498,
       "legacy_name": "CMD_498",
       "description": "Does absolutely nothing.",
       "params": []
     },
-    "CMD_499": {
+    "ScrCmd_Dummy_1F3": {
       "type": "script_cmd",
       "id": 499,
       "legacy_name": "CMD_499",
@@ -6659,7 +6659,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6714,7 +6714,7 @@
         }
       ]
     },
-    "CMD_508": {
+    "SentenceInstant": {
       "type": "script_cmd",
       "id": 508,
       "legacy_name": "CMD_508",
@@ -6738,7 +6738,7 @@
         }
       ]
     },
-    "CMD_509": {
+    "Sentence": {
       "type": "script_cmd",
       "id": 509,
       "legacy_name": "CMD_509",
@@ -6762,7 +6762,7 @@
         }
       ]
     },
-    "CMD_510": {
+    "PrintBattleTowerIntroMessage": {
       "type": "script_cmd",
       "id": 510,
       "legacy_name": "CMD_510",
@@ -6774,7 +6774,7 @@
         }
       ]
     },
-    "CMD_511": {
+    "MessageSeenBanlistSpecies": {
       "type": "script_cmd",
       "id": 511,
       "legacy_name": "CMD_511",
@@ -6883,7 +6883,7 @@
       "description": "Brings up the view of the Great Marsh and the daily Pokemon as seen from the viewing platform.",
       "params": []
     },
-    "CMD_519": {
+    "GetCurNetID": {
       "type": "script_cmd",
       "id": 519,
       "legacy_name": "CMD_519",
@@ -6903,11 +6903,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "gender",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6937,7 +6937,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_524": {
+    "MessageFromTrainerType": {
       "type": "script_cmd",
       "id": 524,
       "legacy_name": "CMD_524",
@@ -7086,11 +7086,11 @@
         },
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
-    "CMD_536": {
+    "GetRandomSeenSpecies": {
       "type": "script_cmd",
       "id": 536,
       "legacy_name": "CMD_536",
@@ -7263,14 +7263,14 @@
         }
       ]
     },
-    "CMD_542": {
+    "Dummy21E": {
       "type": "script_cmd",
       "id": 542,
       "legacy_name": "CMD_542",
       "description": "nan",
       "params": []
     },
-    "CMD_543": {
+    "CheckHasLearnableReminderMoves": {
       "type": "script_cmd",
       "id": 543,
       "legacy_name": "CMD_543",
@@ -7477,11 +7477,11 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "ribbon",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7493,11 +7493,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "ribbon",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7560,7 +7560,7 @@
             },
             {
               "name": "arg_0",
-              "type": "u16"
+              "type": "flex"
             }
           ]
         },
@@ -7573,11 +7573,11 @@
             },
             {
               "name": "arg_0",
-              "type": "u16"
+              "type": "flex"
             },
             {
               "name": "arg_1",
-              "type": "u16"
+              "type": "flex"
             },
             {
               "name": "arg_2",
@@ -7680,7 +7680,7 @@
         }
       ]
     },
-    "CMD_567": {
+    "CallTVInterview": {
       "type": "script_cmd",
       "id": 567,
       "legacy_name": "CMD_567",
@@ -7704,7 +7704,7 @@
         }
       ]
     },
-    "CMD_568": {
+    "CheckTVInterviewEligible": {
       "type": "script_cmd",
       "id": 568,
       "legacy_name": "CMD_568",
@@ -7748,7 +7748,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7934,35 +7934,35 @@
         }
       ]
     },
-    "CMD_575": {
+    "Dummy23F": {
       "type": "script_cmd",
       "id": 575,
       "legacy_name": "CMD_575",
       "description": "nan",
       "params": []
     },
-    "CMD_576": {
+    "Dummy240": {
       "type": "script_cmd",
       "id": 576,
       "legacy_name": "CMD_576",
       "description": "nan",
       "params": []
     },
-    "CMD_577": {
+    "Dummy241": {
       "type": "script_cmd",
       "id": 577,
       "legacy_name": "CMD_577",
       "description": "nan",
       "params": []
     },
-    "CMD_578": {
+    "Dummy242": {
       "type": "script_cmd",
       "id": 578,
       "legacy_name": "CMD_578",
       "description": "nan",
       "params": []
     },
-    "CMD_579": {
+    "ChooseCustomMessageWord": {
       "type": "script_cmd",
       "id": 579,
       "legacy_name": "CMD_579",
@@ -7982,7 +7982,7 @@
         }
       ]
     },
-    "CMD_580": {
+    "ChooseTwoCustomMessageWords": {
       "type": "script_cmd",
       "id": 580,
       "legacy_name": "CMD_580",
@@ -8006,7 +8006,7 @@
         }
       ]
     },
-    "CMD_581": {
+    "BufferCustomMessageWord": {
       "type": "script_cmd",
       "id": 581,
       "legacy_name": "CMD_581",
@@ -8066,7 +8066,7 @@
         }
       ]
     },
-    "CMD_585": {
+    "GetWallpaperFromCustomMessageWords": {
       "type": "script_cmd",
       "id": 585,
       "legacy_name": "CMD_585",
@@ -8174,7 +8174,7 @@
         },
         {
           "name": "winning_number",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8289,7 +8289,7 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8319,21 +8319,21 @@
         }
       ]
     },
-    "CMD_606": {
+    "InitLakeGuardianContainmentUnits": {
       "type": "script_cmd",
       "id": 606,
       "legacy_name": "CMD_606",
       "description": "Its behavior varies depending on the value of flag 2429.\n\n0: Before rescuing the Lake Trio from Galactic Labs. It sets up the machines and animates them.\n1: After rescuing the Lake Trio from Galactic Labs. The machines are off.",
       "params": []
     },
-    "CMD_607": {
+    "DeactivateLakeGuardianContainmentUnits": {
       "type": "script_cmd",
       "id": 607,
       "legacy_name": "CMD_607",
       "description": "Waits for the Galactic Labs machines to complete their animations, then shuts them all down.",
       "params": []
     },
-    "CMD_608": {
+    "IncrementTrainerScore2": {
       "type": "script_cmd",
       "id": 608,
       "legacy_name": "CMD_608",
@@ -8357,7 +8357,7 @@
         },
         {
           "name": "accesory",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8369,7 +8369,7 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -8385,7 +8385,7 @@
       "params": [
         {
           "name": "form",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8550,7 +8550,7 @@
       "params": [
         {
           "name": "alternative_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "status",
@@ -8594,7 +8594,7 @@
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8645,7 +8645,7 @@
         }
       ]
     },
-    "CMD_632": {
+    "GetPartyMonLevel": {
       "type": "script_cmd",
       "id": 632,
       "legacy_name": "CMD_632",
@@ -8661,7 +8661,7 @@
         }
       ]
     },
-    "CMD_633": {
+    "ScrCmd_RemoveAccessory": {
       "type": "script_cmd",
       "id": 633,
       "legacy_name": "CMD_633",
@@ -8771,7 +8771,7 @@
         }
       ]
     },
-    "CMD_641": {
+    "GetPartyMonContestStat": {
       "type": "script_cmd",
       "id": 641,
       "legacy_name": "CMD_641",
@@ -8811,11 +8811,11 @@
       "params": [
         {
           "name": "music",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "volume",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8831,7 +8831,7 @@
         }
       ]
     },
-    "CMD_645": {
+    "InitTurnbackCave": {
       "type": "script_cmd",
       "id": 645,
       "legacy_name": "CMD_645",
@@ -8883,7 +8883,7 @@
         }
       ]
     },
-    "CMD_649": {
+    "GivePoffin": {
       "type": "script_cmd",
       "id": 649,
       "legacy_name": "CMD_649",
@@ -8919,7 +8919,7 @@
         }
       ]
     },
-    "CMD_650": {
+    "CheckHasEmptyPoffinCaseSlot": {
       "type": "script_cmd",
       "id": 650,
       "legacy_name": "CMD_650",
@@ -8990,7 +8990,7 @@
         }
       ]
     },
-    "CMD_656": {
+    "OpenPartyMenuForDaycare": {
       "type": "script_cmd",
       "id": 656,
       "legacy_name": "CMD_656",
@@ -9018,7 +9018,7 @@
         }
       ]
     },
-    "CMD_658": {
+    "CheckShouldShowGhost": {
       "type": "script_cmd",
       "id": 658,
       "legacy_name": "CMD_658",
@@ -9152,7 +9152,7 @@
         }
       ]
     },
-    "CMD_668": {
+    "CalculateTrainerInfoAppearance": {
       "type": "script_cmd",
       "id": 668,
       "legacy_name": "CMD_668",
@@ -9220,15 +9220,15 @@
       "params": [
         {
           "name": "partner_trainer_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "trainer_1_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "trainer_2_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9252,7 +9252,7 @@
         }
       ]
     },
-    "CMD_674": {
+    "TrySetUnusedCollectedOrbFlag": {
       "type": "script_cmd",
       "id": 674,
       "legacy_name": "CMD_674",
@@ -9323,7 +9323,7 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "var_1",
@@ -9359,7 +9359,7 @@
         }
       ]
     },
-    "CMD_682": {
+    "CheckIsMysteryGiftPhrase": {
       "type": "script_cmd",
       "id": 682,
       "legacy_name": "CMD_682",
@@ -9457,7 +9457,7 @@
       "description": "nan",
       "params": []
     },
-    "CMD_689": {
+    "DestroyNetworkIcon": {
       "type": "script_cmd",
       "id": 689,
       "legacy_name": "CMD_689",
@@ -9530,7 +9530,7 @@
         }
       ]
     },
-    "CMD_695": {
+    "CheckPartyHasBadEgg": {
       "type": "script_cmd",
       "id": 695,
       "legacy_name": "CMD_695",
@@ -9600,11 +9600,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9620,14 +9620,14 @@
         }
       ]
     },
-    "ScrCmd_2BF": {
+    "SetCyclingBGM": {
       "type": "script_cmd",
       "id": 703,
       "legacy_name": "DummyRideBike",
       "description": "Nothing",
       "params": []
     },
-    "CMD_704": {
+    "MessageAutoScroll": {
       "type": "script_cmd",
       "id": 704,
       "legacy_name": "CMD_704",
@@ -9729,7 +9729,7 @@
         }
       ]
     },
-    "CMD_712": {
+    "OpenFrontierRecordsApp": {
       "type": "script_cmd",
       "id": 712,
       "legacy_name": "CMD_712",
@@ -9745,7 +9745,7 @@
         }
       ]
     },
-    "CMD_713": {
+    "InitPersistedMapFeaturesForEternaGym": {
       "type": "script_cmd",
       "id": 713,
       "legacy_name": "CMD_713",
@@ -9769,7 +9769,7 @@
         }
       ]
     },
-    "CMD_714": {
+    "AdvanceEternaGymClock": {
       "type": "script_cmd",
       "id": 714,
       "legacy_name": "CMD_714",
@@ -9781,7 +9781,7 @@
         }
       ]
     },
-    "CMD_715": {
+    "CountRepeatedSpeciesInParty": {
       "type": "script_cmd",
       "id": 715,
       "legacy_name": "CMD_715",
@@ -9841,7 +9841,7 @@
         }
       ]
     },
-    "CMD_719": {
+    "BattleHallCheckUsingSameSpeciesAsPartner": {
       "type": "script_cmd",
       "id": 719,
       "legacy_name": "CMD_719",
@@ -9853,7 +9853,7 @@
         }
       ]
     },
-    "CMD_720": {
+    "GetBattleHallSelectedSlots": {
       "type": "script_cmd",
       "id": 720,
       "legacy_name": "CMD_720",

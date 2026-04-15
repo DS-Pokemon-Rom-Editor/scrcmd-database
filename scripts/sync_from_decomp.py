@@ -30,12 +30,8 @@ DECOMP_SOURCES = {
     # Diamond/Pearl decomp isn't as mature, skip for now
 }
 
-PLATINUM_SCRCMD_HEADER_URL = (
-    "https://raw.githubusercontent.com/pret/pokeplatinum/main/include/data/scripts/scrcmd.h"
-)
-PLATINUM_MOVEMENT_ACTIONS_URL = (
-    "https://raw.githubusercontent.com/pret/pokeplatinum/main/generated/movement_actions.txt"
-)
+PLATINUM_SCRCMD_HEADER_URL = "https://raw.githubusercontent.com/pret/pokeplatinum/main/include/data/scripts/scrcmd.h"
+PLATINUM_MOVEMENT_ACTIONS_URL = "https://raw.githubusercontent.com/pret/pokeplatinum/main/generated/movement_actions.txt"
 
 # Helper/utility macro names to skip (they don't emit actual script commands)
 SKIP_MACROS = {
@@ -737,10 +733,12 @@ def extract_primitive_params(
 
         # Skip until we find the opcode (with comment pattern)
         if not found_opcode:
-            match = re.match(
-                r"\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)\s*/\*", line
-            )
-            if match and _parse_opcode_token(match.group(1), scrcmd_symbol_to_opcode) is not None:
+            match = re.match(r"\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)\s*/\*", line)
+            if (
+                match
+                and _parse_opcode_token(match.group(1), scrcmd_symbol_to_opcode)
+                is not None
+            ):
                 found_opcode = True
             continue
 
@@ -842,10 +840,12 @@ def extract_primitive_call_line(
 
         # Find the opcode line
         if not found_opcode:
-            match = re.match(
-                r"\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)\s*/\*", line
-            )
-            if match and _parse_opcode_token(match.group(1), scrcmd_symbol_to_opcode) is not None:
+            match = re.match(r"\.(?:short|2byte|hword)\s+([A-Za-z0-9_]+)\s*/\*", line)
+            if (
+                match
+                and _parse_opcode_token(match.group(1), scrcmd_symbol_to_opcode)
+                is not None
+            ):
                 found_opcode = True
             continue
 
@@ -2046,6 +2046,18 @@ def is_generated_description(description: str | None) -> bool:
     return description.startswith("Imported from decomp:")
 
 
+def is_placeholder_command_name(name: str | None) -> bool:
+    """Check whether a command key is still a placeholder-style identifier."""
+    if not name:
+        return False
+
+    return bool(
+        re.fullmatch(r"CMD_\d+", name)
+        or re.fullmatch(r"ScrCmd_[0-9A-Fa-f]+", name)
+        or re.fullmatch(r"ScrCmd_Unused_[0-9A-Fa-f]+", name)
+    )
+
+
 def write_db_if_changed(db_path: str | Path, db: dict) -> bool:
     """Write a database file only when its semantic JSON content changed."""
     validate_unique_command_ids(db)
@@ -2165,9 +2177,9 @@ def repair_duplicate_command_ids(
                 canonical_entry["legacy_name"] = stale_entry.get(
                     "legacy_name", stale_name
                 )
-            if is_generated_description(canonical_entry.get("description")) and not is_generated_description(
-                stale_entry.get("description")
-            ):
+            if is_generated_description(
+                canonical_entry.get("description")
+            ) and not is_generated_description(stale_entry.get("description")):
                 canonical_entry["description"] = stale_entry["description"]
             removed += 1
 
@@ -2184,6 +2196,7 @@ def build_temp_command_name(commands: dict, name: str) -> str:
         f"__tmp__{conflict_entry.get('type', 'command')}__"
         f"{name}__{conflict_entry.get('id', 'noid')}"
     )
+
     suffix = 1
     while temp_name in commands:
         temp_name = (
@@ -2191,7 +2204,48 @@ def build_temp_command_name(commands: dict, name: str) -> str:
             f"{name}__{conflict_entry.get('id', 'noid')}__{suffix}"
         )
         suffix += 1
+
     return temp_name
+
+
+def backfill_dp_placeholder_names_from_platinum(dp_db: dict, platinum_db: dict) -> int:
+    """
+    Backfill Diamond/Pearl placeholder script command names from Platinum by opcode.
+
+    Only renames DP commands whose current key is still a placeholder and where
+    Platinum has a non-placeholder script command name for the same opcode.
+    """
+    commands = dp_db.get("commands", {})
+    platinum_commands = platinum_db.get("commands", {})
+
+    platinum_name_by_opcode: dict[int, str] = {}
+    for platinum_name, platinum_entry in platinum_commands.items():
+        if platinum_entry.get("type") != "script_cmd":
+            continue
+        opcode = platinum_entry.get("id")
+        if opcode is None or is_placeholder_command_name(platinum_name):
+            continue
+        platinum_name_by_opcode.setdefault(opcode, platinum_name)
+
+    renamed = 0
+    for current_name, entry in list(commands.items()):
+        if entry.get("type") != "script_cmd":
+            continue
+        if not is_placeholder_command_name(current_name):
+            continue
+
+        opcode = entry.get("id")
+        target_name = platinum_name_by_opcode.get(opcode)
+        if not target_name or target_name == current_name:
+            continue
+
+        commands = rename_command_key_preserving_order(
+            commands, current_name, target_name
+        )
+        renamed += 1
+
+    dp_db["commands"] = commands
+    return renamed
 
 
 def displace_command_key_preserving_order(
@@ -2898,7 +2952,9 @@ def sync_custom_call_shape_variants(
     return updated
 
 
-def build_sync_param_list(raw_params: list) -> list[dict]:
+def build_sync_param_list(
+    raw_params: list, existing_params: list[dict] | None = None
+) -> list[dict]:
     """Convert sync item params into the v2 parameter representation."""
     params = []
 
@@ -2911,6 +2967,13 @@ def build_sync_param_list(raw_params: list) -> list[dict]:
                 raw_param.name if hasattr(raw_param, "name") else str(raw_param)
             )
             param_type = infer_param_type(param_name)
+
+        if (
+            existing_params
+            and i < len(existing_params)
+            and existing_params[i].get("type") == "flex"
+        ):
+            param_type = "flex"
 
         params.append({"name": param_name, "type": param_type})
 
@@ -2987,7 +3050,7 @@ def update_db_from_sync(
             changed = True
 
         if item.get("is_hidden_primitive") and item.get("params"):
-            new_params = build_sync_param_list(item["params"])
+            new_params = build_sync_param_list(item["params"], data.get("params", []))
             if data.get("params") != new_params:
                 data["params"] = new_params
                 changed = True
@@ -3009,7 +3072,9 @@ def update_db_from_sync(
             changed = False
 
             if current_name != name:
-                commands = rename_command_key_preserving_order(commands, current_name, name)
+                commands = rename_command_key_preserving_order(
+                    commands, current_name, name
+                )
                 data = commands[name]
                 if "legacy_name" not in data:
                     data["legacy_name"] = current_name
@@ -3020,12 +3085,17 @@ def update_db_from_sync(
                 data["id"] = opcode
                 changed = True
 
-            if item.get("description") and data.get("description") != item["description"]:
+            if (
+                item.get("description")
+                and data.get("description") != item["description"]
+            ):
                 data["description"] = item["description"]
                 changed = True
 
             if item.get("params"):
-                new_params = build_sync_param_list(item["params"])
+                new_params = build_sync_param_list(
+                    item["params"], data.get("params", [])
+                )
                 if data.get("params") != new_params:
                     data["params"] = new_params
                     changed = True
@@ -3072,6 +3142,21 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
     print(f"\nSyncing {db_path} ({version})")
 
     if version not in DECOMP_SOURCES:
+        if update and version == "Diamond/Pearl":
+            platinum_path = Path(db_path).with_name("platinum_v2.json")
+            if platinum_path.exists():
+                with open(platinum_path, "r", encoding="utf-8") as f:
+                    platinum_db = json.load(f)
+
+                renamed = backfill_dp_placeholder_names_from_platinum(db, platinum_db)
+                if renamed > 0:
+                    print(
+                        f"  Backfilled {renamed} Diamond/Pearl placeholder "
+                        f"command name(s) from Platinum"
+                    )
+                    write_db_if_changed(db_path, db)
+                    return True
+
         print(f"  Skipping: No decomp source configured for {version}")
         return False
 
@@ -3180,7 +3265,9 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                         db_commands, "script_cmd", item.get("opcode"), item["name"]
                     )
                     if target_name:
-                        new_params = build_sync_param_list(item["params"])
+                        new_params = build_sync_param_list(
+                            item["params"], db_commands[target_name].get("params", [])
+                        )
                         db_commands[target_name]["params"] = new_params
                         param_updates_count += 1
                         print(
@@ -3314,9 +3401,7 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                             descriptions_updated += 1
 
                 if descriptions_updated > 0:
-                    print(
-                        f"  Updated descriptions for {descriptions_updated} commands"
-                    )
+                    print(f"  Updated descriptions for {descriptions_updated} commands")
                     has_changes = True
                     write_db_if_changed(db_path, db)
 
@@ -3444,9 +3529,7 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
 
             if update:
                 print("  Checking custom call shapes...")
-                call_shapes_updated = sync_custom_call_shape_variants(
-                    db, decomp_macros
-                )
+                call_shapes_updated = sync_custom_call_shape_variants(db, decomp_macros)
                 if call_shapes_updated > 0:
                     print(
                         f"  Added custom call shapes for {call_shapes_updated} commands"
@@ -3731,8 +3814,7 @@ def main() -> int:
             changed_count += 1
 
     print(
-        f"\nProcessed {len(v2_files)} v2 database(s); "
-        f"{changed_count} file(s) changed."
+        f"\nProcessed {len(v2_files)} v2 database(s); {changed_count} file(s) changed."
     )
     return 0
 

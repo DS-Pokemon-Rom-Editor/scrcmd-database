@@ -106,6 +106,20 @@
         }
       ]
     },
+    "YakoCommand": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "address",
+          "type": "u32"
+        },
+        {
+          "name": "value",
+          "type": "u8"
+        }
+      ],
+      "expansion": ["AdrsValueSet $address, $value"]
+    },
     "ScrCmd_Unused_008": {
       "type": "script_cmd",
       "id": 8,
@@ -497,7 +511,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -509,7 +523,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -521,7 +535,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -537,7 +551,7 @@
         },
         {
           "name": "valueOrVarID",
-          "type": "var"
+          "type": "flex"
         }
       ]
     },
@@ -553,7 +567,7 @@
         },
         {
           "name": "valueOrVarID",
-          "type": "var"
+          "type": "flex"
         }
       ]
     },
@@ -601,7 +615,7 @@
         },
         {
           "name": "flexible_value",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -637,7 +651,7 @@
       "params": [
         {
           "name": "text_slot",
-          "type": "var"
+          "type": "flex"
         }
       ]
     },
@@ -782,7 +796,7 @@
         },
         {
           "name": "destVarID",
-          "type": "var",
+          "type": "flex",
           "default": "VAR_RESULT"
         }
       ]
@@ -1006,16 +1020,16 @@
       "params": [
         {
           "name": "option_msg",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "highlight_msg",
-          "type": "u16",
+          "type": "flex",
           "default": "LIST_MENU_ENTRY_NO_ALT_TEXT"
         },
         {
           "name": "list_slot",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1082,11 +1096,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16",
+          "type": "flex",
           "default": "0"
         }
       ]
@@ -1106,7 +1120,7 @@
       "params": [
         {
           "name": "sound",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1283,7 +1297,7 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "relative_jump",
@@ -1344,7 +1358,7 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1356,7 +1370,7 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1368,11 +1382,11 @@
       "params": [
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1414,7 +1428,7 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "x",
@@ -1534,11 +1548,11 @@
       "params": [
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1564,11 +1578,11 @@
       "params": [
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1607,7 +1621,7 @@
       "params": [
         {
           "name": "coins",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1631,11 +1645,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -1652,11 +1666,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -1673,11 +1687,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -1694,11 +1708,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -1715,7 +1729,7 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -1732,7 +1746,7 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -2120,7 +2134,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -2137,15 +2151,15 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "successVar",
@@ -2161,11 +2175,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "location",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2202,11 +2216,11 @@
         },
         {
           "name": "move_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2223,7 +2237,7 @@
         },
         {
           "name": "move_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2327,7 +2341,7 @@
       "params": [
         {
           "name": "party_pos",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -2336,7 +2350,7 @@
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2492,7 +2506,7 @@
       "params": [
         {
           "name": "approachNum",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2611,7 +2625,7 @@
       "params": [
         {
           "name": "map",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "door",
@@ -2619,15 +2633,15 @@
         },
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "dir",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2639,7 +2653,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2651,7 +2665,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2663,7 +2677,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2709,7 +2723,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2837,7 +2851,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2853,7 +2867,7 @@
         },
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2869,7 +2883,7 @@
         },
         {
           "name": "pocket",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2885,7 +2899,7 @@
         },
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2901,7 +2915,7 @@
         },
         {
           "name": "move",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2917,7 +2931,7 @@
         },
         {
           "name": "number",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2933,7 +2947,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2949,7 +2963,7 @@
         },
         {
           "name": "pok\u00e9tch_app",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2965,7 +2979,7 @@
         },
         {
           "name": "trainer",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2993,7 +3007,7 @@
         },
         {
           "name": "pok\u00e9mon",
-          "type": "var"
+          "type": "flex"
         },
         {
           "name": "unused",
@@ -3066,7 +3080,7 @@
         },
         {
           "name": "goods",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3082,7 +3096,7 @@
         },
         {
           "name": "trap",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3098,7 +3112,7 @@
         },
         {
           "name": "treasure",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3155,11 +3169,11 @@
       "params": [
         {
           "name": "trainer_1",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "trainer_2",
-          "type": "u16",
+          "type": "flex",
           "default": "0"
         }
       ]
@@ -3172,11 +3186,11 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "type",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3241,7 +3255,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3325,15 +3339,15 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_2",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -3350,15 +3364,15 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_2",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -3901,7 +3915,7 @@
         },
         {
           "name": "destVarID",
-          "type": "var",
+          "type": "flex",
           "default": "$destVarID"
         }
       ]
@@ -3990,11 +4004,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4006,7 +4020,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4158,7 +4172,7 @@
       "params": [
         {
           "name": "app",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4170,7 +4184,7 @@
       "params": [
         {
           "name": "app",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -4187,7 +4201,7 @@
       "params": [
         {
           "name": "syncNo",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4385,7 +4399,7 @@
       "params": [
         {
           "name": "unused",
-          "type": "u16",
+          "type": "flex",
           "default": "1"
         }
       ]
@@ -4398,7 +4412,7 @@
       "params": [
         {
           "name": "mart_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4410,7 +4424,7 @@
       "params": [
         {
           "name": "mart_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4422,7 +4436,7 @@
       "params": [
         {
           "name": "mart_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4589,7 +4603,7 @@
       "params": [
         {
           "name": "badge_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -4606,7 +4620,7 @@
       "params": [
         {
           "name": "badge_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5087,15 +5101,15 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5135,11 +5149,11 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "movement_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5151,11 +5165,11 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "direction_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5167,15 +5181,15 @@
       "params": [
         {
           "name": "warp_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5207,11 +5221,11 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "direction_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5249,7 +5263,7 @@
       "params": [
         {
           "name": "time",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5288,19 +5302,19 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_2",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_3",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5404,7 +5418,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5510,7 +5524,7 @@
       "params": [
         {
           "name": "valueOrVarID",
-          "type": "var"
+          "type": "flex"
         }
       ]
     },
@@ -5600,7 +5614,7 @@
         },
         {
           "name": "valueOrVarID",
-          "type": "var"
+          "type": "flex"
         }
       ]
     },
@@ -5636,7 +5650,7 @@
         },
         {
           "name": "position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5754,7 +5768,7 @@
         },
         {
           "name": "range",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5771,7 +5785,7 @@
         },
         {
           "name": "range",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5788,7 +5802,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5832,19 +5846,19 @@
       "params": [
         {
           "name": "templateArgNickname",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "templateArgLevel",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "templateArgGender",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "daycareSlot",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5895,7 +5909,7 @@
       "params": [
         {
           "name": "destVarID",
-          "type": "var",
+          "type": "flex",
           "default": "VAR_RESULT"
         },
         {
@@ -5917,7 +5931,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5929,7 +5943,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5941,15 +5955,15 @@
       "params": [
         {
           "name": "integer_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "decimal_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5961,15 +5975,15 @@
       "params": [
         {
           "name": "integer_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "decimal_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "pok\u00e9mon_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6018,7 +6032,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6051,11 +6065,11 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "move_slot",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6094,23 +6108,23 @@
       "params": [
         {
           "name": "eventType",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "eventParam",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6255,11 +6269,11 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6312,7 +6326,7 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6365,11 +6379,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6480,11 +6494,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -6500,7 +6514,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -6785,7 +6799,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6980,11 +6994,11 @@
         },
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "dir",
@@ -7034,11 +7048,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "gender",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7222,7 +7236,7 @@
         },
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7624,11 +7638,11 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "ribbon",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7640,11 +7654,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "ribbon",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7709,7 +7723,7 @@
             },
             {
               "name": "arg_0",
-              "type": "u16"
+              "type": "flex"
             }
           ]
         },
@@ -7722,11 +7736,11 @@
             },
             {
               "name": "arg_0",
-              "type": "u16"
+              "type": "flex"
             },
             {
               "name": "arg_1",
-              "type": "u16"
+              "type": "flex"
             },
             {
               "name": "arg_2",
@@ -7825,7 +7839,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7898,7 +7912,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8329,7 +8343,7 @@
         },
         {
           "name": "winning_number",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8447,7 +8461,7 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8516,7 +8530,7 @@
         },
         {
           "name": "accessory",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8528,7 +8542,7 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -8545,7 +8559,7 @@
       "params": [
         {
           "name": "form",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8584,7 +8598,7 @@
       "params": [
         {
           "name": "slotMachineID",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8714,7 +8728,7 @@
       "params": [
         {
           "name": "alternative_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "status",
@@ -8758,7 +8772,7 @@
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8982,11 +8996,11 @@
       "params": [
         {
           "name": "music",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "volume",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9276,7 +9290,7 @@
       "params": [
         {
           "name": "number",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9288,7 +9302,7 @@
       "params": [
         {
           "name": "number",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9300,7 +9314,7 @@
       "params": [
         {
           "name": "number",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -9373,7 +9387,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -9389,7 +9403,7 @@
       "params": [
         {
           "name": "type",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9401,15 +9415,15 @@
       "params": [
         {
           "name": "partner_trainer_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "trainer_1_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "trainer_2_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9504,7 +9518,7 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -9787,11 +9801,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9947,7 +9961,7 @@
         },
         {
           "name": "species",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9963,7 +9977,7 @@
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10025,7 +10039,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10041,7 +10055,7 @@
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10057,11 +10071,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10097,7 +10111,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10145,7 +10159,7 @@
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10161,11 +10175,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10201,7 +10215,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10213,7 +10227,7 @@
       "params": [
         {
           "name": "destVarID",
-          "type": "var",
+          "type": "flex",
           "default": "VAR_RESULT"
         },
         {
@@ -10270,7 +10284,7 @@
       "params": [
         {
           "name": "giftid",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -10287,7 +10301,7 @@
       "params": [
         {
           "name": "berryandaccessorymanoptionid",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destBerryOrAccessoryID",
@@ -10317,11 +10331,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10337,11 +10351,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "tutor_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -10358,11 +10372,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "tutor_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "player_selection",
@@ -10378,11 +10392,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "move",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10407,15 +10421,15 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "move_slot",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "new_move_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10427,7 +10441,7 @@
       "params": [
         {
           "name": "selectedmove",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -10487,7 +10501,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "totalivs",
@@ -10534,11 +10548,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "form",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10621,11 +10635,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -10660,7 +10674,7 @@
       "params": [
         {
           "name": "music",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10720,7 +10734,7 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -10849,7 +10863,7 @@
       "params": [
         {
           "name": "party_slot",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -10944,7 +10958,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10968,7 +10982,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -11080,11 +11094,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -11096,11 +11110,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -11112,7 +11126,7 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -11284,7 +11298,7 @@
       "params": [
         {
           "name": "width",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -11396,7 +11410,7 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -11434,7 +11448,7 @@
       "params": [
         {
           "name": "volume",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -11490,7 +11504,7 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "ret",
@@ -11564,7 +11578,7 @@
         },
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -13127,15 +13141,11 @@
       "variants": [
         {
           "condition": "((valueOrVarID >= VARS_START && valueOrVarID <= VARS_END) || (valueOrVarID >= SCRIPT_LOCAL_VARS_START && valueOrVarID <= SCRIPT_LOCAL_VARS_END))",
-          "expansion": [
-            "CompareVarToVar $varID, $valueOrVarID"
-          ]
+          "expansion": ["CompareVarToVar $varID, $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "CompareVarToValue $varID, $valueOrVarID"
-          ]
+          "expansion": ["CompareVarToValue $varID, $valueOrVarID"]
         }
       ]
     },
@@ -13154,15 +13164,11 @@
       "variants": [
         {
           "condition": "((valueOrVarID >= VARS_START && valueOrVarID <= VARS_END) || (valueOrVarID >= SCRIPT_LOCAL_VARS_START && valueOrVarID <= SCRIPT_LOCAL_VARS_END))",
-          "expansion": [
-            "SetVarFromVar $destVarID, $valueOrVarID"
-          ]
+          "expansion": ["SetVarFromVar $destVarID, $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "SetVarFromValue $destVarID, $valueOrVarID"
-          ]
+          "expansion": ["SetVarFromValue $destVarID, $valueOrVarID"]
         }
       ]
     },
@@ -13238,9 +13244,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "ApplyMovement LOCALID_CAMERA, $movementOffset"
-      ]
+      "expansion": ["ApplyMovement LOCALID_CAMERA, $movementOffset"]
     },
     "GoToIfNotEnoughMoney": {
       "type": "macro",
@@ -13304,9 +13308,7 @@
           "default": "VAR_RESULT"
         }
       ],
-      "expansion": [
-        "LoadPokedexRating FALSE, $destVar"
-      ]
+      "expansion": ["LoadPokedexRating FALSE, $destVar"]
     },
     "LoadNationalDexRating": {
       "type": "macro",
@@ -13317,9 +13319,7 @@
           "default": "VAR_RESULT"
         }
       ],
-      "expansion": [
-        "LoadPokedexRating TRUE, $destVar"
-      ]
+      "expansion": ["LoadPokedexRating TRUE, $destVar"]
     },
     "GoToIfBadgeAcquired": {
       "type": "macro",
@@ -13341,45 +13341,32 @@
     "OpenItemsBag": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "OpenBag 0"
-      ]
+      "expansion": ["OpenBag 0"]
     },
     "OpenBerriesBag": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "OpenBag 1"
-      ]
+      "expansion": ["OpenBag 1"]
     },
     "SelectPokemonForUnionRoomBattle": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "OpenPartyMenuForUnionRoomBattle",
-        "ReturnToField"
-      ]
+      "expansion": ["OpenPartyMenuForUnionRoomBattle", "ReturnToField"]
     },
     "StartSafariGame": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "StartEndSafariGame SAFARI_GAME_ACTIVE"
-      ]
+      "expansion": ["StartEndSafariGame SAFARI_GAME_ACTIVE"]
     },
     "EndSafariGame": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "StartEndSafariGame SAFARI_GAME_INACTIVE"
-      ]
+      "expansion": ["StartEndSafariGame SAFARI_GAME_INACTIVE"]
     },
     "SetNationalDexEnabled": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "GetSetNationalDexEnabled 1, VAR_RESULT"
-      ]
+      "expansion": ["GetSetNationalDexEnabled 1, VAR_RESULT"]
     },
     "GetNationalDexEnabled": {
       "type": "macro",
@@ -13390,9 +13377,7 @@
           "default": "VAR_RESULT"
         }
       ],
-      "expansion": [
-        "GetSetNationalDexEnabled 2, $destVar"
-      ]
+      "expansion": ["GetSetNationalDexEnabled 2, $destVar"]
     },
     "CheckBroadcastStatus": {
       "type": "macro",
@@ -13403,9 +13388,7 @@
           "default": "VAR_RESULT"
         }
       ],
-      "expansion": [
-        "CallTVBroadcast TV_BROADCAST_CALL_CHECK_STATUS, $destVar"
-      ]
+      "expansion": ["CallTVBroadcast TV_BROADCAST_CALL_CHECK_STATUS, $destVar"]
     },
     "LoadTVCommercial": {
       "type": "macro",
@@ -13543,9 +13526,7 @@
     "FinishTVProgram": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallTVBroadcast TV_BROADCAST_CALL_FINISH_PROGRAM"
-      ]
+      "expansion": ["CallTVBroadcast TV_BROADCAST_CALL_FINISH_PROGRAM"]
     },
     "TVBroadcastDummy": {
       "type": "macro",
@@ -13568,24 +13549,15 @@
       "variants": [
         {
           "condition": "1 arg(s)",
-          "expansion": [
-            "Dummy1F9 $arg0"
-          ]
+          "expansion": ["Dummy1F9 $arg0"]
         },
         {
           "condition": "2 args",
-          "expansion": [
-            "Dummy1F9 $arg0",
-            "Dummy1F9 $arg1"
-          ]
+          "expansion": ["Dummy1F9 $arg0", "Dummy1F9 $arg1"]
         },
         {
           "condition": "3 args",
-          "expansion": [
-            "Dummy1F9 $arg0",
-            "Dummy1F9 $arg1",
-            "Dummy1F9 $arg2"
-          ]
+          "expansion": ["Dummy1F9 $arg0", "Dummy1F9 $arg1", "Dummy1F9 $arg2"]
         }
       ]
     },
@@ -13695,9 +13667,7 @@
     "LoadMysteryGift": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_LOAD"
-      ]
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_LOAD"]
     },
     "CheckAvailableMysteryGift": {
       "type": "macro",
@@ -13721,9 +13691,7 @@
           "default": "VAR_RESULT"
         }
       ],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_GET_PGT_TYPE, $destVarID"
-      ]
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_GET_PGT_TYPE, $destVarID"]
     },
     "CheckCanReceiveMysteryGift": {
       "type": "macro",
@@ -13741,9 +13709,7 @@
     "GiveMysteryGift": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_GIVE"
-      ]
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_GIVE"]
     },
     "PrepareMysteryGiftReceivedMsg": {
       "type": "macro",
@@ -13780,30 +13746,22 @@
     "UnloadMysteryGift": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_UNLOAD_RECEIVED"
-      ]
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_UNLOAD_RECEIVED"]
     },
     "UnloadMysteryGift2": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "MysteryGiftGive MYSTERY_GIFT_UNLOAD_NOT_RECEIVED"
-      ]
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_UNLOAD_NOT_RECEIVED"]
     },
     "SetInCatchingShowFlag": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetClearInCatchingShowFlag 0"
-      ]
+      "expansion": ["SetClearInCatchingShowFlag 0"]
     },
     "ClearInCatchingShowFlag": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetClearInCatchingShowFlag 1"
-      ]
+      "expansion": ["SetClearInCatchingShowFlag 1"]
     },
     "GoToIfNotEnoughMonForCatchingShow": {
       "type": "macro",
@@ -13826,9 +13784,7 @@
           "type": "u16"
         }
       ],
-      "expansion": [
-        "SetHiddenLocation $hiddenLocation, TRUE"
-      ],
+      "expansion": ["SetHiddenLocation $hiddenLocation, TRUE"],
       "description": "Enable a given hidden location"
     },
     "DisableHiddenLocation": {
@@ -13839,9 +13795,7 @@
           "type": "u16"
         }
       ],
-      "expansion": [
-        "SetHiddenLocation $hiddenLocation, FALSE"
-      ],
+      "expansion": ["SetHiddenLocation $hiddenLocation, FALSE"],
       "description": "Disable a given hidden location"
     },
     "GoToIfCannotAddCoins": {
@@ -13882,15 +13836,11 @@
       "variants": [
         {
           "condition": "((valueOrVarID >= VARS_START && valueOrVarID <= VARS_END) || (valueOrVarID >= SCRIPT_LOCAL_VARS_START && valueOrVarID <= SCRIPT_LOCAL_VARS_END))",
-          "expansion": [
-            "SubtractCoinsFromVar $valueOrVarID"
-          ]
+          "expansion": ["SubtractCoinsFromVar $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "SubtractCoinsFromValue $valueOrVarID"
-          ]
+          "expansion": ["SubtractCoinsFromValue $valueOrVarID"]
         }
       ]
     },
@@ -13909,15 +13859,11 @@
       "variants": [
         {
           "condition": "((valueOrVarID >= VARS_START && valueOrVarID <= VARS_END) || (valueOrVarID >= SCRIPT_LOCAL_VARS_START && valueOrVarID <= SCRIPT_LOCAL_VARS_END))",
-          "expansion": [
-            "HasCoinsFromVar $varID, $valueOrVarID"
-          ]
+          "expansion": ["HasCoinsFromVar $varID, $valueOrVarID"]
         },
         {
           "condition": "else",
-          "expansion": [
-            "HasCoinsFromValue $varID, $valueOrVarID"
-          ]
+          "expansion": ["HasCoinsFromValue $varID, $valueOrVarID"]
         }
       ]
     },
@@ -13941,44 +13887,32 @@
     "RecordHeapMemory": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CheckHeapMemory FALSE"
-      ]
+      "expansion": ["CheckHeapMemory FALSE"]
     },
     "AssertHeapMemory": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CheckHeapMemory TRUE"
-      ]
+      "expansion": ["CheckHeapMemory TRUE"]
     },
     "SetMenuXOriginToLeft": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetMenuXOriginSide FALSE"
-      ]
+      "expansion": ["SetMenuXOriginSide FALSE"]
     },
     "SetMenuXOriginToRight": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetMenuXOriginSide TRUE"
-      ]
+      "expansion": ["SetMenuXOriginSide TRUE"]
     },
     "SetMenuYOriginToTop": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetMenuYOriginSide FALSE"
-      ]
+      "expansion": ["SetMenuYOriginSide FALSE"]
     },
     "SetMenuYOriginToBottom": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "SetMenuYOriginSide TRUE"
-      ]
+      "expansion": ["SetMenuYOriginSide TRUE"]
     },
     "GoToIfLt": {
       "type": "macro",
@@ -13996,10 +13930,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 0, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 0, $offset"]
     },
     "GoToIfEq": {
       "type": "macro",
@@ -14017,10 +13948,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 1, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 1, $offset"]
     },
     "GoToIfGt": {
       "type": "macro",
@@ -14038,10 +13966,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 2, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 2, $offset"]
     },
     "GoToIfLe": {
       "type": "macro",
@@ -14059,10 +13984,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 3, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 3, $offset"]
     },
     "GoToIfGe": {
       "type": "macro",
@@ -14080,10 +14002,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 4, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 4, $offset"]
     },
     "GoToIfNe": {
       "type": "macro",
@@ -14101,10 +14020,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "GoToIf 5, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "GoToIf 5, $offset"]
     },
     "GoToIfInRange": {
       "type": "macro",
@@ -14137,10 +14053,7 @@
         },
         {
           "condition": "else",
-          "expansion": [
-            "CompareVar $varID, $lower",
-            "GoToIf 1, $offset"
-          ]
+          "expansion": ["CompareVar $varID, $lower", "GoToIf 1, $offset"]
         }
       ]
     },
@@ -14156,10 +14069,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "GoToIf 0, $offset"
-      ]
+      "expansion": ["CheckFlag $flagID", "GoToIf 0, $offset"]
     },
     "GoToIfSet": {
       "type": "macro",
@@ -14173,10 +14083,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "GoToIf 1, $offset"
-      ]
+      "expansion": ["CheckFlag $flagID", "GoToIf 1, $offset"]
     },
     "GoToIfNotDefeated": {
       "type": "macro",
@@ -14190,10 +14097,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckTrainerFlag $trainerID",
-        "GoToIf 0, $offset"
-      ]
+      "expansion": ["CheckTrainerFlag $trainerID", "GoToIf 0, $offset"]
     },
     "GoToIfDefeated": {
       "type": "macro",
@@ -14207,10 +14111,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckTrainerFlag $trainerID",
-        "GoToIf 1, $offset"
-      ]
+      "expansion": ["CheckTrainerFlag $trainerID", "GoToIf 1, $offset"]
     },
     "CallIfLt": {
       "type": "macro",
@@ -14228,10 +14129,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 0, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 0, $offset"]
     },
     "CallIfEq": {
       "type": "macro",
@@ -14249,10 +14147,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 1, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 1, $offset"]
     },
     "CallIfGt": {
       "type": "macro",
@@ -14270,10 +14165,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 2, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 2, $offset"]
     },
     "CallIfLe": {
       "type": "macro",
@@ -14291,10 +14183,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 3, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 3, $offset"]
     },
     "CallIfGe": {
       "type": "macro",
@@ -14312,10 +14201,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 4, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 4, $offset"]
     },
     "CallIfNe": {
       "type": "macro",
@@ -14333,10 +14219,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CompareVar $varID, $valueOrVarID",
-        "CallIf 5, $offset"
-      ]
+      "expansion": ["CompareVar $varID, $valueOrVarID", "CallIf 5, $offset"]
     },
     "CallIfUnset": {
       "type": "macro",
@@ -14350,10 +14233,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "CallIf 0, $offset"
-      ]
+      "expansion": ["CheckFlag $flagID", "CallIf 0, $offset"]
     },
     "CallIfSet": {
       "type": "macro",
@@ -14367,10 +14247,7 @@
           "type": "label"
         }
       ],
-      "expansion": [
-        "CheckFlag $flagID",
-        "CallIf 1, $offset"
-      ]
+      "expansion": ["CheckFlag $flagID", "CallIf 1, $offset"]
     },
     "GoToIfCannotFitItem": {
       "type": "macro",
@@ -14503,16 +14380,12 @@
     "Common_HandleSignpostInput": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7D0"
-      ]
+      "expansion": ["CallCommonScript 0x7D0"]
     },
     "Common_CheckBagPocketForItem": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7D1"
-      ]
+      "expansion": ["CallCommonScript 0x7D1"]
     },
     "Common_CallPokecenterNurse": {
       "type": "macro",
@@ -14530,177 +14403,127 @@
     "Common_SaveGame": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7D6"
-      ]
+      "expansion": ["CallCommonScript 0x7D6"]
     },
     "Common_GivePoketchApp": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7D9"
-      ]
+      "expansion": ["CallCommonScript 0x7D9"]
     },
     "Common_SendToUndergroundPC": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DC"
-      ]
+      "expansion": ["CallCommonScript 0x7DC"]
     },
     "Common_ObtainUndergroundTrap": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DD"
-      ]
+      "expansion": ["CallCommonScript 0x7DD"]
     },
     "Common_ObtainUndergroundSphere": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DE"
-      ]
+      "expansion": ["CallCommonScript 0x7DE"]
     },
     "Common_GiveAccessoryWaitForConfirm": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7DF"
-      ]
+      "expansion": ["CallCommonScript 0x7DF"]
     },
     "Common_GiveItemQuantityNoLineFeed": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7E0"
-      ]
+      "expansion": ["CallCommonScript 0x7E0"]
     },
     "Common_MessageBagIsFull": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7E1"
-      ]
+      "expansion": ["CallCommonScript 0x7E1"]
     },
     "Common_VendorGreeting": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7E3"
-      ]
+      "expansion": ["CallCommonScript 0x7E3"]
     },
     "Common_ObtainContestBackdropWaitForConfirm": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F4"
-      ]
+      "expansion": ["CallCommonScript 0x7F4"]
     },
     "Common_PrintPlateObtainedMessage": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F6"
-      ]
+      "expansion": ["CallCommonScript 0x7F6"]
     },
     "Common_SetCounterpartBGM": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F8"
-      ]
+      "expansion": ["CallCommonScript 0x7F8"]
     },
     "Common_FadeToDefaultMusic": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7F9"
-      ]
+      "expansion": ["CallCommonScript 0x7F9"]
     },
     "Common_SetRivalBGM": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FA"
-      ]
+      "expansion": ["CallCommonScript 0x7FA"]
     },
     "Common_FadeToDefaultMusic2": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FB"
-      ]
+      "expansion": ["CallCommonScript 0x7FB"]
     },
     "Common_GiveItemQuantity": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FC"
-      ]
+      "expansion": ["CallCommonScript 0x7FC"]
     },
     "Common_ObtainContestBackdrop": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FD"
-      ]
+      "expansion": ["CallCommonScript 0x7FD"]
     },
     "Common_SendToUndergroundPCWithLinefeed": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FE"
-      ]
+      "expansion": ["CallCommonScript 0x7FE"]
     },
     "Common_GiveAccessory": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x7FF"
-      ]
+      "expansion": ["CallCommonScript 0x7FF"]
     },
     "Common_SetFollowMeBGM": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x800"
-      ]
+      "expansion": ["CallCommonScript 0x800"]
     },
     "Common_FadeToDefaultMusic3": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x801"
-      ]
+      "expansion": ["CallCommonScript 0x801"]
     },
     "Common_CheckAllFrontierGoldPrintsObtained": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x806"
-      ]
+      "expansion": ["CallCommonScript 0x806"]
     },
     "Common_SetLookerBGM": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x807"
-      ]
+      "expansion": ["CallCommonScript 0x807"]
     },
     "Common_FadeToDefaultMusic4": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x808"
-      ]
+      "expansion": ["CallCommonScript 0x808"]
     },
     "Common_GriseousOrbCouldNotBeRemoved": {
       "type": "macro",
       "params": [],
-      "expansion": [
-        "CallCommonScript 0x809"
-      ]
+      "expansion": ["CallCommonScript 0x809"]
     },
     "MoveAction_105": {
       "type": "movement",

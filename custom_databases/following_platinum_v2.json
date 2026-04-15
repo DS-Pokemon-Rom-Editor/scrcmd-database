@@ -497,7 +497,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -509,7 +509,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -521,7 +521,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -537,7 +537,7 @@
         },
         {
           "name": "valueOrVarID",
-          "type": "var"
+          "type": "flex"
         }
       ]
     },
@@ -553,7 +553,7 @@
         },
         {
           "name": "valueOrVarID",
-          "type": "var"
+          "type": "flex"
         }
       ]
     },
@@ -601,7 +601,7 @@
         },
         {
           "name": "flexible_value",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -637,7 +637,7 @@
       "params": [
         {
           "name": "text_slot",
-          "type": "var"
+          "type": "flex"
         }
       ]
     },
@@ -1006,16 +1006,16 @@
       "params": [
         {
           "name": "option_msg",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "highlight_msg",
-          "type": "u16",
+          "type": "flex",
           "default": "LIST_MENU_ENTRY_NO_ALT_TEXT"
         },
         {
           "name": "list_slot",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1082,11 +1082,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16",
+          "type": "flex",
           "default": "0"
         }
       ]
@@ -1106,7 +1106,7 @@
       "params": [
         {
           "name": "sound",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1283,7 +1283,7 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "relative_jump",
@@ -1344,7 +1344,7 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1356,7 +1356,7 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1368,11 +1368,11 @@
       "params": [
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1414,7 +1414,7 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "x",
@@ -1534,11 +1534,11 @@
       "params": [
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1564,11 +1564,11 @@
       "params": [
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1607,7 +1607,7 @@
       "params": [
         {
           "name": "coins",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -1631,11 +1631,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -1652,11 +1652,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -1673,11 +1673,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -1694,11 +1694,11 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "amount",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -1715,7 +1715,7 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -1732,7 +1732,7 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -2120,7 +2120,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -2137,15 +2137,15 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "successVar",
@@ -2161,11 +2161,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "location",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2202,11 +2202,11 @@
         },
         {
           "name": "move_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2223,7 +2223,7 @@
         },
         {
           "name": "move_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2327,7 +2327,7 @@
       "params": [
         {
           "name": "party_pos",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -2336,7 +2336,7 @@
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2492,7 +2492,7 @@
       "params": [
         {
           "name": "approachNum",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2611,7 +2611,7 @@
       "params": [
         {
           "name": "map",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "door",
@@ -2619,15 +2619,15 @@
         },
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "dir",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2639,7 +2639,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2651,7 +2651,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2663,7 +2663,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2709,7 +2709,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2837,7 +2837,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2853,7 +2853,7 @@
         },
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2869,7 +2869,7 @@
         },
         {
           "name": "pocket",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2885,7 +2885,7 @@
         },
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2901,7 +2901,7 @@
         },
         {
           "name": "move",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2917,7 +2917,7 @@
         },
         {
           "name": "number",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2933,7 +2933,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2949,7 +2949,7 @@
         },
         {
           "name": "pok\u00e9tch_app",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2965,7 +2965,7 @@
         },
         {
           "name": "trainer",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -2993,7 +2993,7 @@
         },
         {
           "name": "pok\u00e9mon",
-          "type": "var"
+          "type": "flex"
         },
         {
           "name": "unused",
@@ -3066,7 +3066,7 @@
         },
         {
           "name": "goods",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3082,7 +3082,7 @@
         },
         {
           "name": "trap",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3098,7 +3098,7 @@
         },
         {
           "name": "treasure",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3155,11 +3155,11 @@
       "params": [
         {
           "name": "trainer_1",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "trainer_2",
-          "type": "u16",
+          "type": "flex",
           "default": "0"
         }
       ]
@@ -3172,11 +3172,11 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "type",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3241,7 +3241,7 @@
       "params": [
         {
           "name": "trainer",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -3325,15 +3325,15 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_2",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -3350,15 +3350,15 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_2",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -3901,7 +3901,7 @@
         },
         {
           "name": "destVarID",
-          "type": "var",
+          "type": "flex",
           "default": "$destVarID"
         }
       ]
@@ -3990,11 +3990,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4006,7 +4006,7 @@
       "params": [
         {
           "name": "trainer_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4158,7 +4158,7 @@
       "params": [
         {
           "name": "app",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4170,7 +4170,7 @@
       "params": [
         {
           "name": "app",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -4187,7 +4187,7 @@
       "params": [
         {
           "name": "syncNo",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4385,7 +4385,7 @@
       "params": [
         {
           "name": "unused",
-          "type": "u16",
+          "type": "flex",
           "default": "1"
         }
       ]
@@ -4398,7 +4398,7 @@
       "params": [
         {
           "name": "mart_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4410,7 +4410,7 @@
       "params": [
         {
           "name": "mart_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4422,7 +4422,7 @@
       "params": [
         {
           "name": "mart_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -4589,7 +4589,7 @@
       "params": [
         {
           "name": "badge_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -4606,7 +4606,7 @@
       "params": [
         {
           "name": "badge_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5087,15 +5087,15 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5135,11 +5135,11 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "movement_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5151,11 +5151,11 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "direction_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5167,15 +5167,15 @@
       "params": [
         {
           "name": "warp_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5207,11 +5207,11 @@
       "params": [
         {
           "name": "event_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "direction_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5249,7 +5249,7 @@
       "params": [
         {
           "name": "time",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5288,19 +5288,19 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_2",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_3",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5404,7 +5404,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5510,7 +5510,7 @@
       "params": [
         {
           "name": "valueOrVarID",
-          "type": "var"
+          "type": "flex"
         }
       ]
     },
@@ -5600,7 +5600,7 @@
         },
         {
           "name": "valueOrVarID",
-          "type": "var"
+          "type": "flex"
         }
       ]
     },
@@ -5636,7 +5636,7 @@
         },
         {
           "name": "position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5754,7 +5754,7 @@
         },
         {
           "name": "range",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5771,7 +5771,7 @@
         },
         {
           "name": "range",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5788,7 +5788,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5832,19 +5832,19 @@
       "params": [
         {
           "name": "templateArgNickname",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "templateArgLevel",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "templateArgGender",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "daycareSlot",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5895,7 +5895,7 @@
       "params": [
         {
           "name": "destVarID",
-          "type": "var",
+          "type": "flex",
           "default": "VAR_RESULT"
         },
         {
@@ -5917,7 +5917,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5929,7 +5929,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5941,15 +5941,15 @@
       "params": [
         {
           "name": "integer_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "decimal_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -5961,15 +5961,15 @@
       "params": [
         {
           "name": "integer_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "decimal_string_buffer",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "pok\u00e9mon_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6018,7 +6018,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6051,11 +6051,11 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "move_slot",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6094,23 +6094,23 @@
       "params": [
         {
           "name": "eventType",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "eventParam",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "unused",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6255,11 +6255,11 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6312,7 +6312,7 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6365,11 +6365,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6480,11 +6480,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -6500,7 +6500,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -6785,7 +6785,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -6980,11 +6980,11 @@
         },
         {
           "name": "x",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "y",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "dir",
@@ -7034,11 +7034,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "gender",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7222,7 +7222,7 @@
         },
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7624,11 +7624,11 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "ribbon",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7640,11 +7640,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "ribbon",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7709,7 +7709,7 @@
             },
             {
               "name": "arg_0",
-              "type": "u16"
+              "type": "flex"
             }
           ]
         },
@@ -7722,11 +7722,11 @@
             },
             {
               "name": "arg_0",
-              "type": "u16"
+              "type": "flex"
             },
             {
               "name": "arg_1",
-              "type": "u16"
+              "type": "flex"
             },
             {
               "name": "arg_2",
@@ -7825,7 +7825,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -7898,7 +7898,7 @@
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8329,7 +8329,7 @@
         },
         {
           "name": "winning_number",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8447,7 +8447,7 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8516,7 +8516,7 @@
         },
         {
           "name": "accesory",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8528,7 +8528,7 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -8545,7 +8545,7 @@
       "params": [
         {
           "name": "form",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8584,7 +8584,7 @@
       "params": [
         {
           "name": "slotMachineID",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8714,7 +8714,7 @@
       "params": [
         {
           "name": "alternative_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "status",
@@ -8758,7 +8758,7 @@
         },
         {
           "name": "arg_1",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -8982,11 +8982,11 @@
       "params": [
         {
           "name": "music",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "volume",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9276,7 +9276,7 @@
       "params": [
         {
           "name": "number",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9288,7 +9288,7 @@
       "params": [
         {
           "name": "number",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9300,7 +9300,7 @@
       "params": [
         {
           "name": "number",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -9373,7 +9373,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -9389,7 +9389,7 @@
       "params": [
         {
           "name": "type",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9401,15 +9401,15 @@
       "params": [
         {
           "name": "partner_trainer_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "trainer_1_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "trainer_2_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9504,7 +9504,7 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -9787,11 +9787,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9947,7 +9947,7 @@
         },
         {
           "name": "species",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -9963,7 +9963,7 @@
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10025,7 +10025,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10041,7 +10041,7 @@
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10057,11 +10057,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10097,7 +10097,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10145,7 +10145,7 @@
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10161,11 +10161,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10201,7 +10201,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10213,7 +10213,7 @@
       "params": [
         {
           "name": "destVarID",
-          "type": "var",
+          "type": "flex",
           "default": "VAR_RESULT"
         },
         {
@@ -10270,7 +10270,7 @@
       "params": [
         {
           "name": "giftid",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -10287,7 +10287,7 @@
       "params": [
         {
           "name": "berryandaccessorymanoptionid",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destBerryOrAccessoryID",
@@ -10317,11 +10317,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -10337,11 +10337,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "tutor_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -10358,11 +10358,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "tutor_id",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "player_selection",
@@ -10378,11 +10378,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "move",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10407,15 +10407,15 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "move_slot",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "new_move_id",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10427,7 +10427,7 @@
       "params": [
         {
           "name": "selectedmove",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVarID",
@@ -10487,7 +10487,7 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "totalivs",
@@ -10534,11 +10534,11 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "form",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10621,11 +10621,11 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "variable",
@@ -10660,7 +10660,7 @@
       "params": [
         {
           "name": "music",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10720,7 +10720,7 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -10849,7 +10849,7 @@
       "params": [
         {
           "name": "party_slot",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -10944,7 +10944,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -10968,7 +10968,7 @@
       "params": [
         {
           "name": "???",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "???",
@@ -11080,11 +11080,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -11096,11 +11096,11 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -11112,7 +11112,7 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -11284,7 +11284,7 @@
       "params": [
         {
           "name": "width",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -11396,7 +11396,7 @@
       "params": [
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "destVar",
@@ -11434,7 +11434,7 @@
       "params": [
         {
           "name": "volume",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },
@@ -11490,7 +11490,7 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "u16"
+          "type": "flex"
         },
         {
           "name": "ret",
@@ -11564,7 +11564,7 @@
         },
         {
           "name": "item",
-          "type": "u16"
+          "type": "flex"
         }
       ]
     },

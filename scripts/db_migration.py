@@ -39,12 +39,15 @@ def map_semantic_type(legacy_type: str, size: int) -> str:
         return "movement_id"
     if legacy_type == "Script":
         return "script_id"
+    if legacy_type == "Flex":
+        return "flex"
 
     # Integers depend on size
     if legacy_type == "Integer" or not legacy_type:
         return size_to_type(size)
 
     return "u16"  # Fallback
+
 
 def get_best_name(data: dict) -> str:
     """Get the best name for a command, preferring the decomp name when present."""
@@ -98,6 +101,8 @@ def parse_param_name_from_value(param_value: str) -> tuple[str, str]:
     # Normalize type
     if type_str == "var":
         type_str = "var"
+    elif type_str == "flex":
+        type_str = "flex"
     elif type_str in ("u8", "u16", "u32", "fx32"):
         pass  # Keep as-is
     else:
