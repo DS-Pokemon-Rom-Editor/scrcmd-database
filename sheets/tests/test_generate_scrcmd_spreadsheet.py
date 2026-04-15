@@ -24,6 +24,7 @@ class SpreadsheetFormattingTests(unittest.TestCase):
 
     def test_prettify_param_type_capitalizes_var(self):
         self.assertEqual(gss.prettify_param_type("var"), "Var")
+        self.assertEqual(gss.prettify_param_type("flex"), "Flex")
         self.assertEqual(gss.prettify_param_type("u16"), "u16")
 
     def test_format_params_uses_semicolons_and_prettified_names(self):

@@ -90,6 +90,7 @@ def prettify_param_type(type_name: str) -> str:
     """Format parameter type names for display."""
     type_map = {
         "var": "Var",
+        "flex": "Flex",
     }
     return type_map.get(type_name, type_name)
 
