@@ -149,10 +149,11 @@ def prettify_param_name(name: str, type_name: str | None = None) -> str:
     return " ".join(prettified)
 
 
-def normalize_match_text(text: str) -> str:
+def normalize_match_text(text: str, case_sensitive: bool = True) -> str:
     """Normalize text for parameter-name matching."""
     parts = [part.strip(MATCH_STRIP_CHARS) for part in text.split()]
-    return " ".join(part for part in parts if part)
+    normalized = " ".join(part for part in parts if part)
+    return normalized if case_sensitive else normalized.casefold()
 
 
 def extract_highlight_terms(params: list[dict]) -> list[str]:
@@ -186,55 +187,107 @@ def build_description_segments(
     if not terms:
         return [(description, False)]
 
-    normalized_terms = [
-        (term, normalize_match_text(term), len(term.split()))
-        for term in sorted(terms, key=lambda value: len(value.split()), reverse=True)
-    ]
-
     token_matches = list(re.finditer(r"\S+", description))
     if not token_matches:
         return [(description, False)]
 
-    segments = []
-    cursor = 0
-    token_index = 0
+    def find_matches_for_terms(
+        available_terms: list[str], case_sensitive: bool
+    ) -> list[tuple[int, int]]:
+        normalized_terms = [
+            (
+                term,
+                normalize_match_text(term, case_sensitive=case_sensitive),
+                len(term.split()),
+            )
+            for term in sorted(
+                available_terms, key=lambda value: len(value.split()), reverse=True
+            )
+        ]
 
-    while token_index < len(token_matches):
-        match_found = None
+        used = [False] * len(token_matches)
+        matches: list[tuple[int, int]] = []
 
-        for _, normalized_term, token_count in normalized_terms:
-            end_index = token_index + token_count - 1
-            if end_index >= len(token_matches):
+        for token_index in range(len(token_matches)):
+            if used[token_index]:
                 continue
 
-            start = token_matches[token_index].start()
-            end = token_matches[end_index].end()
-            candidate = description[start:end]
+            best_match: tuple[int, int] | None = None
+            for _, normalized_term, token_count in normalized_terms:
+                end_index = token_index + token_count - 1
+                if end_index >= len(token_matches):
+                    continue
+                if any(used[i] for i in range(token_index, end_index + 1)):
+                    continue
 
-            if normalize_match_text(candidate) == normalized_term:
-                match_found = (start, end)
+                start = token_matches[token_index].start()
+                end = token_matches[end_index].end()
+                candidate = description[start:end]
+
+                if (
+                    normalize_match_text(candidate, case_sensitive=case_sensitive)
+                    == normalized_term
+                ):
+                    best_match = (token_index, end_index)
+                    break
+
+            if best_match is None:
+                continue
+
+            start_token, end_token = best_match
+            for i in range(start_token, end_token + 1):
+                used[i] = True
+
+            start = token_matches[start_token].start()
+            end = token_matches[end_token].end()
+            matches.append((start, end))
+
+        return matches
+
+    exact_matches = find_matches_for_terms(terms, case_sensitive=True)
+    matched_exact_terms = set()
+    for term in terms:
+        normalized_term = normalize_match_text(term, case_sensitive=True)
+        for start, end in exact_matches:
+            if (
+                normalize_match_text(description[start:end], case_sensitive=True)
+                == normalized_term
+            ):
+                matched_exact_terms.add(term)
                 break
 
-        if match_found is None:
-            token_index += 1
+    fallback_terms = [term for term in terms if term not in matched_exact_terms]
+    fallback_matches = find_matches_for_terms(fallback_terms, case_sensitive=False)
+
+    all_matches = sorted(exact_matches + fallback_matches, key=lambda span: span[0])
+
+    if not all_matches:
+        return [(description, False)]
+
+    non_overlapping_matches: list[tuple[int, int]] = []
+    for start, end in all_matches:
+        if not non_overlapping_matches:
+            non_overlapping_matches.append((start, end))
             continue
 
-        start, end = match_found
+        last_start, last_end = non_overlapping_matches[-1]
+        if start < last_end:
+            if (end - start) > (last_end - last_start):
+                non_overlapping_matches[-1] = (start, end)
+            continue
+
+        non_overlapping_matches.append((start, end))
+
+    segments = []
+    cursor = 0
+    for start, end in non_overlapping_matches:
         if start > cursor:
             segments.append((description[cursor:start], False))
         segments.append((description[start:end], True))
         cursor = end
 
-        while (
-            token_index < len(token_matches) and token_matches[token_index].end() <= end
-        ):
-            token_index += 1
-
     if cursor < len(description):
         segments.append((description[cursor:], False))
-
-    if not segments:
-        return [(description, False)]
 
     merged = []
     for text, is_bold in segments:

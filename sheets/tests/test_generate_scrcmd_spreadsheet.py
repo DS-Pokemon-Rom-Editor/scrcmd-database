@@ -123,6 +123,29 @@ class SpreadsheetFormattingTests(unittest.TestCase):
             [("End script execution", False)],
         )
 
+    def test_build_description_segments_falls_back_to_case_insensitive_when_needed(
+        self,
+    ):
+        params = [
+            {"type": "var", "name": "Var Flag"},
+            {"type": "var", "name": "Var Dest"},
+        ]
+        description = "Check event flag referenced in var, store result in other var"
+
+        segments = gss.build_description_segments(description, params)
+
+        self.assertEqual(
+            segments,
+            [
+                ("Check event ", False),
+                ("flag", True),
+                (" referenced in ", False),
+                ("var,", True),
+                (" store result in other ", False),
+                ("var", True),
+            ],
+        )
+
 
 if __name__ == "__main__":
     unittest.main()
