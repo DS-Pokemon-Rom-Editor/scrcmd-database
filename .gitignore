@@ -1,3 +1,5 @@
 edited_databases/
 .idea/
 scripts/__pycache__/*.pyc
+sheets/__pycache__/*.pyc
+sheets/tests/__pycache__/*.pyc
