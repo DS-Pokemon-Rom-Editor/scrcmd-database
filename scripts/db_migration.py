@@ -305,10 +305,6 @@ def build_migrated_output(old_path: str, old_data: dict) -> dict:
 
     # 4. Process lookup tables (convert hex string keys to integers)
 
-    comparison_operators = {}
-    for hex_id, value in old_data.get("comparisonOperators", {}).items():
-        comparison_operators[int(hex_id, 16)] = value
-
     overworld_directions = {}
     for hex_id, value in old_data.get("overworldDirections", {}).items():
         overworld_directions[int(hex_id, 16)] = value
@@ -327,7 +323,6 @@ def build_migrated_output(old_path: str, old_data: dict) -> dict:
         },
         "commands": new_commands,
         "sounds": sounds,
-        "comparison_operators": comparison_operators,
         "overworld_directions": overworld_directions,
         "special_overworlds": special_overworlds,
     }
@@ -377,8 +372,6 @@ def migrate_db(old_path: str | Path, new_path: str | Path) -> bool:
     for t, count in sorted(type_counts.items()):
         print(f"  {t}: {count}")
     print(f"  sounds: {len(output['sounds'])}")
-    if output["comparison_operators"]:
-        print(f"  comparison_operators: {len(output['comparison_operators'])}")
     if output["overworld_directions"]:
         print(f"  overworld_directions: {len(output['overworld_directions'])}")
     if output["special_overworlds"]:

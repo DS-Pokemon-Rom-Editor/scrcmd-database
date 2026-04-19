@@ -85,7 +85,6 @@ The v2 format unifies all command types into a single `commands` dictionary:
     }
   },
   "sounds": { ... },
-  "comparison_operators": { ... }
 }
 ```
 
