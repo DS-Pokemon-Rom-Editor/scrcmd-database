@@ -4051,7 +4051,7 @@
       "description": "Removes the honey tree 3D animation",
       "params": []
     },
-    "ScrCmd_12B": {
+    "StartSignatureApp": {
       "type": "script_cmd",
       "id": 299,
       "legacy_name": "SignatureScreen",
@@ -8722,15 +8722,16 @@
         }
       ]
     },
-    "ScrCmd_271": {
+    "OpenShayminTabletNamingScreen": {
       "type": "script_cmd",
       "id": 625,
       "legacy_name": "WriteStone",
       "description": "Opens the keyboard for writing in the Route 224 stone, stores 1 in Variable if user cancels the proccess",
       "params": [
         {
-          "name": "variable",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -8845,7 +8846,7 @@
         }
       ]
     },
-    "ScrCmd_27A": {
+    "UseVistaLighthouseBinoculars": {
       "type": "script_cmd",
       "id": 634,
       "legacy_name": "SunyshoreBinoculars",
@@ -11426,7 +11427,7 @@
       "description": "nan",
       "params": []
     },
-    "ScrCmd_333": {
+    "SetPlayerVolume": {
       "type": "script_cmd",
       "id": 819,
       "legacy_name": "SetFieldVolume",
@@ -12941,7 +12942,7 @@
     },
     "WalkSlightlyFasterSouth": {
       "type": "movement",
-      "id": 82,
+      "id": 81,
       "legacy_name": "WaitWalkLeft",
       "description": "Event faces left and floats westwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered.",
       "params": [
@@ -12954,6 +12955,18 @@
     },
     "WalkSlightlyFasterWest": {
       "type": "movement",
+      "id": 82,
+      "description": "",
+      "params": [
+        {
+          "name": "length",
+          "type": "u16",
+          "default": "1"
+        }
+      ]
+    },
+    "WalkSlightlyFasterEast": {
+      "type": "movement",
       "id": 83,
       "legacy_name": "WaitWalkRight",
       "description": "Event faces right and floats eastwards at 1 tile per 16 frames; Equivalent to 1.875 tiles per second. Walk animation isn't triggered.",
@@ -12965,7 +12978,7 @@
         }
       ]
     },
-    "WalkSlightlyFasterEast": {
+    "WalkFastestNorth": {
       "type": "movement",
       "id": 84,
       "legacy_name": "WaitMoveUp",
@@ -12978,7 +12991,7 @@
         }
       ]
     },
-    "WalkFastestNorth": {
+    "WalkFastestSouth": {
       "type": "movement",
       "id": 85,
       "legacy_name": "WaitMoveDown",
@@ -12991,7 +13004,7 @@
         }
       ]
     },
-    "WalkFastestSouth": {
+    "WalkFastestWest": {
       "type": "movement",
       "id": 86,
       "legacy_name": "WaitMoveLeft",
@@ -13004,7 +13017,7 @@
         }
       ]
     },
-    "WalkFastestWest": {
+    "WalkFastestEast": {
       "type": "movement",
       "id": 87,
       "legacy_name": "WaitMoveRight",
@@ -13017,7 +13030,7 @@
         }
       ]
     },
-    "WalkFastestEast": {
+    "RunNorth": {
       "type": "movement",
       "id": 88,
       "legacy_name": "WaitWalkBackUp",
@@ -13030,7 +13043,7 @@
         }
       ]
     },
-    "RunNorth": {
+    "RunSouth": {
       "type": "movement",
       "id": 89,
       "legacy_name": "WaitWalkBackDown",
@@ -13043,7 +13056,7 @@
         }
       ]
     },
-    "RunSouth": {
+    "RunWest": {
       "type": "movement",
       "id": 90,
       "legacy_name": "WaitWalkBackLeft",
@@ -13056,7 +13069,7 @@
         }
       ]
     },
-    "RunWest": {
+    "RunEast": {
       "type": "movement",
       "id": 91,
       "legacy_name": "WaitWalkBackRight",
@@ -13069,7 +13082,7 @@
         }
       ]
     },
-    "RunEast": {
+    "JumpNearSlowWest": {
       "type": "movement",
       "id": 92,
       "legacy_name": "WaitJumpLeft1",
@@ -13081,7 +13094,7 @@
         }
       ]
     },
-    "JumpNearSlowWest": {
+    "JumpNearSlowEast": {
       "type": "movement",
       "id": 93,
       "legacy_name": "WaitJumpRight1",
@@ -13093,7 +13106,7 @@
         }
       ]
     },
-    "JumpNearSlowEast": {
+    "JumpFartherWest": {
       "type": "movement",
       "id": 94,
       "legacy_name": "WaitJumpLeft2",
@@ -13105,7 +13118,7 @@
         }
       ]
     },
-    "JumpFartherWest": {
+    "JumpFartherEast": {
       "type": "movement",
       "id": 95,
       "legacy_name": "WaitJumpRight2",
@@ -13117,7 +13130,7 @@
         }
       ]
     },
-    "JumpFartherEast": {
+    "PokecenterNurseBow": {
       "type": "movement",
       "id": 100,
       "legacy_name": "WaitMoveSite",

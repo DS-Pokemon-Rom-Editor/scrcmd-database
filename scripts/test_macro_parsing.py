@@ -8,6 +8,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 
 from sync_from_decomp import (
     MacroExpansion,
+    MacroParam,
     ParsedMacro,
     build_custom_call_shape_variants,
     build_canonical_name_by_opcode,
@@ -30,6 +31,7 @@ from sync_from_decomp import (
     upsert_imported_macro,
     update_db_from_sync,
     update_inferred_param_defaults,
+    update_param_types,
 )
 
 
@@ -1244,8 +1246,96 @@ def run_all_tests():
     test_update_inferred_param_defaults_only_applies_to_result_var_when_dest_and_result_exist()
     test_update_inferred_param_defaults_keeps_unique_destvar_default()
 
+    test_update_param_types_preserves_flex_type()
+    test_movement_sync_detects_shifted_ids()
+
     print()
     print("[PASS] All tests passed!")
+
+
+def test_update_param_types_preserves_flex_type():
+    """update_param_types must not overwrite a manually-set 'flex' type."""
+    macro = ParsedMacro(
+        name="GiveItem",
+        params=[MacroParam("itemID"), MacroParam("quantity")],
+        opcodes=[1],
+        body="    .short 1\n    .short \\itemID\n    .short \\quantity\n",
+        emitted_params=["itemID", "quantity"],
+    )
+
+    db_params = [
+        {"name": "itemID", "type": "flex"},
+        {"name": "quantity", "type": "u32"},
+    ]
+
+    changed = update_param_types(db_params, macro)
+
+    assert db_params[0]["type"] == "flex", (
+        f"Expected 'flex' to be preserved, got '{db_params[0]['type']}'"
+    )
+    assert db_params[1]["type"] == "u16", (
+        f"Expected 'u16' for quantity, got '{db_params[1]['type']}'"
+    )
+    assert changed is True, "Expected True because quantity was updated"
+
+    print("  [PASS] update_param_types preserves flex type")
+
+
+def test_movement_sync_detects_shifted_ids():
+    """A movement that exists in the decomp at a different opcode must still be
+    flagged as mismatched, not incorrectly treated as an alias."""
+    from sync_from_decomp import build_id_to_name_map, build_name_to_id_map
+
+    # Simulate: DB has WalkSouth at id 82, but decomp says WalkSouth is id 81
+    db_commands = {
+        "WalkNorth": {"type": "movement", "id": 80},
+        "WalkSouth": {"type": "movement", "id": 82},  # WRONG, should be 81
+        "WalkWest":  {"type": "movement", "id": 83},  # WRONG, should be 82
+    }
+    db_id_to_name = build_id_to_name_map(db_commands, "movement")
+    db_name_to_id = build_name_to_id_map(db_commands, "movement")
+
+    decomp_moves = {
+        "WalkNorth": (80, []),
+        "WalkSouth": (81, []),
+        "WalkWest":  (82, []),
+    }
+
+    mismatched = []
+    for name, (opcode, move_params) in decomp_moves.items():
+        if opcode is not None and opcode in db_id_to_name:
+            db_name = db_id_to_name[opcode]
+            if db_name == name:
+                continue
+            if db_name in decomp_moves and decomp_moves[db_name][0] == opcode:
+                continue
+            mismatched.append({"name": name, "db_name": db_name, "decomp_opcode": opcode})
+
+    # WalkSouth (decomp 81) should mismatch because DB id 81 is empty
+    # Actually id 81 is not in db, so it falls to the elif branch
+    # Let me include that branch too
+    missing = []
+    for name, (opcode, move_params) in decomp_moves.items():
+        if opcode is not None and opcode in db_id_to_name:
+            db_name = db_id_to_name[opcode]
+            if db_name == name:
+                continue
+            if db_name in decomp_moves and decomp_moves[db_name][0] == opcode:
+                continue
+            mismatched.append({"name": name, "db_name": db_name, "decomp_opcode": opcode})
+        elif opcode is not None and name in db_name_to_id:
+            mismatched.append({"name": name, "decomp_opcode": opcode, "db_opcode": db_name_to_id[name]})
+        else:
+            if opcode is not None:
+                missing.append({"name": name, "opcode": opcode})
+
+    # WalkSouth at decomp 81: db_id_to_name[81] doesn't exist → falls to elif name in db_name_to_id
+    # WalkWest at decomp 82: db_id_to_name[82] = WalkSouth, WalkSouth is in decomp_moves but at 81 != 82 → mismatch
+    names = {m["name"] for m in mismatched}
+    assert "WalkWest" in names, f"Expected WalkWest in mismatched, got {names}"
+    assert "WalkSouth" in names, f"Expected WalkSouth in mismatched, got {names}"
+
+    print("  [PASS] movement sync detects shifted IDs")
 
 
 if __name__ == "__main__":

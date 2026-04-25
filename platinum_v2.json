@@ -4065,7 +4065,7 @@
       "description": "Removes the honey tree 3D animation",
       "params": []
     },
-    "ScrCmd_12B": {
+    "StartSignatureApp": {
       "type": "script_cmd",
       "id": 299,
       "legacy_name": "SignatureScreen",
@@ -8736,15 +8736,16 @@
         }
       ]
     },
-    "ScrCmd_271": {
+    "OpenShayminTabletNamingScreen": {
       "type": "script_cmd",
       "id": 625,
       "legacy_name": "WriteStone",
       "description": "Opens the keyboard for writing in the Route 224 stone, stores 1 in Variable if user cancels the proccess",
       "params": [
         {
-          "name": "variable",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -8859,7 +8860,7 @@
         }
       ]
     },
-    "ScrCmd_27A": {
+    "UseVistaLighthouseBinoculars": {
       "type": "script_cmd",
       "id": 634,
       "legacy_name": "SunyshoreBinoculars",
@@ -11440,7 +11441,7 @@
       "description": "nan",
       "params": []
     },
-    "ScrCmd_333": {
+    "SetPlayerVolume": {
       "type": "script_cmd",
       "id": 819,
       "legacy_name": "SetFieldVolume",

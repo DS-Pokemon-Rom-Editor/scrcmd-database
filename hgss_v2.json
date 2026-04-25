@@ -2062,7 +2062,7 @@
         }
       ]
     },
-    "ScrCmd_149": {
+    "UnsetPhoneCallTrigger": {
       "type": "script_cmd",
       "id": 149,
       "legacy_name": "CMD_149",

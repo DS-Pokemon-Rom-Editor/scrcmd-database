@@ -464,6 +464,12 @@ def build_custom_call_shape_variants(macro: ParsedMacro) -> list[dict] | None:
     if not has_nontrivial_expression:
         return None
 
+    # Only a custom call shape when macro arity differs from emitted arity.
+    # Simple assembler expressions like `offset-.-4` keep the same arity and
+    # do not represent an alternate calling convention.
+    if len(macro.params) == len(emit_args):
+        return None
+
     variant_params = []
     for p in macro.params:
         entry = {"name": p.name, "type": infer_param_type(p.name)}
@@ -2894,6 +2900,10 @@ def update_param_types(db_params: list, macro: ParsedMacro) -> bool:
         if "var" in emitted_name.lower():
             actual_type = "var"
 
+        # Preserve manually-set "flex" type
+        if current_type == "flex":
+            continue
+
         # Only update if types differ
         if current_type != actual_type:
             db_params[i]["type"] = actual_type
@@ -3572,7 +3582,11 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 if opcode is not None and opcode in db_id_to_name:
                     db_name = db_id_to_name[opcode]
                     # Check if existing DB name is also a valid decomp name (alias)
-                    if db_name == name or db_name in decomp_moves:
+                    # at the SAME opcode. If the decomp has that name at a different
+                    # opcode, this is a stale ID shift, not an alias.
+                    if db_name == name:
+                        continue
+                    if db_name in decomp_moves and decomp_moves[db_name][0] == opcode:
                         continue
 
                     mismatched.append(
