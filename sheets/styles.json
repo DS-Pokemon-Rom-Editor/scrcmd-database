@@ -119,6 +119,30 @@
                 "top": "none",
                 "bottom": "none"
             }
+        },
+        "6": {
+            "value": "Notes",
+            "fill": {
+                "type": "solid",
+                "fg": "FFD6C6E8"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 12,
+                "bold": true,
+                "italic": true
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": "center"
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
         }
     },
     "data": {
@@ -218,6 +242,29 @@
             "fill": {
                 "type": "solid",
                 "fg": "FFD9EAD3"
+            },
+            "font": {
+                "name": "Courier New",
+                "size": 10,
+                "bold": false,
+                "italic": false
+            },
+            "align": {
+                "wrap": true,
+                "vert": "center",
+                "horiz": null
+            },
+            "border": {
+                "left": "none",
+                "right": "none",
+                "top": "none",
+                "bottom": "none"
+            }
+        },
+        "6": {
+            "fill": {
+                "type": "solid",
+                "fg": "FFEDE7F6"
             },
             "font": {
                 "name": "Courier New",

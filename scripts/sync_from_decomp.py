@@ -2187,6 +2187,8 @@ def repair_duplicate_command_ids(
                 canonical_entry.get("description")
             ) and not is_generated_description(stale_entry.get("description")):
                 canonical_entry["description"] = stale_entry["description"]
+            if "notes" not in canonical_entry and stale_entry.get("notes"):
+                canonical_entry["notes"] = stale_entry["notes"]
             removed += 1
 
         commands[canonical_name] = canonical_entry

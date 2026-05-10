@@ -232,6 +232,10 @@ def build_migrated_output(old_path: str, old_data: dict) -> dict:
             "description": description,
         }
 
+        # Preserve notes if present
+        if data.get("notes"):
+            entry["notes"] = data["notes"]
+
         # Check if this is a conditional command
         if sizes and sizes[0] == 255:
             variants = parse_conditional_parameters(sizes, types, description)

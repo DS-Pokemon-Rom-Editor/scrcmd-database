@@ -17,7 +17,8 @@
       "id": 1,
       "legacy_name": "Dummy",
       "description": "Nothing",
-      "params": []
+      "params": [],
+      "notes": "Has exactly the same ASM code as Nop."
     },
     "End": {
       "type": "script_cmd",
@@ -292,7 +293,8 @@
           "name": "???",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Somehow related with parallel common script execution."
     },
     "CallCommonScript": {
       "type": "script_cmd",
@@ -304,7 +306,8 @@
           "name": "global_script_id",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "See the HGSS sheet for more info. Table in DPPt hasn't been found yet."
     },
     "ReturnCommonScript": {
       "type": "script_cmd",
@@ -323,7 +326,8 @@
           "name": "relative_jump",
           "type": "u32"
         }
-      ]
+      ],
+      "notes": "Relative Jump can have negative values (backward jump)."
     },
     "JumpIfObjID": {
       "type": "script_cmd",
@@ -355,7 +359,8 @@
           "name": "relative_jump",
           "type": "u32"
         }
-      ]
+      ],
+      "notes": "Maybe jumps to a function if invoking event has a specific ID."
     },
     "JumpIfPlayerDir": {
       "type": "script_cmd",
@@ -371,7 +376,8 @@
           "name": "relative_jump",
           "type": "u32"
         }
-      ]
+      ],
+      "notes": "Supposed. Needs to be tested in game."
     },
     "Call": {
       "type": "script_cmd",
@@ -383,7 +389,8 @@
           "name": "relative_jump",
           "type": "u32"
         }
-      ]
+      ],
+      "notes": "Can be used to make loops when calling the own invoking function."
     },
     "Return": {
       "type": "script_cmd",
@@ -406,7 +413,8 @@
           "name": "relative_jump",
           "type": "u32"
         }
-      ]
+      ],
+      "notes": "Ask AdAstra for the condition list. Condition table is updated after a IfVarValue, IfVarVar, CheckFlag..."
     },
     "CallIf": {
       "type": "script_cmd",
@@ -458,7 +466,8 @@
           "name": "flag",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "It updates the internal condition flag and maybe part of the condition table."
     },
     "CheckFlagFromVar": {
       "type": "script_cmd",
@@ -498,7 +507,8 @@
           "name": "trainer_id",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "So this trainer will not battle against you. Used in every Gym after the leader is beaten."
     },
     "ClearTrainerFlag": {
       "type": "script_cmd",
@@ -510,7 +520,8 @@
           "name": "trainer_id",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "So this trainer can be challenged again."
     },
     "CheckTrainerFlag": {
       "type": "script_cmd",
@@ -522,7 +533,8 @@
           "name": "trainer_id",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "It updates the internal condition flag and maybe part of the condition table."
     },
     "AddVar": {
       "type": "script_cmd",
@@ -638,7 +650,8 @@
           "name": "text_slot",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Unlike 002C, this command also accepts a variable as the input field."
     },
     "MessageNoSkip": {
       "type": "script_cmd",
@@ -669,21 +682,24 @@
       "id": 48,
       "legacy_name": "WaitAB",
       "description": "Waits for button A or button B to be pressed",
-      "params": []
+      "params": [],
+      "notes": "Somehow it uses ScrReg 0 as countdown."
     },
     "WaitABXPadPress": {
       "type": "script_cmd",
       "id": 49,
       "legacy_name": "WaitButton",
       "description": "Waits for a button to be pressed",
-      "params": []
+      "params": [],
+      "notes": "It seems only A, B, X and direction pad buttons work."
     },
     "WaitABPadPress": {
       "type": "script_cmd",
       "id": 50,
       "legacy_name": "WaitABPad",
       "description": "Waits for button A, button B or pad buttons to be pressed",
-      "params": []
+      "params": [],
+      "notes": "Supposed. Needs to be tested in game."
     },
     "OpenMessage": {
       "type": "script_cmd",
@@ -697,14 +713,16 @@
       "id": 52,
       "legacy_name": "CloseMessage",
       "description": "Closes message box",
-      "params": []
+      "params": [],
+      "notes": "SDSME name is misleading, for no button is needed to be pressed."
     },
     "CloseMessageWithoutErasing": {
       "type": "script_cmd",
       "id": 53,
       "legacy_name": "FreezeMessage",
       "description": "???",
-      "params": []
+      "params": [],
+      "notes": "Probably keeps the message box alive after a script. ASM differs with CloseMessage only in a BL instruction."
     },
     "DrawSignpostInstantMessage": {
       "type": "script_cmd",
@@ -728,7 +746,8 @@
           "name": "unused",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Type values from 0 to 3 are: brown (with icon), green (with icon), gray and blue."
     },
     "DrawSignpostTextBox": {
       "type": "script_cmd",
@@ -744,7 +763,8 @@
           "name": "icon",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Type values from 0 to 3 are: brown (with icon), green (with icon), gray and blue."
     },
     "SetSignpostCommand": {
       "type": "script_cmd",
@@ -756,14 +776,16 @@
           "name": "process",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "Process value 0 keeps the board, value 1 creates the board, value 2 hides the board, value 3 shows the board and value 4 deletes the board."
     },
     "WaitForSignpostDone": {
       "type": "script_cmd",
       "id": 57,
       "legacy_name": "WaitBoard",
       "description": "Waits the board last process to end",
-      "params": []
+      "params": [],
+      "notes": "Supposed."
     },
     "DrawSignpostScrollingMessage": {
       "type": "script_cmd",
@@ -791,7 +813,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Variable is stored in ScrReg 0. Command waits for a button to be pressed and stores result in Variable."
     },
     "ShowStartMenu": {
       "type": "script_cmd",
@@ -842,7 +865,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Variable is stored in ScrReg 0."
     },
     "ScrCmd_Unused_03F": {
       "type": "script_cmd",
@@ -877,7 +901,8 @@
           "name": "selection",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "If Cancel is 1, the user can select the last option by pressing B button."
     },
     "InitLocalTextMenu": {
       "type": "script_cmd",
@@ -905,7 +930,8 @@
           "name": "selection",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "If Cancel is 1, the user can select the last option by pressing B button."
     },
     "AddMenuEntryImm": {
       "type": "script_cmd",
@@ -928,7 +954,8 @@
       "id": 67,
       "legacy_name": "ShowMulti",
       "description": "Shows the prepared multi in screen",
-      "params": []
+      "params": [],
+      "notes": "The game will hide it when the player has selected an option."
     },
     "InitGlobalTextListMenu": {
       "type": "script_cmd",
@@ -956,7 +983,8 @@
           "name": "selection",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "If Cancel is 1, the user can select the last option by pressing B button. The difference between a Multi and a List seems to be that lists are scrollable."
     },
     "InitLocalTextListMenu": {
       "type": "script_cmd",
@@ -984,7 +1012,8 @@
           "name": "selection",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "If Cancel is 1, the user can select the last option by pressing B button. The difference between a Multi and a List seems to be that lists are scrollable."
     },
     "AddListMenuEntry": {
       "type": "script_cmd",
@@ -1004,14 +1033,16 @@
           "name": "list_slot",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "If Highlight MSG is set to 255 [0xFF], no message will be displayed when the option is highlighted.\nThis command relies on an open message box in order to display the highlight messages. \n\nTrying to highlight an option with Highlight MSG different than 255 [0xFF] will result in a crash if no message box is already being displayed."
     },
     "ShowListMenu": {
       "type": "script_cmd",
       "id": 71,
       "legacy_name": "ShowList",
       "description": "Shows the prepared list in screen",
-      "params": []
+      "params": [],
+      "notes": "The game will hide it when the player has selected an option."
     },
     "ShowMenuMultiColumn": {
       "type": "script_cmd",
@@ -1065,10 +1096,10 @@
       "type": "script_cmd",
       "id": 76,
       "legacy_name": "PlayCry",
-      "description": "Plays a Pok\u00e9mon cry",
+      "description": "Plays a Pokémon cry",
       "params": [
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "flex"
         },
         {
@@ -1125,7 +1156,8 @@
           "name": "unused",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Parameter is ignored because the game identifies what music is playing."
     },
     "PlayDefaultMusic": {
       "type": "script_cmd",
@@ -1144,7 +1176,8 @@
           "name": "music",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Refers to a \"special bgm\"."
     },
     "FadeOutBGM": {
       "type": "script_cmd",
@@ -1212,7 +1245,8 @@
           "name": "???",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "Seems to set a flag related to the music system."
     },
     "CheckRecordedChatotCryIsPlayable": {
       "type": "script_cmd",
@@ -1224,7 +1258,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Returns 0 or 1 to the specified Variable. Not for a specific Chatot but for all (they share a custom sound)."
     },
     "TryRecordChatotCry": {
       "type": "script_cmd",
@@ -1236,7 +1271,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Returns 0 or 1 to the specified Variable depending on successful recording."
     },
     "StopRecordingChatotCry": {
       "type": "script_cmd",
@@ -1250,7 +1286,8 @@
       "id": 92,
       "legacy_name": "SaveChatotCry",
       "description": "???",
-      "params": []
+      "params": [],
+      "notes": "Maybe saves the custom Chatot sound in the savegame."
     },
     "SetSubScene63": {
       "type": "script_cmd",
@@ -1273,7 +1310,8 @@
           "name": "relative_jump",
           "type": "u32"
         }
-      ]
+      ],
+      "notes": "It seems that movements must be halfword-aligned in the script file."
     },
     "WaitMovement": {
       "type": "script_cmd",
@@ -1330,7 +1368,8 @@
           "name": "event_id",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "It is probable that, if executing this having Event ID overworld already in the map, it gets duplicated."
     },
     "RemoveObject": {
       "type": "script_cmd",
@@ -1358,7 +1397,8 @@
           "name": "y",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Seems that X and Y must be the current player position"
     },
     "RestoreCamera": {
       "type": "script_cmd",
@@ -1372,7 +1412,8 @@
       "id": 104,
       "legacy_name": "FacePlayer",
       "description": "Makes the invoking event to look at the player",
-      "params": []
+      "params": [],
+      "notes": "In fact it simply takes the current player direction and makes the NPC look at the opposite direction."
     },
     "GetPlayerMapPos": {
       "type": "script_cmd",
@@ -1428,7 +1469,8 @@
           "name": "y",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "It has to do with camera movements"
     },
     "KeepOverworld": {
       "type": "script_cmd",
@@ -1523,7 +1565,8 @@
           "name": "y",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Each X and Y unit implies 8 pixels. Values of 0 or higher than the screen may glitch the screen."
     },
     "HideMoney": {
       "type": "script_cmd",
@@ -1553,7 +1596,8 @@
           "name": "y",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Each X and Y unit implies 8 pixels. Values of 0 or higher than the screen may glitch the screen."
     },
     "HideCoins": {
       "type": "script_cmd",
@@ -1663,7 +1707,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even if the Amount to check for is 0, the check will return 0 if you don't have the item at all."
     },
     "CheckItem": {
       "type": "script_cmd",
@@ -1722,14 +1767,16 @@
       "id": 129,
       "legacy_name": "DummyGivePCItem",
       "description": "Nothing",
-      "params": []
+      "params": [],
+      "notes": "Script command ASM code seems to be empty."
     },
     "ScrCmd_Dummy082": {
       "type": "script_cmd",
       "id": 130,
       "legacy_name": "DummyCheckPCItem",
       "description": "Nothing",
-      "params": []
+      "params": [],
+      "notes": "Script command ASM code seems to be empty."
     },
     "GiveGoods": {
       "type": "script_cmd",
@@ -1769,7 +1816,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "CheckGoodsSpace": {
       "type": "script_cmd",
@@ -1809,7 +1857,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "GiveTrap": {
       "type": "script_cmd",
@@ -1849,7 +1898,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "Dummy089": {
       "type": "script_cmd",
@@ -1869,7 +1919,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "Dummy08A": {
       "type": "script_cmd",
@@ -1889,7 +1940,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "Dummy08B": {
       "type": "script_cmd",
@@ -1909,7 +1961,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "Dummy08C": {
       "type": "script_cmd",
@@ -1929,7 +1982,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "Dummy08D": {
       "type": "script_cmd",
@@ -1949,7 +2003,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "Dummy08E": {
       "type": "script_cmd",
@@ -1969,7 +2024,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "GiveSphere": {
       "type": "script_cmd",
@@ -2009,7 +2065,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "Dummy091": {
       "type": "script_cmd",
@@ -2029,7 +2086,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "Dummy092": {
       "type": "script_cmd",
@@ -2049,7 +2107,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, Variable must be a variable."
     },
     "CheckSealAmount": {
       "type": "script_cmd",
@@ -2065,7 +2124,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Supposed. Needs to be tested."
     },
     "GiveSeal": {
       "type": "script_cmd",
@@ -2087,7 +2147,7 @@
       "type": "script_cmd",
       "id": 149,
       "legacy_name": "CheckPokemonForm",
-      "description": "Stores in Variable the form of the Pok\u00e9mon in Party Position",
+      "description": "Stores in Variable the form of the Pokémon in Party Position",
       "params": [
         {
           "name": "party_position",
@@ -2097,16 +2157,17 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Pokémon in Party Position doesn't have to be an Unown, it can be any Pokémon."
     },
     "GivePokemon": {
       "type": "script_cmd",
       "id": 150,
       "legacy_name": "GivePokemon",
-      "description": "Gives Pok\u00e9mon at level Level with an Item, store 1 in Variable if succeed and 0 otherwise",
+      "description": "Gives Pokémon at level Level with an Item, store 1 in Variable if succeed and 0 otherwise",
       "params": [
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "flex"
         },
         {
@@ -2127,10 +2188,10 @@
       "type": "script_cmd",
       "id": 151,
       "legacy_name": "GivePokemonEgg",
-      "description": "Gives a Pok\u00e9mon egg received from Location text slot at text bank #435",
+      "description": "Gives a Pokémon egg received from Location text slot at text bank #435",
       "params": [
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "flex"
         },
         {
@@ -2143,7 +2204,7 @@
       "type": "script_cmd",
       "id": 152,
       "legacy_name": "ReplaceMove",
-      "description": "Replaces Party Position Pok\u00e9mon move at Move Position move slot by Move ID new move",
+      "description": "Replaces Party Position Pokémon move at Move Position move slot by Move ID new move",
       "params": [
         {
           "name": "party_position",
@@ -2157,13 +2218,14 @@
           "name": "move_id",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Predicted."
     },
     "CheckPartyMonHasMove": {
       "type": "script_cmd",
       "id": 153,
       "legacy_name": "CheckMove",
-      "description": "Stores 1 in Variable if Pok\u00e9mon at Party Position knows Move ID move, stores 0 otherwise",
+      "description": "Stores 1 in Variable if Pokémon at Party Position knows Move ID move, stores 0 otherwise",
       "params": [
         {
           "name": "variable",
@@ -2183,7 +2245,7 @@
       "type": "script_cmd",
       "id": 154,
       "legacy_name": "CheckMoveInParty",
-      "description": "Checks if any Pok\u00e9mon in the party knows Move ID move, stores in Variable the position of the first Pok\u00e9mon that knows it or stores 6 if no Pok\u00e9mon in the party knows the move",
+      "description": "Checks if any Pokémon in the party knows Move ID move, stores in Variable the position of the first Pokémon that knows it or stores 6 if no Pokémon in the party knows the move",
       "params": [
         {
           "name": "variable",
@@ -2216,35 +2278,40 @@
       "id": 156,
       "legacy_name": "DummySetWeather",
       "description": "Nothing",
-      "params": []
+      "params": [],
+      "notes": "Command is empty."
     },
     "ScrCmd_Unused_09D": {
       "type": "script_cmd",
       "id": 157,
       "legacy_name": "DummyInitWeather",
       "description": "Nothing",
-      "params": []
+      "params": [],
+      "notes": "Command is empty."
     },
     "ScrCmd_Unused_09E": {
       "type": "script_cmd",
       "id": 158,
       "legacy_name": "DummyUpdateWeather",
       "description": "Nothing",
-      "params": []
+      "params": [],
+      "notes": "Command is empty."
     },
     "ScrCmd_Unused_09F": {
       "type": "script_cmd",
       "id": 159,
       "legacy_name": "DummyCheckMapPosition",
       "description": "Nothing",
-      "params": []
+      "params": [],
+      "notes": "Command is empty."
     },
     "Dummy0A0": {
       "type": "script_cmd",
       "id": 160,
       "legacy_name": "DummyCountPartyPokemon",
       "description": "Nothing",
-      "params": []
+      "params": [],
+      "notes": "Command is empty."
     },
     "ReturnToField": {
       "type": "script_cmd",
@@ -2290,7 +2357,7 @@
       "type": "script_cmd",
       "id": 166,
       "legacy_name": "DressPokemon",
-      "description": "Shows Dress-Up screen with Pok\u00e9mon at specified Party Pos",
+      "description": "Shows Dress-Up screen with Pokémon at specified Party Pos",
       "params": [
         {
           "name": "party_pos",
@@ -2438,14 +2505,14 @@
       "type": "script_cmd",
       "id": 180,
       "legacy_name": "StarterSelectionScreen",
-      "description": "Opens the starter Pok\u00e9mon selection screen",
+      "description": "Opens the starter Pokémon selection screen",
       "params": []
     },
     "SaveChosenStarter": {
       "type": "script_cmd",
       "id": 181,
       "legacy_name": "EndStarterSelectionScreen",
-      "description": "Stores the selected starter Pok\u00e9mon in the save data and frees the Pok\u00e9mon selection screen resources",
+      "description": "Stores the selected starter Pokémon in the save data and frees the Pokémon selection screen resources",
       "params": []
     },
     "CMD_182": {
@@ -2520,7 +2587,7 @@
       "type": "script_cmd",
       "id": 187,
       "legacy_name": "ChoosePokemonNickname",
-      "description": "Opens the keyboard for naming a Pok\u00e9mon at Party Position, stores 1 in Variable if user cancels the proccess",
+      "description": "Opens the keyboard for naming a Pokémon at Party Position, stores 1 in Variable if user cancels the proccess",
       "params": [
         {
           "name": "party_position",
@@ -2554,7 +2621,8 @@
           "name": "color",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Type 0 for fade in, Type 1 for fade out. Color has 15-bit format. Transition is the number of color changes that the game does in the fading."
     },
     "WaitFadeScreen": {
       "type": "script_cmd",
@@ -2589,43 +2657,47 @@
           "name": "dir",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "When Door is 0 it doesn't use any door animation."
     },
     "UseRockClimb": {
       "type": "script_cmd",
       "id": 191,
       "legacy_name": "RockClimbAnimation",
-      "description": "Uses rock climb with the Pok\u00e9mon at Party Position position",
+      "description": "Uses rock climb with the Pokémon at Party Position position",
       "params": [
         {
           "name": "party_position",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Predicted."
     },
     "UseSurf": {
       "type": "script_cmd",
       "id": 192,
       "legacy_name": "SurfAnimation",
-      "description": "Uses surf with the Pok\u00e9mon at Party Position position",
+      "description": "Uses surf with the Pokémon at Party Position position",
       "params": [
         {
           "name": "party_position",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Predicted."
     },
     "UseWaterfall": {
       "type": "script_cmd",
       "id": 193,
       "legacy_name": "WaterfallAnimation",
-      "description": "Uses waterfall with the Pok\u00e9mon at Party Position position",
+      "description": "Uses waterfall with the Pokémon at Party Position position",
       "params": [
         {
           "name": "party_position",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Predicted."
     },
     "FlyAnimation": {
       "type": "script_cmd",
@@ -2645,7 +2717,8 @@
           "name": "y",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Predicted."
     },
     "FlashAnimation": {
       "type": "script_cmd",
@@ -2665,13 +2738,14 @@
       "type": "script_cmd",
       "id": 197,
       "legacy_name": "CutAnimation",
-      "description": "Uses cut with the Pok\u00e9mon at Party Position position",
+      "description": "Uses cut with the Pokémon at Party Position position",
       "params": [
         {
           "name": "party_position",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Predicted."
     },
     "Tuxedo": {
       "type": "script_cmd",
@@ -2726,7 +2800,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Values 0 is for normal form, value 1 for riding the bike and value 2 for surfing."
     },
     "SetPlayerState": {
       "type": "script_cmd",
@@ -2738,7 +2813,8 @@
           "name": "form",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "The purpose of the different bits still needs to be researched."
     },
     "ChangePlayerState": {
       "type": "script_cmd",
@@ -2787,7 +2863,7 @@
       "type": "script_cmd",
       "id": 208,
       "legacy_name": "TextPokemon",
-      "description": "Stores the name of the Pok\u00e9mon in Party Position in String Buffer",
+      "description": "Stores the name of the Pokémon in Party Position in String Buffer",
       "params": [
         {
           "name": "string_buffer",
@@ -2845,7 +2921,8 @@
           "name": "item",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Seems very similar to the command below, the difference needs to be checked in-game."
     },
     "BufferMoveName": {
       "type": "script_cmd",
@@ -2861,7 +2938,8 @@
           "name": "move",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Seems very similar to the command above, the difference needs to be checked in-game."
     },
     "BufferNumber": {
       "type": "script_cmd",
@@ -2883,7 +2961,7 @@
       "type": "script_cmd",
       "id": 214,
       "legacy_name": "TextPokeNickname",
-      "description": "Stores the nickname of the Pok\u00e9mon in Party Position in String Buffer",
+      "description": "Stores the nickname of the Pokémon in Party Position in String Buffer",
       "params": [
         {
           "name": "string_buffer",
@@ -2899,14 +2977,14 @@
       "type": "script_cmd",
       "id": 215,
       "legacy_name": "TextPoketch",
-      "description": "Stores Pok\u00e9tch App's name in String Buffer",
+      "description": "Stores Pokétch App's name in String Buffer",
       "params": [
         {
           "name": "string_buffer",
           "type": "u8"
         },
         {
-          "name": "pok\u00e9tch_app",
+          "name": "pokétch_app",
           "type": "flex"
         }
       ]
@@ -2943,14 +3021,14 @@
       "type": "script_cmd",
       "id": 218,
       "legacy_name": "TextPokemonStored",
-      "description": "Stores Pok\u00e9mon's name in String Buffer",
+      "description": "Stores Pokémon's name in String Buffer",
       "params": [
         {
           "name": "string_buffer",
           "type": "u8"
         },
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "flex"
         },
         {
@@ -2961,13 +3039,14 @@
           "name": "unused",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "The two Unused parameters are for defining male/female nouns and singular/plural nouns respectively. However both don't apply in this command."
     },
     "BufferPlayerStarterSpeciesName": {
       "type": "script_cmd",
       "id": 219,
       "legacy_name": "TextStarterPokemon",
-      "description": "Stores the name of the player' starter Pok\u00e9mon in String Buffer",
+      "description": "Stores the name of the player' starter Pokémon in String Buffer",
       "params": [
         {
           "name": "string_buffer",
@@ -2979,7 +3058,7 @@
       "type": "script_cmd",
       "id": 220,
       "legacy_name": "TextRivalStarter",
-      "description": "Stores the name of the rival' starter Pok\u00e9mon in String Buffer",
+      "description": "Stores the name of the rival' starter Pokémon in String Buffer",
       "params": [
         {
           "name": "string_buffer",
@@ -2991,7 +3070,7 @@
       "type": "script_cmd",
       "id": 221,
       "legacy_name": "TextCounterpartStarter",
-      "description": "Stores the name of the counterpart' starter Pok\u00e9mon in String Buffer",
+      "description": "Stores the name of the counterpart' starter Pokémon in String Buffer",
       "params": [
         {
           "name": "string_buffer",
@@ -3003,7 +3082,7 @@
       "type": "script_cmd",
       "id": 222,
       "legacy_name": "CheckStarter",
-      "description": "Stores the starter Pok\u00e9mon ID in Variable",
+      "description": "Stores the starter Pokémon ID in Variable",
       "params": [
         {
           "name": "variable",
@@ -3079,17 +3158,18 @@
       "type": "script_cmd",
       "id": 227,
       "legacy_name": "GetSwarmInfo",
-      "description": "Selects a zone depending on a random seed, then stores the zone ID in Map and the corresponding swarm Pok\u00e9mon of that zone in Pok\u00e9mon",
+      "description": "Selects a zone depending on a random seed, then stores the zone ID in Map and the corresponding swarm Pokémon of that zone in Pokémon",
       "params": [
         {
           "name": "map",
           "type": "var"
         },
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Predicted. Needs to be checked."
     },
     "GetTrainerID": {
       "type": "script_cmd",
@@ -3101,7 +3181,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "This means you shouldn't use this command in a normal script."
     },
     "StartTrainerBattle": {
       "type": "script_cmd",
@@ -3133,13 +3214,14 @@
           "name": "type",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "The possible Type values are the following (expand the note for see them)"
     },
     "GetTrainerMessageTypes": {
       "type": "script_cmd",
       "id": 231,
       "legacy_name": "TrainerMsgCheck",
-      "description": "If the script ID corresponds to a single battle trainer, stores 0 in Noticing, 2 in Defeat and 0 in One Pok\u00e9mon. If it corresponds to a double battle, stores 3, 5 and 6 or 7, 9 and 10 depending on whether it's the first or the second trainer",
+      "description": "If the script ID corresponds to a single battle trainer, stores 0 in Noticing, 2 in Defeat and 0 in One Pokémon. If it corresponds to a double battle, stores 3, 5 and 6 or 7, 9 and 10 depending on whether it's the first or the second trainer",
       "params": [
         {
           "name": "noticing",
@@ -3150,16 +3232,17 @@
           "type": "var"
         },
         {
-          "name": "one_pok\u00e9mon",
+          "name": "one_pokémon",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "This means you shouldn't use this command in a normal script."
     },
     "GetTrainerRematchMessageTypes": {
       "type": "script_cmd",
       "id": 232,
       "legacy_name": "TrainerRematchMsgCheck",
-      "description": "If the script ID corresponds to a single battle trainer, stores 17 in Noticing, 0 in Defeat and 0 in One Pok\u00e9mon. If it corresponds to a double battle, stores 18, 0 and 6 or 19, 0 and 10 depending on whether it's the first or the second trainer",
+      "description": "If the script ID corresponds to a single battle trainer, stores 17 in Noticing, 0 in Defeat and 0 in One Pokémon. If it corresponds to a double battle, stores 18, 0 and 6 or 19, 0 and 10 depending on whether it's the first or the second trainer",
       "params": [
         {
           "name": "noticing",
@@ -3170,10 +3253,11 @@
           "type": "var"
         },
         {
-          "name": "one_pok\u00e9mon",
+          "name": "one_pokémon",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "This means you shouldn't use this command in a normal script."
     },
     "CheckIsTrainerDoubleBattle": {
       "type": "script_cmd",
@@ -3185,7 +3269,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "This means you shouldn't use this command in a normal script."
     },
     "PlayTrainerEncounterBGM": {
       "type": "script_cmd",
@@ -3203,7 +3288,7 @@
       "type": "script_cmd",
       "id": 235,
       "legacy_name": "LostBattle",
-      "description": "Return to Pok\u00e9mon Center or player's house after being defeated",
+      "description": "Return to Pokémon Center or player's house after being defeated",
       "params": []
     },
     "CheckWonBattle": {
@@ -3234,7 +3319,7 @@
       "type": "script_cmd",
       "id": 238,
       "legacy_name": "Check2vs2",
-      "description": "Stores 1 in Variable if player has at least 2 not fainted Pok\u00e9mon, stores 0 otherwise",
+      "description": "Stores 1 in Variable if player has at least 2 not fainted Pokémon, stores 0 otherwise",
       "params": [
         {
           "name": "variable",
@@ -3762,7 +3847,7 @@
       "type": "script_cmd",
       "id": 281,
       "legacy_name": "CheckPokerus",
-      "description": "Stores 1 in Variable if one or more Pok\u00e9mon in the party are infected with the Pok\u00e9rus",
+      "description": "Stores 1 in Variable if one or more Pokémon in the party are infected with the Pokérus",
       "params": [
         {
           "name": "variable",
@@ -3774,7 +3859,7 @@
       "type": "script_cmd",
       "id": 282,
       "legacy_name": "GetPokemonGender",
-      "description": "Stores 0 in Variable if Pok\u00e9mon at Party Position is male, 1 if is female and 2 if gender is unknown",
+      "description": "Stores 0 in Variable if Pokémon at Party Position is male, 1 if is female and 2 if gender is unknown",
       "params": [
         {
           "name": "party_position",
@@ -3784,7 +3869,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Unknown gender value is supposed and should be checked."
     },
     "SetWarpData": {
       "type": "script_cmd",
@@ -3824,7 +3910,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "It does something to the value based on the current Header."
     },
     "ElevatorBox": {
       "type": "script_cmd",
@@ -3850,7 +3937,7 @@
       "type": "script_cmd",
       "id": 286,
       "legacy_name": "CountSinnohDexSeen",
-      "description": "Stores in Variable the total seen Pokemon in the Sinnoh Pok\u00e9dex",
+      "description": "Stores in Variable the total seen Pokemon in the Sinnoh Pokédex",
       "params": [
         {
           "name": "variable",
@@ -3862,7 +3949,7 @@
       "type": "script_cmd",
       "id": 287,
       "legacy_name": "CountSinnohDexObtained",
-      "description": "Stores in Variable the total obtained Pokemon in the Sinnoh Pok\u00e9dex",
+      "description": "Stores in Variable the total obtained Pokemon in the Sinnoh Pokédex",
       "params": [
         {
           "name": "variable",
@@ -3874,7 +3961,7 @@
       "type": "script_cmd",
       "id": 288,
       "legacy_name": "CountNationalDexSeen",
-      "description": "Stores in Variable the total seen Pokemon in the National Pok\u00e9dex",
+      "description": "Stores in Variable the total seen Pokemon in the National Pokédex",
       "params": [
         {
           "name": "variable",
@@ -3886,7 +3973,7 @@
       "type": "script_cmd",
       "id": 289,
       "legacy_name": "CountNationalDexObtained",
-      "description": "Stores in Variable the total obtained Pokemon in the National Pok\u00e9dex",
+      "description": "Stores in Variable the total obtained Pokemon in the National Pokédex",
       "params": [
         {
           "name": "variable",
@@ -3905,7 +3992,7 @@
       "type": "script_cmd",
       "id": 291,
       "legacy_name": "GetDexProgressMsg",
-      "description": "Checks the number of seen Pok\u00e9mon in the Sinnoh Pok\u00e9dex (if Mode is 0) or the number of obtained Pok\u00e9mon in the National Pok\u00e9dex (otherwise) and stores the corresponding Professor message in Variable",
+      "description": "Checks the number of seen Pokémon in the Sinnoh Pokédex (if Mode is 0) or the number of obtained Pokémon in the National Pokédex (otherwise) and stores the corresponding Professor message in Variable",
       "params": [
         {
           "name": "mode",
@@ -3921,10 +4008,10 @@
       "type": "script_cmd",
       "id": 292,
       "legacy_name": "WildBattle",
-      "description": "Starts a wild battle against a Pok\u00e9mon of level Level",
+      "description": "Starts a wild battle against a Pokémon of level Level",
       "params": [
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "flex"
         },
         {
@@ -3937,17 +4024,18 @@
       "type": "script_cmd",
       "id": 293,
       "legacy_name": "FirstBattle",
-      "description": "Starts a first battle agains a Pok\u00e9mon of level Level",
+      "description": "Starts a first battle agains a Pokémon of level Level",
       "params": [
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "u16"
         },
         {
           "name": "level",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "The wild Pokémon will flee if you're about to lose the battle."
     },
     "StartCatchingTutorial": {
       "type": "script_cmd",
@@ -3994,7 +4082,8 @@
       "id": 299,
       "legacy_name": "SignatureScreen",
       "description": "Calls the Player Signature screen.",
-      "params": []
+      "params": [],
+      "notes": "Make sure to fade the screen from black after calling this command."
     },
     "CheckSaveType": {
       "type": "script_cmd",
@@ -4034,7 +4123,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Used in Jubilife TV."
     },
     "CheckContestPortrait": {
       "type": "script_cmd",
@@ -4050,7 +4140,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Used in Hearthome Contest Hall."
     },
     "SetDressUpPhotoTitle": {
       "type": "script_cmd",
@@ -4069,7 +4160,8 @@
       "id": 305,
       "legacy_name": "GivePoketch",
       "description": "Activates the Poketch",
-      "params": []
+      "params": [],
+      "notes": "This includes both the touch screen animation and an internal save data update."
     },
     "PoketchFlag": {
       "type": "script_cmd",
@@ -4121,7 +4213,8 @@
           "name": "???",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Some sort of countdown??? It uses registry 0"
     },
     "ClearReceivedTempDataAllPlayers": {
       "type": "script_cmd",
@@ -4331,7 +4424,8 @@
           "name": "mart_id",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Used in the Departament Store for a shop with specific fixed items."
     },
     "PokeMartDecor": {
       "type": "script_cmd",
@@ -4361,8 +4455,9 @@
       "type": "script_cmd",
       "id": 331,
       "legacy_name": "DummyLostBattle",
-      "description": "Return to Pok\u00e9mon Center or player's house after being defeated",
-      "params": []
+      "description": "Return to Pokémon Center or player's house after being defeated",
+      "params": [],
+      "notes": "Same code as LostBattle command."
     },
     "SetLastWarp": {
       "type": "script_cmd",
@@ -4374,7 +4469,8 @@
           "name": "warp_id",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Supposed. This would affect actions like Escape Rope use."
     },
     "GetPlayerGender": {
       "type": "script_cmd",
@@ -4392,8 +4488,9 @@
       "type": "script_cmd",
       "id": 334,
       "legacy_name": "HealPokemon",
-      "description": "Heals every Pok\u00e9mon in the player's party",
-      "params": []
+      "description": "Heals every Pokémon in the player's party",
+      "params": [],
+      "notes": "That does not include the black fade nor the healing sound."
     },
     "Dummy14F": {
       "type": "script_cmd",
@@ -4474,7 +4571,7 @@
       "type": "script_cmd",
       "id": 343,
       "legacy_name": "CheckPokedex",
-      "description": "Stores 1 in Variable if player has the Pok\u00e9dex, stores 0 otherwise",
+      "description": "Stores 1 in Variable if player has the Pokédex, stores 0 otherwise",
       "params": [
         {
           "name": "variable",
@@ -4486,7 +4583,7 @@
       "type": "script_cmd",
       "id": 344,
       "legacy_name": "GivePokedex",
-      "description": "Gives the Pok\u00e9dex to the player",
+      "description": "Gives the Pokédex to the player",
       "params": []
     },
     "CheckRunningShoesAcquired": {
@@ -4558,14 +4655,16 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Supposed."
     },
     "GiveBag": {
       "type": "script_cmd",
       "id": 351,
       "legacy_name": "GiveBag",
       "description": "Gives the bag to the player",
-      "params": []
+      "params": [],
+      "notes": "Supposed."
     },
     "CheckHasPartner": {
       "type": "script_cmd",
@@ -4610,7 +4709,8 @@
       "id": 356,
       "legacy_name": "SetStepFlag",
       "description": "Activates the Step system flag",
-      "params": []
+      "params": [],
+      "notes": "Used for Route 201 script, function #u32"
     },
     "ClearStepFlag": {
       "type": "script_cmd",
@@ -4718,14 +4818,15 @@
       "type": "script_cmd",
       "id": 365,
       "legacy_name": "GetDaycareNames",
-      "description": "Stores first daycare Pok\u00e9mon nickname in string buffer 0, the second daycare Pok\u00e9mon nickname in string buffer 1 and the first Pok\u00e9mon trainer's name in buffer 2",
-      "params": []
+      "description": "Stores first daycare Pokémon nickname in string buffer 0, the second daycare Pokémon nickname in string buffer 1 and the first Pokémon trainer's name in buffer 2",
+      "params": [],
+      "notes": "If there's only one Pokémon in the daycare, string buffer 1 does not change. If no Pokémon is in the daycare, commands does nothing."
     },
     "GetDaycareState": {
       "type": "script_cmd",
       "id": 366,
       "legacy_name": "GetDaycareStatus",
-      "description": "If daycare Pok\u00e9mon have an egg, stores 1 in Variable. Otherwise it stores 0 if no Pok\u00e9mon is in the daycare, 2 if only one Pok\u00e9mon is in the daycare or 3 if there are two Pok\u00e9mon",
+      "description": "If daycare Pokémon have an egg, stores 1 in Variable. Otherwise it stores 0 if no Pokémon is in the daycare, 2 if only one Pokémon is in the daycare or 3 if there are two Pokémon",
       "params": [
         {
           "name": "variable",
@@ -4745,7 +4846,8 @@
       "id": 368,
       "legacy_name": "PastoriaGymButton",
       "description": "Checks if a button 3D model is at player position and moves the water level",
-      "params": []
+      "params": [],
+      "notes": "The game checks for buildings 239, 240 and 241 in the current player coordinates."
     },
     "InitPersistedMapFeaturesForHearthomeGym": {
       "type": "script_cmd",
@@ -4759,7 +4861,8 @@
       "id": 370,
       "legacy_name": "HearthomeGymLift",
       "description": "Triggers a elevator to move up or down",
-      "params": []
+      "params": [],
+      "notes": "Checks the current player height position to determine the direction."
     },
     "InitPersistedMapFeaturesForCanalaveGym": {
       "type": "script_cmd",
@@ -4791,7 +4894,7 @@
       "type": "script_cmd",
       "id": 374,
       "legacy_name": "SunyshoreGymGear",
-      "description": "Rotates Sunyshore Gym gears +90\u00ba if Rotation is 0, -90\u00ba if Rotation is 1 or +180\u00ba if Rotation is 2",
+      "description": "Rotates Sunyshore Gym gears +90º if Rotation is 0, -90º if Rotation is 1 or +180º if Rotation is 2",
       "params": [
         {
           "name": "rotation",
@@ -4803,7 +4906,7 @@
       "type": "script_cmd",
       "id": 375,
       "legacy_name": "GetPartyCount",
-      "description": "Stores in Variable the current number of Pok\u00e9mon in party",
+      "description": "Stores in Variable the current number of Pokémon in party",
       "params": [
         {
           "name": "variable",
@@ -4869,7 +4972,8 @@
           "name": "number",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Item value must be greater or equal than 0x95 (Cheri Berry)."
     },
     "TextNature": {
       "type": "script_cmd",
@@ -4933,7 +5037,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "When ground is dry it returns 0, when it's normal it returns 1 and when it's wet it returns 2."
     },
     "CheckBerryAmount": {
       "type": "script_cmd",
@@ -5008,7 +5113,8 @@
           "name": "y",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "This command sets the position where an overworld is intended to appear after an AddOW command."
     },
     "SetOWPosition": {
       "type": "script_cmd",
@@ -5036,7 +5142,8 @@
           "name": "dir",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Supposed by analogy with HGSS. Even though some maps are higher, the Z parameter is often 0. Game seems to calculate the correct Z position if it is wrong."
     },
     "SetObjectEventMovementType": {
       "type": "script_cmd",
@@ -5168,7 +5275,7 @@
       "type": "script_cmd",
       "id": 401,
       "legacy_name": "PokemonSelectionScreen",
-      "description": "Calls the Pok\u00e9mon selection screen",
+      "description": "Calls the Pokémon selection screen",
       "params": []
     },
     "OpenPartyMenuForUnionRoomBattle": {
@@ -5182,7 +5289,7 @@
       "type": "script_cmd",
       "id": 403,
       "legacy_name": "GetSelectedPartySlot",
-      "description": "Stores in Variable the selected party slot in a party Pok\u00e9mon screen, or 0xFF is user cancelled the selection",
+      "description": "Stores in Variable the selected party slot in a party Pokémon screen, or 0xFF is user cancelled the selection",
       "params": [
         {
           "name": "variable",
@@ -5258,7 +5365,7 @@
       "type": "script_cmd",
       "id": 408,
       "legacy_name": "GetPartyPokemonID",
-      "description": "Stores in Variable the ID of the Pok\u00e9mon at Party Position",
+      "description": "Stores in Variable the ID of the Pokémon at Party Position",
       "params": [
         {
           "name": "party_position",
@@ -5268,13 +5375,14 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "It will return 0 if Pokémon is an egg."
     },
     "CheckTradedPokemon": {
       "type": "script_cmd",
       "id": 409,
       "legacy_name": "CheckTradedPokemon",
-      "description": "Stores 0 in Variable if trainer ID and secret ID of the Pok\u00e9mon at Party Position are the player's ones, stores 1 otherwise",
+      "description": "Stores 0 in Variable if trainer ID and secret ID of the Pokémon at Party Position are the player's ones, stores 1 otherwise",
       "params": [
         {
           "name": "party_position",
@@ -5290,7 +5398,7 @@
       "type": "script_cmd",
       "id": 410,
       "legacy_name": "CountPartyBornPokemon",
-      "description": "Stores in Variable the number of Pok\u00e9mon in the Pok\u00e9mon party, excluding the eggs",
+      "description": "Stores in Variable the number of Pokémon in the Pokémon party, excluding the eggs",
       "params": [
         {
           "name": "variable",
@@ -5302,7 +5410,7 @@
       "type": "script_cmd",
       "id": 411,
       "legacy_name": "CountRemainingPokemon",
-      "description": "Stores in Variable how many alive Pok\u00e9mon would remain in the Pok\u00e9mon party if Pok\u00e9mon at Party Position disappeared",
+      "description": "Stores in Variable how many alive Pokémon would remain in the Pokémon party if Pokémon at Party Position disappeared",
       "params": [
         {
           "name": "variable",
@@ -5312,25 +5420,27 @@
           "name": "party_position",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Eggs are excluded from the count."
     },
     "CountTotalAlivePokemon": {
       "type": "script_cmd",
       "id": 412,
       "legacy_name": "CountTotalAlivePokemon",
-      "description": "Stores in Variable the number of Pok\u00e9mon in the Pok\u00e9mon party and PC boxes, excluding the eggs and fainted Pok\u00e9mon",
+      "description": "Stores in Variable the number of Pokémon in the Pokémon party and PC boxes, excluding the eggs and fainted Pokémon",
       "params": [
         {
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "As Pokémon can't be fainted in the PC boxes, only eggs are not taken into account in the PC boxes count."
     },
     "CountPartyEggs": {
       "type": "script_cmd",
       "id": 413,
       "legacy_name": "CountPartyEggs",
-      "description": "Stores in Variable the number of eggs in the Pok\u00e9mon party",
+      "description": "Stores in Variable the number of eggs in the Pokémon party",
       "params": [
         {
           "name": "variable",
@@ -5509,8 +5619,9 @@
       "type": "script_cmd",
       "id": 428,
       "legacy_name": "EggHatchScreen",
-      "description": "Opens the egg hatching screen with an egg in the Pok\u00e9mon party that has 0 steps left for hatching",
-      "params": []
+      "description": "Opens the egg hatching screen with an egg in the Pokémon party that has 0 steps left for hatching",
+      "params": [],
+      "notes": "This may crash if there's no ready egg in the Pokémon party. It's better not to use this command unless you know what are you doing."
     },
     "Dummy1AD": {
       "type": "script_cmd",
@@ -5522,13 +5633,14 @@
           "name": "unused",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Even though it does nothing, it needs a variable as parameter."
     },
     "BufferDaycareGainedLevelsBySlot": {
       "type": "script_cmd",
       "id": 430,
       "legacy_name": "CheckDaycareLevel",
-      "description": "Stores at string buffer 0 the nickname and at string buffer 1 the level of the Pok\u00e9mon at Position daycare position, and also stores the level in Variable",
+      "description": "Stores at string buffer 0 the nickname and at string buffer 1 the level of the Pokémon at Position daycare position, and also stores the level in Variable",
       "params": [
         {
           "name": "variable",
@@ -5538,7 +5650,8 @@
           "name": "position",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Predicted."
     },
     "BufferPartyMonNicknameReturnSpecies": {
       "type": "script_cmd",
@@ -5594,7 +5707,8 @@
           "name": "event_id",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "It's a great idea to use this command in a level script for blocking doors with invisible events."
     },
     "MailScreen": {
       "type": "script_cmd",
@@ -5637,7 +5751,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "The different values are:\n0: From 04:00 AM to 09:59 AM (Morning)\n1: From 10:00 AM to 04:59 PM (Noon)\n2: From 05:00 PM to 07:59 PM (Evening)\n3: From 08:00 PM to 11:59 PM (Night)\n4: From 00:00 AM to 03:59 AM (Midnight)"
     },
     "GetRandom": {
       "type": "script_cmd",
@@ -5669,13 +5784,14 @@
           "name": "range",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Exactly the same code as the command above."
     },
     "GetPartyMonFriendship": {
       "type": "script_cmd",
       "id": 441,
       "legacy_name": "GetPokemonHappiness",
-      "description": "Stores in Variable the happiness of Pok\u00e9mon in Party Position",
+      "description": "Stores in Variable the happiness of Pokémon in Party Position",
       "params": [
         {
           "name": "variable",
@@ -5691,7 +5807,7 @@
       "type": "script_cmd",
       "id": 442,
       "legacy_name": "AddHappiness",
-      "description": "Adds Happiness to the happiness of Pok\u00e9mon in Party Position",
+      "description": "Adds Happiness to the happiness of Pokémon in Party Position",
       "params": [
         {
           "name": "happiness",
@@ -5707,7 +5823,7 @@
       "type": "script_cmd",
       "id": 443,
       "legacy_name": "SubHappiness",
-      "description": "Subs Happiness to the happiness of Pok\u00e9mon in Party Position",
+      "description": "Subs Happiness to the happiness of Pokémon in Party Position",
       "params": [
         {
           "name": "happiness",
@@ -5753,7 +5869,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Predicted. Seeing up gives 0, seeing down gives 1, seeing left gives 2 and seeing right gives 3."
     },
     "GetDaycareCompatibilityLevel": {
       "type": "script_cmd",
@@ -5783,23 +5900,24 @@
       "type": "script_cmd",
       "id": 448,
       "legacy_name": "CheckBornPokemonInParty",
-      "description": "Stores 1 in Variable if Pok\u00e9mon is currently in the Pok\u00e9mon party, stores 0 otherwise",
+      "description": "Stores 1 in Variable if Pokémon is currently in the Pokémon party, stores 0 otherwise",
       "params": [
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "flex"
         },
         {
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Eggs do not count as Pokémon, so they will be ignored."
     },
     "CalcSizeContestResult": {
       "type": "script_cmd",
       "id": 449,
       "legacy_name": "ComparePokemonPlayerSize",
-      "description": "Stores 0 in Variable if Pok\u00e9mon at Party Position has not a bigger relative size than player's record, stores 1 if it's the same size and stores 2 if it has a bigger relative size",
+      "description": "Stores 0 in Variable if Pokémon at Party Position has not a bigger relative size than player's record, stores 1 if it's the same size and stores 2 if it has a bigger relative size",
       "params": [
         {
           "name": "variable",
@@ -5815,7 +5933,7 @@
       "type": "script_cmd",
       "id": 450,
       "legacy_name": "SetPokemonSizeRecord",
-      "description": "Stores the relative size of Pok\u00e9mon at Party Position as player's record",
+      "description": "Stores the relative size of Pokémon at Party Position as player's record",
       "params": [
         {
           "name": "party_position",
@@ -5827,7 +5945,7 @@
       "type": "script_cmd",
       "id": 451,
       "legacy_name": "TextPartyPokemonSize",
-      "description": "Stores the Integer part of Pok\u00e9mon at Party Position size in Integer String Buffer (1 to 3 digits) and the decimal part of the size in Decimal String Buffer (1 digit)",
+      "description": "Stores the Integer part of Pokémon at Party Position size in Integer String Buffer (1 to 3 digits) and the decimal part of the size in Decimal String Buffer (1 digit)",
       "params": [
         {
           "name": "integer_string_buffer",
@@ -5847,7 +5965,7 @@
       "type": "script_cmd",
       "id": 452,
       "legacy_name": "TextPokemonSizeRecord",
-      "description": "Stores the Integer part of player's record size, normalized to Pok\u00e9mon ID range, in Integer String Buffer (1 to 3 digits) and the decimal part of the size in Decimal String Buffer (1 digit)",
+      "description": "Stores the Integer part of player's record size, normalized to Pokémon ID range, in Integer String Buffer (1 to 3 digits) and the decimal part of the size in Decimal String Buffer (1 digit)",
       "params": [
         {
           "name": "integer_string_buffer",
@@ -5858,7 +5976,7 @@
           "type": "flex"
         },
         {
-          "name": "pok\u00e9mon_id",
+          "name": "pokémon_id",
           "type": "flex"
         }
       ]
@@ -5898,7 +6016,7 @@
       "type": "script_cmd",
       "id": 456,
       "legacy_name": "GetMoveCount",
-      "description": "Stores in Variable the total amount of moves that the Pok\u00e9mon at Party Position has",
+      "description": "Stores in Variable the total amount of moves that the Pokémon at Party Position has",
       "params": [
         {
           "name": "variable",
@@ -5914,7 +6032,7 @@
       "type": "script_cmd",
       "id": 457,
       "legacy_name": "DeleteMove",
-      "description": "Deletes the move in Move Slot from the Pok\u00e9mon at Party Position",
+      "description": "Deletes the move in Move Slot from the Pokémon at Party Position",
       "params": [
         {
           "name": "party_position",
@@ -5930,7 +6048,7 @@
       "type": "script_cmd",
       "id": 458,
       "legacy_name": "GetPartyPokemonMove",
-      "description": "Stores in Variable the ID of the move in Move Slot from the Pok\u00e9mon at Party Position",
+      "description": "Stores in Variable the ID of the move in Move Slot from the Pokémon at Party Position",
       "params": [
         {
           "name": "variable",
@@ -5950,7 +6068,7 @@
       "type": "script_cmd",
       "id": 459,
       "legacy_name": "TextPartyPokemonMove",
-      "description": "Stores the name of the move in Move Slot from the Pok\u00e9mon at Party Position in String Buffer",
+      "description": "Stores the name of the move in Move Slot from the Pokémon at Party Position in String Buffer",
       "params": [
         {
           "name": "string_buffer",
@@ -5971,7 +6089,8 @@
       "id": 460,
       "legacy_name": "CMD_460",
       "description": "nan",
-      "params": []
+      "params": [],
+      "notes": "Opens journal?"
     },
     "CreateJournalEvent": {
       "type": "script_cmd",
@@ -6370,7 +6489,8 @@
           "name": "???",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "In Platinum it uses one more Var parameter to store an answer."
     },
     "CMD_482": {
       "type": "script_cmd",
@@ -6426,7 +6546,8 @@
           "name": "stat_id",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Game Stats keep track of specific things the player does throughout the adventure."
     },
     "CMD_486": {
       "type": "script_cmd",
@@ -6476,7 +6597,7 @@
       "type": "script_cmd",
       "id": 488,
       "legacy_name": "CheckCompleteSinnohDex",
-      "description": "Stores 1 in Variable if every Pok\u00e9mon in the Sinnoh Pok\u00e9dex has been seen, stores 0 otherwise",
+      "description": "Stores 1 in Variable if every Pokémon in the Sinnoh Pokédex has been seen, stores 0 otherwise",
       "params": [
         {
           "name": "variable",
@@ -6488,7 +6609,7 @@
       "type": "script_cmd",
       "id": 489,
       "legacy_name": "CheckCompleteNationalDex",
-      "description": "Stores 1 in Variable if every Pok\u00e9mon in the National Pok\u00e9dex has been caught, stores 0 otherwise",
+      "description": "Stores 1 in Variable if every Pokémon in the National Pokédex has been caught, stores 0 otherwise",
       "params": [
         {
           "name": "variable",
@@ -6579,7 +6700,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Technically it's the number of items in the bag whose ID is between 99 and 105."
     },
     "ScrCmd_Dummy_1F2": {
       "type": "script_cmd",
@@ -6599,7 +6721,7 @@
       "type": "script_cmd",
       "id": 500,
       "legacy_name": "GetPokeNameFromFossil",
-      "description": "Stores in Variable the ID of the Pok\u00e9mon to which Item ID fossil belongs",
+      "description": "Stores in Variable the ID of the Pokémon to which Item ID fossil belongs",
       "params": [
         {
           "name": "variable",
@@ -6629,13 +6751,14 @@
           "name": "amount",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Stores 0 in both variables if there's no fossil in the bag."
     },
     "CountPokemonUnderLevel": {
       "type": "script_cmd",
       "id": 502,
       "legacy_name": "CountPokemonUnderLevel",
-      "description": "Stores in Variable the amount of Pok\u00e9mon in party whose level is equal or lower than Level",
+      "description": "Stores in Variable the amount of Pokémon in party whose level is equal or lower than Level",
       "params": [
         {
           "name": "variable",
@@ -6645,13 +6768,14 @@
           "name": "level",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Eggs are completely ignored."
     },
     "SurvivePoison": {
       "type": "script_cmd",
       "id": 503,
       "legacy_name": "SurvivePoison",
-      "description": "If Pok\u00e9mon at Party Position is poisoned and at 1 HP, it cures the poison and stores 1 in Variable, otherwise it stores 0",
+      "description": "If Pokémon at Party Position is poisoned and at 1 HP, it cures the poison and stores 1 in Variable, otherwise it stores 0",
       "params": [
         {
           "name": "variable",
@@ -6860,7 +6984,8 @@
           "name": "dir",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Essentially identical to the normal Warp command, but the params format is slightly different. Also, this command updates some internal stuff to let the game engine know you're about to communicate wirelessly."
     },
     "ExitBattleRoom": {
       "type": "script_cmd",
@@ -6899,10 +7024,10 @@
       "type": "script_cmd",
       "id": 520,
       "legacy_name": "ShowPokemonPic",
-      "description": "Opens a window with the picture of Pok\u00e9mon with Gender gender and registers the Pok\u00e9mon in the Pok\u00e9dex as seen",
+      "description": "Opens a window with the picture of Pokémon with Gender gender and registers the Pokémon in the Pokédex as seen",
       "params": [
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "flex"
         },
         {
@@ -6915,7 +7040,7 @@
       "type": "script_cmd",
       "id": 521,
       "legacy_name": "HidePokemonPic",
-      "description": "Hides the window of a Pok\u00e9mon picture",
+      "description": "Hides the window of a Pokémon picture",
       "params": []
     },
     "CMD_522": {
@@ -6958,14 +7083,16 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "When Operation to perform equals 0, it triggers Cyrus' Red Chain animation, then the screen fades to black. When it equals 1, it checks whether the sequence is still running or not. Variable gets 0 if the sequence is still playing."
     },
     "InitPersistedMapFeaturesForGreatMarsh": {
       "type": "script_cmd",
       "id": 526,
       "legacy_name": "KeepSafariTrain",
       "description": "Sets the safari train in the same sector where it was the last time it was moved",
-      "params": []
+      "params": [],
+      "notes": "This is called by a level script every time the player changes map in the Great Marsh, so the train doesn't return to the first map after being unloaded."
     },
     "SafariTrainAnimation": {
       "type": "script_cmd",
@@ -6981,7 +7108,8 @@
           "name": "move_type",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Position goes from 0 to 2."
     },
     "CheckSafariTrainMovement": {
       "type": "script_cmd",
@@ -6997,7 +7125,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Position goes from 0 to 2."
     },
     "SetPlayerHeightCalculationEnabled": {
       "type": "script_cmd",
@@ -7009,13 +7138,14 @@
           "name": "flag",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "Predicted. Needs to be tested. It is used when the player rides on the safari train."
     },
     "GetPokemonNature": {
       "type": "script_cmd",
       "id": 530,
       "legacy_name": "GetPokemonNature",
-      "description": "Stores in Variable the nature of the Pok\u00e9mon at Party Position",
+      "description": "Stores in Variable the nature of the Pokémon at Party Position",
       "params": [
         {
           "name": "variable",
@@ -7025,13 +7155,14 @@
           "name": "party_position",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "If Party Position exceeds the number of Pokémon currently in the player's party, 0 is returned."
     },
     "CheckPartyNature": {
       "type": "script_cmd",
       "id": 531,
       "legacy_name": "CheckPartyNature",
-      "description": "Stores in Variable the position of the first Pok\u00e9mon with a given Nature ID in the player's party.",
+      "description": "Stores in Variable the position of the first Pokémon with a given Nature ID in the player's party.",
       "params": [
         {
           "name": "variable",
@@ -7041,7 +7172,8 @@
           "name": "nature_id",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "If no Pokémon has that Nature ID, 0xFF [255] is returned."
     },
     "GetSpiritombCounter": {
       "type": "script_cmd",
@@ -7078,17 +7210,18 @@
       "type": "script_cmd",
       "id": 535,
       "legacy_name": "GetAmitySquareAccessory",
-      "description": "Stores in Variable a random accessory item ID corresponding to a specific Pok\u00e9mon",
+      "description": "Stores in Variable a random accessory item ID corresponding to a specific Pokémon",
       "params": [
         {
           "name": "variable",
           "type": "var"
         },
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "See how Amity Square accessories work in Bulbapedia."
     },
     "GetRandomSeenSpecies": {
       "type": "script_cmd",
@@ -7131,7 +7264,8 @@
       "id": 539,
       "legacy_name": "CMD_539",
       "description": "nan",
-      "params": []
+      "params": [],
+      "notes": "Does stuff with the save file...?"
     },
     "ActivateRoamingPokemon": {
       "type": "script_cmd",
@@ -7143,7 +7277,8 @@
           "name": "id",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "Uses ID to determine which roaming Pokémon must appear: 0 for Mesprit, 1 for Cresselia and 2 for Darkrai."
     },
     "UnionGroup": {
       "type": "script_cmd",
@@ -7261,7 +7396,8 @@
           ],
           "desc": "Creates a group"
         }
-      ]
+      ],
+      "notes": "This command is the devil."
     },
     "Dummy21E": {
       "type": "script_cmd",
@@ -7297,7 +7433,7 @@
       "type": "script_cmd",
       "id": 545,
       "legacy_name": "RememberMoveScreen",
-      "description": "Shows a list of moves that the Pok\u00e9mon at the selected Party Position can remember.",
+      "description": "Shows a list of moves that the Pokémon at the selected Party Position can remember.",
       "params": [
         {
           "name": "party_position",
@@ -7316,7 +7452,7 @@
       "type": "script_cmd",
       "id": 547,
       "legacy_name": "ResponseRememberMove",
-      "description": "Assigns 0 to Response Variable if the last Remember Move screen taught a move to one of the player's Pok\u00e9mon. Assigns 0xFF if player cancelled the operation.",
+      "description": "Assigns 0 to Response Variable if the last Remember Move screen taught a move to one of the player's Pokémon. Assigns 0xFF if player cancelled the operation.",
       "params": [
         {
           "name": "response",
@@ -7328,7 +7464,7 @@
       "type": "script_cmd",
       "id": 548,
       "legacy_name": "TeachMoveScreen",
-      "description": "Shows a list with just the chosen Move ID, to be taught to Pok\u00e9mon at given Party Position.",
+      "description": "Shows a list with just the chosen Move ID, to be taught to Pokémon at given Party Position.",
       "params": [
         {
           "name": "party_position",
@@ -7338,13 +7474,14 @@
           "name": "move_id",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Used by Grandma Wilma on Route 210 to teach Draco Meteor and by the old man on Route 228 to teach Blast Burn, Hydro Cannon or Frenzy Plant to your starter."
     },
     "ResponseTeachMove": {
       "type": "script_cmd",
       "id": 549,
       "legacy_name": "ResponseTeachMove",
-      "description": "Assigns 0 to Response Variable if the last Teach Move screen taught a new move to one of the player's Pok\u00e9mon. Assigns 0xFF if player cancelled the operation.",
+      "description": "Assigns 0 to Response Variable if the last Teach Move screen taught a new move to one of the player's Pokémon. Assigns 0xFF if player cancelled the operation.",
       "params": [
         {
           "name": "response",
@@ -7368,7 +7505,7 @@
       "type": "script_cmd",
       "id": 551,
       "legacy_name": "GetOfferedPokemon",
-      "description": "Stores in Variable the ID of the offered Pok\u00e9mon of the current trade data",
+      "description": "Stores in Variable the ID of the offered Pokémon of the current trade data",
       "params": [
         {
           "name": "variable",
@@ -7380,7 +7517,7 @@
       "type": "script_cmd",
       "id": 552,
       "legacy_name": "GetRequestedPokemon",
-      "description": "Stores in Variable the ID of the requested Pok\u00e9mon of the current trade data",
+      "description": "Stores in Variable the ID of the requested Pokémon of the current trade data",
       "params": [
         {
           "name": "variable",
@@ -7392,7 +7529,7 @@
       "type": "script_cmd",
       "id": 553,
       "legacy_name": "TradePokemonScreen",
-      "description": "Opens the trade Pok\u00e9mon screen, giving the Pok\u00e9mon at Party Position and receiving the offered Pok\u00e9mon of the current trade data",
+      "description": "Opens the trade Pokémon screen, giving the Pokémon at Party Position and receiving the offered Pokémon of the current trade data",
       "params": [
         {
           "name": "party_position",
@@ -7411,21 +7548,21 @@
       "type": "script_cmd",
       "id": 555,
       "legacy_name": "ActivateInternationalDex",
-      "description": "Allows the Pok\u00e9dex to show international entries for some registered Pok\u00e9mon",
+      "description": "Allows the Pokédex to show international entries for some registered Pokémon",
       "params": []
     },
     "ActivateDimorphismDex": {
       "type": "script_cmd",
       "id": 556,
       "legacy_name": "ActivateDimorphismDex",
-      "description": "Allows the Pok\u00e9dex to compare genders between Pok\u00e9mon",
+      "description": "Allows the Pokédex to compare genders between Pokémon",
       "params": []
     },
     "GetSetNationalDexEnabled": {
       "type": "script_cmd",
       "id": 557,
       "legacy_name": "NationalDex",
-      "description": "Function depends on the first parameter:\n1: Activates the National Pok\u00e9dex mode\n2: Stores 1 in Variable if player has the National Pok\u00e9dex, otherwise it stores 0",
+      "description": "Function depends on the first parameter:\n1: Activates the National Pokédex mode\n2: Stores 1 in Variable if player has the National Pokédex, otherwise it stores 0",
       "params": [
         {
           "name": "mode",
@@ -7435,13 +7572,14 @@
           "name": "unused",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Related to Pokédex?"
     },
     "CountPokemonRibbons": {
       "type": "script_cmd",
       "id": 558,
       "legacy_name": "CountPokemonRibbons",
-      "description": "Stores in Variable the amount of ribbons that the Pok\u00e9mon in Party Position has",
+      "description": "Stores in Variable the amount of ribbons that the Pokémon in Party Position has",
       "params": [
         {
           "name": "variable",
@@ -7457,7 +7595,7 @@
       "type": "script_cmd",
       "id": 559,
       "legacy_name": "CountPartyRibbons",
-      "description": "Stores in Variable the total amount of different ribbons in the current Pok\u00e9mon party",
+      "description": "Stores in Variable the total amount of different ribbons in the current Pokémon party",
       "params": [
         {
           "name": "variable",
@@ -7469,7 +7607,7 @@
       "type": "script_cmd",
       "id": 560,
       "legacy_name": "CheckRibbon",
-      "description": "Stores 1 in Variable if the Pok\u00e9mon in Party Position has the Ribbon ribbon, stores 0 otherwise",
+      "description": "Stores 1 in Variable if the Pokémon in Party Position has the Ribbon ribbon, stores 0 otherwise",
       "params": [
         {
           "name": "variable",
@@ -7489,7 +7627,7 @@
       "type": "script_cmd",
       "id": 561,
       "legacy_name": "GiveRibbon",
-      "description": "Gives the Ribbon ribbon to Pok\u00e9mon in Party Position",
+      "description": "Gives the Ribbon ribbon to Pokémon in Party Position",
       "params": [
         {
           "name": "party_position",
@@ -7521,7 +7659,7 @@
       "type": "script_cmd",
       "id": 563,
       "legacy_name": "CountPokemonEVs",
-      "description": "Stores in Variable the total amount of effort values of Pok\u00e9mon in Party Position",
+      "description": "Stores in Variable the total amount of effort values of Pokémon in Party Position",
       "params": [
         {
           "name": "variable",
@@ -7531,7 +7669,8 @@
           "name": "party_position",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Predicted."
     },
     "GetDayOfWeek": {
       "type": "script_cmd",
@@ -7543,7 +7682,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Value 0 is the first possible value and it's for Sunday."
     },
     "CallTVBroadcast": {
       "type": "script_cmd",
@@ -7756,10 +7896,10 @@
       "type": "script_cmd",
       "id": 571,
       "legacy_name": "PCHealAnimation",
-      "description": "Triggers the Pok\u00e9mon Center healing animation with Pok\u00e9Balls number of player's Pok\u00e9mon",
+      "description": "Triggers the Pokémon Center healing animation with PokéBalls number of player's Pokémon",
       "params": [
         {
-          "name": "pok\u00e9balls",
+          "name": "pokéballs",
           "type": "u16"
         }
       ]
@@ -8038,7 +8178,7 @@
       "type": "script_cmd",
       "id": 583,
       "legacy_name": "FirstPokemonInParty",
-      "description": "Stores in Variable the slot of the first Pok\u00e9mon in the party that is not an egg",
+      "description": "Stores in Variable the slot of the first Pokémon in the party that is not an egg",
       "params": [
         {
           "name": "variable",
@@ -8050,7 +8190,7 @@
       "type": "script_cmd",
       "id": 584,
       "legacy_name": "GetPartyPokemonTypes",
-      "description": "Gets the types of the Pok\u00e9mon at a given Party Slot and stores them in Type1 and Type2 respectively.",
+      "description": "Gets the types of the Pokémon at a given Party Slot and stores them in Type1 and Type2 respectively.",
       "params": [
         {
           "name": "type1",
@@ -8158,7 +8298,7 @@
       "type": "script_cmd",
       "id": 591,
       "legacy_name": "CheckWinLotto",
-      "description": "Takes a Winning Number as input and responds as follows.\nIf no matching Pok\u00e9mon could be found or an error occurs: \nMatchPos: 0; Digits: 0; PC: 0.\n\nFor all other cases:\n\nIf the matching Pok\u00e9mon is in the Player's party, PC will be assigned 0.\nOtherwise, if it's in the Player's Storage System, PC will be assigned 1.\n\nMatchPos stores the zero-based position of the winning Pok\u00e9mon (either as Party pos or Storage System pos, depending on the value of PC).\n\nWhen there's a match, the Digits var is assigned the number of matching digits of the Winning Pok\u00e9mon's PID.\nIn case of multiple matches, priority is always given to the one with the most matching digits.",
+      "description": "Takes a Winning Number as input and responds as follows.\nIf no matching Pokémon could be found or an error occurs: \nMatchPos: 0; Digits: 0; PC: 0.\n\nFor all other cases:\n\nIf the matching Pokémon is in the Player's party, PC will be assigned 0.\nOtherwise, if it's in the Player's Storage System, PC will be assigned 1.\n\nMatchPos stores the zero-based position of the winning Pokémon (either as Party pos or Storage System pos, depending on the value of PC).\n\nWhen there's a match, the Digits var is assigned the number of matching digits of the Winning Pokémon's PID.\nIn case of multiple matches, priority is always given to the one with the most matching digits.",
       "params": [
         {
           "name": "matchpos",
@@ -8176,7 +8316,8 @@
           "name": "winning_number",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "To retrieve the exact position of a winning Pokémon in the Storage System, first make sure PC equals 1. \n\nThe zero-based PC Page and Position indices can be calculated:\n\nPC Page index = MatchPos / 30\nPosition in page = MatchPos % 30\n\nwhere % is the modulo operator."
     },
     "RandomizeJubilifeLottery": {
       "type": "script_cmd",
@@ -8205,7 +8346,7 @@
       "type": "script_cmd",
       "id": 594,
       "legacy_name": "CountPCFreeSpace",
-      "description": "Stores in Variable the amount of free Pok\u00e9mon slots in PC boxes",
+      "description": "Stores in Variable the amount of free Pokémon slots in PC boxes",
       "params": [
         {
           "name": "variable",
@@ -8324,14 +8465,16 @@
       "id": 606,
       "legacy_name": "CMD_606",
       "description": "Its behavior varies depending on the value of flag 2429.\n\n0: Before rescuing the Lake Trio from Galactic Labs. It sets up the machines and animates them.\n1: After rescuing the Lake Trio from Galactic Labs. The machines are off.",
-      "params": []
+      "params": [],
+      "notes": "This command is meant to be called every time the player warps to the Lake Trio Room in Galactic Labs."
     },
     "DeactivateLakeGuardianContainmentUnits": {
       "type": "script_cmd",
       "id": 607,
       "legacy_name": "CMD_607",
       "description": "Waits for the Galactic Labs machines to complete their animations, then shuts them all down.",
-      "params": []
+      "params": [],
+      "notes": "One-time execution."
     },
     "IncrementTrainerScore2": {
       "type": "script_cmd",
@@ -8365,10 +8508,10 @@
       "type": "script_cmd",
       "id": 610,
       "legacy_name": "CheckPokemonInParty",
-      "description": "Stores 1 in Variable if Pok\u00e9mon (or its egg) is currently in the Pok\u00e9mon party, stores 0 otherwise",
+      "description": "Stores 1 in Variable if Pokémon (or its egg) is currently in the Pokémon party, stores 0 otherwise",
       "params": [
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "flex"
         },
         {
@@ -8381,13 +8524,14 @@
       "type": "script_cmd",
       "id": 611,
       "legacy_name": "SetDeoxysForm",
-      "description": "Sets every Deoxys in the Pok\u00e9mon party the Form form",
+      "description": "Sets every Deoxys in the Pokémon party the Form form",
       "params": [
         {
           "name": "form",
           "type": "flex"
         }
-      ]
+      ],
+      "notes": "Form 0 is Normal, form 1 is Attack, form 2 is Defense and form 3 is Speed."
     },
     "CheckPartyCombeeGenderCount": {
       "type": "script_cmd",
@@ -8399,7 +8543,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Returns 0 if player has no Burmy in the party, 1 if only one different form, 2 if two different forms and 3 if has three or more Burmy with three different forms."
     },
     "HidePoketch": {
       "type": "script_cmd",
@@ -8533,7 +8678,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "Stores 0 if no cartridge, 1 if Pokémon Sapphire, 2 if Pokémon Ruby, 3 if Pokémon Emerald, 4 if Pokémon FireRed and 5 if Pokémon LeafGreen. Somehow it could also set 7 if Pokémon Gold, 8 if Pokémon Silver, 10 if Pokémon Diamond, 11 if Pokémon Pearl, 12 for a possible Sinnoh third version and 15 if Pokémon Colosseum."
     },
     "ClearSpiritombCounter": {
       "type": "script_cmd",
@@ -8556,7 +8702,8 @@
           "name": "status",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "It only changes the map file value in the matrix, not the map header nor the map height. Seems that the only Alternative ID available values are 2 and 3, corresponding to Spring Path and to Seabreak Path."
     },
     "WriteStone": {
       "type": "script_cmd",
@@ -8649,7 +8796,7 @@
       "type": "script_cmd",
       "id": 632,
       "legacy_name": "CMD_632",
-      "description": "Stores into Result the level of the Pok\u00e9mon at a given Party Slot.",
+      "description": "Stores into Result the level of the Pokémon at a given Party Slot.",
       "params": [
         {
           "name": "result",
@@ -8769,7 +8916,8 @@
           "name": "digits",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "Predicted. Alignment Type 0 is left-alignment, 1 is right alignment padded with spaces and 2 is right alignment padded with zeros. Digits is used only in these last two types."
     },
     "GetPartyMonContestStat": {
       "type": "script_cmd",
@@ -8945,7 +9093,8 @@
           "name": "variable",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "These variables are set to the proper values by the Wonder Mail postman script command.\nDPPt only checks for 3 possible events [Rotom is a Platinum exclusive]."
     },
     "DrawPokemonPreviewFromPartySlot": {
       "type": "script_cmd",
@@ -8982,7 +9131,7 @@
       "type": "script_cmd",
       "id": 655,
       "legacy_name": "CountLeagueVictories",
-      "description": "Retrieves the number of times the player has beaten the Pok\u00e9mon League from the savedata file and stores the result in the Output Variable. If the data cannot be retrieved or is invalid, sets the return value to 0.",
+      "description": "Retrieves the number of times the player has beaten the Pokémon League from the savedata file and stores the result in the Output Variable. If the data cannot be retrieved or is invalid, sets the return value to 0.",
       "params": [
         {
           "name": "output",
@@ -9210,7 +9359,8 @@
           "name": "type",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "HGSS allows more parameters for this animation than DP or Pt."
     },
     "StartTagBattle": {
       "type": "script_cmd",
@@ -9292,7 +9442,7 @@
       "type": "script_cmd",
       "id": 677,
       "legacy_name": "PartyPokemonTradeScreen",
-      "description": "Opens the party Pok\u00e9mon screen for a trade",
+      "description": "Opens the party Pokémon screen for a trade",
       "params": []
     },
     "GetGameCornerPrizeData": {
@@ -9404,7 +9554,8 @@
       "id": 684,
       "legacy_name": "ActivateMysteryGift",
       "description": "Shows Mystery Gift option in Start Menu.",
-      "params": []
+      "params": [],
+      "notes": "Only sets one byte in the savedata."
     },
     "GetOWMovement": {
       "type": "script_cmd",
@@ -9420,7 +9571,8 @@
           "name": "overworld",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Stores 0 if the overworld is invalid or not found."
     },
     "IsSequencePlaying": {
       "type": "script_cmd",
@@ -9436,7 +9588,8 @@
           "name": "answer",
           "type": "var"
         }
-      ]
+      ],
+      "notes": "In vanilla DPPt, a SSEQ player can only play 1 SSEQ at a time, so the maximum result will be 1."
     },
     "CMD_687": {
       "type": "script_cmd",
@@ -9492,7 +9645,8 @@
       "id": 692,
       "legacy_name": "DummyLockAll",
       "description": "Locks every event in the map and waits the invoking overworld to finish its movement for locking it",
-      "params": []
+      "params": [],
+      "notes": "It does the same as LockAll as long as the script is invoked by an overworld, otherwise it might freeze."
     },
     "CMD_693": {
       "type": "script_cmd",
@@ -9584,7 +9738,7 @@
       "type": "script_cmd",
       "id": 700,
       "legacy_name": "LastBattleCheckCaught",
-      "description": "Stores 0 in Variable if the last Pok\u00e9mon battle resulted in a successful capture, 1 otherwise.",
+      "description": "Stores 0 in Variable if the last Pokémon battle resulted in a successful capture, 1 otherwise.",
       "params": [
         {
           "name": "variable",
@@ -9596,10 +9750,10 @@
       "type": "script_cmd",
       "id": 701,
       "legacy_name": "SpWildBattle",
-      "description": "Starts a legendary battle against a Pok\u00e9mon of predefined Level",
+      "description": "Starts a legendary battle against a Pokémon of predefined Level",
       "params": [
         {
-          "name": "pok\u00e9mon",
+          "name": "pokémon",
           "type": "flex"
         },
         {
@@ -9625,7 +9779,8 @@
       "id": 703,
       "legacy_name": "DummyRideBike",
       "description": "Nothing",
-      "params": []
+      "params": [],
+      "notes": "Seems to allocate the bike music in the RAM but doesn't play it."
     },
     "MessageAutoScroll": {
       "type": "script_cmd",
@@ -9643,7 +9798,7 @@
       "type": "script_cmd",
       "id": 705,
       "legacy_name": "ShowSaveBox",
-      "description": "Displays the save data box (current map name, player's name, the amount of badges, the Pok\u00e9dex counter and the play time)",
+      "description": "Displays the save data box (current map name, player's name, the amount of badges, the Pokédex counter and the play time)",
       "params": []
     },
     "HideSaveBox": {
@@ -9663,7 +9818,8 @@
           "name": "mode",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "The scope mode prevents the game from doing certain actions (like resetting system flags) when changing map, and probably it's related with more things."
     },
     "TextItemLowercase": {
       "type": "script_cmd",
@@ -9679,7 +9835,8 @@
           "name": "item",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "TextItemPlural": {
       "type": "script_cmd",
@@ -9695,7 +9852,8 @@
           "name": "item",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "CMD_710": {
       "type": "script_cmd",
@@ -9711,7 +9869,8 @@
           "name": "underground_goods",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "CMD_711": {
       "type": "script_cmd",
@@ -9727,7 +9886,8 @@
           "name": "underground_trap",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "OpenFrontierRecordsApp": {
       "type": "script_cmd",
@@ -9743,7 +9903,8 @@
           "name": "underground_treasure",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "InitPersistedMapFeaturesForEternaGym": {
       "type": "script_cmd",
@@ -9767,7 +9928,8 @@
           "name": "???",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "AdvanceEternaGymClock": {
       "type": "script_cmd",
@@ -9779,7 +9941,8 @@
           "name": "string_buffer",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "CountRepeatedSpeciesInParty": {
       "type": "script_cmd",
@@ -9795,7 +9958,8 @@
           "name": "accessory",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "TextTrainerClass": {
       "type": "script_cmd",
@@ -9811,7 +9975,8 @@
           "name": "trainer_class",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "TextSealPlural": {
       "type": "script_cmd",
@@ -9827,7 +9992,8 @@
           "name": "seal",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "TextCapitalize": {
       "type": "script_cmd",
@@ -9839,7 +10005,8 @@
           "name": "string_buffer",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "BattleHallCheckUsingSameSpeciesAsPartner": {
       "type": "script_cmd",
@@ -9851,7 +10018,8 @@
           "name": "???",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "GetBattleHallSelectedSlots": {
       "type": "script_cmd",
@@ -9863,7 +10031,8 @@
           "name": "???",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "TextFloor": {
       "type": "script_cmd",
@@ -9879,7 +10048,8 @@
           "name": "floor",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "International release exclusive."
     },
     "FaceNorth": {
       "type": "movement",
@@ -10485,7 +10655,7 @@
       "type": "movement",
       "id": 100,
       "legacy_name": "NurseJoyBow",
-      "description": "Nurse Joy bows. Used in the Pok\u00e9mon Center."
+      "description": "Nurse Joy bows. Used in the Pokémon Center."
     },
     "RevealTrainer": {
       "type": "movement",
@@ -10605,7 +10775,7 @@
     },
     "1019": {
       "name": "SEQ_CITY10_D",
-      "used_in": "Pok\u00e9mon League (Day)"
+      "used_in": "Pokémon League (Day)"
     },
     "1020": {
       "name": "SEQ_CITY11_D",
@@ -10719,7 +10889,7 @@
     },
     "1048": {
       "name": "SEQ_CITY10_N",
-      "used_in": "Pok\u00e9mon League (NIght)"
+      "used_in": "Pokémon League (NIght)"
     },
     "1049": {
       "name": "SEQ_CITY11_N",

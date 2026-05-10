@@ -434,6 +434,23 @@ def create_workbook():
         }
     )
 
+    # Add notes column format (uses data_6 style when available)
+    notes_style = DATA.get(6, DATA[4])
+    formats["data_notes"] = wb.add_format(
+        {
+            "font_name": notes_style.get("font", {}).get("name", "Courier New"),
+            "font_size": notes_style.get("font", {}).get("size", 10),
+            "bold": notes_style.get("font", {}).get("bold", False),
+            "italic": notes_style.get("font", {}).get("italic", False),
+            "bg_color": notes_style.get("fill", {}).get("fg", "FFFFFF")[2:],
+            "text_wrap": notes_style.get("align", {}).get("wrap", True),
+            "align": "left",
+            "valign": notes_style.get("align", {}).get("vert", "top"),
+            "border": 1,
+            "border_color": "CCCCCC",
+        }
+    )
+
     return wb, formats
 
 
@@ -462,7 +479,7 @@ def write_scrcmd_sheet(wb, formats, name: str, commands: dict):
     """Write script commands worksheet."""
     ws = wb.add_worksheet(name)
 
-    # Set column widths
+    # Set column widths (col 6 is Notes, use dedicated width)
     for col, width in CW.items():
         ws.set_column(col - 1, col - 1, width)
 
@@ -516,6 +533,9 @@ def write_scrcmd_sheet(wb, formats, name: str, commands: dict):
                 ws.write(row, 4, description, formats["data_5"])
         else:
             ws.write(row, 4, description, formats["data_5"])
+
+        notes = cmd.get("notes", "")
+        ws.write(row, 5, notes, formats["data_notes"])
 
         row += 1
 
