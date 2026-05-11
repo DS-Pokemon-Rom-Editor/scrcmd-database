@@ -540,7 +540,7 @@ def parse_scrcmd_symbol_table(script_commands_header_content: str) -> dict[str, 
     """
     symbol_to_opcode: dict[str, int] = {}
     entry_pattern = re.compile(
-        r"(?:ScriptCommand|ScriptCommandTableEntry)\(\s*(SCRCMD_[A-Z0-9_]+)\s*,",
+        r"(?:ScriptCommand|ScriptCommandTableEntry)\(\s*((?:SCRCMD_|ScrCmd_)[A-Za-z0-9_]+)\s*,",
         re.MULTILINE,
     )
 

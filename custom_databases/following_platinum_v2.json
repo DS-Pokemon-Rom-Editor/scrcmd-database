@@ -9314,7 +9314,7 @@
         }
       ]
     },
-    "CalculateTrainerInfoAppearance": {
+    "GetExchangeServiceCornerItemAndCost": {
       "type": "script_cmd",
       "id": 667,
       "legacy_name": "CMD_667",
@@ -9338,7 +9338,7 @@
         }
       ]
     },
-    "AddMenuEntry": {
+    "CalculateTrainerInfoAppearance": {
       "type": "script_cmd",
       "id": 668,
       "legacy_name": "CMD_668",
@@ -9346,16 +9346,16 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "var"
         },
         {
           "name": "destVar",
-          "type": "u16",
+          "type": "var",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "ScrCmd_29E": {
+    "AddMenuEntry": {
       "type": "script_cmd",
       "id": 669,
       "legacy_name": "CMD_669",
@@ -9371,7 +9371,7 @@
         }
       ]
     },
-    "ScrCmd_29F": {
+    "ScrCmd_29E": {
       "type": "script_cmd",
       "id": 670,
       "legacy_name": "CMD_670",
@@ -9387,7 +9387,7 @@
         }
       ]
     },
-    "StartTagBattle": {
+    "ScrCmd_29F": {
       "type": "script_cmd",
       "id": 671,
       "legacy_name": "ShakeCamera",
@@ -9399,7 +9399,7 @@
         }
       ]
     },
-    "ScrCmd_Unused_2A1": {
+    "StartTagBattle": {
       "type": "script_cmd",
       "id": 672,
       "legacy_name": "Battle2vs2",
@@ -9419,7 +9419,7 @@
         }
       ]
     },
-    "TrySetUnusedCollectedOrbFlag": {
+    "ScrCmd_Unused_2A1": {
       "type": "script_cmd",
       "id": 673,
       "legacy_name": "CMD_673",
@@ -9439,7 +9439,7 @@
         }
       ]
     },
-    "ScrCmd_2A3": {
+    "TrySetUnusedCollectedOrbFlag": {
       "type": "script_cmd",
       "id": 674,
       "legacy_name": "CMD_674",
@@ -9451,7 +9451,7 @@
         }
       ]
     },
-    "ScrCmd_2A4": {
+    "ScrCmd_2A3": {
       "type": "script_cmd",
       "id": 675,
       "legacy_name": "CMD_675",
@@ -9463,7 +9463,7 @@
         }
       ]
     },
-    "OpenPartyMenuForTrade": {
+    "ScrCmd_2A4": {
       "type": "script_cmd",
       "id": 676,
       "legacy_name": "CMD_676",
@@ -9475,14 +9475,14 @@
         }
       ]
     },
-    "GetGameCornerPrizeData": {
+    "OpenPartyMenuForTrade": {
       "type": "script_cmd",
       "id": 677,
       "legacy_name": "PartyPokemonTradeScreen",
       "description": "Opens the party Pok\u00e9mon screen for a trade",
       "params": []
     },
-    "CheckItemIsPlate": {
+    "GetGameCornerPrizeData": {
       "type": "script_cmd",
       "id": 678,
       "legacy_name": "CMD_678",
@@ -9502,7 +9502,7 @@
         }
       ]
     },
-    "SubtractCoinsFromVar": {
+    "CheckItemIsPlate": {
       "type": "script_cmd",
       "id": 679,
       "legacy_name": "CheckItemIsPlate",
@@ -9519,7 +9519,7 @@
         }
       ]
     },
-    "HasCoinsFromVar": {
+    "SubtractCoinsFromVar": {
       "type": "script_cmd",
       "id": 680,
       "legacy_name": "CMD_680",
@@ -9531,7 +9531,7 @@
         }
       ]
     },
-    "CheckIsMysteryGiftPhrase": {
+    "HasCoinsFromVar": {
       "type": "script_cmd",
       "id": 681,
       "legacy_name": "CMD_681",
@@ -9547,7 +9547,7 @@
         }
       ]
     },
-    "ScrCmd_2AB": {
+    "CheckIsMysteryGiftPhrase": {
       "type": "script_cmd",
       "id": 682,
       "legacy_name": "CMD_682",
@@ -9576,7 +9576,7 @@
         }
       ]
     },
-    "UnlockMysteryGift": {
+    "ScrCmd_2AB": {
       "type": "script_cmd",
       "id": 683,
       "legacy_name": "CMD_683",
@@ -9588,14 +9588,14 @@
         }
       ]
     },
-    "GetMovementType": {
+    "UnlockMysteryGift": {
       "type": "script_cmd",
       "id": 684,
       "legacy_name": "ActivateMysteryGift",
       "description": "Shows Mystery Gift option in Start Menu.",
       "params": []
     },
-    "IsSequencePlaying": {
+    "GetMovementType": {
       "type": "script_cmd",
       "id": 685,
       "legacy_name": "GetOWMovement",
@@ -9603,17 +9603,17 @@
       "params": [
         {
           "name": "destVar",
-          "type": "u16",
+          "type": "var",
           "default": "VAR_RESULT"
         },
         {
           "name": "destVar",
-          "type": "var",
+          "type": "u16",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "GetTrainerCasePlayerMessage": {
+    "IsSequencePlaying": {
       "type": "script_cmd",
       "id": 686,
       "legacy_name": "CountPlayingSeq",
@@ -9630,40 +9630,41 @@
         }
       ]
     },
-    "ScrCmd_2B0": {
+    "GetTrainerCasePlayerMessage": {
       "type": "script_cmd",
       "id": 687,
       "legacy_name": "CMD_687",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
-    "DestroyNetworkIcon": {
+    "ScrCmd_2B0": {
       "type": "script_cmd",
       "id": 688,
       "legacy_name": "CMD_688",
       "description": "nan",
       "params": []
     },
-    "ScrCmd_2B2": {
+    "DestroyNetworkIcon": {
       "type": "script_cmd",
       "id": 689,
       "legacy_name": "CMD_689",
       "description": "nan",
       "params": []
     },
-    "BufferBallSealName": {
+    "ScrCmd_2B2": {
       "type": "script_cmd",
       "id": 690,
       "legacy_name": "CMD_690",
       "description": "nan",
       "params": []
     },
-    "LockLastTalked": {
+    "BufferBallSealName": {
       "type": "script_cmd",
       "id": 691,
       "legacy_name": "TextSeal",
@@ -9679,14 +9680,14 @@
         }
       ]
     },
-    "ScrCmd_2B5": {
+    "LockLastTalked": {
       "type": "script_cmd",
       "id": 692,
       "legacy_name": "DummyLockAll",
       "description": "this is unused, but the underlying function is called from LockAll",
       "params": []
     },
-    "ScrCmd_2B6": {
+    "ScrCmd_2B5": {
       "type": "script_cmd",
       "id": 693,
       "legacy_name": "CMD_693",
@@ -9706,7 +9707,7 @@
         }
       ]
     },
-    "CheckPartyHasBadEgg": {
+    "ScrCmd_2B6": {
       "type": "script_cmd",
       "id": 694,
       "legacy_name": "CMD_694",
@@ -9722,7 +9723,7 @@
         }
       ]
     },
-    "ScrCmd_2B8": {
+    "CheckPartyHasBadEgg": {
       "type": "script_cmd",
       "id": 695,
       "legacy_name": "CMD_695",
@@ -9730,12 +9731,12 @@
       "params": [
         {
           "name": "destVar",
-          "type": "u16",
+          "type": "var",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "ShowUnionRoomMenu": {
+    "ScrCmd_2B8": {
       "type": "script_cmd",
       "id": 696,
       "legacy_name": "CMD_696",
@@ -9747,14 +9748,14 @@
         }
       ]
     },
-    "ScrCmd_2BA": {
+    "ShowUnionRoomMenu": {
       "type": "script_cmd",
       "id": 697,
       "legacy_name": "CMD_697",
       "description": "nan",
       "params": []
     },
-    "ScrCmd_2BB": {
+    "ScrCmd_2BA": {
       "type": "script_cmd",
       "id": 698,
       "legacy_name": "CMD_698",
@@ -9766,14 +9767,14 @@
         }
       ]
     },
-    "CheckDidNotCapture": {
+    "ScrCmd_2BB": {
       "type": "script_cmd",
       "id": 699,
       "legacy_name": "CMD_699",
       "description": "nan",
       "params": []
     },
-    "StartLegendaryBattle": {
+    "CheckDidNotCapture": {
       "type": "script_cmd",
       "id": 700,
       "legacy_name": "LastBattleCheckCaught",
@@ -9786,7 +9787,7 @@
         }
       ]
     },
-    "GetTrainerCardLevel": {
+    "StartLegendaryBattle": {
       "type": "script_cmd",
       "id": 701,
       "legacy_name": "SpWildBattle",
@@ -9802,7 +9803,7 @@
         }
       ]
     },
-    "SetCyclingBGM": {
+    "GetTrainerCardLevel": {
       "type": "script_cmd",
       "id": 702,
       "legacy_name": "CheckTrainerCardLevel",
@@ -9815,14 +9816,14 @@
         }
       ]
     },
-    "MessageAutoScroll": {
+    "SetCyclingBGM": {
       "type": "script_cmd",
       "id": 703,
       "legacy_name": "DummyRideBike",
       "description": "Nothing",
       "params": []
     },
-    "OpenSaveInfo": {
+    "MessageAutoScroll": {
       "type": "script_cmd",
       "id": 704,
       "legacy_name": "CMD_704",
@@ -9834,21 +9835,21 @@
         }
       ]
     },
-    "CloseSaveInfo": {
+    "OpenSaveInfo": {
       "type": "script_cmd",
       "id": 705,
       "legacy_name": "ShowSaveBox",
       "description": "Displays the save data box (current map name, player's name, the amount of badges, the Pok\u00e9dex counter and the play time)",
       "params": []
     },
-    "ScrCmd_Unused_2C3": {
+    "CloseSaveInfo": {
       "type": "script_cmd",
       "id": 706,
       "legacy_name": "HideSaveBox",
       "description": "Hides the save data box",
       "params": []
     },
-    "ScrCmd_2C4": {
+    "ScrCmd_Unused_2C3": {
       "type": "script_cmd",
       "id": 707,
       "legacy_name": "ScopeMode",
@@ -9860,7 +9861,7 @@
         }
       ]
     },
-    "ScrCmd_2C5": {
+    "ScrCmd_2C4": {
       "type": "script_cmd",
       "id": 708,
       "legacy_name": "CMD_708",
@@ -9872,7 +9873,7 @@
         }
       ]
     },
-    "ScrCmd_2C6": {
+    "ScrCmd_2C5": {
       "type": "script_cmd",
       "id": 709,
       "legacy_name": "CMD_709",
@@ -9888,26 +9889,27 @@
         }
       ]
     },
-    "IsCommGameCodePlatinum": {
+    "ScrCmd_2C6": {
       "type": "script_cmd",
       "id": 710,
       "legacy_name": "SpinTradeScreen",
       "description": "Starts the Spin Trade screen.",
       "params": []
     },
-    "OpenFrontierRecordsApp": {
+    "IsCommGameCodePlatinum": {
       "type": "script_cmd",
       "id": 711,
       "legacy_name": "CMD_711",
       "description": "nan",
       "params": [
         {
-          "name": "???",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
-    "InitPersistedMapFeaturesForEternaGym": {
+    "OpenFrontierRecordsApp": {
       "type": "script_cmd",
       "id": 712,
       "legacy_name": "CMD_712",
@@ -9927,21 +9929,21 @@
         }
       ]
     },
-    "AdvanceEternaGymClock": {
+    "InitPersistedMapFeaturesForEternaGym": {
       "type": "script_cmd",
       "id": 713,
       "legacy_name": "InitEternaGym",
       "description": "Initializes Eterna Gym internal data and 3D model animations",
       "params": []
     },
-    "CountRepeatedSpeciesInParty": {
+    "AdvanceEternaGymClock": {
       "type": "script_cmd",
       "id": 714,
       "legacy_name": "EternaGymClockAnim",
       "description": "Triggers the Eterna Gym next flower clock animation",
       "params": []
     },
-    "ScrCmd_2CC": {
+    "CountRepeatedSpeciesInParty": {
       "type": "script_cmd",
       "id": 715,
       "legacy_name": "CMD_715",
@@ -9958,7 +9960,7 @@
         }
       ]
     },
-    "ScrCmd_2CD": {
+    "ScrCmd_2CC": {
       "type": "script_cmd",
       "id": 716,
       "legacy_name": "CMD_716",
@@ -9978,21 +9980,21 @@
         }
       ]
     },
-    "ScrCmd_Unused_2CE": {
+    "ScrCmd_2CD": {
       "type": "script_cmd",
       "id": 717,
       "legacy_name": "SetDarkFog",
       "description": "Sets weather #26 to the current map",
       "params": []
     },
-    "CheckBattleHallPartnerUsesDifferentSpecies": {
+    "ScrCmd_Unused_2CE": {
       "type": "script_cmd",
       "id": 718,
       "legacy_name": "ClearDarkFog",
       "description": "Sets the default weather to the current map",
       "params": []
     },
-    "GetBattleHallSelectedSlots": {
+    "CheckBattleHallPartnerUsesDifferentSpecies": {
       "type": "script_cmd",
       "id": 719,
       "legacy_name": "CMD_719",
@@ -10008,7 +10010,7 @@
         }
       ]
     },
-    "ScrCmd_2D1": {
+    "GetBattleHallSelectedSlots": {
       "type": "script_cmd",
       "id": 720,
       "legacy_name": "CMD_720",
@@ -10024,7 +10026,7 @@
         }
       ]
     },
-    "ScrCmd_2D2": {
+    "ScrCmd_2D1": {
       "type": "script_cmd",
       "id": 721,
       "legacy_name": "CMD_721",
@@ -10036,7 +10038,7 @@
         }
       ]
     },
-    "ScrCmd_2D3": {
+    "ScrCmd_2D2": {
       "type": "script_cmd",
       "id": 722,
       "legacy_name": "CMD_722",
@@ -10056,7 +10058,7 @@
         }
       ]
     },
-    "ScrCmd_2D4": {
+    "ScrCmd_2D3": {
       "type": "script_cmd",
       "id": 723,
       "legacy_name": "CMD_723",
@@ -10076,7 +10078,7 @@
         }
       ]
     },
-    "ScrCmd_2D5": {
+    "ScrCmd_2D4": {
       "type": "script_cmd",
       "id": 724,
       "legacy_name": "CMD_724",
@@ -10096,7 +10098,7 @@
         }
       ]
     },
-    "SaveExtraData": {
+    "ScrCmd_2D5": {
       "type": "script_cmd",
       "id": 725,
       "legacy_name": "CMD_725",
@@ -10108,14 +10110,14 @@
         }
       ]
     },
-    "CheckIsMiscSaveInit": {
+    "SaveExtraData": {
       "type": "script_cmd",
       "id": 726,
       "legacy_name": "CMD_726",
       "description": "nan",
       "params": []
     },
-    "PokeMartFrontier": {
+    "CheckIsMiscSaveInit": {
       "type": "script_cmd",
       "id": 727,
       "legacy_name": "CMD_727",
@@ -10123,12 +10125,12 @@
       "params": [
         {
           "name": "destVar",
-          "type": "u8",
+          "type": "var",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "ScrCmd_2D9": {
+    "PokeMartFrontier": {
       "type": "script_cmd",
       "id": 728,
       "legacy_name": "CMD_728",
@@ -10140,7 +10142,7 @@
         }
       ]
     },
-    "ScrCmd_2DA": {
+    "ScrCmd_2D9": {
       "type": "script_cmd",
       "id": 729,
       "legacy_name": "CMD_729",
@@ -10160,7 +10162,7 @@
         }
       ]
     },
-    "ScrCmd_2DB": {
+    "ScrCmd_2DA": {
       "type": "script_cmd",
       "id": 730,
       "legacy_name": "CMD_730",
@@ -10180,7 +10182,7 @@
         }
       ]
     },
-    "ScrCmd_2DC": {
+    "ScrCmd_2DB": {
       "type": "script_cmd",
       "id": 731,
       "legacy_name": "CMD_731",
@@ -10200,7 +10202,7 @@
         }
       ]
     },
-    "FindPartySlotWithSpecies": {
+    "ScrCmd_2DC": {
       "type": "script_cmd",
       "id": 732,
       "legacy_name": "CMD_732",
@@ -10212,7 +10214,7 @@
         }
       ]
     },
-    "ShowBattleHallRecordMonSelectionMenu": {
+    "FindPartySlotWithSpecies": {
       "type": "script_cmd",
       "id": 733,
       "legacy_name": "CMD_733",
@@ -10229,7 +10231,7 @@
         }
       ]
     },
-    "CalcAmitySquareBerryAndAccessoryManOptionID": {
+    "ShowBattleHallRecordMonSelectionMenu": {
       "type": "script_cmd",
       "id": 734,
       "legacy_name": "CMD_734",
@@ -10257,7 +10259,7 @@
         }
       ]
     },
-    "CheckAmitySquareManGiftIsAccessory": {
+    "CalcAmitySquareBerryAndAccessoryManOptionID": {
       "type": "script_cmd",
       "id": 735,
       "legacy_name": "CMD_735",
@@ -10269,7 +10271,7 @@
         }
       ]
     },
-    "GetAmitySquareBerryOrAccessoryIDFromMan": {
+    "CheckAmitySquareManGiftIsAccessory": {
       "type": "script_cmd",
       "id": 736,
       "legacy_name": "CMD_736",
@@ -10281,12 +10283,12 @@
         },
         {
           "name": "destVar",
-          "type": "u16",
+          "type": "var",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "ScrCmd_2E2": {
+    "GetAmitySquareBerryOrAccessoryIDFromMan": {
       "type": "script_cmd",
       "id": 737,
       "legacy_name": "CMD_737",
@@ -10302,21 +10304,21 @@
         }
       ]
     },
-    "ScrCmd_2E3": {
+    "ScrCmd_2E2": {
       "type": "script_cmd",
       "id": 738,
       "legacy_name": "ScratchOffScreen",
       "description": "Loads and displays Scratch-off card interface.",
       "params": []
     },
-    "ScrCmd_2E4": {
+    "ScrCmd_2E3": {
       "type": "script_cmd",
       "id": 739,
       "legacy_name": "ReleaseScriptApp",
       "description": "Releases resources that were previously allocated by a script command that runs an app.",
       "params": []
     },
-    "CheckHasLearnableTutorMoves": {
+    "ScrCmd_2E4": {
       "type": "script_cmd",
       "id": 740,
       "legacy_name": "CMD_740",
@@ -10332,12 +10334,12 @@
         },
         {
           "name": "destVarID",
-          "type": "var",
+          "type": "u16",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "ShowMoveTutorMoveSelectionMenu": {
+    "CheckHasLearnableTutorMoves": {
       "type": "script_cmd",
       "id": 741,
       "legacy_name": "CheckLearnableTutorMoves",
@@ -10353,12 +10355,12 @@
         },
         {
           "name": "destVarID",
-          "type": "u16",
+          "type": "var",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "OpenSummaryScreenTeachMove": {
+    "ShowMoveTutorMoveSelectionMenu": {
       "type": "script_cmd",
       "id": 742,
       "legacy_name": "ShowTutorMovesList",
@@ -10378,7 +10380,7 @@
         }
       ]
     },
-    "GetSummarySelectedMoveSlot": {
+    "OpenSummaryScreenTeachMove": {
       "type": "script_cmd",
       "id": 743,
       "legacy_name": "LearnMoveScreen",
@@ -10394,7 +10396,7 @@
         }
       ]
     },
-    "ResetMoveSlot": {
+    "GetSummarySelectedMoveSlot": {
       "type": "script_cmd",
       "id": 744,
       "legacy_name": "LearnMoveGetSelection",
@@ -10407,7 +10409,7 @@
         }
       ]
     },
-    "CheckCanAffordMove": {
+    "ResetMoveSlot": {
       "type": "script_cmd",
       "id": 745,
       "legacy_name": "ChangePartyPokemonMove",
@@ -10427,7 +10429,7 @@
         }
       ]
     },
-    "PayShardCost": {
+    "CheckCanAffordMove": {
       "type": "script_cmd",
       "id": 746,
       "legacy_name": "CheckAffordMove",
@@ -10444,7 +10446,7 @@
         }
       ]
     },
-    "ShowShardCost": {
+    "PayShardCost": {
       "type": "script_cmd",
       "id": 747,
       "legacy_name": "PayTutorShards",
@@ -10456,7 +10458,7 @@
         }
       ]
     },
-    "CloseShardCostWindow": {
+    "ShowShardCost": {
       "type": "script_cmd",
       "id": 748,
       "legacy_name": "ShowMovePriceBoard",
@@ -10480,14 +10482,14 @@
         }
       ]
     },
-    "JudgeStats": {
+    "CloseShardCostWindow": {
       "type": "script_cmd",
       "id": 749,
       "legacy_name": "CloseMovePriceBoard",
       "description": "Closes the Move price board.",
       "params": []
     },
-    "BufferStatName": {
+    "JudgeStats": {
       "type": "script_cmd",
       "id": 750,
       "legacy_name": "CMD_750",
@@ -10511,7 +10513,7 @@
         }
       ]
     },
-    "InitPersistedMapFeaturesForVilla": {
+    "BufferStatName": {
       "type": "script_cmd",
       "id": 751,
       "legacy_name": "CMD_751",
@@ -10527,14 +10529,14 @@
         }
       ]
     },
-    "ScrCmd_2F1": {
+    "InitPersistedMapFeaturesForVilla": {
       "type": "script_cmd",
       "id": 752,
       "legacy_name": "InitVilla",
       "description": "Initializes Villa internal data and 3D model animations",
       "params": []
     },
-    "InitPersistedMapFeaturesForDistortionWorld": {
+    "ScrCmd_2F1": {
       "type": "script_cmd",
       "id": 753,
       "legacy_name": "ChangePokemonForm",
@@ -10550,14 +10552,14 @@
         }
       ]
     },
-    "BufferTrainerName": {
+    "InitPersistedMapFeaturesForDistortionWorld": {
       "type": "script_cmd",
       "id": 754,
       "legacy_name": "InitDistortionWorld",
       "description": "Initializes Distortion World internal data and 3D model animations",
       "params": []
     },
-    "BufferValuePaddingDigits": {
+    "BufferTrainerName": {
       "type": "script_cmd",
       "id": 755,
       "legacy_name": "CMD_755",
@@ -10573,31 +10575,31 @@
         }
       ]
     },
-    "ScrCmd_2F6": {
+    "GetRandomBattlegroundTrainers": {
       "type": "script_cmd",
       "id": 756,
       "legacy_name": "CMD_756",
       "description": "nan",
       "params": [
         {
-          "name": "var_0",
-          "type": "u16"
+          "name": "destVar1",
+          "type": "var"
         },
         {
-          "name": "var_1",
-          "type": "u16"
+          "name": "destVar2",
+          "type": "var"
         },
         {
-          "name": "var_2",
-          "type": "u16"
+          "name": "destVar3",
+          "type": "var"
         },
         {
-          "name": "var_3",
-          "type": "u16"
+          "name": "destVar4",
+          "type": "var"
         }
       ]
     },
-    "ScrCmd_2F7": {
+    "BufferValuePaddingDigits": {
       "type": "script_cmd",
       "id": 757,
       "legacy_name": "CMD_757",
@@ -10621,7 +10623,7 @@
         }
       ]
     },
-    "SetScenePlayBGMMusicBox": {
+    "ScrCmd_2F6": {
       "type": "script_cmd",
       "id": 758,
       "legacy_name": "CMD_758",
@@ -10641,7 +10643,7 @@
         }
       ]
     },
-    "SetFieldScene": {
+    "ScrCmd_2F7": {
       "type": "script_cmd",
       "id": 759,
       "legacy_name": "CMD_759",
@@ -10653,14 +10655,14 @@
         }
       ]
     },
-    "GetCurrentBGM": {
+    "SetScenePlayBGMMusicBox": {
       "type": "script_cmd",
       "id": 760,
       "legacy_name": "CMD_760",
       "description": "nan",
       "params": []
     },
-    "ScrCmd_2FB": {
+    "SetFieldScene": {
       "type": "script_cmd",
       "id": 761,
       "legacy_name": "LoadFieldAudio",
@@ -10672,7 +10674,7 @@
         }
       ]
     },
-    "CheckABPress": {
+    "GetCurrentBGM": {
       "type": "script_cmd",
       "id": 762,
       "legacy_name": "GetPlayingBGM",
@@ -10685,35 +10687,19 @@
         }
       ]
     },
-    "BufferTypeName": {
+    "ScrCmd_2FB": {
       "type": "script_cmd",
       "id": 763,
       "legacy_name": "SpearPillarSequence2",
       "description": "Starts part 2 of the Spear Pillar Sequence (Giratina Cutscene)",
       "params": []
     },
-    "GetItemQuantity": {
+    "CheckABPress": {
       "type": "script_cmd",
       "id": 764,
       "legacy_name": "CMD_764",
       "description": "nan",
       "params": [
-        {
-          "name": "variable",
-          "type": "u16"
-        }
-      ]
-    },
-    "CalcHiddenPowerType": {
-      "type": "script_cmd",
-      "id": 765,
-      "legacy_name": "CMD_765",
-      "description": "nan",
-      "params": [
-        {
-          "name": "templateArg",
-          "type": "u16"
-        },
         {
           "name": "destVar",
           "type": "var",
@@ -10721,7 +10707,24 @@
         }
       ]
     },
-    "SetFavoriteMon": {
+    "BufferTypeName": {
+      "type": "script_cmd",
+      "id": 765,
+      "legacy_name": "CMD_765",
+      "description": "nan",
+      "params": [
+        {
+          "name": "templateArg",
+          "type": "u8"
+        },
+        {
+          "name": "destVar",
+          "type": "u16",
+          "default": "VAR_RESULT"
+        }
+      ]
+    },
+    "GetItemQuantity": {
       "type": "script_cmd",
       "id": 766,
       "legacy_name": "CMD_766",
@@ -10738,7 +10741,7 @@
         }
       ]
     },
-    "GetFavoriteMon": {
+    "CalcHiddenPowerType": {
       "type": "script_cmd",
       "id": 767,
       "legacy_name": "CMD_767",
@@ -10755,34 +10758,34 @@
         }
       ]
     },
-    "GetRotomFormsInSave": {
+    "SetFavoriteMon": {
       "type": "script_cmd",
       "id": 768,
       "legacy_name": "CMD_768",
       "description": "nan",
       "params": []
     },
-    "GetPartyRotomCountAndFirst": {
+    "GetFavoriteMon": {
       "type": "script_cmd",
       "id": 769,
       "legacy_name": "CMD_769",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
-          "type": "u16"
+          "name": "destVarSpecies",
+          "type": "var"
         },
         {
-          "name": "arg_1",
-          "type": "u16"
+          "name": "destVarForm",
+          "type": "var"
         },
         {
-          "name": "arg_2",
-          "type": "u16"
+          "name": "destVarIsEgg",
+          "type": "var"
         }
       ]
     },
-    "SetRotomForm": {
+    "GetRotomFormsInSave": {
       "type": "script_cmd",
       "id": 770,
       "legacy_name": "CheckUsedRotomAppliances",
@@ -10810,7 +10813,7 @@
         }
       ]
     },
-    "GetPartyMonForm2": {
+    "GetPartyRotomCountAndFirst": {
       "type": "script_cmd",
       "id": 771,
       "legacy_name": "CMD_771",
@@ -10818,16 +10821,16 @@
       "params": [
         {
           "name": "destVarCount",
-          "type": "u16"
+          "type": "var"
         },
         {
-          "name": "destVar",
+          "name": "destVarFirstSlot",
           "type": "var",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "ShowListMenuRememberCursor": {
+    "SetRotomForm": {
       "type": "script_cmd",
       "id": 772,
       "legacy_name": "CMD_772",
@@ -10851,7 +10854,7 @@
         }
       ]
     },
-    "GetEmptyPoffinCaseSlotCount": {
+    "GetPartyMonForm2": {
       "type": "script_cmd",
       "id": 773,
       "legacy_name": "CMD_773",
@@ -10868,7 +10871,7 @@
         }
       ]
     },
-    "AddCameraOverrideObject": {
+    "ShowListMenuRememberCursor": {
       "type": "script_cmd",
       "id": 774,
       "legacy_name": "CMD_774",
@@ -10876,15 +10879,15 @@
       "params": [
         {
           "name": "rememberedlistoffset",
-          "type": "u16"
+          "type": "var"
         },
         {
           "name": "cursor_position",
-          "type": "u16"
+          "type": "var"
         }
       ]
     },
-    "RemoveCameraOverrideObject": {
+    "GetEmptyPoffinCaseSlotCount": {
       "type": "script_cmd",
       "id": 775,
       "legacy_name": "CMD_775",
@@ -10897,7 +10900,7 @@
         }
       ]
     },
-    "IncrementTrainerScore": {
+    "AddCameraOverrideObject": {
       "type": "script_cmd",
       "id": 776,
       "legacy_name": "CMD_776",
@@ -10913,14 +10916,14 @@
         }
       ]
     },
-    "ScrCmd_30B": {
+    "RemoveCameraOverrideObject": {
       "type": "script_cmd",
       "id": 777,
       "legacy_name": "CMD_777",
       "description": "nan",
       "params": []
     },
-    "SaveTVSegmentHomeAndManorNoFurniture": {
+    "IncrementTrainerScore": {
       "type": "script_cmd",
       "id": 778,
       "legacy_name": "CMD_778",
@@ -10932,33 +10935,33 @@
         }
       ]
     },
-    "SaveTVSegmentHomeAndManor": {
+    "ScrCmd_30B": {
       "type": "script_cmd",
       "id": 779,
       "legacy_name": "CMD_779",
       "description": "nan",
       "params": []
     },
-    "ScrCmd_30E": {
+    "SaveTVSegmentHomeAndManorNoFurniture": {
       "type": "script_cmd",
       "id": 780,
       "legacy_name": "CMD_780",
       "description": "nan",
       "params": []
     },
-    "CheckMetFurnitureRequirements": {
+    "SaveTVSegmentHomeAndManor": {
       "type": "script_cmd",
       "id": 781,
       "legacy_name": "CMD_781",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "furniture",
           "type": "flex"
         }
       ]
     },
-    "StartLibraryTV": {
+    "ScrCmd_30E": {
       "type": "script_cmd",
       "id": 782,
       "legacy_name": "CMD_782",
@@ -10970,30 +10973,31 @@
         }
       ]
     },
-    "AddDistortionWorldMapObject": {
+    "CheckMetFurnitureRequirements": {
       "type": "script_cmd",
       "id": 783,
       "legacy_name": "CMD_783",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "furniture",
           "type": "flex"
         },
         {
-          "name": "???",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
-    "DeleteDistortionWorldMapObject": {
+    "StartLibraryTV": {
       "type": "script_cmd",
       "id": 784,
       "legacy_name": "CMD_784",
       "description": "nan",
       "params": []
     },
-    "CheckHeapMemory": {
+    "AddDistortionWorldMapObject": {
       "type": "script_cmd",
       "id": 785,
       "legacy_name": "CMD_785",
@@ -11005,7 +11009,7 @@
         }
       ]
     },
-    "GetBattleResult": {
+    "DeleteDistortionWorldMapObject": {
       "type": "script_cmd",
       "id": 786,
       "legacy_name": "CMD_786",
@@ -11013,12 +11017,12 @@
       "params": [
         {
           "name": "destVar",
-          "type": "var",
+          "type": "u16",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "GetOverworldWeather": {
+    "CheckHeapMemory": {
       "type": "script_cmd",
       "id": 787,
       "legacy_name": "CMD_787",
@@ -11026,12 +11030,12 @@
       "params": [
         {
           "name": "destVar",
-          "type": "var",
+          "type": "u16",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "Dummy316": {
+    "GetBattleResult": {
       "type": "script_cmd",
       "id": 788,
       "legacy_name": "GetBattleOutcome",
@@ -11044,7 +11048,7 @@
         }
       ]
     },
-    "GetPlayer3DPos": {
+    "GetOverworldWeather": {
       "type": "script_cmd",
       "id": 789,
       "legacy_name": "GetCurrentWeather",
@@ -11057,14 +11061,14 @@
         }
       ]
     },
-    "StartFatefulEncounter": {
+    "Dummy316": {
       "type": "script_cmd",
       "id": 790,
       "legacy_name": "CMD_790",
       "description": "nan",
       "params": []
     },
-    "StartGiratinaOriginBattle": {
+    "GetPlayer3DPos": {
       "type": "script_cmd",
       "id": 791,
       "legacy_name": "GetPlayerPositionFull",
@@ -11084,7 +11088,7 @@
         }
       ]
     },
-    "SetSpeciesSeen": {
+    "StartFatefulEncounter": {
       "type": "script_cmd",
       "id": 792,
       "legacy_name": "WildBattleFateful",
@@ -11100,7 +11104,7 @@
         }
       ]
     },
-    "GetCurrentSafariGameCaughtNum": {
+    "StartGiratinaOriginBattle": {
       "type": "script_cmd",
       "id": 793,
       "legacy_name": "GiratinaBattle",
@@ -11116,7 +11120,7 @@
         }
       ]
     },
-    "FindPartySlotWithFatefulEncounterSpecies": {
+    "SetSpeciesSeen": {
       "type": "script_cmd",
       "id": 794,
       "legacy_name": "RegisterSeenPokemon",
@@ -11128,7 +11132,7 @@
         }
       ]
     },
-    "ScrCmd_31D": {
+    "GetCurrentSafariGameCaughtNum": {
       "type": "script_cmd",
       "id": 795,
       "legacy_name": "CMD_795",
@@ -11136,12 +11140,12 @@
       "params": [
         {
           "name": "destVar",
-          "type": "u16",
+          "type": "var",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "TryRevertPokemonForm": {
+    "FindPartySlotWithFatefulEncounterSpecies": {
       "type": "script_cmd",
       "id": 796,
       "legacy_name": "CMD_796",
@@ -11149,17 +11153,17 @@
       "params": [
         {
           "name": "destVar",
-          "type": "u16",
+          "type": "var",
           "default": "VAR_RESULT"
         },
         {
           "name": "destVar",
-          "type": "var",
+          "type": "u16",
           "default": "VAR_RESULT"
         }
       ]
     },
-    "ResetDistortionWorldPersistedCameraAngles": {
+    "ScrCmd_31D": {
       "type": "script_cmd",
       "id": 797,
       "legacy_name": "CMD_797",
@@ -11171,7 +11175,7 @@
         }
       ]
     },
-    "DoDWWarp": {
+    "TryRevertPokemonForm": {
       "type": "script_cmd",
       "id": 798,
       "legacy_name": "CMD_798",
@@ -11188,21 +11192,21 @@
         }
       ]
     },
-    "StartDistortionWorldGiratinaShadowEvent": {
+    "ResetDistortionWorldPersistedCameraAngles": {
       "type": "script_cmd",
       "id": 799,
       "legacy_name": "CMD_799",
       "description": "nan",
       "params": []
     },
-    "FinishDistortionWorldGiratinaShadowEvent": {
+    "DoDWWarp": {
       "type": "script_cmd",
       "id": 800,
       "legacy_name": "PortalAnimation",
       "description": "Prepares 3D data of Distortion World's portal and plays the animation (also with sound effect 0x5D3 #1491).",
       "params": []
     },
-    "ScrCmd_323": {
+    "StartDistortionWorldGiratinaShadowEvent": {
       "type": "script_cmd",
       "id": 801,
       "legacy_name": "CMD_801",
@@ -11214,14 +11218,14 @@
         }
       ]
     },
-    "GetBattleHallRecordKeeperStats": {
+    "FinishDistortionWorldGiratinaShadowEvent": {
       "type": "script_cmd",
       "id": 802,
       "legacy_name": "CMD_802",
       "description": "nan",
       "params": []
     },
-    "GetNumSpeciesWithBattleHallRecords": {
+    "ScrCmd_323": {
       "type": "script_cmd",
       "id": 803,
       "legacy_name": "CMD_803",
@@ -11233,7 +11237,7 @@
         }
       ]
     },
-    "GetBattleHallTotalSinglesRecord": {
+    "GetBattleHallRecordKeeperStats": {
       "type": "script_cmd",
       "id": 804,
       "legacy_name": "CMD_804",
@@ -11265,7 +11269,7 @@
         }
       ]
     },
-    "ShowListMenuSetWidth": {
+    "GetNumSpeciesWithBattleHallRecords": {
       "type": "script_cmd",
       "id": 805,
       "legacy_name": "CMD_805",
@@ -11277,7 +11281,7 @@
         }
       ]
     },
-    "SetPartyGiratinaForm": {
+    "GetBattleHallTotalSinglesRecord": {
       "type": "script_cmd",
       "id": 806,
       "legacy_name": "CMD_806",
@@ -11289,7 +11293,7 @@
         }
       ]
     },
-    "GetBattleFrontierReporterPosition": {
+    "ShowListMenuSetWidth": {
       "type": "script_cmd",
       "id": 807,
       "legacy_name": "CMD_807",
@@ -11301,7 +11305,7 @@
         }
       ]
     },
-    "ScrCmd_32A": {
+    "SetPartyGiratinaForm": {
       "type": "script_cmd",
       "id": 808,
       "legacy_name": "CMD_808",
@@ -11313,31 +11317,31 @@
         }
       ]
     },
-    "CheckPartyHasFatefulEncounterRegigigas": {
+    "GetBattleFrontierReporterPosition": {
       "type": "script_cmd",
       "id": 809,
       "legacy_name": "CMD_809",
       "description": "something about TVBroadcast",
       "params": [
         {
-          "name": "???",
+          "name": "x",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "z",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "dir",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "movementType",
           "type": "u16"
         }
       ]
     },
-    "ActivateRegiRuinsDot": {
+    "ScrCmd_32A": {
       "type": "script_cmd",
       "id": 810,
       "legacy_name": "CMD_810",
@@ -11349,7 +11353,7 @@
         }
       ]
     },
-    "ScrCmd_32D": {
+    "CheckPartyHasFatefulEncounterRegigigas": {
       "type": "script_cmd",
       "id": 811,
       "legacy_name": "CheckEventRegigigas",
@@ -11362,7 +11366,7 @@
         }
       ]
     },
-    "ScrCmd_32E": {
+    "ActivateRegiRuinsDot": {
       "type": "script_cmd",
       "id": 812,
       "legacy_name": "CMD_812",
@@ -11387,21 +11391,21 @@
         }
       ]
     },
-    "CheckPartyHasHeldItem": {
+    "ScrCmd_32D": {
       "type": "script_cmd",
       "id": 813,
       "legacy_name": "CMD_813",
       "description": "nan",
       "params": []
     },
-    "LogLinkInfoInWiFiHistory": {
+    "ScrCmd_32E": {
       "type": "script_cmd",
       "id": 814,
       "legacy_name": "CMD_814",
       "description": "nan",
       "params": []
     },
-    "ScrCmd_331": {
+    "CheckPartyHasHeldItem": {
       "type": "script_cmd",
       "id": 815,
       "legacy_name": "CMD_815",
@@ -11418,28 +11422,28 @@
         }
       ]
     },
-    "ScrCmd_332": {
+    "LogLinkInfoInWiFiHistory": {
       "type": "script_cmd",
       "id": 816,
       "legacy_name": "CMD_816",
       "description": "nan",
       "params": []
     },
-    "SetPlayerVolume": {
+    "ScrCmd_331": {
       "type": "script_cmd",
       "id": 817,
       "legacy_name": "CMD_817",
       "description": "nan",
       "params": []
     },
-    "AddToGameRecord": {
+    "ScrCmd_332": {
       "type": "script_cmd",
       "id": 818,
       "legacy_name": "CMD_818",
       "description": "nan",
       "params": []
     },
-    "AddToGameRecordBigValue": {
+    "SetPlayerVolume": {
       "type": "script_cmd",
       "id": 819,
       "legacy_name": "SetFieldVolume",
@@ -11451,7 +11455,7 @@
         }
       ]
     },
-    "ScrCmd_336": {
+    "AddToGameRecord": {
       "type": "script_cmd",
       "id": 820,
       "legacy_name": "CMD_820",
@@ -11467,7 +11471,7 @@
         }
       ]
     },
-    "CheckHasSeenSpecies": {
+    "AddToGameRecordBigValue": {
       "type": "script_cmd",
       "id": 821,
       "legacy_name": "CMD_821",
@@ -11479,11 +11483,11 @@
         },
         {
           "name": "ret",
-          "type": "u16"
+          "type": "u32"
         }
       ]
     },
-    "ScrCmd_338": {
+    "ScrCmd_336": {
       "type": "script_cmd",
       "id": 822,
       "legacy_name": "CMD_822",
@@ -11495,7 +11499,7 @@
         }
       ]
     },
-    "ScrCmd_339": {
+    "CheckHasSeenSpecies": {
       "type": "script_cmd",
       "id": 823,
       "legacy_name": "CheckPokemonIsSeen",
@@ -11511,21 +11515,21 @@
         }
       ]
     },
-    "SetMenuXOriginSide": {
+    "ScrCmd_338": {
       "type": "script_cmd",
       "id": 824,
       "legacy_name": "CMD_824",
       "description": "nan",
       "params": []
     },
-    "SetMenuYOriginSide": {
+    "ScrCmd_339": {
       "type": "script_cmd",
       "id": 825,
       "legacy_name": "CMD_825",
       "description": "nan",
       "params": []
     },
-    "BufferItemNameWithArticle": {
+    "SetMenuXOriginSide": {
       "type": "script_cmd",
       "id": 826,
       "legacy_name": "CMD_826",
@@ -11537,7 +11541,7 @@
         }
       ]
     },
-    "BufferItemNamePlural": {
+    "SetMenuYOriginSide": {
       "type": "script_cmd",
       "id": 827,
       "legacy_name": "CMD_827",
@@ -11549,7 +11553,7 @@
         }
       ]
     },
-    "BufferUndergroundGoodsNameWithArticle": {
+    "BufferItemNameWithArticle": {
       "type": "script_cmd",
       "id": 828,
       "legacy_name": "TextItemLowercase",
@@ -11565,7 +11569,7 @@
         }
       ]
     },
-    "BufferUndergroundTrapNameWithArticle": {
+    "BufferItemNamePlural": {
       "type": "script_cmd",
       "id": 829,
       "legacy_name": "TextItemPlural",
@@ -11581,7 +11585,7 @@
         }
       ]
     },
-    "BufferUndergroundItemNameWithArticle": {
+    "BufferUndergroundGoodsNameWithArticle": {
       "type": "script_cmd",
       "id": 830,
       "legacy_name": "CMD_830",
@@ -11597,7 +11601,7 @@
         }
       ]
     },
-    "BufferSpeciesNameWithArticle": {
+    "BufferUndergroundTrapNameWithArticle": {
       "type": "script_cmd",
       "id": 831,
       "legacy_name": "CMD_831",
@@ -11613,7 +11617,7 @@
         }
       ]
     },
-    "BufferPlayerCounterpartStarterSpeciesNameWithArticle": {
+    "BufferUndergroundItemNameWithArticle": {
       "type": "script_cmd",
       "id": 832,
       "legacy_name": "CMD_832",
@@ -11629,7 +11633,7 @@
         }
       ]
     },
-    "BufferAccessoryNameWithArticle": {
+    "BufferSpeciesNameWithArticle": {
       "type": "script_cmd",
       "id": 833,
       "legacy_name": "CMD_833",
@@ -11655,7 +11659,7 @@
         }
       ]
     },
-    "BufferTrainerClassNameWithArticle": {
+    "BufferPlayerCounterpartStarterSpeciesNameWithArticle": {
       "type": "script_cmd",
       "id": 834,
       "legacy_name": "CMD_834",
@@ -11667,7 +11671,7 @@
         }
       ]
     },
-    "BufferBallSealNamePlural": {
+    "BufferAccessoryNameWithArticle": {
       "type": "script_cmd",
       "id": 835,
       "legacy_name": "CMD_835",
@@ -11683,7 +11687,7 @@
         }
       ]
     },
-    "CapitalizeFirstLetter": {
+    "BufferTrainerClassNameWithArticle": {
       "type": "script_cmd",
       "id": 836,
       "legacy_name": "TextTrainerClass",
@@ -11699,7 +11703,7 @@
         }
       ]
     },
-    "BufferFloorNumber": {
+    "BufferBallSealNamePlural": {
       "type": "script_cmd",
       "id": 837,
       "legacy_name": "TextSealPlural",
@@ -11711,11 +11715,11 @@
         },
         {
           "name": "seal",
-          "type": "u8"
+          "type": "u16"
         }
       ]
     },
-    "__tmp__script_cmd__CapitalizeFirstLetter__838": {
+    "CapitalizeFirstLetter": {
       "type": "script_cmd",
       "id": 838,
       "legacy_name": "TextCapitalize",
@@ -11727,7 +11731,7 @@
         }
       ]
     },
-    "__tmp__script_cmd__BufferFloorNumber__839": {
+    "BufferFloorNumber": {
       "type": "script_cmd",
       "id": 839,
       "legacy_name": "DisplayFloor",
