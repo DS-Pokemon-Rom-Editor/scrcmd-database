@@ -106,6 +106,20 @@
         }
       ]
     },
+    "YakoCommand": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "address",
+          "type": "u32"
+        },
+        {
+          "name": "value",
+          "type": "u8"
+        }
+      ],
+      "expansion": ["AdrsValueSet $address, $value"]
+    },
     "ScrCmd_Unused_008": {
       "type": "script_cmd",
       "id": 8,
