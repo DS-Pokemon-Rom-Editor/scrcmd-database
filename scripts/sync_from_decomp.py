@@ -1984,10 +1984,8 @@ def inject_macros_into_db(db_path: str, verbose: bool = False) -> int:
     print(f"  Extracted {len(macros)} macros from decomp")
 
     # Add/update macros in commands section
-    # commands = db.get("commands", {}) # Already got above
     added = 0
     updated = 0
-    matched_aliases = 0
 
     for name, macro_data in macros.items():
         action = upsert_imported_macro(commands, name, macro_data)
@@ -1995,18 +1993,13 @@ def inject_macros_into_db(db_path: str, verbose: bool = False) -> int:
             added += 1
         elif action == "updated":
             updated += 1
-        elif action == "matched_alias":
-            matched_aliases += 1
 
     db["commands"] = commands
 
     if added or updated:
         write_db_if_changed(db_path, db)
 
-    print(
-        f"  Added {added} new macros, updated {updated} existing, "
-        f"matched {matched_aliases} existing aliases"
-    )
+    print(f"  Added {added} new macros, updated {updated} existing")
     if verbose and added + updated > 0:
         print(f"  Sample macros:")
         for name in list(macros.keys())[:5]:
@@ -2480,8 +2473,9 @@ def find_equivalent_macro_name(
 def upsert_imported_macro(commands: dict, name: str, imported_entry: dict) -> str:
     """
     Insert/update one imported macro.
+    Renames existing semantically-equivalent aliases to the canonical decomp name.
 
-    Returns one of: `added`, `updated`, `matched_alias`, `skipped`.
+    Returns one of: `added`, `updated`, `skipped`.
     """
     if name in commands:
         if commands[name].get("type") != "macro":
@@ -2496,10 +2490,11 @@ def upsert_imported_macro(commands: dict, name: str, imported_entry: dict) -> st
     alias_name = find_equivalent_macro_name(commands, name, imported_entry)
     if alias_name:
         merged = merge_imported_macro_entry(commands[alias_name], imported_entry)
-        if merged != commands[alias_name]:
-            commands[alias_name] = merged
-            return "updated"
-        return "matched_alias"
+        if "legacy_name" not in merged:
+            merged["legacy_name"] = alias_name
+        commands.pop(alias_name)
+        commands[name] = merged
+        return "updated"
 
     commands[name] = imported_entry
     return "added"

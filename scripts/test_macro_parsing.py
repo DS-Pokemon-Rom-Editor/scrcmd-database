@@ -591,8 +591,8 @@ def test_extract_macros_for_db_resolves_macro_calls_to_existing_db_command_names
     print("  [PASS] Imported macros resolve references to existing DB keys")
 
 
-def test_upsert_imported_macro_reuses_existing_equivalent_macro_alias():
-    """Equivalent legacy macro aliases should be updated in place instead of duplicated."""
+def test_upsert_imported_macro_renames_equivalent_alias_to_decomp_name():
+    """Equivalent legacy macro aliases should be renamed to the canonical decomp name."""
     commands = {
         "compare_var_to_var": {"type": "script_cmd", "id": 18, "params": []},
         "compare_var_to_value": {"type": "script_cmd", "id": 19, "params": []},
@@ -639,13 +639,17 @@ def test_upsert_imported_macro_reuses_existing_equivalent_macro_alias():
     macros = extract_macros_for_db(content, id_to_name, commands=commands)
     action = upsert_imported_macro(commands, "Compare", macros["Compare"])
 
-    assert action == "matched_alias", f"Expected matched_alias, got {action}"
-    assert "Compare" not in commands, "Equivalent alias should not create a duplicate"
-    assert commands["compare"]["variants"] == macros["Compare"]["variants"], (
-        "Existing alias should retain the imported decomp semantics"
+    assert action == "updated", f"Expected updated, got {action}"
+    assert "Compare" in commands, "Macro should be renamed to canonical decomp name"
+    assert "compare" not in commands, "Old alias name should be removed"
+    assert commands["Compare"].get("legacy_name") == "compare", (
+        "Old name should be preserved in legacy_name field"
+    )
+    assert commands["Compare"]["variants"] == macros["Compare"]["variants"], (
+        "Renamed macro should retain the imported decomp semantics"
     )
 
-    print("  [PASS] Equivalent macro aliases are reused instead of duplicated")
+    print("  [PASS] Equivalent macro aliases are renamed to canonical decomp names")
 
 
 def test_update_db_from_sync_resolves_split_opcode_pairs_in_one_pass():

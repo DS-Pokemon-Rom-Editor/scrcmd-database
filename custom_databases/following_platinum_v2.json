@@ -13836,16 +13836,6 @@
         "MysteryGiftGive MYSTERY_GIFT_CANT_RECEIVE, $destTextBank, $destStringID"
       ]
     },
-    "UnloadMysteryGift": {
-      "type": "macro",
-      "params": [],
-      "expansion": ["MysteryGiftGive MYSTERY_GIFT_UNLOAD_RECEIVED"]
-    },
-    "UnloadMysteryGift2": {
-      "type": "macro",
-      "params": [],
-      "expansion": ["MysteryGiftGive MYSTERY_GIFT_UNLOAD_NOT_RECEIVED"]
-    },
     "SetInCatchingShowFlag": {
       "type": "macro",
       "params": [],
@@ -15265,6 +15255,18 @@
           "default": "1"
         }
       ]
+    },
+    "UnloadMysteryGiftNotReceived": {
+      "type": "macro",
+      "params": [],
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_UNLOAD_NOT_RECEIVED"],
+      "legacy_name": "UnloadMysteryGift2"
+    },
+    "UnloadMysteryGiftReceived": {
+      "type": "macro",
+      "params": [],
+      "expansion": ["MysteryGiftGive MYSTERY_GIFT_UNLOAD_RECEIVED"],
+      "legacy_name": "UnloadMysteryGift"
     }
   },
   "sounds": {
