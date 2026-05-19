@@ -1645,6 +1645,7 @@ VAR_RESULT_RESULT_PARAM_NAMES = frozenset(
         "sucessvar",
         "retvar",
         "resultvar",
+        "result",
     }
 )
 

@@ -2517,7 +2517,7 @@
       "description": "Opens the Hall of Fame and game ending screens",
       "params": []
     },
-    "ScrCmd_0B1": {
+    "OpenPCHallOfFameScreen": {
       "type": "script_cmd",
       "id": 177,
       "legacy_name": "CMD_177",
@@ -2567,7 +2567,7 @@
       "description": "Stores the selected starter Pok\u00e9mon in the save data and frees the Pok\u00e9mon selection screen resources",
       "params": []
     },
-    "ScrCmd_0B6": {
+    "StartApproachingTrainerTask": {
       "type": "script_cmd",
       "id": 182,
       "legacy_name": "CMD_182",
@@ -2596,7 +2596,7 @@
         }
       ]
     },
-    "ScrCmd_0B8": {
+    "GetApproachingTrainerType": {
       "type": "script_cmd",
       "id": 184,
       "legacy_name": "CMD_184",
@@ -4144,7 +4144,7 @@
       "description": "Starts the honey tree wild encounter",
       "params": []
     },
-    "ScrCmd_12A": {
+    "StopHoneyTreeShaking": {
       "type": "script_cmd",
       "id": 298,
       "legacy_name": "StopHoneyTreeAnimation",
@@ -4589,7 +4589,7 @@
       "description": "nan",
       "params": []
     },
-    "ScrCmd_151": {
+    "FieldCommEnterBattleRoom": {
       "type": "script_cmd",
       "id": 337,
       "legacy_name": "CMD_337",
@@ -4983,7 +4983,7 @@
         }
       ]
     },
-    "SunyshoreGymButton": {
+    "PressSunyshoreGymButton": {
       "type": "script_cmd",
       "id": 374,
       "legacy_name": "SunyshoreGymGear",
@@ -5425,7 +5425,7 @@
         }
       ]
     },
-    "TryEnterContestMon": {
+    "GetContestPartyMenuResult": {
       "type": "script_cmd",
       "id": 405,
       "legacy_name": "CMD_405",
@@ -7201,7 +7201,7 @@
         }
       ]
     },
-    "ScrCmd_20B": {
+    "SetMoveCodeForFacingDirection": {
       "type": "script_cmd",
       "id": 523,
       "legacy_name": "CMD_523",
@@ -9343,7 +9343,7 @@
         }
       ]
     },
-    "ScrCmd_291": {
+    "GetDayCarePartyMenuResult": {
       "type": "script_cmd",
       "id": 657,
       "legacy_name": "CMD_657",
@@ -9736,15 +9736,16 @@
         }
       ]
     },
-    "ScrCmd_2AB": {
+    "CountUniqueSealsInSealCase": {
       "type": "script_cmd",
       "id": 683,
       "legacy_name": "CMD_683",
       "description": "nan",
       "params": [
         {
-          "name": "result",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -10173,7 +10174,8 @@
         },
         {
           "name": "result",
-          "type": "u16"
+          "type": "u16",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -10415,7 +10417,8 @@
         },
         {
           "name": "result",
-          "type": "u16"
+          "type": "u16",
+          "default": "VAR_RESULT"
         },
         {
           "name": "listPos",
@@ -11113,7 +11116,7 @@
         }
       ]
     },
-    "ScrCmd_30B": {
+    "SaveTVSegmentPokemonStorageBulletin": {
       "type": "script_cmd",
       "id": 779,
       "legacy_name": "CMD_779",
@@ -11458,7 +11461,8 @@
       "params": [
         {
           "name": "result",
-          "type": "u16"
+          "type": "u16",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -11470,7 +11474,8 @@
       "params": [
         {
           "name": "result",
-          "type": "u16"
+          "type": "u16",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -11669,15 +11674,16 @@
         }
       ]
     },
-    "ScrCmd_336": {
+    "CheckIsHallOfFameCorrupted": {
       "type": "script_cmd",
       "id": 822,
       "legacy_name": "CMD_822",
       "description": "nan",
       "params": [
         {
-          "name": "???",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
