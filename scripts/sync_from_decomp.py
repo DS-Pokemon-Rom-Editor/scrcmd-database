@@ -2,9 +2,9 @@
 """
 Import decomp-derived data into every v2 database in the repository.
 
-This script refreshes script commands, movements, parameter metadata, and
-convenience macros for every `*_v2.json` file under the repo root and
-`custom_databases/`.
+This script refreshes script commands, movements, parameter metadata, flags,
+variables, and convenience macros for every `*_v2.json` file under the repo
+root and `custom_databases/`.
 """
 
 import json
@@ -17,15 +17,20 @@ from pathlib import Path
 from urllib.error import URLError
 from urllib.request import urlopen
 
+from flags_vars import sync_flags_vars
+
 # Decomp repo URLs for each game
 DECOMP_SOURCES = {
     "Platinum": {
         "scrcmd": "https://raw.githubusercontent.com/pret/pokeplatinum/main/asm/macros/scrcmd.inc",
         "movement": "https://raw.githubusercontent.com/pret/pokeplatinum/main/asm/macros/movement.inc",
+        "vars_flags": "https://raw.githubusercontent.com/pret/pokeplatinum/main/generated/vars_flags.txt",
     },
     "HeartGold/SoulSilver": {
         "scrcmd": "https://raw.githubusercontent.com/pret/pokeheartgold/master/asm/macros/script.inc",
         "movement": "https://raw.githubusercontent.com/pret/pokeheartgold/master/asm/macros/movement.inc",
+        "flags": "https://raw.githubusercontent.com/pret/pokeheartgold/master/include/constants/flags.h",
+        "vars": "https://raw.githubusercontent.com/pret/pokeheartgold/master/include/constants/vars.h",
     },
     # Diamond/Pearl decomp isn't as mature, skip for now
 }
@@ -2066,7 +2071,7 @@ def write_db_if_changed(db_path: str | Path, db: dict) -> bool:
     if db_path.exists():
         with open(db_path, "r", encoding="utf-8") as f:
             current = json.load(f)
-        if current == db:
+        if json.dumps(current, indent=2) == json.dumps(db, indent=2):
             return False
 
     with open(db_path, "w", encoding="utf-8") as f:
@@ -3131,13 +3136,12 @@ def update_db_from_sync(
     return changes
 
 
-def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> bool:
+def sync_database(db_path: str, verbose: bool = False) -> bool:
     """
     Sync a database file with decomp definitions.
 
     Args:
         db_path: Path to the v2 database JSON file
-        update: If True, update the database file with decomp names
         verbose: If True, show more details
 
     Returns:
@@ -3150,7 +3154,7 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
     print(f"\nSyncing {db_path} ({version})")
 
     if version not in DECOMP_SOURCES:
-        if update and version == "Diamond/Pearl":
+        if version == "Diamond/Pearl":
             platinum_path = Path(db_path).with_name("platinum_v2.json")
             if platinum_path.exists():
                 with open(platinum_path, "r", encoding="utf-8") as f:
@@ -3201,20 +3205,19 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     f"  Found {len(decomp_primitives)} hidden primitives from comments"
                 )
 
-            if update:
-                canonical_name_by_opcode = build_canonical_name_by_opcode(
-                    decomp_macros, decomp_primitives
+            canonical_name_by_opcode = build_canonical_name_by_opcode(
+                decomp_macros, decomp_primitives
+            )
+            duplicates_removed = repair_duplicate_command_ids(
+                db, "script_cmd", canonical_name_by_opcode
+            )
+            if duplicates_removed > 0:
+                print(
+                    f"  Removed {duplicates_removed} duplicate script command "
+                    f"entr{'y' if duplicates_removed == 1 else 'ies'} by opcode"
                 )
-                duplicates_removed = repair_duplicate_command_ids(
-                    db, "script_cmd", canonical_name_by_opcode
-                )
-                if duplicates_removed > 0:
-                    print(
-                        f"  Removed {duplicates_removed} duplicate script command "
-                        f"entr{'y' if duplicates_removed == 1 else 'ies'} by opcode"
-                    )
-                    has_changes = True
-                    write_db_if_changed(db_path, db)
+                has_changes = True
+                write_db_if_changed(db_path, db)
 
             missing, _extra, mismatched, wrappers, param_updates = (
                 compare_macros_with_db(
@@ -3255,8 +3258,7 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     print(f"    ... and {len(mismatched) - 10} more")
                 has_changes = True
 
-            # Apply updates if requested
-            if update and (missing or mismatched):
+            if missing or mismatched:
                 print("  Applying updates...")
                 count = update_db_from_sync(db, missing, mismatched, "script_cmd")
                 if count > 0:
@@ -3264,8 +3266,7 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                     # Save immediately to avoid losing progress if next steps fail
                     write_db_if_changed(db_path, db)
 
-            # Apply param updates for hidden primitives
-            if update and param_updates:
+            if param_updates:
                 db_commands = db.get("commands", {})
                 param_updates_count = 0
                 for item in param_updates:
@@ -3284,266 +3285,233 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 if param_updates_count > 0:
                     write_db_if_changed(db_path, db)
 
-            # Update parameter defaults if requested
-            if update:
-                print("  Checking parameter defaults...")
-                defaults_updated = 0
-                db_commands = db.get("commands", {})
-                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
-                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
+            print("  Checking parameter defaults...")
+            defaults_updated = 0
+            db_commands = db.get("commands", {})
+            db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+            db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
 
-                for name, macro in decomp_macros.items():
-                    if (
-                        macro.is_wrapper
-                        or macro.is_conditional
-                        or len(macro.opcodes) > 1
-                    ):
-                        continue
-                    if not macro.opcodes:
-                        continue
+            for name, macro in decomp_macros.items():
+                if macro.is_wrapper or macro.is_conditional or len(macro.opcodes) > 1:
+                    continue
+                if not macro.opcodes:
+                    continue
 
-                    target_name, _match_mode = resolve_command_name_from_maps(
-                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
-                    )
+                target_name, _match_mode = resolve_command_name_from_maps(
+                    db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                )
 
-                    if target_name and target_name in db_commands:
-                        cmd = db_commands[target_name]
-                        if update_param_defaults(cmd.get("params", []), macro):
-                            defaults_updated += 1
+                if target_name and target_name in db_commands:
+                    cmd = db_commands[target_name]
+                    if update_param_defaults(cmd.get("params", []), macro):
+                        defaults_updated += 1
 
-                if defaults_updated > 0:
-                    print(f"  Updated defaults for {defaults_updated} commands")
-                    has_changes = True
-                    write_db_if_changed(db_path, db)
+            if defaults_updated > 0:
+                print(f"  Updated defaults for {defaults_updated} commands")
+                has_changes = True
+                write_db_if_changed(db_path, db)
 
             # Update parameter types from macro body directives
-            if update:
-                print("  Checking parameter types...")
-                types_updated = 0
-                db_commands = db.get("commands", {})
-                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
-                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
+            print("  Checking parameter types...")
+            types_updated = 0
+            db_commands = db.get("commands", {})
+            db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+            db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
 
-                for name, macro in decomp_macros.items():
-                    if (
-                        macro.is_wrapper
-                        or macro.is_conditional
-                        or len(macro.opcodes) > 1
-                    ):
-                        continue
-                    if not macro.opcodes:
-                        continue
+            for name, macro in decomp_macros.items():
+                if macro.is_wrapper or macro.is_conditional or len(macro.opcodes) > 1:
+                    continue
+                if not macro.opcodes:
+                    continue
 
-                    target_name, _match_mode = resolve_command_name_from_maps(
-                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
-                    )
+                target_name, _match_mode = resolve_command_name_from_maps(
+                    db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                )
 
-                    if target_name and target_name in db_commands:
-                        cmd = db_commands[target_name]
-                        if update_param_types(cmd.get("params", []), macro):
-                            types_updated += 1
+                if target_name and target_name in db_commands:
+                    cmd = db_commands[target_name]
+                    if update_param_types(cmd.get("params", []), macro):
+                        types_updated += 1
 
-                if types_updated > 0:
-                    print(f"  Updated types for {types_updated} commands")
-                    has_changes = True
-                    write_db_if_changed(db_path, db)
+            if types_updated > 0:
+                print(f"  Updated types for {types_updated} commands")
+                has_changes = True
+                write_db_if_changed(db_path, db)
 
             # Update parameter names from decomp macro definitions
-            if update:
-                print("  Checking parameter names...")
-                names_updated = 0
-                db_commands = db.get("commands", {})
-                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
-                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
+            print("  Checking parameter names...")
+            names_updated = 0
+            db_commands = db.get("commands", {})
+            db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+            db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
 
-                for name, macro in decomp_macros.items():
-                    if (
-                        macro.is_wrapper
-                        or macro.is_conditional
-                        or len(macro.opcodes) > 1
-                    ):
-                        continue
-                    if not macro.opcodes:
-                        continue
+            for name, macro in decomp_macros.items():
+                if macro.is_wrapper or macro.is_conditional or len(macro.opcodes) > 1:
+                    continue
+                if not macro.opcodes:
+                    continue
 
-                    target_name, _match_mode = resolve_command_name_from_maps(
-                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
-                    )
+                target_name, _match_mode = resolve_command_name_from_maps(
+                    db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                )
 
-                    if target_name and target_name in db_commands:
-                        cmd = db_commands[target_name]
-                        if update_param_names(cmd.get("params", []), macro):
-                            names_updated += 1
+                if target_name and target_name in db_commands:
+                    cmd = db_commands[target_name]
+                    if update_param_names(cmd.get("params", []), macro):
+                        names_updated += 1
 
-                if names_updated > 0:
-                    print(f"  Updated names for {names_updated} commands")
-                    has_changes = True
-                    write_db_if_changed(db_path, db)
+            if names_updated > 0:
+                print(f"  Updated names for {names_updated} commands")
+                has_changes = True
+                write_db_if_changed(db_path, db)
 
             # Update descriptions from decomp comment blocks
-            if update:
-                print("  Checking descriptions...")
-                descriptions_updated = 0
-                db_commands = db.get("commands", {})
-                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
-                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
+            print("  Checking descriptions...")
+            descriptions_updated = 0
+            db_commands = db.get("commands", {})
+            db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+            db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
 
-                for name, macro in decomp_macros.items():
-                    if (
-                        macro.is_wrapper
-                        or macro.is_conditional
-                        or len(macro.opcodes) > 1
-                        or not macro.description
-                    ):
-                        continue
-                    if not macro.opcodes:
-                        continue
+            for name, macro in decomp_macros.items():
+                if (
+                    macro.is_wrapper
+                    or macro.is_conditional
+                    or len(macro.opcodes) > 1
+                    or not macro.description
+                ):
+                    continue
+                if not macro.opcodes:
+                    continue
 
-                    target_name, _match_mode = resolve_command_name_from_maps(
-                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
-                    )
+                target_name, _match_mode = resolve_command_name_from_maps(
+                    db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                )
 
-                    if target_name and target_name in db_commands:
-                        cmd = db_commands[target_name]
-                        if update_description_from_decomp(cmd, macro):
-                            descriptions_updated += 1
+                if target_name and target_name in db_commands:
+                    cmd = db_commands[target_name]
+                    if update_description_from_decomp(cmd, macro):
+                        descriptions_updated += 1
 
-                if descriptions_updated > 0:
-                    print(f"  Updated descriptions for {descriptions_updated} commands")
-                    has_changes = True
-                    write_db_if_changed(db_path, db)
+            if descriptions_updated > 0:
+                print(f"  Updated descriptions for {descriptions_updated} commands")
+                has_changes = True
+                write_db_if_changed(db_path, db)
 
             # Update inferred param defaults (VAR_RESULT for destVar params)
-            if update:
-                print("  Checking inferred param defaults...")
-                inferred_defaults_updated = 0
-                db_commands = db.get("commands", {})
-                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
-                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
+            print("  Checking inferred param defaults...")
+            inferred_defaults_updated = 0
+            db_commands = db.get("commands", {})
+            db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+            db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
 
-                for name, macro in decomp_macros.items():
-                    if (
-                        macro.is_wrapper
-                        or macro.is_conditional
-                        or len(macro.opcodes) > 1
+            for name, macro in decomp_macros.items():
+                if macro.is_wrapper or macro.is_conditional or len(macro.opcodes) > 1:
+                    continue
+                if not macro.opcodes:
+                    continue
+
+                target_name, _match_mode = resolve_command_name_from_maps(
+                    db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                )
+
+                if target_name and target_name in db_commands:
+                    cmd = db_commands[target_name]
+                    if update_inferred_param_defaults(
+                        cmd.get("params", []), macro, target_name
                     ):
-                        continue
-                    if not macro.opcodes:
-                        continue
+                        inferred_defaults_updated += 1
 
-                    target_name, _match_mode = resolve_command_name_from_maps(
-                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
-                    )
-
-                    if target_name and target_name in db_commands:
-                        cmd = db_commands[target_name]
-                        if update_inferred_param_defaults(
-                            cmd.get("params", []), macro, target_name
-                        ):
-                            inferred_defaults_updated += 1
-
-                if inferred_defaults_updated > 0:
-                    print(
-                        f"  Updated inferred defaults for {inferred_defaults_updated} commands"
-                    )
-                    has_changes = True
-                    write_db_if_changed(db_path, db)
+            if inferred_defaults_updated > 0:
+                print(
+                    f"  Updated inferred defaults for {inferred_defaults_updated} commands"
+                )
+                has_changes = True
+                write_db_if_changed(db_path, db)
 
             # Update params with hardcoded defaults (for unused params like `.short 0`)
-            if update:
-                print("  Checking for hardcoded/unused params...")
-                unused_params_updated = 0
-                db_commands = db.get("commands", {})
-                db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
-                db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
+            print("  Checking for hardcoded/unused params...")
+            unused_params_updated = 0
+            db_commands = db.get("commands", {})
+            db_name_to_id = build_name_to_id_map(db_commands, "script_cmd")
+            db_id_to_name = build_id_to_name_map(db_commands, "script_cmd")
 
-                for name, macro in decomp_macros.items():
-                    if (
-                        macro.is_wrapper
-                        or macro.is_conditional
-                        or len(macro.opcodes) > 1
-                    ):
-                        continue
-                    if not macro.opcodes or not macro.all_emitted_values:
-                        continue
+            for name, macro in decomp_macros.items():
+                if macro.is_wrapper or macro.is_conditional or len(macro.opcodes) > 1:
+                    continue
+                if not macro.opcodes or not macro.all_emitted_values:
+                    continue
 
-                    has_hardcoded = any(
-                        v.get("is_literal") for v in macro.all_emitted_values
-                    )
-                    emitted_names = [
-                        v.get("name")
-                        for v in macro.all_emitted_values
-                        if not v.get("is_literal")
-                    ]
-                    has_duplicates = len(emitted_names) != len(set(emitted_names))
+                has_hardcoded = any(
+                    v.get("is_literal") for v in macro.all_emitted_values
+                )
+                emitted_names = [
+                    v.get("name")
+                    for v in macro.all_emitted_values
+                    if not v.get("is_literal")
+                ]
+                has_duplicates = len(emitted_names) != len(set(emitted_names))
 
-                    if not has_hardcoded and not has_duplicates:
-                        continue
+                if not has_hardcoded and not has_duplicates:
+                    continue
 
-                    target_name, _match_mode = resolve_command_name_from_maps(
-                        db_id_to_name, db_name_to_id, macro.opcodes[0], name
-                    )
+                target_name, _match_mode = resolve_command_name_from_maps(
+                    db_id_to_name, db_name_to_id, macro.opcodes[0], name
+                )
 
-                    if target_name and target_name in db_commands:
-                        cmd = db_commands[target_name]
-                        db_params = cmd.get("params", [])
-                        decomp_params = macro.all_emitted_values
+                if target_name and target_name in db_commands:
+                    cmd = db_commands[target_name]
+                    db_params = cmd.get("params", [])
+                    decomp_params = macro.all_emitted_values
 
-                        # Check if DB has correct number of params with defaults
-                        if len(decomp_params) == len(db_params):
-                            seen_param_names: dict[str, int] = {}
-                            changed = False
-                            for i, decomp_p in enumerate(decomp_params):
-                                db_name = db_params[i].get("name", "")
-                                decomp_name = decomp_p.get("name", "")
+                    # Check if DB has correct number of params with defaults
+                    if len(decomp_params) == len(db_params):
+                        seen_param_names: dict[str, int] = {}
+                        changed = False
+                        for i, decomp_p in enumerate(decomp_params):
+                            db_name = db_params[i].get("name", "")
+                            decomp_name = decomp_p.get("name", "")
 
-                                if (
-                                    decomp_name
-                                    and not decomp_p.get("is_literal")
-                                    and decomp_name in seen_param_names
-                                ):
-                                    first_idx = seen_param_names[decomp_name]
-                                    first_param_name = db_params[first_idx].get(
-                                        "name", decomp_name
-                                    )
-                                    db_params[i]["default"] = f"${first_param_name}"
+                            if (
+                                decomp_name
+                                and not decomp_p.get("is_literal")
+                                and decomp_name in seen_param_names
+                            ):
+                                first_idx = seen_param_names[decomp_name]
+                                first_param_name = db_params[first_idx].get(
+                                    "name", decomp_name
+                                )
+                                db_params[i]["default"] = f"${first_param_name}"
+                                changed = True
+                            elif decomp_name and not decomp_p.get("is_literal"):
+                                seen_param_names[decomp_name] = i
+
+                            if (
+                                decomp_p.get("is_literal")
+                                and decomp_p.get("default") is not None
+                            ):
+                                if db_params[i].get("default") != decomp_p["default"]:
+                                    db_params[i]["default"] = decomp_p["default"]
                                     changed = True
-                                elif decomp_name and not decomp_p.get("is_literal"):
-                                    seen_param_names[decomp_name] = i
+                        if changed:
+                            unused_params_updated += 1
+                    elif len(decomp_params) > len(db_params):
+                        # DB is missing some params - this shouldn't happen normally
+                        # but could occur if DB was manually truncated
+                        pass
 
-                                if (
-                                    decomp_p.get("is_literal")
-                                    and decomp_p.get("default") is not None
-                                ):
-                                    if (
-                                        db_params[i].get("default")
-                                        != decomp_p["default"]
-                                    ):
-                                        db_params[i]["default"] = decomp_p["default"]
-                                        changed = True
-                            if changed:
-                                unused_params_updated += 1
-                        elif len(decomp_params) > len(db_params):
-                            # DB is missing some params - this shouldn't happen normally
-                            # but could occur if DB was manually truncated
-                            pass
+            if unused_params_updated > 0:
+                print(
+                    f"  Updated {unused_params_updated} commands with hardcoded param defaults"
+                )
+                has_changes = True
+                write_db_if_changed(db_path, db)
 
-                if unused_params_updated > 0:
-                    print(
-                        f"  Updated {unused_params_updated} commands with hardcoded param defaults"
-                    )
-                    has_changes = True
-                    write_db_if_changed(db_path, db)
-
-            if update:
-                print("  Checking custom call shapes...")
-                call_shapes_updated = sync_custom_call_shape_variants(db, decomp_macros)
-                if call_shapes_updated > 0:
-                    print(
-                        f"  Added custom call shapes for {call_shapes_updated} commands"
-                    )
-                    has_changes = True
-                    write_db_if_changed(db_path, db)
+            print("  Checking custom call shapes...")
+            call_shapes_updated = sync_custom_call_shape_variants(db, decomp_macros)
+            if call_shapes_updated > 0:
+                print(f"  Added custom call shapes for {call_shapes_updated} commands")
+                has_changes = True
+                write_db_if_changed(db_path, db)
 
             if wrappers and verbose:
                 print(f"  Wrapper macros found: {len(wrappers)}")
@@ -3626,51 +3594,52 @@ def sync_database(db_path: str, update: bool = False, verbose: bool = False) -> 
                 print(f"  Movement mismatches: {len(mismatched)}")
                 has_changes = True
 
-            # Apply updates if requested
-            if update and (missing or mismatched):
+            if missing or mismatched:
                 print("  Applying movement updates...")
                 count = update_db_from_sync(db, missing, mismatched, "movement")
                 if count > 0:
                     print(f"  Applied {count} changes to movements")
                     write_db_if_changed(db_path, db)
 
-            # Update movement params if requested
-            if update:
-                print("  Checking movement params...")
-                params_updated = 0
-                db_commands = db.get("commands", {})
-                db_name_to_id = build_name_to_id_map(db_commands, "movement")
-                db_id_to_name = build_id_to_name_map(db_commands, "movement")
+            print("  Checking movement params...")
+            params_updated = 0
+            db_commands = db.get("commands", {})
+            db_name_to_id = build_name_to_id_map(db_commands, "movement")
+            db_id_to_name = build_id_to_name_map(db_commands, "movement")
 
-                for name, (opcode, move_params) in decomp_moves.items():
-                    target_name, _match_mode = resolve_command_name_from_maps(
-                        db_id_to_name, db_name_to_id, opcode, name
+            for name, (opcode, move_params) in decomp_moves.items():
+                target_name, _match_mode = resolve_command_name_from_maps(
+                    db_id_to_name, db_name_to_id, opcode, name
+                )
+                if not target_name or target_name not in db_commands:
+                    continue
+
+                cmd = db_commands[target_name]
+                # Build expected params list from decomp
+                decomp_param_list = []
+                for p in move_params:
+                    decomp_param_list.append(
+                        {
+                            "name": p.name,
+                            "type": infer_param_type(p.name),
+                            **({"default": p.default} if p.default else {}),
+                        }
                     )
-                    if not target_name or target_name not in db_commands:
-                        continue
 
-                    cmd = db_commands[target_name]
-                    # Build expected params list from decomp
-                    decomp_param_list = []
-                    for p in move_params:
-                        decomp_param_list.append(
-                            {
-                                "name": p.name,
-                                "type": infer_param_type(p.name),
-                                **({"default": p.default} if p.default else {}),
-                            }
-                        )
+                # Compare with current params
+                current_params = cmd.get("params", [])
+                if current_params != decomp_param_list:
+                    cmd["params"] = decomp_param_list
+                    params_updated += 1
 
-                    # Compare with current params
-                    current_params = cmd.get("params", [])
-                    if current_params != decomp_param_list:
-                        cmd["params"] = decomp_param_list
-                        params_updated += 1
+            if params_updated > 0:
+                print(f"  Updated params for {params_updated} movements")
+                has_changes = True
+                write_db_if_changed(db_path, db)
 
-                if params_updated > 0:
-                    print(f"  Updated params for {params_updated} movements")
-                    has_changes = True
-                    write_db_if_changed(db_path, db)
+    if sync_flags_vars(db, sources, version, fetch_url):
+        has_changes = True
+        write_db_if_changed(db_path, db)
 
     if not has_changes:
         print("  ✓ Database is in sync with decomp")
@@ -3803,7 +3772,7 @@ def import_decomp_data(db_path: Path, verbose: bool = False) -> bool:
         return False
 
     before = db_path.read_text(encoding="utf-8")
-    sync_database(str(db_path), update=True, verbose=verbose)
+    sync_database(str(db_path), verbose=verbose)
     inject_macros_into_db(str(db_path), verbose=verbose)
     after = db_path.read_text(encoding="utf-8")
     return before != after

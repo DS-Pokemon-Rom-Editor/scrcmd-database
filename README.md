@@ -25,6 +25,7 @@ The database contains several categories of data:
 
 - **Macros** - Convenience wrappers that expand to multiple commands
 - **Sounds** - Sound effect ID mappings
+- **Flags / Vars** - Script flag and variable symbols (name → id), synced from decomp
 - **Comparison Operators** - Conditional comparison constants
 - **Special Overworlds** - Reserved overworld sprite IDs
 
@@ -85,6 +86,12 @@ The v2 format unifies all command types into a single `commands` dictionary:
     }
   },
   "sounds": { ... },
+  "flags": {
+    "FLAG_HIDE_RIVAL": { "id": 1234 }
+  },
+  "vars": {
+    "VARS_START": { "id": 16384 }
+  }
 }
 ```
 
@@ -166,8 +173,8 @@ python scripts/sync_from_decomp.py
 `*_scrcmd_database.json` source, including custom databases under `custom_databases/`.
 
 `sync_from_decomp.py` then enriches every v2 database with data from the supported
-decomp projects. Diamond/Pearl is skipped automatically because there is no configured
-decomp source yet.
+decomp projects (including `flags` / `vars` from `vars_flags.txt` or HGSS headers).
+Diamond/Pearl is skipped automatically because there is no configured decomp source yet.
 
 ### Dependencies
 
@@ -177,8 +184,12 @@ decomp:
 - `include/data/scripts/scrcmd.h` for `SCRCMD_*` command IDs
 - `generated/movement_actions.txt` for `MOVEMENT_ACTION_*` movement IDs
 
-Both tables are resolved by entry order, so no extra tooling or submodules are
-required to sync symbolic Platinum opcodes.
+Platinum flags/vars are parsed with the [`metang`](https://github.com/lhearachel/metang)
+submodule — initialize it before syncing:
+
+```bash
+git submodule update --init metang
+```
 
 ## Data Sources
 

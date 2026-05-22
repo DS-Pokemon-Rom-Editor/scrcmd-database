@@ -327,6 +327,8 @@ def build_migrated_output(old_path: str, old_data: dict) -> dict:
         },
         "commands": new_commands,
         "sounds": sounds,
+        "flags": {},
+        "vars": {},
         "overworld_directions": overworld_directions,
         "special_overworlds": special_overworlds,
     }
