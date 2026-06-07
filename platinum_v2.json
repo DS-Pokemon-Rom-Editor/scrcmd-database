@@ -7104,7 +7104,7 @@
         }
       ]
     },
-    "ScrCmd_203": {
+    "WarpToColosseum": {
       "type": "script_cmd",
       "id": 515,
       "legacy_name": "BattleRoomWarp",
@@ -7190,15 +7190,16 @@
       "description": "Hides the window of a Pok\u00e9mon picture",
       "params": []
     },
-    "ScrCmd_20A": {
+    "StartVsSeeker": {
       "type": "script_cmd",
       "id": 522,
       "legacy_name": "CMD_522",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -8024,15 +8025,16 @@
         }
       ]
     },
-    "ScrCmd_239": {
+    "OpenBattleRegulationMenu": {
       "type": "script_cmd",
       "id": 569,
       "legacy_name": "ShowRulesList",
       "description": "???",
       "params": [
         {
-          "name": "variable",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -9612,27 +9614,29 @@
         }
       ]
     },
-    "ScrCmd_2A3": {
+    "CheckHasWiFiListValidLogin": {
       "type": "script_cmd",
       "id": 675,
       "legacy_name": "CMD_675",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
-    "ScrCmd_2A4": {
+    "GetWiFListValidFriendsCount": {
       "type": "script_cmd",
       "id": 676,
       "legacy_name": "CMD_676",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -11348,15 +11352,16 @@
         }
       ]
     },
-    "ScrCmd_31D": {
+    "TryRevertPartyPokemonForms": {
       "type": "script_cmd",
       "id": 797,
       "legacy_name": "CMD_797",
       "description": "nan",
       "params": [
         {
-          "name": "variable",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -11410,15 +11415,16 @@
       "description": "nan",
       "params": []
     },
-    "ScrCmd_323": {
+    "CheckNoWiFiPlazaCooldown": {
       "type": "script_cmd",
       "id": 803,
       "legacy_name": "CMD_803",
       "description": "nan",
       "params": [
         {
-          "name": "result",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -19025,6 +19031,9 @@
     },
     "FLAG_UNK_0x0071": {
       "id": 113
+    },
+    "FLAG_TALKED_TO_SCRATCH_OFF_CARDS_ATTENDANT": {
+      "id": 114
     },
     "FLAG_UNK_0x0072": {
       "id": 114
