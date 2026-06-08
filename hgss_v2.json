@@ -5,7 +5,7 @@
     "generated_from": "hgss_scrcmd_database.json"
   },
   "commands": {
-    "Nop": {
+    "Noop": {
       "type": "script_cmd",
       "id": 0,
       "legacy_name": "Nop",
