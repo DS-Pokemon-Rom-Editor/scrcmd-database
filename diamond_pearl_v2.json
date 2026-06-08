@@ -7043,7 +7043,7 @@
       "description": "Hides the window of a Pok\u00e9mon picture",
       "params": []
     },
-    "CMD_522": {
+    "StartVsSeeker": {
       "type": "script_cmd",
       "id": 522,
       "legacy_name": "CMD_522",
@@ -9414,7 +9414,7 @@
         }
       ]
     },
-    "CMD_675": {
+    "CheckHasWiFiListValidLogin": {
       "type": "script_cmd",
       "id": 675,
       "legacy_name": "CMD_675",
@@ -9426,7 +9426,7 @@
         }
       ]
     },
-    "CMD_676": {
+    "GetWiFListValidFriendsCount": {
       "type": "script_cmd",
       "id": 676,
       "legacy_name": "CMD_676",

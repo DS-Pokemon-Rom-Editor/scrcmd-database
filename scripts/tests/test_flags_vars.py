@@ -13,6 +13,7 @@ if SCRIPTS_DIR not in sys.path:
     sys.path.insert(0, SCRIPTS_DIR)
 
 from flags_vars import (
+    merge_symbol_section,
     parse_c_header_symbols,
     parse_hgss_flags_header,
     parse_hgss_vars_header,
@@ -116,6 +117,40 @@ class FlagsVarsTests(unittest.TestCase):
         self.assertEqual(list(flags.keys())[0], "FLAG_UNK_0x0000")
         self.assertEqual(flags["FLAG_UNK_0x0000"]["id"], 0)
         self.assertIn("VARS_START", vars_)
+
+
+class MergeSymbolSectionTests(unittest.TestCase):
+    def test_rename_replaces_unk_entry(self):
+        existing = {"VAR_UNK_0x4080": {"id": 16512}}
+        new = {"VAR_ENTERED_WIFI_PLAZA": {"id": 16512}}
+        result = merge_symbol_section(existing, new)
+        self.assertIn("VAR_ENTERED_WIFI_PLAZA", result)
+        self.assertNotIn("VAR_UNK_0x4080", result)
+
+    def test_rename_preserves_metadata(self):
+        existing = {"VAR_UNK_0x4080": {"id": 16512, "description": "some note"}}
+        new = {"VAR_ENTERED_WIFI_PLAZA": {"id": 16512}}
+        result = merge_symbol_section(existing, new)
+        self.assertEqual(result["VAR_ENTERED_WIFI_PLAZA"]["description"], "some note")
+
+    def test_rename_does_not_overwrite_existing_metadata(self):
+        existing = {"VAR_UNK_0x4080": {"id": 16512, "description": "old note"}}
+        new = {"VAR_ENTERED_WIFI_PLAZA": {"id": 16512, "description": "new note"}}
+        result = merge_symbol_section(existing, new)
+        self.assertEqual(result["VAR_ENTERED_WIFI_PLAZA"]["description"], "new note")
+
+    def test_db_only_entry_preserved(self):
+        existing = {"VAR_CUSTOM": {"id": 99999}}
+        new = {"VAR_OTHER": {"id": 16512}}
+        result = merge_symbol_section(existing, new)
+        self.assertIn("VAR_CUSTOM", result)
+        self.assertIn("VAR_OTHER", result)
+
+    def test_unchanged_name_preserves_metadata(self):
+        existing = {"VAR_KEPT": {"id": 100, "description": "kept note"}}
+        new = {"VAR_KEPT": {"id": 100}}
+        result = merge_symbol_section(existing, new)
+        self.assertEqual(result["VAR_KEPT"]["description"], "kept note")
 
 
 if __name__ == "__main__":

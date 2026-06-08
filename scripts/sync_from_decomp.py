@@ -60,6 +60,23 @@ SKIP_MACROS = {
 }
 
 
+# Param defaults to remove after decomp sync, keyed by game version then command name.
+# Each value is a set of parameter names whose "default" key should be deleted.
+#
+# Use this for cases where the decomp macro declares an optional parameter but every
+# actual script always supplies it explicitly in binary order, so making it required
+# is more correct for rotom's argument-reorder logic.
+DECOMP_PARAM_DEFAULT_REMOVALS: dict[str, dict[str, set[str]]] = {
+    "HeartGold/SoulSilver": {
+        # All 115 HGSS field scripts supply 'door' explicitly; the decomp default is
+        # never exercised.  Removing it makes the transpiler skip reordering for Warp
+        # (optional_indices becomes empty) so 5-arg binary-order calls pass through
+        # unchanged, which is what we want.
+        "Warp": {"door"},
+    },
+}
+
+
 @dataclass
 class MacroParam:
     """A macro parameter definition."""
@@ -1072,6 +1089,70 @@ def parse_ifnb_expansion_variants(
     return variants
 
 
+def _split_body_into_sequential_if_blocks(body: str) -> list[str]:
+    """
+    Split a macro body into sequential independent top-level if/else/endif groups.
+
+    Returns a list of body strings (one per top-level block) when the body has two
+    or more independent if/else chains at the same nesting level (like ItemVars).
+    Returns an empty list when there is only one block, no blocks, or when lines
+    exist outside all if blocks (which cannot be handled as a simple product).
+    """
+    groups: list[list[str]] = []
+    current_group: list[str] = []
+    nesting = 0
+    has_lines_outside = False
+
+    for line in body.split("\n"):
+        stripped = line.strip()
+        if not stripped or stripped.startswith((".macro", ".endm", ";", "/*", "@", "#")):
+            continue
+
+        if stripped.startswith(".if "):
+            nesting += 1
+            current_group.append(line)
+        elif stripped.startswith(".endif"):
+            current_group.append(line)
+            nesting -= 1
+            if nesting == 0:
+                groups.append(list(current_group))
+                current_group = []
+        elif nesting > 0:
+            current_group.append(line)
+        else:
+            has_lines_outside = True
+
+    if has_lines_outside or current_group or len(groups) < 2:
+        return []
+
+    return ["\n".join(g) for g in groups]
+
+
+def _cartesian_product_variants(groups: list[list[dict]]) -> list[dict]:
+    """
+    Compute the Cartesian product of multiple if/else variant groups.
+
+    Combines conditions with ' && ' (dropping any 'else' sub-conditions) and
+    concatenates expansions. The last combination is always labelled 'else'.
+    """
+    from itertools import product as itertools_product
+
+    all_combos = list(itertools_product(*groups))
+    result = []
+    for i, combo in enumerate(all_combos):
+        is_last = i == len(all_combos) - 1
+        if is_last:
+            condition = "else"
+        else:
+            non_else = [v["condition"] for v in combo if v["condition"] != "else"]
+            condition = " && ".join(non_else) if non_else else "else"
+        expansion: list[str] = []
+        for v in combo:
+            expansion.extend(v.get("expansion", []))
+        result.append({"condition": condition, "expansion": expansion})
+    return result
+
+
 def parse_if_else_macro_variants(
     body: str, params: list[MacroParam]
 ) -> list[dict] | None:
@@ -1081,6 +1162,10 @@ def parse_if_else_macro_variants(
     Also handles `.if ... .endif` blocks with no `.else`, preserving the base
     expansion as an implicit `else` branch when macro call lines exist outside
     the conditional block.
+
+    For macros with multiple sequential independent if/else chains (e.g. ItemVars),
+    computes the Cartesian product so every combination of branches is covered by
+    a single variant.
 
     Returns list of variants with condition and expansion, or None if not applicable.
 
@@ -1108,6 +1193,19 @@ def parse_if_else_macro_variants(
     has_short = any(line.strip().startswith(".short") for line in lines)
     if has_short:
         return None
+
+    # Handle macros with multiple sequential independent if/else chains (e.g. ItemVars).
+    sequential_groups = _split_body_into_sequential_if_blocks(body)
+    if sequential_groups:
+        group_variants_list: list[list[dict]] = []
+        for group_body in sequential_groups:
+            group_variants = parse_if_else_macro_variants(group_body, params)
+            if group_variants is None:
+                break
+            group_variants_list.append(group_variants)
+        else:
+            if len(group_variants_list) >= 2:
+                return _cartesian_product_variants(group_variants_list)
 
     variants = []
     base_expansion = []
@@ -2412,6 +2510,29 @@ def upsert_imported_macro(commands: dict, name: str, imported_entry: dict) -> st
     return "added"
 
 
+def apply_param_default_removals(db: dict, version: str) -> int:
+    """
+    Remove parameter defaults that conflict with actual decomp script usage.
+
+    Returns the number of parameters whose default was removed.
+    """
+    removals = DECOMP_PARAM_DEFAULT_REMOVALS.get(version, {})
+    if not removals:
+        return 0
+
+    commands = db.get("commands", {})
+    count = 0
+    for cmd_name, param_names in removals.items():
+        cmd = commands.get(cmd_name)
+        if not cmd:
+            continue
+        for param in cmd.get("params", []):
+            if param.get("name") in param_names and "default" in param:
+                del param["default"]
+                count += 1
+    return count
+
+
 def compare_macros_with_db(
     db: dict,
     decomp_macros: dict[str, ParsedMacro],
@@ -3301,6 +3422,10 @@ def sync_database(
                         )
 
             _sync_simple_script_cmd_metadata(db, decomp_macros)
+
+            removed = apply_param_default_removals(db, version)
+            if removed:
+                print(f"  Removed {removed} param default(s) via game-specific overrides")
 
     if "movement" in sources:
         print("  Fetching movement.inc...")

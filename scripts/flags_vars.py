@@ -125,16 +125,40 @@ def _db_section(symbols: dict[str, int]) -> dict[str, dict[str, int]]:
 def merge_symbol_section(
     existing: dict[str, dict], new: dict[str, dict[str, int]]
 ) -> dict[str, dict]:
-    """Merge decomp symbols; preserve non-``id`` fields; order keys by id."""
+    """Merge decomp symbols; preserve non-``id`` fields; order keys by id.
+
+    When a name disappears from the decomp but its id matches a new name, the
+    old entry is treated as a rename: any extra metadata (non-``id`` fields) is
+    migrated to the new name and the old name is dropped.  This handles the
+    common pattern of ``VAR_UNK_0x...`` / ``FLAG_UNK_0x...`` entries gaining
+    a proper name upstream without leaving stale duplicates in the database.
+    """
     merged: dict[str, dict] = {name: dict(entry) for name, entry in new.items()}
 
+    # Reverse map so we can detect renames by id.
+    id_to_new_name: dict[int, str] = {
+        int(entry["id"]): name
+        for name, entry in merged.items()
+        if "id" in entry
+    }
+
     for name, entry in existing.items():
-        if name not in merged:
+        if name in merged:
+            # Same name still present: carry over any extra metadata.
+            for key, value in entry.items():
+                if key != "id":
+                    merged[name][key] = value
+        elif "id" in entry and (entry_id := int(entry["id"])) in id_to_new_name:
+            # This name was removed from the decomp but its id still exists under
+            # a new name — it was renamed.  Transfer metadata to the new name
+            # without clobbering anything already set there.
+            new_name = id_to_new_name[entry_id]
+            for key, value in entry.items():
+                if key != "id" and key not in merged[new_name]:
+                    merged[new_name][key] = value
+        else:
+            # DB-only entry with no counterpart in the decomp: keep it.
             merged[name] = dict(entry)
-            continue
-        for key, value in entry.items():
-            if key != "id":
-                merged[name][key] = value
 
     by_id = {name: int(entry["id"]) for name, entry in merged.items() if "id" in entry}
     return {

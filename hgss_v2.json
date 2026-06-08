@@ -2450,8 +2450,7 @@
         },
         {
           "name": "door",
-          "type": "u16",
-          "default": "0"
+          "type": "u16"
         },
         {
           "name": "x",
@@ -13652,20 +13651,32 @@
       ],
       "variants": [
         {
-          "condition": "item < 0x4000",
-          "expansion": ["SetVar VAR_SPECIAL_x8004, $item"]
+          "condition": "item < 0x4000 && quantity < 0x4000",
+          "expansion": [
+            "SetVar VAR_SPECIAL_x8004, $item",
+            "SetVar VAR_SPECIAL_x8005, $quantity"
+          ]
         },
         {
-          "condition": "else",
-          "expansion": ["CopyVar VAR_SPECIAL_x8004, $item"]
+          "condition": "item < 0x4000",
+          "expansion": [
+            "SetVar VAR_SPECIAL_x8004, $item",
+            "CopyVar VAR_SPECIAL_x8005, $quantity"
+          ]
         },
         {
           "condition": "quantity < 0x4000",
-          "expansion": ["SetVar VAR_SPECIAL_x8005, $quantity"]
+          "expansion": [
+            "CopyVar VAR_SPECIAL_x8004, $item",
+            "SetVar VAR_SPECIAL_x8005, $quantity"
+          ]
         },
         {
           "condition": "else",
-          "expansion": ["CopyVar VAR_SPECIAL_x8005, $quantity"]
+          "expansion": [
+            "CopyVar VAR_SPECIAL_x8004, $item",
+            "CopyVar VAR_SPECIAL_x8005, $quantity"
+          ]
         }
       ]
     },

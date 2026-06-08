@@ -19035,9 +19035,6 @@
     "FLAG_TALKED_TO_SCRATCH_OFF_CARDS_ATTENDANT": {
       "id": 114
     },
-    "FLAG_UNK_0x0072": {
-      "id": 114
-    },
     "FLAG_DUMMY_0x0073": {
       "id": 115
     },
@@ -31277,7 +31274,7 @@
     "VAR_WIFI_PLAZA_RETURN_WARP_ID": {
       "id": 16476
     },
-    "VAR_UNK_0x405D": {
+    "VAR_WIFI_PLAZA_ATTENDANT_ID": {
       "id": 16477
     },
     "VAR_ROAMING_MOLTRES_STATE": {
@@ -31382,7 +31379,7 @@
     "VAR_SNOWPOINT_CITY_STATE": {
       "id": 16511
     },
-    "VAR_UNK_0x4080": {
+    "VAR_ENTERED_WIFI_PLAZA": {
       "id": 16512
     },
     "VAR_FIGHT_AREA_STATE": {
@@ -31634,10 +31631,10 @@
     "VAR_LAKE_ACUITY_STATE": {
       "id": 16595
     },
-    "VAR_UNK_0x40D4": {
+    "VAR_VISITED_POKEMON_CENTER_B1F": {
       "id": 16596
     },
-    "VAR_UNK_0x40D5": {
+    "VAR_COMMUNICATION_LOAD_ACTION": {
       "id": 16597
     },
     "VAR_GALACTIC_HQ_4F_STATE": {
