@@ -520,7 +520,7 @@
         {
           "name": "var_dest",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_SPECIAL_RESULT"
         }
       ]
     },
@@ -1956,7 +1956,7 @@
         {
           "name": "retvar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_SPECIAL_RESULT"
         }
       ]
     },
@@ -9843,7 +9843,8 @@
       "params": [
         {
           "name": "var_result",
-          "type": "var"
+          "type": "var",
+          "default": "VAR_SPECIAL_RESULT"
         }
       ]
     },
