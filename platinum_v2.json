@@ -1182,7 +1182,8 @@
       "params": [
         {
           "name": "unused",
-          "type": "u16"
+          "type": "u16",
+          "default": "0"
         }
       ],
       "notes": "Parameter is ignored because the game identifies what music is playing."
@@ -2225,7 +2226,8 @@
         },
         {
           "name": "successVar",
-          "type": "var"
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -2311,7 +2313,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "trainerID",
           "type": "u16"
         },
         {
@@ -2531,7 +2533,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "connectToWiFi",
           "type": "u16"
         },
         {
@@ -2699,7 +2701,8 @@
         },
         {
           "name": "door",
-          "type": "u16"
+          "type": "u16",
+          "default": "0"
         },
         {
           "name": "x",
@@ -2787,7 +2790,7 @@
       "description": "Sets weather to 0 (sunny) and then updates the weather graphics",
       "params": []
     },
-    "ScrCmd_0C5": {
+    "PlayHMCutIn": {
       "type": "script_cmd",
       "id": 197,
       "legacy_name": "CutAnimation",
@@ -3420,7 +3423,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "commType",
           "type": "flex"
         },
         {
@@ -3445,7 +3448,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "commType",
           "type": "flex"
         },
         {
@@ -3508,7 +3511,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "syncNo",
           "type": "u16"
         }
       ]
@@ -3520,7 +3523,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "syncState",
           "type": "u16"
         }
       ]
@@ -3532,19 +3535,19 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "contestRank",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "contestType",
           "type": "u16"
         },
         {
-          "name": "arg_2",
+          "name": "competitionType",
           "type": "u16"
         },
         {
-          "name": "arg_3",
+          "name": "partySlot",
           "type": "u16"
         }
       ]
@@ -3556,7 +3559,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "mapID",
           "type": "u16"
         }
       ]
@@ -3568,11 +3571,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "judgeID",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "idx",
           "type": "u16"
         }
       ]
@@ -3584,11 +3587,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "contestantEntryNum",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "idx",
           "type": "u16"
         }
       ]
@@ -3600,11 +3603,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "contestantEntryNum",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "idx",
           "type": "u16"
         }
       ]
@@ -3616,11 +3619,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "entryNum",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "strNumIdx",
           "type": "u16"
         }
       ]
@@ -3646,7 +3649,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "idx",
           "type": "u16"
         }
       ]
@@ -3658,7 +3661,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "idx",
           "type": "u16"
         }
       ]
@@ -3670,7 +3673,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "idx",
           "type": "u16"
         }
       ]
@@ -3682,7 +3685,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "destTrue",
           "type": "u16"
         }
       ]
@@ -3694,7 +3697,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "idx",
           "type": "u16"
         }
       ]
@@ -3706,7 +3709,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "destPlayerContestPlacement",
           "type": "u16"
         }
       ]
@@ -3718,7 +3721,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "destWinningContestantEntryNum",
           "type": "u16"
         }
       ]
@@ -3742,11 +3745,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "contestantEntryNum",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "destContestantObjEventGFX",
           "type": "u16"
         }
       ]
@@ -3758,11 +3761,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "contestantEntryNum",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "destMonContestFame",
           "type": "u16"
         }
       ]
@@ -3774,7 +3777,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "destContestMode",
           "type": "u16"
         }
       ]
@@ -3786,7 +3789,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "destHasRibbon",
           "type": "u16"
         }
       ]
@@ -3798,7 +3801,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "idx",
           "type": "u16"
         }
       ]
@@ -3810,7 +3813,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "destAccessoryID",
           "type": "u16"
         }
       ]
@@ -3822,19 +3825,19 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "contestRank",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "contestType",
           "type": "u16"
         },
         {
-          "name": "arg_2",
+          "name": "competitionType",
           "type": "u16"
         },
         {
-          "name": "arg_3",
+          "name": "monPartySlot",
           "type": "u16"
         }
       ]
@@ -3846,7 +3849,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "contestantEntryNum",
           "type": "u16"
         }
       ]
@@ -3879,7 +3882,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "destSkipAwardCeremony",
           "type": "u16"
         }
       ]
@@ -4228,7 +4231,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "word",
           "type": "u16"
         }
       ]
@@ -4386,7 +4389,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "msgType",
           "type": "u16"
         },
         {
@@ -4629,7 +4632,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "variant",
           "type": "var"
         },
         {
@@ -4646,7 +4649,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "appearance",
           "type": "u16"
         }
       ]
@@ -5357,7 +5360,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "result",
           "type": "u16"
         }
       ]
@@ -5408,19 +5411,19 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "partySlot",
           "type": "flex"
         },
         {
-          "name": "arg_1",
+          "name": "contestRank",
           "type": "flex"
         },
         {
-          "name": "arg_2",
+          "name": "contestType",
           "type": "flex"
         },
         {
-          "name": "arg_3",
+          "name": "useDefaultContestRank",
           "type": "flex"
         }
       ]
@@ -5432,11 +5435,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "partySlot",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "menuItemSelection",
           "type": "u16"
         }
       ]
@@ -5448,7 +5451,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "partySlot",
           "type": "u16"
         }
       ]
@@ -5460,7 +5463,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "partySlot",
           "type": "u16"
         }
       ]
@@ -5565,7 +5568,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "vendorType",
           "type": "u16"
         },
         {
@@ -5582,7 +5585,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "messageID",
           "type": "u16"
         }
       ]
@@ -5601,11 +5604,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "templateArg",
           "type": "u8"
         },
         {
-          "name": "arg_1",
+          "name": "treasureID",
           "type": "u16"
         }
       ]
@@ -5617,11 +5620,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "templateArg",
           "type": "u8"
         },
         {
-          "name": "arg_1",
+          "name": "trapID",
           "type": "u16"
         }
       ]
@@ -5649,7 +5652,7 @@
           "type": "var"
         },
         {
-          "name": "arg_1",
+          "name": "daycareSlot",
           "type": "u16"
         }
       ]
@@ -5661,7 +5664,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "dummy",
           "type": "u16"
         }
       ]
@@ -5706,7 +5709,7 @@
           "default": "VAR_RESULT"
         },
         {
-          "name": "arg_1",
+          "name": "daycareSlot",
           "type": "u16"
         }
       ]
@@ -5775,7 +5778,8 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "u16",
+          "default": "0"
         },
         {
           "name": "arg_1",
@@ -5795,7 +5799,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "partySlot",
           "type": "u16"
         }
       ]
@@ -5852,7 +5856,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "machineID",
           "type": "u16"
         }
       ]
@@ -6121,7 +6125,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "partySlot",
           "type": "u16"
         }
       ]
@@ -6232,19 +6236,23 @@
         },
         {
           "name": "eventParam",
-          "type": "flex"
+          "type": "flex",
+          "default": "0"
         },
         {
           "name": "unused",
-          "type": "flex"
+          "type": "flex",
+          "default": "0"
         },
         {
           "name": "unused",
-          "type": "flex"
+          "type": "flex",
+          "default": "0"
         },
         {
           "name": "unused",
-          "type": "flex"
+          "type": "flex",
+          "default": "0"
         }
       ]
     },
@@ -6255,7 +6263,7 @@
       "description": "nan",
       "params": []
     },
-    "Strength": {
+    "DoStrengthFunc": {
       "type": "script_cmd",
       "id": 463,
       "legacy_name": "Strength",
@@ -6297,7 +6305,7 @@
         }
       ]
     },
-    "Flash": {
+    "DoFlashFunc": {
       "type": "script_cmd",
       "id": 464,
       "legacy_name": "Flash",
@@ -6339,7 +6347,7 @@
         }
       ]
     },
-    "Defog": {
+    "DoDefogFunc": {
       "type": "script_cmd",
       "id": 465,
       "legacy_name": "Defog",
@@ -6388,11 +6396,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "accessoryID",
           "type": "flex"
         },
         {
-          "name": "arg_1",
+          "name": "amount",
           "type": "flex"
         }
       ]
@@ -6404,11 +6412,11 @@
       "description": "destVarID will be set to TRUE if the player has space for at least 'count' accessories of the specified type in their bag",
       "params": [
         {
-          "name": "arg_0",
+          "name": "accessory",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "count",
           "type": "u16"
         },
         {
@@ -6445,7 +6453,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "backdropID",
           "type": "flex"
         }
       ]
@@ -6457,7 +6465,7 @@
       "description": "destVarID will be set to TRUE if the player has the specified backdrop",
       "params": [
         {
-          "name": "arg_0",
+          "name": "backdrop",
           "type": "u16"
         },
         {
@@ -6824,7 +6832,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "slot",
           "type": "u16"
         }
       ]
@@ -7396,7 +7404,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "deadlineInDays",
           "type": "u16"
         }
       ]
@@ -7572,7 +7580,7 @@
           "default": "VAR_RESULT"
         },
         {
-          "name": "arg_1",
+          "name": "partySlot",
           "type": "u16"
         }
       ]
@@ -8276,7 +8284,8 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "u16",
+          "default": "0"
         },
         {
           "name": "arg_1",
@@ -8297,7 +8306,8 @@
       "params": [
         {
           "name": "arg_0",
-          "type": "u16"
+          "type": "u16",
+          "default": "0"
         },
         {
           "name": "arg_1",
@@ -8321,11 +8331,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "idx",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "customMessageWord",
           "type": "u16"
         }
       ]
@@ -8388,19 +8398,19 @@
           "default": "VAR_RESULT"
         },
         {
-          "name": "arg_1",
+          "name": "customMessageWord1",
           "type": "u16"
         },
         {
-          "name": "arg_2",
+          "name": "customMessageWord2",
           "type": "u16"
         },
         {
-          "name": "arg_3",
+          "name": "customMessageWord3",
           "type": "u16"
         },
         {
-          "name": "arg_4",
+          "name": "customMessageWord4",
           "type": "u16"
         }
       ]
@@ -8412,7 +8422,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "destFlagCount",
           "type": "u16"
         }
       ]
@@ -8424,7 +8434,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "tag",
           "type": "u8"
         }
       ]
@@ -8436,7 +8446,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "tag",
           "type": "u8"
         }
       ]
@@ -8448,7 +8458,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "tag",
           "type": "u8"
         }
       ]
@@ -8505,11 +8515,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "templateArg",
           "type": "u8"
         },
         {
-          "name": "arg_1",
+          "name": "boxSlotIndex",
           "type": "u16"
         }
       ]
@@ -8534,7 +8544,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "getClear",
           "type": "u16"
         }
       ]
@@ -8566,7 +8576,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "pointsCategory",
           "type": "u16"
         },
         {
@@ -8604,7 +8614,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "pokeballCount",
           "type": "flex"
         }
       ]
@@ -8659,7 +8669,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "scoreID",
           "type": "u16"
         }
       ]
@@ -8830,7 +8840,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "destAccessoryID",
           "type": "u16"
         }
       ]
@@ -9000,11 +9010,11 @@
       "description": "Unused",
       "params": [
         {
-          "name": "arg_0",
+          "name": "accessoryID",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "amount",
           "type": "u16"
         }
       ]
@@ -9039,18 +9049,19 @@
         }
       ]
     },
-    "ScrCmd_27D": {
+    "TryBufferAndUnlockRandomToughWord": {
       "type": "script_cmd",
       "id": 637,
       "legacy_name": "CMD_637",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         },
         {
-          "name": "arg_1",
+          "name": "index",
           "type": "u16"
         }
       ]
@@ -9068,15 +9079,16 @@
         }
       ]
     },
-    "ScrCmd_27F": {
+    "CheckAllToughWordsUnlocked": {
       "type": "script_cmd",
       "id": 639,
       "legacy_name": "CMD_639",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -9112,11 +9124,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "slot",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "contestType",
           "type": "u16"
         },
         {
@@ -9175,11 +9187,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "varPillarsSeen",
           "type": "var"
         },
         {
-          "name": "arg_1",
+          "name": "varRoomsVisited",
           "type": "var"
         }
       ]
@@ -9235,27 +9247,27 @@
           "default": "VAR_RESULT"
         },
         {
-          "name": "arg_1",
+          "name": "spiciness",
           "type": "u16"
         },
         {
-          "name": "arg_2",
+          "name": "dryness",
           "type": "u16"
         },
         {
-          "name": "arg_3",
+          "name": "sweetness",
           "type": "u16"
         },
         {
-          "name": "arg_4",
+          "name": "bitterness",
           "type": "u16"
         },
         {
-          "name": "arg_5",
+          "name": "sourness",
           "type": "u16"
         },
         {
-          "name": "arg_6",
+          "name": "smoothness",
           "type": "u16"
         }
       ]
@@ -9298,7 +9310,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "partySlot",
           "type": "u16"
         }
       ]
@@ -9317,7 +9329,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "unused",
           "type": "u16"
         }
       ]
@@ -9341,7 +9353,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "partySlot",
           "type": "u16"
         }
       ]
@@ -9353,11 +9365,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "selectedSlot",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "showSummary",
           "type": "u16"
         }
       ]
@@ -9369,7 +9381,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "percentChance",
           "type": "u8"
         },
         {
@@ -9399,11 +9411,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "tilemapLeft",
           "type": "u8"
         },
         {
-          "name": "arg_1",
+          "name": "tilemapTop",
           "type": "u8"
         }
       ]
@@ -9483,19 +9495,19 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "martID",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "prizeID",
           "type": "u16"
         },
         {
-          "name": "arg_2",
+          "name": "item",
           "type": "u16"
         },
         {
-          "name": "arg_3",
+          "name": "cost",
           "type": "u16"
         }
       ]
@@ -9507,7 +9519,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "variant",
           "type": "var"
         },
         {
@@ -9524,28 +9536,29 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "entryStringID",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "entryIndex",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_29E": {
+    "StartDestroyObstacleAnimation": {
       "type": "script_cmd",
       "id": 670,
       "legacy_name": "CMD_670",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "obstacle",
           "type": "flex"
         },
         {
-          "name": "???",
-          "type": "u16"
+          "name": "destVar",
+          "type": "var",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -9609,7 +9622,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "item",
           "type": "u16"
         }
       ]
@@ -9654,15 +9667,15 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "index",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "item",
           "type": "u16"
         },
         {
-          "name": "arg_2",
+          "name": "price",
           "type": "u16"
         }
       ]
@@ -9674,7 +9687,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "item",
           "type": "flex"
         },
         {
@@ -9707,7 +9720,7 @@
           "type": "var"
         },
         {
-          "name": "var_1",
+          "name": "valueVar",
           "type": "var"
         }
       ]
@@ -9724,19 +9737,19 @@
           "default": "VAR_RESULT"
         },
         {
-          "name": "arg_1",
+          "name": "customMessageWord1",
           "type": "u16"
         },
         {
-          "name": "arg_2",
+          "name": "customMessageWord2",
           "type": "u16"
         },
         {
-          "name": "arg_3",
+          "name": "customMessageWord3",
           "type": "u16"
         },
         {
-          "name": "arg_4",
+          "name": "customMessageWord4",
           "type": "u16"
         }
       ]
@@ -9864,15 +9877,15 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "mapId",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "x",
           "type": "u16"
         },
         {
-          "name": "arg_2",
+          "name": "z",
           "type": "u16"
         }
       ]
@@ -9884,7 +9897,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "localID",
           "type": "u16"
         },
         {
@@ -10002,7 +10015,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "messageID",
           "type": "u16"
         }
       ]
@@ -10701,11 +10714,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "templateArg",
           "type": "u8"
         },
         {
-          "name": "arg_1",
+          "name": "stat",
           "type": "u16"
         }
       ]
@@ -11093,11 +11106,11 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "x",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "z",
           "type": "u16"
         }
       ]
@@ -11403,7 +11416,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "eventIndex",
           "type": "u16"
         }
       ]
@@ -11505,7 +11518,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "form",
           "type": "u16"
         }
       ]
@@ -11656,7 +11669,7 @@
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "recordID",
           "type": "u16"
         },
         {
@@ -19551,7 +19564,7 @@
     "FLAG_CAUGHT_ARCEUS": {
       "id": 286
     },
-    "FLAG_OBTAINED_LUNAR_WING": {
+    "FLAG_MET_CRESSELIA": {
       "id": 287
     },
     "FLAG_CAUGHT_HEATRAN": {
@@ -19596,13 +19609,13 @@
     "FLAG_WROTE_ON_ROUTE_224_TABLET": {
       "id": 301
     },
-    "FLAG_GAME_CORNER_RECEIVED_20_COINS_OLD_MAN": {
+    "FLAG_RECEIVED_GAME_CORNER_20_COINS_OLD_MAN": {
       "id": 302
     },
-    "FLAG_GAME_CORNER_RECEIVED_50_COINS_FARMER": {
+    "FLAG_RECEIVED_GAME_CORNER_50_COINS_FARMER": {
       "id": 303
     },
-    "FLAG_GAME_CORNER_RECEIVED_TM64": {
+    "FLAG_RECEIVED_GAME_CORNER_TM64": {
       "id": 304
     },
     "FLAG_RECEIVED_HEARTHOME_CITY_NORTHWEST_HOUSE_EEVEE": {
@@ -19758,7 +19771,7 @@
     "FLAG_TALKED_TO_POKEMON_MANSION_OFFICE_OLD_MAN_NATIONAL_DEX": {
       "id": 356
     },
-    "FLAG_GAME_CORNER_SAVED_TM64": {
+    "FLAG_SAVED_GAME_CORNER_TM64": {
       "id": 357
     },
     "FLAG_STARTED_FIVE_MAID_KNOCKOUT_CHALLENGE": {
@@ -20211,7 +20224,7 @@
     "FLAG_HIDE_PASTORIA_CITY_CRASHER_WAKE": {
       "id": 507
     },
-    "FLAG_UNK_0x01FC": {
+    "FLAG_HIDE_ETERNA_FOREST_GARDENIA": {
       "id": 508
     },
     "FLAG_HIDE_ETERNA_CITY_GALACTIC_GRUNTS": {

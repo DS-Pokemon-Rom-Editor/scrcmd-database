@@ -8617,7 +8617,7 @@
       "description": "Stores 1 in Variable if Pok\u00e9mon (or its egg) is currently in the Pok\u00e9mon party, stores 0 otherwise",
       "params": [
         {
-          "name": "pokémon",
+          "name": "pok\u00e9mon",
           "type": "flex"
         },
         {
@@ -8968,7 +8968,7 @@
         }
       ]
     },
-    "CMD_637": {
+    "TryBufferAndUnlockRandomToughWord": {
       "type": "script_cmd",
       "id": 637,
       "legacy_name": "CMD_637",
@@ -8997,7 +8997,7 @@
         }
       ]
     },
-    "CMD_639": {
+    "CheckAllToughWordsUnlocked": {
       "type": "script_cmd",
       "id": 639,
       "legacy_name": "CMD_639",
@@ -9459,7 +9459,7 @@
         }
       ]
     },
-    "CMD_670": {
+    "StartDestroyObstacleAnimation": {
       "type": "script_cmd",
       "id": 670,
       "legacy_name": "CMD_670",

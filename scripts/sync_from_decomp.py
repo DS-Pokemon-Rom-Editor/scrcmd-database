@@ -1105,7 +1105,9 @@ def _split_body_into_sequential_if_blocks(body: str) -> list[str]:
 
     for line in body.split("\n"):
         stripped = line.strip()
-        if not stripped or stripped.startswith((".macro", ".endm", ";", "/*", "@", "#")):
+        if not stripped or stripped.startswith(
+            (".macro", ".endm", ";", "/*", "@", "#")
+        ):
             continue
 
         if stripped.startswith(".if "):
@@ -1717,6 +1719,7 @@ VAR_RESULT_PARAM_NAMES = frozenset(
         "destvar",
         "destvarid",
         "sucessvar",
+        "successvar",
         "var_dest",
         "retvar",
         "resultvar",
@@ -1761,6 +1764,7 @@ def infer_param_default(
     name: str,
     command_name: str | None = None,
     emitted_param_names: list[str] | None = None,
+    version: str | None = None,
 ) -> str | None:
     """Infer default value for a parameter based on its name.
 
@@ -1769,6 +1773,8 @@ def infer_param_default(
         command_name: Optional command/macro name to exclude certain commands
         emitted_param_names: Optional full emitted parameter list for context-sensitive
             inference when both destination and result vars are present
+        version: Game version string. When "HeartGold/SoulSilver", uses
+            VAR_SPECIAL_RESULT instead of VAR_RESULT.
     """
     if not name:
         return None
@@ -1790,7 +1796,7 @@ def infer_param_default(
     if has_dest_var and has_result_var and name_lower in VAR_RESULT_DEST_PARAM_NAMES:
         return None
 
-    return "VAR_RESULT"
+    return "VAR_SPECIAL_RESULT" if version == "HeartGold/SoulSilver" else "VAR_RESULT"
 
 
 def infer_param_type(name: str) -> str:
@@ -1817,7 +1823,6 @@ def infer_param_type(name: str) -> str:
         return "trainer_id"
 
     return "u16"
-
 
 
 def extract_macros_for_db(
@@ -1990,7 +1995,6 @@ def extract_macros_for_db(
             )
 
     return macros
-
 
 
 def inject_macros_into_db(db: dict, scrcmd_content: str) -> int:
@@ -2766,7 +2770,7 @@ def is_generic_param_name(name: str) -> bool:
     generic_exact = {"variable", "value", "arg", "flag", "param", "offset", "data"}
     if name_lower in generic_exact:
         return True
-    if re.match(r"^(arg|param|var)\d*$", name_lower):
+    if re.match(r"^(arg|param|var)(?:_?\d+)?$", name_lower):
         return True
     return False
 
@@ -2833,7 +2837,7 @@ def update_param_names(db_params: list, macro: ParsedMacro) -> bool:
 
 
 def update_inferred_param_defaults(
-    db_params: list, macro: ParsedMacro, command_name: str
+    db_params: list, macro: ParsedMacro, command_name: str, version: str | None = None
 ) -> bool:
     """
     Update database parameters with inferred default values (e.g., VAR_RESULT for destVar).
@@ -2882,7 +2886,7 @@ def update_inferred_param_defaults(
             continue
 
         inferred_default = infer_param_default(
-            emitted_name, command_name, macro.emitted_params
+            emitted_name, command_name, macro.emitted_params, version
         )
         current_default = db_params[i].get("default")
 
@@ -3165,11 +3169,7 @@ def update_db_from_sync(
 
 
 def _is_simple_sync_macro(macro: ParsedMacro) -> bool:
-    return (
-        not macro.is_wrapper
-        and not macro.is_conditional
-        and len(macro.opcodes) == 1
-    )
+    return not macro.is_wrapper and not macro.is_conditional and len(macro.opcodes) == 1
 
 
 def _iter_simple_script_cmd_targets(
@@ -3255,7 +3255,7 @@ def _update_hardcoded_param_defaults(
 
 
 def _sync_simple_script_cmd_metadata(
-    db: dict, decomp_macros: dict[str, ParsedMacro]
+    db: dict, decomp_macros: dict[str, ParsedMacro], version: str | None = None
 ) -> None:
     db_commands = db.get("commands", {})
     id_to_name = build_id_to_name_map(db_commands, "script_cmd")
@@ -3286,7 +3286,7 @@ def _sync_simple_script_cmd_metadata(
             "inferred defaults",
             False,
             lambda cmd, macro, target: update_inferred_param_defaults(
-                cmd.get("params", []), macro, target
+                cmd.get("params", []), macro, target, version
             ),
         ),
     ):
@@ -3313,7 +3313,6 @@ def _sync_simple_script_cmd_metadata(
     shapes = sync_custom_call_shape_variants(db, decomp_macros)
     if shapes:
         print(f"  Added custom call shapes for {shapes} commands")
-
 
 
 def sync_database(
@@ -3421,11 +3420,13 @@ def sync_database(
                             f"    Updated params for {target_name}: {len(new_params)} params"
                         )
 
-            _sync_simple_script_cmd_metadata(db, decomp_macros)
+            _sync_simple_script_cmd_metadata(db, decomp_macros, version)
 
             removed = apply_param_default_removals(db, version)
             if removed:
-                print(f"  Removed {removed} param default(s) via game-specific overrides")
+                print(
+                    f"  Removed {removed} param default(s) via game-specific overrides"
+                )
 
     if "movement" in sources:
         print("  Fetching movement.inc...")
@@ -3523,8 +3524,6 @@ def sync_database(
     sync_flags_vars(db, sources, version, fetch_url)
 
 
-
-
 def find_v2_database_paths() -> list[Path]:
     """Find every v2 database the importer should refresh."""
     repo_root = Path(__file__).resolve().parent.parent
@@ -3575,7 +3574,6 @@ def import_decomp_data(db_path: Path) -> bool:
 
     print("  ✓ Database is in sync with decomp")
     return False
-
 
 
 def main() -> int:

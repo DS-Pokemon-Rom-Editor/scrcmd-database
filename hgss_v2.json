@@ -2778,11 +2778,11 @@
       "description": "",
       "params": [
         {
-          "name": "arg_0",
+          "name": "slot",
           "type": "u8"
         },
         {
-          "name": "var_1",
+          "name": "trcls",
           "type": "u16"
         }
       ]
@@ -4426,15 +4426,15 @@
       "description": "",
       "params": [
         {
-          "name": "arg_0",
+          "name": "slot",
           "type": "u8"
         },
         {
-          "name": "arg_1",
+          "name": "item",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "quantity",
           "type": "u16"
         }
       ]
@@ -4446,11 +4446,11 @@
       "description": "",
       "params": [
         {
-          "name": "arg_0",
+          "name": "slot",
           "type": "u8"
         },
         {
-          "name": "var_1",
+          "name": "nature",
           "type": "u16"
         }
       ]
@@ -9294,15 +9294,15 @@
       "description": "",
       "params": [
         {
-          "name": "var_0",
+          "name": "party_slot",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "move_slot",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "move",
           "type": "u16"
         }
       ]
@@ -9348,19 +9348,19 @@
       "description": "",
       "params": [
         {
-          "name": "var_0",
+          "name": "mon_slot",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "iv_sum",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "best_stat",
           "type": "u16"
         },
         {
-          "name": "var_3",
+          "name": "best_iv",
           "type": "u16"
         }
       ]
