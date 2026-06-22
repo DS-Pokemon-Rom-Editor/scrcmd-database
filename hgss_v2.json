@@ -7922,27 +7922,28 @@
     "ScrCmd_555": {
       "type": "script_cmd",
       "id": 555,
-      "legacy_name": "CMD_555",
-      "description": "",
-      "params": [
-        {
-          "name": "arg_0",
-          "type": "u16"
-        }
-      ]
-    },
-    "ScrCmd_556": {
-      "type": "script_cmd",
-      "id": 556,
-      "legacy_name": "TakeBP",
-      "description": "Takes BP",
+      "legacy_name": "GiveBP",
+      "description": "Gives BP (Battle Points)",
       "params": [
         {
           "name": "bp_amount",
           "type": "u16"
         }
       ],
-      "notes": "Related to move tutor? Possibly BP price check?"
+      "notes": "Gives BP (Trainer House). Requires Special Currency overlay loading via OverlayManager."
+    },
+    "ScrCmd_556": {
+      "type": "script_cmd",
+      "id": 556,
+      "legacy_name": "TakeBP",
+      "description": "Takes BP (Battle Points)",
+      "params": [
+        {
+          "name": "bp_amount",
+          "type": "u16"
+        }
+      ],
+      "notes": "Takes BP. Requires Special Currency overlay loading via OverlayManager."
     },
     "CheckBattlePoints": {
       "type": "script_cmd",
