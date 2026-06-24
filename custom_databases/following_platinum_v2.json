@@ -9894,14 +9894,14 @@
         }
       ]
     },
-    "ScrCmd_2C4": {
+    "LaunchBattleFrontierScene": {
       "type": "script_cmd",
       "id": 708,
       "legacy_name": "CMD_708",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "sceneID",
           "type": "u8"
         }
       ]
@@ -18990,7 +18990,7 @@
     "FLAG_UNK_0x006D": {
       "id": 109
     },
-    "FLAG_UNK_0x006E": {
+    "FLAG_TALKED_TO_RIVAL_HOUSE_RIVAL_MOM_RIVAL_LEFT": {
       "id": 110
     },
     "FLAG_UNK_0x006F": {
@@ -19014,7 +19014,7 @@
     "FLAG_OBTAINED_ROARK_TM76": {
       "id": 117
     },
-    "FLAG_RECEIVED_ETERNA_CITY_CONDOMINIUMS_4F_TM04": {
+    "FLAG_RECEIVED_UNUSED_ETERNA_CITY_CONDOMINIUMS_4F_TM04": {
       "id": 118
     },
     "FLAG_USED_ROTOM_APPLIANCE": {
@@ -19032,13 +19032,13 @@
     "FLAG_USED_DEFOG_IN_ROUTE_209_LOST_TOWER_5F": {
       "id": 123
     },
-    "FLAG_RECEIVED_OREBURGH_CITY_NORTHWEST_HOUSE_3F_HARD_STONE": {
+    "FLAG_RECEIVED_UNUSED_OREBURGH_CITY_NORTHWEST_HOUSE_3F_HARD_STONE": {
       "id": 124
     },
     "FLAG_OBTAINED_FANTINA_TM65": {
       "id": 125
     },
-    "FLAG_OBTAINED_FOCUS_BAND": {
+    "FLAG_RECEIVED_UNUSED_JUBILIFE_CITY_CONDOMINIUMS_4F_FOCUS_BAND": {
       "id": 126
     },
     "FLAG_UNK_0x007F": {
@@ -19404,7 +19404,7 @@
     "FLAG_TALKED_TO_JULIA_SUNYSHORE_CITY_NORTHEAST_HOUSE": {
       "id": 247
     },
-    "FLAG_UNK_0x00F8": {
+    "FLAG_MOM_WARNED_PLAYER": {
       "id": 248
     },
     "FLAG_TALKED_TO_DR_FOOTSTEP": {
@@ -19539,7 +19539,7 @@
     "FLAG_TALKED_TO_CELESTIC_TOWN_CAVE_CYNTHIA": {
       "id": 292
     },
-    "FLAG_CAUGHT_MESPRIT": {
+    "FLAG_TALKED_TO_BATTLEGROUND_BUCK": {
       "id": 293
     },
     "FLAG_CAUGHT_AZELF": {
@@ -22647,7 +22647,7 @@
     "FLAG_OBTAINED_SURVIVAL_AREA_RARE_CANDY": {
       "id": 1329
     },
-    "FLAG_OBTAINED_VALOR_LAKEFRONT_IRN": {
+    "FLAG_OBTAINED_VALOR_LAKEFRONT_IRON": {
       "id": 1330
     },
     "FLAG_OBTAINED_ROUTE_211_EAST_CARBOS": {
