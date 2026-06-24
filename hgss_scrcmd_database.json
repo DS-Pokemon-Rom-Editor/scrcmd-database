@@ -5431,12 +5431,13 @@
       "description": ""
     },
     "0x022B": {
-      "name": "CMD_555",
+      "name": "GiveBP",
       "decomp_name": "scrcmd_555",
       "parameters": [2],
       "parameter_types": ["Flex"],
-      "parameter_values": [],
-      "description": ""
+      "parameter_values": ["u16: BP Amount"],
+      "description": "Gives BP (Battle Points)"
+      "notes": "Gives BP (Trainer House). Requires Special Currency overlay loading via OverlayManager."
     },
     "0x022C": {
       "name": "TakeBP",
@@ -5445,7 +5446,7 @@
       "parameter_types": ["Variable"],
       "parameter_values": ["u16: BP Amount"],
       "description": "Takes BP",
-      "notes": "Related to move tutor? Possibly BP price check?"
+      "notes": "Takes BP. Requires Special Currency overlay loading via OverlayManager."
     },
     "0x022D": {
       "name": "CheckBP",
