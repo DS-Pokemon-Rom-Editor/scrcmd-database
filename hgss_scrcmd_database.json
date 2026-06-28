@@ -5436,7 +5436,7 @@
       "parameters": [2],
       "parameter_types": ["Flex"],
       "parameter_values": ["u16: BP Amount"],
-      "description": "Gives BP (Battle Points)"
+      "description": "Gives BP (Battle Points)",
       "notes": "Gives BP (Trainer House). Requires Special Currency overlay loading via OverlayManager."
     },
     "0x022C": {
