@@ -2122,7 +2122,7 @@
     "ScrCmd_148": {
       "type": "script_cmd",
       "id": 148,
-      "legacy_name": "SetPhoneCallTrigger",
+      "legacy_name": "CMD_148",
       "description": "Queues event phone call Trigger (0-12). If Expedite is not 0, the call can ring after one more minute instead of the usual wait.",
       "params": [
         {
@@ -2139,8 +2139,8 @@
     "UnsetPhoneCallTrigger": {
       "type": "script_cmd",
       "id": 149,
-      "legacy_name": "UnsetPhoneCallTrigger",
-      "description": "Clears queued event phone call Trigger, using the same numbers as SetPhoneCallTrigger.",
+      "legacy_name": "CMD_149",
+      "description": "Clears queued event phone call Trigger, using the same numbers as command 0x0094.",
       "params": [
         {
           "name": "trigger",
@@ -6381,7 +6381,7 @@
     "GetPhoneContactMsgIds": {
       "type": "script_cmd",
       "id": 461,
-      "legacy_name": "GetPhoneContactMsgIds",
+      "legacy_name": "SetRebattleTrainerID",
       "description": "For the entry loaded by LoadPhoneDat, stores the contact's message archive and message number Line + 1. Line is 0-4; anything higher counts as 0.",
       "params": [
         {

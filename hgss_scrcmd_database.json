@@ -1902,7 +1902,7 @@
       "notes": "Example: Sabrina in Olivine Harbor (Script File 153, Script 7). Used frequently by Gym Leaders appearing in the overworld."
     },
     "0x0094": {
-      "name": "SetPhoneCallTrigger",
+      "name": "CMD_148",
       "decomp_name": "scrcmd_148",
       "parameters": [1, 1],
       "parameter_types": ["Integer", "Integer"],
@@ -1911,12 +1911,12 @@
       "notes": "0 = Elm: Togepi Egg hatched\n1 = Elm: Pokérus\n2 = Bike Shop: cycling steps\n3 = Bill: PC full\n4 = Oak: Pokédex progress\n5 = Day-Care Man: Egg waiting\n6-11 = Safari Zone Warden progress\n12 = Mom bought something"
     },
     "0x0095": {
-      "name": "UnsetPhoneCallTrigger",
+      "name": "CMD_149",
       "decomp_name": "scrcmd_149",
       "parameters": [1],
       "parameter_types": ["Integer"],
       "parameter_values": ["u8: Trigger"],
-      "description": "Clears queued event phone call Trigger, using the same numbers as SetPhoneCallTrigger."
+      "description": "Clears queued event phone call Trigger, using the same numbers as command 0x0094."
     },
     "0x0096": {
       "name": "ReturnScreen",
@@ -4545,7 +4545,7 @@
       "description": "Loads the first phone book entry for Trainer ID, for the phone commands that follow, and stores its phone number in Phone Number, or 255 if no entry has that trainer."
     },
     "0x01CD": {
-      "name": "GetPhoneContactMsgIds",
+      "name": "SetRebattleTrainerID",
       "decomp_name": "get_phone_contact_msg_ids",
       "parameters": [1, 2, 2],
       "parameter_types": ["Integer", "Variable", "Variable"],
