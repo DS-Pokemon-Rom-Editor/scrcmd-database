@@ -1856,7 +1856,7 @@
       "parameters": [2, 2],
       "parameter_types": ["Flex", "Variable"],
       "parameter_values": ["Flex: Phone Number", "Var: Variable"],
-      "description": "Stores 1 in Var if rematch is active, stores 0 otherwise.",
+      "description": "Stores in Variable the trainer ID the contact is waiting to rematch with, or 0 if no rematch is waiting. Kenji (contact 16) only returns a trainer during the day.",
       "notes": "Gets used when deciding when to let Gym Leaders appear in the overworld for a photo shoot after they are defeated in the Dojo, in the Dojo itself, etc."
     },
     "0x008F": {
@@ -1882,15 +1882,15 @@
       "parameters": [1],
       "parameter_types": ["Integer"],
       "parameter_values": ["u8: Module"],
-      "description": "Adds the worldmap to the Pokegear if Module is 1, adds the radio if Module is 2"
+      "description": "Adds the map to the Pokégear if Module is 1 and the radio if Module is 2. Any other value removes both, leaving only the phone."
     },
     "0x0092": {
       "name": "RecordPokegearNumber",
       "decomp_name": "register_gear_number",
       "parameters": [2],
       "parameter_types": ["Flex"],
-      "parameter_values": ["Flex: ???"],
-      "description": ""
+      "parameter_values": ["Flex: Phone Number"],
+      "description": "Adds Phone Number to the player's Pokégear. Numbers 75 and above are ignored, and a number already registered is left as it is."
     },
     "0x0093": {
       "name": "CheckPokegearNumberRegistered",
@@ -1906,16 +1906,17 @@
       "decomp_name": "scrcmd_148",
       "parameters": [1, 1],
       "parameter_types": ["Integer", "Integer"],
-      "parameter_values": [],
-      "description": ""
+      "parameter_values": ["u8: Trigger", "u8: Expedite"],
+      "description": "Queues event phone call Trigger (0-12). If Expedite is not 0, the call can ring after one more minute instead of the usual wait.",
+      "notes": "0 = Elm: Togepi Egg hatched\n1 = Elm: Pokérus\n2 = Bike Shop: cycling steps\n3 = Bill: PC full\n4 = Oak: Pokédex progress\n5 = Day-Care Man: Egg waiting\n6-11 = Safari Zone Warden progress\n12 = Mom bought something"
     },
     "0x0095": {
       "name": "CMD_149",
       "decomp_name": "scrcmd_149",
       "parameters": [1],
       "parameter_types": ["Integer"],
-      "parameter_values": [],
-      "description": ""
+      "parameter_values": ["u8: Trigger"],
+      "description": "Clears queued event phone call Trigger, using the same numbers as command 0x0094."
     },
     "0x0096": {
       "name": "ReturnScreen",
@@ -4294,9 +4295,10 @@
       "name": "PreparePokeGearCall",
       "decomp_name": "set_phone_call",
       "parameters": [2, 2, 2],
-      "parameter_types": ["Flex", "Variable", "Variable"],
-      "parameter_values": ["Var: Caller ID", "Var: ???", "Var: ??? *"],
-      "description": ""
+      "parameter_types": ["Flex", "Flex", "Flex"],
+      "parameter_values": ["Flex: Caller ID", "Flex: Call Kind", "Flex: Call Script"],
+      "description": "Sets up a phone call from Caller ID for RunPhoneCall. Scripts pass 2 as Call Kind. Call Script picks which of Prof. Elm's scripted calls plays (0-4); other callers ignore it. Only rings on maps that allow incoming calls.",
+      "notes": "The PhoneCall macro stores the three values in 0x8004-0x8006 and calls a standard script that runs SetPhoneCall and RunPhoneCall."
     },
     "0x01AF": {
       "name": "StartPokeGearCall",
@@ -4538,26 +4540,25 @@
       "name": "LoadPokegearData",
       "decomp_name": "load_phone_dat",
       "parameters": [2, 2],
-      "parameter_types": ["Variable", "Variable"],
-      "parameter_values": [],
-      "description": ""
+      "parameter_types": ["Flex", "Variable"],
+      "parameter_values": ["Flex: Trainer ID", "Var: Phone Number"],
+      "description": "Loads the first phone book entry for Trainer ID, for the phone commands that follow, and stores its phone number in Phone Number, or 255 if no entry has that trainer."
     },
     "0x01CD": {
       "name": "SetRebattleTrainerID",
       "decomp_name": "get_phone_contact_msg_ids",
       "parameters": [1, 2, 2],
       "parameter_types": ["Integer", "Variable", "Variable"],
-      "parameter_values": [],
-      "description": ""
+      "parameter_values": ["u8: Line", "Var: Message Archive", "Var: Message"],
+      "description": "For the entry loaded by LoadPhoneDat, stores the contact's message archive and message number Line + 1. Line is 0-4; anything higher counts as 0."
     },
     "0x01CE": {
       "name": "DisablePokegearRematch",
       "decomp_name": "scrcmd_462",
       "parameters": [2],
-      "parameter_types": ["Variable"],
+      "parameter_types": ["Flex"],
       "parameter_values": ["Flex: Phone Contact"],
-      "description": "The Trainer will no longer seek a rematch until the criteria for rematching them is fulfilled again",
-      "notes": "Phone Contact Names and Numbers"
+      "description": "Clears the rematch Phone Contact is waiting for, so GetPhoneBookRematch returns 0 until they offer another one."
     },
     "0x01CF": {
       "name": "EnableMassOutbreaks",
@@ -5938,16 +5939,16 @@
       "decomp_name": "get_phone_contact_random_gift_berry",
       "parameters": [2],
       "parameter_types": ["Variable"],
-      "parameter_values": [],
-      "description": ""
+      "parameter_values": ["Var: Item"],
+      "description": "Stores the rematch gift of the entry loaded by LoadPhoneDat. A Cheri Berry becomes a random berry from Cheri Berry to Sitrus Berry."
     },
     "0x0266": {
       "name": "GetPokegearContactGiftItem",
       "decomp_name": "get_phone_contact_gift_item",
       "parameters": [2],
       "parameter_types": ["Variable"],
-      "parameter_values": [],
-      "description": ""
+      "parameter_values": ["Var: Item"],
+      "description": "Stores the item the contact loaded by LoadPhoneDat promised in a phone call, or 0 if none, and clears it."
     },
     "0x0267": {
       "name": "TakePhoto",
@@ -7345,7 +7346,7 @@
       "name": "CheckCurrentRadioSong",
       "decomp_name": "radio_music_is_playing",
       "parameters": [2, 2],
-      "parameter_types": ["Variable", "Variable"],
+      "parameter_types": ["Flex", "Variable"],
       "parameter_values": ["Flex: Seq", "Var: Result"],
       "description": "Stores 1 in Result if the current Seq is playing from the Pokégear radio. Stores 0 otherwise.",
       "notes": "1 = SEQ_GS_RADIO_MARCH, SEQ_GS_P_RADIO_MARCH\n2 = SEQ_GS_RADIO_KOMORIUTA, SEQ_GS_P_RADIO_KOMORIUTA\n3 = SEQ_GS_RADIO_R_101\n4 = SEQ_GS_RADIO_R_201\n5 = SEQ_GS_HUE, SEQ_GS_P_HUE\n6 = SEQ_GS_RADIO_UNKNOWN"
@@ -7551,8 +7552,8 @@
       "decomp_name": "scrcmd_804",
       "parameters": [1],
       "parameter_types": ["Integer"],
-      "parameter_values": ["u8(?): Map Type"],
-      "description": "Updates the town map to include Kanto\n1 = Normal, Johto-only view\n2 = Whole map, Kanto included"
+      "parameter_values": ["u8: Unlock Level"],
+      "description": "Sets how much of the Pokégear map is unlocked.\n0 = Johto only\n1 = adds Routes 26-28, Victory Road and Indigo Plateau\n2 = adds the rest of Kanto"
     },
     "0x0325": {
       "name": "CMD_805",

@@ -2040,7 +2040,7 @@
       "type": "script_cmd",
       "id": 142,
       "legacy_name": "CheckPokeGearRematch",
-      "description": "Stores 1 in Var if rematch is active, stores 0 otherwise.",
+      "description": "Stores in Variable the trainer ID the contact is waiting to rematch with, or 0 if no rematch is waiting. Kenji (contact 16) only returns a trainer during the day.",
       "params": [
         {
           "name": "phone_number",
@@ -2082,7 +2082,7 @@
       "type": "script_cmd",
       "id": 145,
       "legacy_name": "UpgradePokegear",
-      "description": "Adds the worldmap to the Pokegear if Module is 1, adds the radio if Module is 2",
+      "description": "Adds the map to the Pok\u00e9gear if Module is 1 and the radio if Module is 2. Any other value removes both, leaving only the phone.",
       "params": [
         {
           "name": "module",
@@ -2094,10 +2094,10 @@
       "type": "script_cmd",
       "id": 146,
       "legacy_name": "RecordPokegearNumber",
-      "description": "",
+      "description": "Adds Phone Number to the player's Pok\u00e9gear. Numbers 75 and above are ignored, and a number already registered is left as it is.",
       "params": [
         {
-          "name": "???",
+          "name": "phone_number",
           "type": "u16"
         }
       ]
@@ -2123,26 +2123,27 @@
       "type": "script_cmd",
       "id": 148,
       "legacy_name": "CMD_148",
-      "description": "",
+      "description": "Queues event phone call Trigger (0-12). If Expedite is not 0, the call can ring after one more minute instead of the usual wait.",
       "params": [
         {
-          "name": "arg_0",
+          "name": "trigger",
           "type": "u8"
         },
         {
-          "name": "arg_1",
+          "name": "expedite",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "0 = Elm: Togepi Egg hatched\n1 = Elm: Pok\u00e9rus\n2 = Bike Shop: cycling steps\n3 = Bill: PC full\n4 = Oak: Pok\u00e9dex progress\n5 = Day-Care Man: Egg waiting\n6-11 = Safari Zone Warden progress\n12 = Mom bought something"
     },
     "UnsetPhoneCallTrigger": {
       "type": "script_cmd",
       "id": 149,
       "legacy_name": "CMD_149",
-      "description": "",
+      "description": "Clears queued event phone call Trigger, using the same numbers as command 0x0094.",
       "params": [
         {
-          "name": "arg_0",
+          "name": "trigger",
           "type": "u8"
         }
       ]
@@ -5932,21 +5933,22 @@
       "type": "script_cmd",
       "id": 430,
       "legacy_name": "PreparePokeGearCall",
-      "description": "",
+      "description": "Sets up a phone call from Caller ID for RunPhoneCall. Scripts pass 2 as Call Kind. Call Script picks which of Prof. Elm's scripted calls plays (0-4); other callers ignore it. Only rings on maps that allow incoming calls.",
       "params": [
         {
           "name": "caller_id",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "call_kind",
           "type": "u16"
         },
         {
-          "name": "???_*",
+          "name": "call_script",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "The PhoneCall macro stores the three values in 0x8004-0x8006 and calls a standard script that runs SetPhoneCall and RunPhoneCall."
     },
     "RunPhoneCall": {
       "type": "script_cmd",
@@ -6364,14 +6366,14 @@
       "type": "script_cmd",
       "id": 460,
       "legacy_name": "LoadPokegearData",
-      "description": "",
+      "description": "Loads the first phone book entry for Trainer ID, for the phone commands that follow, and stores its phone number in Phone Number, or 255 if no entry has that trainer.",
       "params": [
         {
-          "name": "var_0",
+          "name": "trainer_id",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "phone_number",
           "type": "u16"
         }
       ]
@@ -6380,18 +6382,18 @@
       "type": "script_cmd",
       "id": 461,
       "legacy_name": "SetRebattleTrainerID",
-      "description": "",
+      "description": "For the entry loaded by LoadPhoneDat, stores the contact's message archive and message number Line + 1. Line is 0-4; anything higher counts as 0.",
       "params": [
         {
-          "name": "arg_0",
+          "name": "line",
           "type": "u8"
         },
         {
-          "name": "var_1",
+          "name": "message_archive",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "message",
           "type": "u16"
         }
       ]
@@ -6400,14 +6402,13 @@
       "type": "script_cmd",
       "id": 462,
       "legacy_name": "DisablePokegearRematch",
-      "description": "The Trainer will no longer seek a rematch until the criteria for rematching them is fulfilled again",
+      "description": "Clears the rematch Phone Contact is waiting for, so GetPhoneBookRematch returns 0 until they offer another one.",
       "params": [
         {
           "name": "phone_contact",
           "type": "u16"
         }
-      ],
-      "notes": "Phone Contact Names and Numbers"
+      ]
     },
     "EnableMassOutbreaks": {
       "type": "script_cmd",
@@ -8686,10 +8687,10 @@
       "type": "script_cmd",
       "id": 613,
       "legacy_name": "GetPokegearContactRandomGiftBerry",
-      "description": "",
+      "description": "Stores the rematch gift of the entry loaded by LoadPhoneDat. A Cheri Berry becomes a random berry from Cheri Berry to Sitrus Berry.",
       "params": [
         {
-          "name": "result",
+          "name": "item",
           "type": "u16"
         }
       ]
@@ -8698,10 +8699,10 @@
       "type": "script_cmd",
       "id": 614,
       "legacy_name": "GetPokegearContactGiftItem",
-      "description": "",
+      "description": "Stores the item the contact loaded by LoadPhoneDat promised in a phone call, or 0 if none, and clears it.",
       "params": [
         {
-          "name": "result",
+          "name": "item",
           "type": "u16"
         }
       ]
@@ -11296,10 +11297,10 @@
       "type": "script_cmd",
       "id": 804,
       "legacy_name": "UpdateTownMap",
-      "description": "Updates the town map to include Kanto\n1 = Normal, Johto-only view\n2 = Whole map, Kanto included",
+      "description": "Sets how much of the Pok\u00e9gear map is unlocked.\n0 = Johto only\n1 = adds Routes 26-28, Victory Road and Indigo Plateau\n2 = adds the rest of Kanto",
       "params": [
         {
-          "name": "map_type",
+          "name": "unlock_level",
           "type": "u8"
         }
       ]
