@@ -2935,8 +2935,11 @@ def update_param_types(db_params: list, macro: ParsedMacro) -> bool:
         if "var" in emitted_name.lower():
             actual_type = "var"
 
-        # Preserve manually-set "flex" type
-        if current_type == "flex":
+        # Preserve manually-set flex types. A var is also compatible with a
+        # u16 directive because variable IDs use the same encoded width.
+        if current_type == "flex" or (
+            current_type == "var" and actual_type == "u16"
+        ):
             continue
 
         # Only update if types differ
@@ -3013,12 +3016,12 @@ def build_sync_param_list(
             )
             param_type = infer_param_type(param_name)
 
-        if (
-            existing_params
-            and i < len(existing_params)
-            and existing_params[i].get("type") == "flex"
-        ):
-            param_type = "flex"
+        if existing_params and i < len(existing_params):
+            existing_type = existing_params[i].get("type")
+            if existing_type == "flex" or (
+                existing_type == "var" and param_type == "u16"
+            ):
+                param_type = existing_type
 
         param = {"name": param_name, "type": param_type}
         if existing_params and i < len(existing_params) and "access" in existing_params[i]:

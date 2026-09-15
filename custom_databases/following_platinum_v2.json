@@ -4149,7 +4149,7 @@
         }
       ]
     },
-    "ScrCmd_131": {
+    "EnablePoketch": {
       "type": "script_cmd",
       "id": 305,
       "legacy_name": "GivePoketch",
@@ -6360,14 +6360,14 @@
         }
       ]
     },
-    "ScrCmd_1D7": {
+    "OpenPoffinCooking": {
       "type": "script_cmd",
       "id": 471,
       "legacy_name": "CMD_471",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "isInGroup",
           "type": "u16"
         }
       ]
@@ -6385,18 +6385,18 @@
         }
       ]
     },
-    "ScrCmd_1D9": {
+    "OpenBattleTowerRecordsApp": {
       "type": "script_cmd",
       "id": 473,
       "legacy_name": "CMD_473",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "isRankingsScreen",
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "resultsType",
           "type": "flex"
         }
       ]
@@ -9908,18 +9908,18 @@
         }
       ]
     },
-    "ScrCmd_2C5": {
+    "DeleteActiveBattleFactoryStreak": {
       "type": "script_cmd",
       "id": 709,
       "legacy_name": "CMD_709",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "challengeType",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "isOpenLevel",
           "type": "u16"
         }
       ]
@@ -10074,14 +10074,14 @@
         }
       ]
     },
-    "ScrCmd_2D2": {
+    "CallBattleCastleLobbyFunction": {
       "type": "script_cmd",
       "id": 722,
       "legacy_name": "CMD_722",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "action",
           "type": "u16"
         },
         {
@@ -10089,59 +10089,59 @@
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "result",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2D3": {
+    "CheckBattleCastlePartnerUsesDifferentSpecies": {
       "type": "script_cmd",
       "id": 723,
       "legacy_name": "CMD_723",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "species1",
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "species2",
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "result",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2D4": {
+    "GetBattleCastleSelectedSlots": {
       "type": "script_cmd",
       "id": 724,
       "legacy_name": "CMD_724",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "selectedSlot1",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "selectedSlot2",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "selectedSlot3",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2D5": {
+    "DeleteActiveBattleCastleStreak": {
       "type": "script_cmd",
       "id": 725,
       "legacy_name": "CMD_725",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "challengeType",
           "type": "flex"
         }
       ]
@@ -10178,14 +10178,14 @@
         }
       ]
     },
-    "ScrCmd_2D9": {
+    "CallBattleArcadeLobbyFunction": {
       "type": "script_cmd",
       "id": 729,
       "legacy_name": "CMD_729",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "action",
           "type": "u16"
         },
         {
@@ -10193,59 +10193,59 @@
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "result",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2DA": {
+    "CheckBattleArcadePartnerUsesDifferentSpecies": {
       "type": "script_cmd",
       "id": 730,
       "legacy_name": "CMD_730",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "species1",
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "species2",
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "result",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2DB": {
+    "GetBattleArcadeSelectedSlots": {
       "type": "script_cmd",
       "id": 731,
       "legacy_name": "CMD_731",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "selectedSlot1",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "selectedSlot2",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "selectedSlot3",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2DC": {
+    "DeleteActiveBattleArcadeStreak": {
       "type": "script_cmd",
       "id": 732,
       "legacy_name": "CMD_732",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "challengeType",
           "type": "flex"
         }
       ]
@@ -10341,21 +10341,21 @@
         }
       ]
     },
-    "ScrCmd_2E2": {
+    "OpenScratchOffCardsApp": {
       "type": "script_cmd",
       "id": 738,
       "legacy_name": "ScratchOffScreen",
       "description": "Loads and displays Scratch-off card interface.",
       "params": []
     },
-    "ScrCmd_2E3": {
+    "FreeScratchOffCardsArgs": {
       "type": "script_cmd",
       "id": 739,
       "legacy_name": "ReleaseScriptApp",
       "description": "Releases resources that were previously allocated by a script command that runs an app.",
       "params": []
     },
-    "ScrCmd_2E4": {
+    "GetScratchOffCardsWonItem": {
       "type": "script_cmd",
       "id": 740,
       "legacy_name": "CMD_740",

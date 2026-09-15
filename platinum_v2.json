@@ -496,7 +496,7 @@
       "description": "Checks if flag ID stored in Flag Var is set and stores the result in second Variable",
       "params": [
         {
-          "name": "flag_var",
+          "name": "flagID",
           "type": "var",
           "access": "read"
         },
@@ -1193,7 +1193,7 @@
       "type": "script_cmd",
       "id": 78,
       "legacy_name": "PlaySound",
-      "description": "Pauses the current background music and then plays a jingle",
+      "description": "Pauses the current music and then plays a sound effect",
       "params": [
         {
           "name": "sound",
@@ -1252,7 +1252,7 @@
           "type": "u16"
         }
       ],
-      "notes": "This command only stores the override; it does not start or fade music itself. Surfing and active PokéRadar music still take priority."
+      "notes": "This command only stores the override; it does not start or fade music itself. Surfing and active Pok\u00e9Radar music still take priority."
     },
     "FadeOutBGM": {
       "type": "script_cmd",
@@ -3850,7 +3850,7 @@
       "type": "script_cmd",
       "id": 254,
       "legacy_name": "CMD_254",
-      "description": "Buffers the nickname of the Pokémon belonging to the contestant identified by Contestant Entry Num into Text Slot Idx.",
+      "description": "Buffers the nickname of the Pok\u00e9mon belonging to the contestant identified by Contestant Entry Num into Text Slot Idx.",
       "params": [
         {
           "name": "contestantEntryNum",
@@ -4029,7 +4029,7 @@
       "type": "script_cmd",
       "id": 267,
       "legacy_name": "CMD_267",
-      "description": "Writes the Contestant Entry Num's Pokémon contest fame into Variable",
+      "description": "Writes the Contestant Entry Num's Pok\u00e9mon contest fame into Variable",
       "params": [
         {
           "name": "contestantEntryNum",
@@ -4103,7 +4103,7 @@
       "type": "script_cmd",
       "id": 272,
       "legacy_name": "CMD_272",
-      "description": "Writes the current contest's rank, contest type, competition type, and the player's contest Pokémon party slot to Variables.",
+      "description": "Writes the current contest's rank, contest type, competition type, and the player's contest Pok\u00e9mon party slot to Variables.",
       "params": [
         {
           "name": "contestRank",
@@ -4283,7 +4283,7 @@
       "type": "script_cmd",
       "id": 285,
       "legacy_name": "ElevatorBox",
-      "description": "Shows the current floor in a small window; destVar is used to initialize a FieldMenuManager, setting it to 0xEEEE, but is otherwise left without a meaningful value",
+      "description": "destVar is used to initialize a FieldMenuManager, setting it to 0xEEEE, but is otherwise left without a meaningful value",
       "params": [
         {
           "name": "x",
@@ -4551,7 +4551,7 @@
       ],
       "notes": "The title is an EasyChat sentence stored in the player's first saved dress-up photo (slot 0 of the ImageClips save block)."
     },
-    "ScrCmd_131": {
+    "EnablePoketch": {
       "type": "script_cmd",
       "id": 305,
       "legacy_name": "GivePoketch",
@@ -6975,7 +6975,7 @@
         }
       ]
     },
-    "ScrCmd_1D7": {
+    "OpenPoffinCooking": {
       "type": "script_cmd",
       "id": 471,
       "legacy_name": "CMD_471",
@@ -7001,7 +7001,7 @@
         }
       ]
     },
-    "ScrCmd_1D9": {
+    "OpenBattleTowerRecordsApp": {
       "type": "script_cmd",
       "id": 473,
       "legacy_name": "CMD_473",
@@ -7067,7 +7067,8 @@
         {
           "name": "destVar",
           "type": "var",
-          "access": "read_may_write"
+          "access": "read_may_write",
+          "default": "VAR_RESULT"
         }
       ]
     },
@@ -7310,7 +7311,7 @@
       "type": "script_cmd",
       "id": 492,
       "legacy_name": "CMD_492",
-      "description": "Randomly selects a new special Pokémon for the Trophy Garden, moving the current slot 1 Pokémon to slot 2.",
+      "description": "Randomly selects a new special Pok\u00e9mon for the Trophy Garden, moving the current slot 1 Pok\u00e9mon to slot 2.",
       "params": [],
       "notes": "Each call randomly picks a species from the 16-entry special-mon table, never repeating a species already on display; the choice is not tied to the day."
     },
@@ -7318,7 +7319,7 @@
       "type": "script_cmd",
       "id": 493,
       "legacy_name": "CMD_493",
-      "description": "Stores the species ID of the Pokémon currently in Trophy Garden slot 1 in Variable",
+      "description": "Stores the species ID of the Pok\u00e9mon currently in Trophy Garden slot 1 in Variable",
       "params": [
         {
           "name": "destVar",
@@ -7333,7 +7334,7 @@
       "type": "script_cmd",
       "id": 494,
       "legacy_name": "CMD_494",
-      "description": "Stores in Variable the held item of the party Pokémon in Slot",
+      "description": "Stores in Variable the held item of the party Pok\u00e9mon in Slot",
       "params": [
         {
           "name": "dest_var",
@@ -7365,7 +7366,7 @@
       "type": "script_cmd",
       "id": 496,
       "legacy_name": "CMD_496",
-      "description": "Removes the held item from the party Pokémon in Slot.",
+      "description": "Removes the held item from the party Pok\u00e9mon in Slot.",
       "params": [
         {
           "name": "slot",
@@ -10597,18 +10598,18 @@
         }
       ]
     },
-    "ScrCmd_2C5": {
+    "DeleteActiveBattleFactoryStreak": {
       "type": "script_cmd",
       "id": 709,
       "legacy_name": "CMD_709",
       "description": "nan",
       "params": [
         {
-          "name": "arg_0",
+          "name": "challengeType",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "isOpenLevel",
           "type": "u16"
         }
       ]
@@ -10763,14 +10764,14 @@
         }
       ]
     },
-    "ScrCmd_2D2": {
+    "CallBattleCastleLobbyFunction": {
       "type": "script_cmd",
       "id": 722,
       "legacy_name": "CMD_722",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "action",
           "type": "u16"
         },
         {
@@ -10778,59 +10779,59 @@
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "result",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2D3": {
+    "CheckBattleCastlePartnerUsesDifferentSpecies": {
       "type": "script_cmd",
       "id": 723,
       "legacy_name": "CMD_723",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "species1",
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "species2",
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "result",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2D4": {
+    "GetBattleCastleSelectedSlots": {
       "type": "script_cmd",
       "id": 724,
       "legacy_name": "CMD_724",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "selectedSlot1",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "selectedSlot2",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "selectedSlot3",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2D5": {
+    "DeleteActiveBattleCastleStreak": {
       "type": "script_cmd",
       "id": 725,
       "legacy_name": "CMD_725",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "challengeType",
           "type": "flex"
         }
       ]
@@ -10867,14 +10868,14 @@
         }
       ]
     },
-    "ScrCmd_2D9": {
+    "CallBattleArcadeLobbyFunction": {
       "type": "script_cmd",
       "id": 729,
       "legacy_name": "CMD_729",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "action",
           "type": "u16"
         },
         {
@@ -10882,59 +10883,59 @@
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "result",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2DA": {
+    "CheckBattleArcadePartnerUsesDifferentSpecies": {
       "type": "script_cmd",
       "id": 730,
       "legacy_name": "CMD_730",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "species1",
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "species2",
           "type": "flex"
         },
         {
-          "name": "???",
+          "name": "result",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2DB": {
+    "GetBattleArcadeSelectedSlots": {
       "type": "script_cmd",
       "id": 731,
       "legacy_name": "CMD_731",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "selectedSlot1",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "selectedSlot2",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "selectedSlot3",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_2DC": {
+    "DeleteActiveBattleArcadeStreak": {
       "type": "script_cmd",
       "id": 732,
       "legacy_name": "CMD_732",
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "challengeType",
           "type": "flex"
         }
       ]
@@ -11031,7 +11032,7 @@
         }
       ]
     },
-    "ScrCmd_2E2": {
+    "OpenScratchOffCardsApp": {
       "type": "script_cmd",
       "id": 738,
       "legacy_name": "ScratchOffScreen",
@@ -11039,7 +11040,7 @@
       "params": [],
       "notes": "This command allocates resources to open an app.\nSee: ReleaseScriptApp."
     },
-    "ScrCmd_2E3": {
+    "FreeScratchOffCardsArgs": {
       "type": "script_cmd",
       "id": 739,
       "legacy_name": "ReleaseScriptApp",
@@ -11047,7 +11048,7 @@
       "params": [],
       "notes": "Used after Scratch-off app."
     },
-    "ScrCmd_2E4": {
+    "GetScratchOffCardsWonItem": {
       "type": "script_cmd",
       "id": 740,
       "legacy_name": "CMD_740",

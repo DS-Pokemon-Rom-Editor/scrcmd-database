@@ -10,7 +10,12 @@ if SCRIPTS_DIR not in sys.path:
     sys.path.insert(0, SCRIPTS_DIR)
 
 from db_migration import build_migrated_output, parse_param_name_from_value
-from sync_from_decomp import build_sync_param_list
+from sync_from_decomp import (
+    MacroParam,
+    ParsedMacro,
+    build_sync_param_list,
+    update_param_types,
+)
 
 
 class FlexPreservationTests(unittest.TestCase):
@@ -129,8 +134,28 @@ class FlexPreservationTests(unittest.TestCase):
             synced,
             [
                 {"name": "renamed_source", "type": "flex", "access": "read"},
-                {"name": "renamed_dest", "type": "u16", "access": "must_write"},
+                {"name": "renamed_dest", "type": "var", "access": "must_write"},
             ],
+        )
+
+    def test_update_param_types_keeps_existing_var_for_u16_directive(self):
+        macro = ParsedMacro(
+            name="GetResult",
+            params=[MacroParam("arg0")],
+            opcodes=[1],
+            emitted_params=["arg0"],
+            body=".short 1\n.short \\arg0",
+        )
+        params = [
+            {"name": "result", "type": "var", "access": "must_write"},
+        ]
+
+        changed = update_param_types(params, macro)
+
+        self.assertFalse(changed)
+        self.assertEqual(
+            params,
+            [{"name": "result", "type": "var", "access": "must_write"}],
         )
 
     def test_build_sync_param_list_does_not_invent_flex_without_existing_override(self):

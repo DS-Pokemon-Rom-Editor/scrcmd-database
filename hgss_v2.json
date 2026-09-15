@@ -772,13 +772,13 @@
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "out",
           "type": "u16"
         }
       ],
       "notes": "Type values from 0 to 3 are: brown (with icon), green (with icon), gray and blue."
     },
-    "ScrCmd_055": {
+    "SetSignpostMap": {
       "type": "script_cmd",
       "id": 56,
       "legacy_name": "SetTextBoard",
@@ -795,7 +795,7 @@
       ],
       "notes": "Type values from 0 to 3 are: brown (with icon), green (with icon), gray and blue."
     },
-    "ScrCmd_057": {
+    "SetSignpostAction": {
       "type": "script_cmd",
       "id": 57,
       "legacy_name": "ShowBoard",
@@ -808,7 +808,7 @@
       ],
       "notes": "Process value 0 keeps the board, value 1 creates the board, value 2 hides the board, value 3 shows the board and value 4 deletes the board."
     },
-    "ScrCmd_058": {
+    "WaitSignpostAction": {
       "type": "script_cmd",
       "id": 58,
       "legacy_name": "WaitBoard",
@@ -827,19 +827,19 @@
           "type": "u8"
         },
         {
-          "name": "variable",
+          "name": "out",
           "type": "u16"
         }
       ]
     },
-    "ScrCmd_060": {
+    "WaitSignpost": {
       "type": "script_cmd",
       "id": 60,
       "legacy_name": "CloseBoard",
       "description": "Returns 1 to Variable if the player has pressed a button so the board must close, 0 otherwise",
       "params": [
         {
-          "name": "variable",
+          "name": "out",
           "type": "u16"
         }
       ],
@@ -10347,7 +10347,7 @@
         }
       ]
     },
-    "ScrCmd_726": {
+    "ProcessSoundplate": {
       "type": "script_cmd",
       "id": 726,
       "legacy_name": "CMD_726",
@@ -11137,7 +11137,7 @@
       ],
       "notes": "0 = Bug Catcher Don\n1 = Bug Catcher Ed\n2 = Ace Trainer Abby\n3 = Poke Fan William\n4 = Bug Catcher Benny\n5 = Camper Barry\n6 = Picnicker Cindy\n7 = Bug Catcher Josh\n8 = Youngster Samuel\n9 = School Boy Kipp"
     },
-    "ScrCmd_CheckSafariZoneChallengeCompleted": {
+    "CheckSafariZoneChallengeCompleted": {
       "type": "script_cmd",
       "id": 791,
       "legacy_name": "CMD_791",
@@ -11153,7 +11153,7 @@
         }
       ]
     },
-    "ScrCmd_UpdateSafariZoneIGT": {
+    "UpdateSafariZoneIGT": {
       "type": "script_cmd",
       "id": 792,
       "legacy_name": "CMD_792",
@@ -13899,6 +13899,50 @@
           "name": "arg0",
           "type": "u8"
         }
+      ]
+    },
+    "TrainerTipsEx": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "type",
+          "type": "u16"
+        },
+        {
+          "name": "message",
+          "type": "msg_id"
+        }
+      ],
+      "expansion": [
+        "SetSignpostMap $type, 0",
+        "SetSignpostAction MAPSIGNCOMMAND_WIPE_IN",
+        "WaitSignpostAction",
+        "TrainerTips $message, VAR_SPECIAL_RESULT",
+        "CallStd std_signpost"
+      ]
+    },
+    "DirectionSignpostEx": {
+      "type": "macro",
+      "params": [
+        {
+          "name": "type",
+          "type": "u16"
+        },
+        {
+          "name": "map",
+          "type": "map_id"
+        },
+        {
+          "name": "message",
+          "type": "msg_id"
+        }
+      ],
+      "expansion": [
+        "DirectionSignpost $message, $type, $map, VAR_SPECIAL_RESULT",
+        "SetSignpostAction MAPSIGNCOMMAND_WIPE_IN",
+        "WaitSignpostAction",
+        "WaitSignpost VAR_SPECIAL_RESULT",
+        "CallStd std_signpost"
       ]
     }
   },
