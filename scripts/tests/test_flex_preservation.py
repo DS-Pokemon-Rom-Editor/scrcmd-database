@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Regression tests for preserving Flex parameter types in migration and sync."""
+"""Regression tests for preserving local parameter metadata during database sync."""
 
 import os
 import sys
@@ -110,6 +110,26 @@ class FlexPreservationTests(unittest.TestCase):
             [
                 {"name": "trainer_id", "type": "flex"},
                 {"name": "value", "type": "u16"},
+            ],
+        )
+
+    def test_build_sync_param_list_keeps_access_by_encoded_position(self):
+        raw_params = [
+            {"name": "renamed_source", "type": "u16"},
+            {"name": "renamed_dest", "type": "u16"},
+        ]
+        existing_params = [
+            {"name": "source", "type": "flex", "access": "read"},
+            {"name": "dest", "type": "var", "access": "must_write"},
+        ]
+
+        synced = build_sync_param_list(raw_params, existing_params)
+
+        self.assertEqual(
+            synced,
+            [
+                {"name": "renamed_source", "type": "flex", "access": "read"},
+                {"name": "renamed_dest", "type": "u16", "access": "must_write"},
             ],
         )
 

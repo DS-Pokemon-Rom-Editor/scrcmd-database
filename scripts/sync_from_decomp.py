@@ -3000,7 +3000,7 @@ def sync_custom_call_shape_variants(
 def build_sync_param_list(
     raw_params: list, existing_params: list[dict] | None = None
 ) -> list[dict]:
-    """Convert sync item params into the v2 parameter representation."""
+    """Convert sync params to V2 form while retaining locally owned access metadata."""
     params = []
 
     for i, raw_param in enumerate(raw_params):
@@ -3020,7 +3020,10 @@ def build_sync_param_list(
         ):
             param_type = "flex"
 
-        params.append({"name": param_name, "type": param_type})
+        param = {"name": param_name, "type": param_type}
+        if existing_params and i < len(existing_params) and "access" in existing_params[i]:
+            param["access"] = existing_params[i]["access"]
+        params.append(param)
 
     return params
 
