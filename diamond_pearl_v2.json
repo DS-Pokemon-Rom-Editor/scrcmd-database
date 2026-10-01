@@ -7925,7 +7925,7 @@
       "params": [
         {
           "name": "mode",
-          "type": "u8"
+          "type": "u16"
         },
         {
           "name": "???",
