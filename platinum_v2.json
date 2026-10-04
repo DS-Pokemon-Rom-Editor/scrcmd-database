@@ -7412,34 +7412,41 @@
       "params": [
         {
           "name": "speciesVar",
-          "type": "var"
+          "type": "var",
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "item_id",
-          "type": "var"
+          "type": "flex",
+          "access": "read"
         }
-      ]
+      ],
+      "notes": "Stores 0 when Item ID is not one of the seven recognized fossil items."
     },
     "FindFossilAtThreshold": {
       "type": "script_cmd",
       "id": 501,
       "legacy_name": "CheckFossil",
-      "description": "Stores in Item ID the ID of the first fossil in the bag that the player has at least Amount quantity of, and stores in Position the amount of fossils in the bag before the first fossil, that met the quantity condition",
+      "description": "Finds the player’s Nth (thresholdValue) fossil (counting Old Amber, Helix, Dome, Root, Claw, Armor, Skull in that order), stores its item ID in itemVar and its position (0–6) in indexVar.",
       "params": [
         {
-          "name": "position",
-          "type": "var"
+          "name": "itemVar",
+          "type": "var",
+          "access": "must_write"
         },
         {
-          "name": "item_id",
-          "type": "var"
+          "name": "thresholdVar",
+          "type": "var",
+          "access": "must_write"
         },
         {
-          "name": "amount",
-          "type": "u16"
+          "name": "thresholdValue",
+          "type": "flex",
+          "access": "read"
         }
       ],
-      "notes": "Stores 0 in both variables if there's no fossil in the bag."
+      "notes": "Both itemVar and thresholdVar are set to 0 if the player has fewer than N fossils."
     },
     "CountPartyMonsBelowLevelThreshold": {
       "type": "script_cmd",
@@ -7450,11 +7457,13 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "level",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ],
       "notes": "Eggs are completely ignored."
@@ -7468,11 +7477,13 @@
         {
           "name": "destVarID",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "party_position",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -7491,7 +7502,8 @@
       "params": [
         {
           "name": "dummy",
-          "type": "u16"
+          "type": "flex",
+          "access": "none"
         }
       ]
     },
@@ -7503,11 +7515,13 @@
       "params": [
         {
           "name": "text_archive",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "text_slot",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -7519,11 +7533,13 @@
       "params": [
         {
           "name": "text_archive",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "text_slot",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -7531,7 +7547,7 @@
       "type": "script_cmd",
       "id": 508,
       "legacy_name": "CMD_508",
-      "description": "nan",
+      "description": "Displays an Easy Chat sentence built from Sentence Type, Sentence ID, and the two word arguments in the message box with instant text speed.",
       "params": [
         {
           "name": "sentenceType",
@@ -7549,13 +7565,14 @@
           "name": "word2",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "execution continues with the next command while the message box remains open"
     },
     "Sentence": {
       "type": "script_cmd",
       "id": 509,
       "legacy_name": "CMD_509",
-      "description": "nan",
+      "description": "Displays an Easy Chat sentence built from Sentence Type, Sentence ID, Word 1, and Word 2, and pauses until its text finishes printing.",
       "params": [
         {
           "name": "sentenceType",
@@ -7573,13 +7590,14 @@
           "name": "word2",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Sentence Type selects which sentence list Sentence ID indexes into: 0 pre-battle sentences, 1 win sentences, 2 loss sentences, 3 general sentences, or 4 union room sentences."
     },
     "PrintBattleTowerIntroMessage": {
       "type": "script_cmd",
       "id": 510,
       "legacy_name": "CMD_510",
-      "description": "nan",
+      "description": "Prints the intro message of the Battle Tower opponent selected by the Opponent ID and pauses the script until the text finishes printing.",
       "params": [
         {
           "name": "opponentID",
@@ -7594,20 +7612,21 @@
       "description": "nan",
       "params": [
         {
-          "name": "???",
+          "name": "banlist_message_start_index",
           "type": "u8"
         },
         {
-          "name": "variable",
-          "type": "var"
+          "name": "num_pokemon_required",
+          "type": "flex",
+          "access": "read"
         },
         {
-          "name": "???",
+          "name": "unused",
           "type": "u16",
           "default": "0"
         },
         {
-          "name": "???",
+          "name": "unused",
           "type": "u8",
           "default": "0"
         }
@@ -7622,7 +7641,8 @@
         {
           "name": "destVarID",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -7635,7 +7655,8 @@
         {
           "name": "destVarID",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -7649,13 +7670,14 @@
           "name": "activeState",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "Starting the Safari Game resets the saved Safari Ball count to 30 and the Safari step counter to 0; ending it sets both counters to 0. Ending it also records a Safari Game entry in the Journal and, when at least one Pokemon was caught, files a Safari Game special news bulletin in the TV broadcast data."
     },
     "WarpToColosseum": {
       "type": "script_cmd",
       "id": 515,
       "legacy_name": "BattleRoomWarp",
-      "description": "Warps to X and Y position of Map header with initial Dir direction, using Door warp",
+      "description": "Warps to X and Y position of Map header with initial Dir direction",
       "params": [
         {
           "name": "map",
@@ -7667,24 +7689,26 @@
         },
         {
           "name": "x",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "y",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "dir",
           "type": "u16"
         }
       ],
-      "notes": "Essentially identical to the normal Warp command, but the params format is slightly different. Also, this command updates some internal stuff to let the game engine know you're about to communicate wirelessly."
+      "notes": "Essentially identical to the normal Warp command, but the params format is slightly different. Also, this command updates some internal stuff to let the game engine know you're about to communicate wirelessly. The Door parameter is unused."
     },
     "ScrCmd_204": {
       "type": "script_cmd",
       "id": 516,
       "legacy_name": "ExitBattleRoom",
-      "description": "Returns to previous map once wireless communication ends",
+      "description": "Returns the player to the location stored in the special-location slot (set by e.g. SetSpecialLocation)",
       "params": []
     },
     "ScrCmd_205": {
@@ -7705,14 +7729,16 @@
       "type": "script_cmd",
       "id": 519,
       "legacy_name": "CMD_519",
-      "description": "nan",
+      "description": "Stores the local player's network ID in Variable.",
       "params": [
         {
           "name": "destVarID",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
-      ]
+      ],
+      "notes": "In a local wireless group the network ID is the machine ID: 0 for the server and 1-7 for clients."
     },
     "DrawPokemonPreview": {
       "type": "script_cmd",
@@ -7722,11 +7748,13 @@
       "params": [
         {
           "name": "pok\u00e9mon",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "gender",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -7741,27 +7769,30 @@
       "type": "script_cmd",
       "id": 522,
       "legacy_name": "CMD_522",
-      "description": "nan",
+      "description": "Uses the Vs. Seeker to search for nearby trainers and stores the result code in Variable.",
       "params": [
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "may_write"
         }
-      ]
+      ],
+      "notes": "Stores 0 when the search can run (battery fully charged and at least one trainer within range), 1 when the battery is not fully charged, 2 when no trainer is within range, and 3 when the search ran but no trainer was picked for a rematch. "
     },
     "SetMoveCodeForFacingDirection": {
       "type": "script_cmd",
       "id": 523,
       "legacy_name": "CMD_523",
-      "description": "nan",
-      "params": []
+      "description": "Sets the invoking event's movement type so it looks in the direction it is currently facing.",
+      "params": [],
+      "notes": "In the Hearthome Gym, the invoking event is instead set to wander around its current position. Outside the Hearthome Gym, if the invoking event is part of a double-battle trainer pair, its partner object receives the same movement type."
     },
     "MessageFromTrainerType": {
       "type": "script_cmd",
       "id": 524,
       "legacy_name": "CMD_524",
-      "description": "nan",
+      "description": "Displays the message from the Text Slot equal to the trainer type of the invoking event.",
       "params": []
     },
     "ScrCmd_20D": {
@@ -7776,7 +7807,9 @@
         },
         {
           "name": "variable",
-          "type": "u16"
+          "type": "var",
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ],
       "notes": "When Operation to perform equals 0, it triggers Cyrus' Red Chain animation, then the screen fades to black. When it equals 1, it checks whether the sequence is still running or not. Variable gets 0 if the sequence is still playing."
@@ -7785,7 +7818,7 @@
       "type": "script_cmd",
       "id": 526,
       "legacy_name": "KeepSafariTrain",
-      "description": "Sets the safari train in the same sector where it was the last time it was moved",
+      "description": "Sets the safari train in the same sector where it was the last time it was moved, or in the area 5-6 station when the train's saved sector is missing",
       "params": [],
       "notes": "This is called by a level script every time the player changes map in the Great Marsh, so the train doesn't return to the first map after being unloaded."
     },
@@ -7797,14 +7830,15 @@
       "params": [
         {
           "name": "position",
-          "type": "u16"
+          "type": "var",
+          "access": "read"
         },
         {
           "name": "move_type",
           "type": "u16"
         }
       ],
-      "notes": "Position goes from 0 to 2."
+      "notes": "Position goes from 0 to 2. Next command does not run until the tram reaches its destination."
     },
     "CheckGreatMarshTramLocation": {
       "type": "script_cmd",
@@ -7819,7 +7853,8 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ],
       "notes": "Position goes from 0 to 2."
@@ -7828,14 +7863,14 @@
       "type": "script_cmd",
       "id": 529,
       "legacy_name": "IgnoreHeights",
-      "description": "If Flag Value is 0, the player becomes able to walk ignoring terrain heights, otherwise the flag is cleared and the mode is deactivated",
+      "description": "If Height Calculation Enabled is TRUE (1), the player walks with terrain height calculation, otherwise the player becomes able to walk ignoring terrain heights",
       "params": [
         {
           "name": "heightCalculationEnabled",
           "type": "u8"
         }
       ],
-      "notes": "Predicted. Needs to be tested. It is used when the player rides on the safari train."
+      "notes": "It is used when the player rides on the safari train. The Safari Game scripts disable height calculation before boarding the Great Marsh quick tram and restore it after the ride."
     },
     "GetPartyMonNature": {
       "type": "script_cmd",
@@ -7846,14 +7881,16 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ],
-      "notes": "If Party Position exceeds the number of Pok\u00e9mon currently in the player's party, 0 is returned."
+      "notes": "If Party Position is at or above the number of Pok\u00e9mon currently in the player's party, or the Pok\u00e9mon in that slot is an Egg, 0 is returned."
     },
     "FindPartySlotWithNature": {
       "type": "script_cmd",
@@ -7864,25 +7901,28 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "nature_id",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ],
-      "notes": "If no Pok\u00e9mon has that Nature ID, 0xFF [255] is returned."
+      "notes": "If no non-egg Pok\u00e9mon has that Nature ID, 0xFF [255] is returned."
     },
     "GetSpiritombCounter": {
       "type": "script_cmd",
       "id": 532,
       "legacy_name": "CheckSpiritombCounter",
-      "description": "Stores in Variable the current underground talk counter value",
+      "description": "Stores in Variable the current Spiritomb counter value",
       "params": [
         {
           "name": "destVarID",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -7902,7 +7942,8 @@
         {
           "name": "destVarID",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -7914,11 +7955,14 @@
       "params": [
         {
           "name": "destFoundAccessoryID",
-          "type": "u16"
+          "type": "var",
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "pok\u00e9mon",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         }
       ],
       "notes": "See how Amity Square accessories work in Bulbapedia. If specified Pok\u00e9mon is not allowed in Amity Square, it gets an accessory corresponding to the evolutionary family of Chimchar."
@@ -7927,12 +7971,13 @@
       "type": "script_cmd",
       "id": 536,
       "legacy_name": "CMD_536",
-      "description": "nan",
+      "description": "Stores in Variable a randomly selected Pok\u00e9mon species that the player has seen in the Sinnoh Pok\u00e9dex.",
       "params": [
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -7940,11 +7985,12 @@
       "type": "script_cmd",
       "id": 537,
       "legacy_name": "CMD_537",
-      "description": "nan",
+      "description": "Sets the number of days remaining until the Pok\u00e9mon News Press deadline.",
       "params": [
         {
           "name": "deadlineInDays",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -7952,12 +7998,13 @@
       "type": "script_cmd",
       "id": 538,
       "legacy_name": "CMD_538",
-      "description": "nan",
+      "description": "Stores the number of days remaining until the Pok\u00e9mon News Press deadline in Variable.",
       "params": [
         {
           "name": "destVarID",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -7965,8 +8012,9 @@
       "type": "script_cmd",
       "id": 539,
       "legacy_name": "CMD_539",
-      "description": "nan",
-      "params": []
+      "description": "Enables swarms, causing the swarm Pok\u00e9mon to appear in the wild on its route.",
+      "params": [],
+      "notes": "Once enabled, swarms cannot be turned off: the flag is cleared only when the special encounter save data is initialized."
     },
     "ActivateRoamingPokemon": {
       "type": "script_cmd",
@@ -7985,7 +8033,7 @@
       "type": "script_cmd",
       "id": 541,
       "legacy_name": "UnionGroup",
-      "description": "Function depends on the first parameter:\n0: Checks if group ID exists, returns answer in Variable\n1: Checks if group ID is accesible, returns answer in Variable\n2: Writes group ID name in String Buffer\n3: Writes leader's name of Group ID in String Buffer\n4: Opens keyboard, stores 1 in Variable if user cancels, 2 if group name already exists, 0 otherwise\n5: Enter in group ID\n6: Creates a group",
+      "description": "Function depends on the first parameter:\n0: Checks if group ID exists, returns answer in Variable\n1: Checks if group ID matches the player's current group, returns answer in Variable\n2: Writes group ID name in String Buffer\n3: Writes leader's name of Group ID in String Buffer\n4: Opens keyboard, stores 1 in Variable if user cancels, 2 if group name already exists, 0 otherwise\n5: Enter in group ID\n6: Creates a group",
       "variants": [
         {
           "params": [
@@ -7995,12 +8043,15 @@
               "const": "0"
             },
             {
-              "name": "var_0",
-              "type": "var"
+              "name": "group_id",
+              "type": "flex",
+              "access": "read"
             },
             {
-              "name": "arg_1",
-              "type": "u16"
+              "name": "dest_var",
+              "type": "var",
+              "default": "VAR_RESULT",
+              "access": "must_write"
             }
           ],
           "desc": "Checks if group ID exists, returns answer in Variable"
@@ -8013,15 +8064,18 @@
               "const": "1"
             },
             {
-              "name": "var_0",
-              "type": "var"
+              "name": "group_id",
+              "type": "flex",
+              "access": "read"
             },
             {
-              "name": "arg_1",
-              "type": "u16"
+              "name": "dest_var",
+              "type": "var",
+              "default": "VAR_RESULT",
+              "access": "must_write"
             }
           ],
-          "desc": "Checks if group ID is accesible, returns answer in Variable"
+          "desc": "Checks if group ID matches the player's current group, returns answer in Variable"
         },
         {
           "params": [
@@ -8031,12 +8085,14 @@
               "const": "2"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "group_id",
+              "type": "flex",
+              "access": "read"
             },
             {
-              "name": "arg_1",
-              "type": "u16"
+              "name": "template_arg",
+              "type": "flex",
+              "access": "read"
             }
           ],
           "desc": "Writes group ID name in String Buffer"
@@ -8049,12 +8105,14 @@
               "const": "3"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "group_id",
+              "type": "flex",
+              "access": "read"
             },
             {
-              "name": "var_1",
-              "type": "var"
+              "name": "template_arg",
+              "type": "flex",
+              "access": "read"
             }
           ],
           "desc": "Writes leader's name of Group ID in String Buffer"
@@ -8067,8 +8125,10 @@
               "const": "4"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "dest_var",
+              "type": "var",
+              "default": "VAR_RESULT",
+              "access": "must_write"
             }
           ],
           "desc": "Opens keyboard, stores 1 in Variable if user cancels, 2 if group name already exists, 0 otherwise"
@@ -8081,8 +8141,9 @@
               "const": "5"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "group_id",
+              "type": "flex",
+              "access": "read"
             }
           ],
           "desc": "Enter in group ID"
@@ -8104,23 +8165,25 @@
       "type": "script_cmd",
       "id": 542,
       "legacy_name": "CMD_542",
-      "description": "nan",
+      "description": "Nothing",
       "params": []
     },
     "CheckHasLearnableReminderMoves": {
       "type": "script_cmd",
       "id": 543,
       "legacy_name": "CMD_543",
-      "description": "nan",
+      "description": "Stores 1 in Variable if the Pok\u00e9mon in Party Slot has at least one level-up move it can remember, stores 0 otherwise",
       "params": [
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "partySlot",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -8128,7 +8191,7 @@
       "type": "script_cmd",
       "id": 544,
       "legacy_name": "CMD_544",
-      "description": "nan",
+      "description": "Nothing",
       "params": []
     },
     "OpenMoveReminderMenu": {
@@ -8139,7 +8202,8 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -8159,7 +8223,8 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -8171,11 +8236,13 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "move_id",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ],
       "notes": "Used by Grandma Wilma on Route 210 to teach Draco Meteor and by the old man on Route 228 to teach Blast Burn, Hydro Cannon or Frenzy Plant to your starter."
@@ -8189,7 +8256,8 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -8214,7 +8282,8 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -8227,7 +8296,8 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -8239,7 +8309,8 @@
       "params": [
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -8277,7 +8348,8 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -8290,11 +8362,13 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -8307,7 +8381,8 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -8320,15 +8395,18 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "party_position",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "ribbon",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -8340,13 +8418,16 @@
       "params": [
         {
           "name": "party_position",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "ribbon",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         }
-      ]
+      ],
+      "notes": "Ribbon IDs are passed as a single byte: only the low byte of the argument is used, and a low-byte value of RIBBON_MAX (80) or greater is not validated and reads past the ribbon data table. The Party Position must be the position of a Pok\u00e9mon currently in the party."
     },
     "BufferRibbonName": {
       "type": "script_cmd",
@@ -8360,7 +8441,8 @@
         },
         {
           "name": "ribbon",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -8373,11 +8455,13 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "party_position",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ],
       "notes": "Predicted."
@@ -8391,7 +8475,8 @@
         {
           "name": "destVarID",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ],
       "notes": "Value 0 is the first possible value and it's for Sunday."
@@ -8400,7 +8485,7 @@
       "type": "script_cmd",
       "id": 565,
       "legacy_name": "CallTVBroadcast",
-      "description": "nan",
+      "description": "Performs the TV broadcast operation selected by Mode: 0 stores the current broadcast status, 1 stores a framing message's text bank and message ID, 2 marks the saved TV program as finished, 3 records the segment as played and stores its text bank and message ID, 4 stores a commercial's text bank and message ID, 5 stores a segment ID from a flag-configured lookup, and 6 stores the next segment ID.",
       "variants": [
         {
           "params": [
@@ -8410,8 +8495,10 @@
               "const": "0"
             },
             {
-              "name": "arg_0",
-              "type": "flex"
+              "name": "status_dest_var",
+              "type": "var",
+              "default": "VAR_RESULT",
+              "access": "must_write"
             }
           ]
         },
@@ -8423,16 +8510,18 @@
               "const": "1"
             },
             {
-              "name": "arg_0",
-              "type": "flex"
-            },
-            {
-              "name": "arg_1",
-              "type": "flex"
-            },
-            {
-              "name": "arg_2",
+              "name": "framing_message_type",
               "type": "u16"
+            },
+            {
+              "name": "bank_dest_var",
+              "type": "var",
+              "access": "must_write"
+            },
+            {
+              "name": "message_dest_var",
+              "type": "var",
+              "access": "must_write"
             }
           ]
         },
@@ -8453,16 +8542,19 @@
               "const": "3"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "segment_id",
+              "type": "flex",
+              "access": "read"
             },
             {
-              "name": "arg_1",
-              "type": "u16"
+              "name": "bank_dest_var",
+              "type": "var",
+              "access": "must_write"
             },
             {
-              "name": "arg_2",
-              "type": "u16"
+              "name": "message_dest_var",
+              "type": "var",
+              "access": "must_write"
             }
           ]
         },
@@ -8474,12 +8566,14 @@
               "const": "4"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "bank_dest_var",
+              "type": "var",
+              "access": "must_write"
             },
             {
-              "name": "arg_1",
-              "type": "u16"
+              "name": "message_dest_var",
+              "type": "var",
+              "access": "must_write"
             }
           ]
         },
@@ -8491,16 +8585,20 @@
               "const": "5"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "lookup_source_flag",
+              "type": "flex",
+              "access": "read"
             },
             {
-              "name": "arg_1",
-              "type": "u16"
+              "name": "played_filter_flag",
+              "type": "flex",
+              "access": "read"
             },
             {
-              "name": "arg_2",
-              "type": "u16"
+              "name": "segment_dest_var",
+              "type": "var",
+              "default": "VAR_RESULT",
+              "access": "must_write"
             }
           ]
         },
@@ -8512,8 +8610,10 @@
               "const": "6"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "segment_dest_var",
+              "type": "var",
+              "default": "VAR_RESULT",
+              "access": "must_write"
             }
           ]
         }
@@ -8523,11 +8623,12 @@
       "type": "script_cmd",
       "id": 566,
       "legacy_name": "CMD_566",
-      "description": "nan",
+      "description": "Saves a Hidden Item Breaking News TV segment for later broadcast, recording the given Item together with the player's current location.",
       "params": [
         {
           "name": "item",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -8535,23 +8636,57 @@
       "type": "script_cmd",
       "id": 567,
       "legacy_name": "CMD_567",
-      "description": "nan",
-      "params": [
+      "description": "Performs the TV interview operation selected by Mode:\n0: Loads the question message of the TV interview segment given by Interview Segment ID, storing its text bank ID in Text Bank Dest Var and its message ID in Message ID Dest Var\n1: Saves the value given by Custom Message Word as the interview response for the segment given by Interview Segment ID and increases the trainer score",
+      "params": [],
+      "notes": "Interview Segment ID must be 1-19: the command indexes the 19-entry interview segment table directly, without a bounds check, so other values index outside it. Saving a response stores anything only for segments that define a save handler; the unused segments (1, 3, 5, 8 and 12) discard Custom Message Word, while the trainer score increases either way. Segment 10 (Street Corner Personality Checkup) saves a Pok\u00e9mon type rather than an Easy Chat word as its response.",
+      "variants": [
         {
-          "name": "mode",
-          "type": "u16"
+          "params": [
+            {
+              "name": "mode",
+              "type": "u16",
+              "const": "0"
+            },
+            {
+              "name": "interviewSegmentID",
+              "type": "flex",
+              "access": "read"
+            },
+            {
+              "name": "text_bank_dest_var",
+              "type": "var",
+              "access": "must_write"
+            },
+            {
+              "name": "message_id_dest_var",
+              "type": "var",
+              "access": "must_write"
+            }
+          ]
         },
         {
-          "name": "interviewSegmentID",
-          "type": "u16"
-        },
-        {
-          "name": "variable",
-          "type": "u16"
-        },
-        {
-          "name": "variable",
-          "type": "u16"
+          "params": [
+            {
+              "name": "mode",
+              "type": "u16",
+              "const": "1"
+            },
+            {
+              "name": "interviewSegmentID",
+              "type": "flex",
+              "access": "read"
+            },
+            {
+              "name": "custom_message_word",
+              "type": "flex",
+              "access": "read"
+            },
+            {
+              "name": "unused",
+              "type": "flex",
+              "access": "none"
+            }
+          ]
         }
       ]
     },
@@ -8559,29 +8694,33 @@
       "type": "script_cmd",
       "id": 568,
       "legacy_name": "CMD_568",
-      "description": "nan",
+      "description": "Stores 1 in Variable if Interview Segment ID is currently eligible to be recorded as a TV interview, stores 0 otherwise.",
       "params": [
         {
           "name": "interviewSegmentID",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
-      ]
+      ],
+      "notes": "Interview Segment ID must be 1 to 19 (TV_PROGRAM_TYPE_INTERVIEWS_NUM_SEGMENTS (19)); values outside that range can index the interview table out of bounds."
     },
     "OpenBattleRegulationMenu": {
       "type": "script_cmd",
       "id": 569,
       "legacy_name": "ShowRulesList",
-      "description": "???",
+      "description": "Opens the battle regulation menu, where the player selects a cup ruleset or no restrictions, and stores the outcome in Variable: 1 for a confirmed cup the party qualifies for, 3 for no restrictions, and 2 when the menu is cancelled.",
       "params": [
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -8589,19 +8728,22 @@
       "type": "script_cmd",
       "id": 570,
       "legacy_name": "GetPokemonFootprint",
-      "description": "???",
+      "description": "Stores 1 in Has Print Var if the party member at Party Position has a footprint and 0 otherwise, and stores its footprint type in Print Type Var",
       "params": [
         {
           "name": "hasPrintVar",
-          "type": "var"
+          "type": "var",
+          "access": "must_write"
         },
         {
           "name": "printTypeVar",
-          "type": "var"
+          "type": "var",
+          "access": "must_write"
         },
         {
           "name": "party_position",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         }
       ]
     },
@@ -8613,31 +8755,36 @@
       "params": [
         {
           "name": "pok\u00e9balls",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
-      ]
+      ],
+      "notes": "Requires the Pok\u00e9mon Center healing machine prop to be loaded on the current map."
     },
     "PlayElevatorAnimation": {
       "type": "script_cmd",
       "id": 572,
       "legacy_name": "ElevatorAnimation",
-      "description": "Triggers the animation of building #498 up (if Direction is 0) or down (if Direction is 1) Count consecutive times",
+      "description": "Triggers the animation of the elevator lights map prop up (if Direction is 0) or down (if Direction is 1) Count consecutive times",
       "params": [
         {
           "name": "direction",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "count",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
-      ]
+      ],
+      "notes": "Requires the current map to have the elevator lights map prop loaded."
     },
     "PlayBoatCutscene": {
       "type": "script_cmd",
       "id": 573,
       "legacy_name": "ShipAnimation",
-      "description": "???",
+      "description": "Plays the boat travel cutscene for the given Ship Direction, then warps the player to the Destination Header at Destination X and Destination Z, facing Player Orientation.",
       "params": [
         {
           "name": "ship_direction",
@@ -8659,13 +8806,14 @@
           "name": "destination_z",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "With Ship Direction BOAT_TRAVEL_DIR_NORTH_TO_SOUTH (3) or BOAT_TRAVEL_DIR_WEST_TO_EAST (2), the ship prop for that direction must already be loaded in a small tile box next to the player; otherwise the cutscene is aborted and the player stays in the current map. The other two directions play the cutscene without requiring a ship prop."
     },
     "MysteryGiftGive": {
       "type": "script_cmd",
       "id": 574,
       "legacy_name": "MysteryGiftGive",
-      "description": "Function depends on the first parameter:\n0: Initializes the data for receiving a Mystery Gift\n1: Checks if there is a Mystery Gift, stores answer in Variable\n2: Stores the Mystery Gift ID in Variable\n3: Checks if player can receive the Mystery Gift, stores answer in Variable\n4: Gives the Mystery Gift to the player\n5: Shows the succeed text at Text File file and Text Line slot\n6: Shows the unable text at Text File file and Text Line slot\n7: Ends the Mystery Gift process\n8: Saves data and ends the Mystery Gift process",
+      "description": "Function depends on the first parameter:\n0: Initializes the data for receiving a Mystery Gift\n1: Checks if there is a Mystery Gift, stores answer in Variable\n2: Stores the Mystery Gift type in Variable\n3: Checks if player can receive the Mystery Gift, stores answer in Variable\n4: Gives the Mystery Gift to the player\n5: Stores the Text File and Text Line of the succeed text in Variables\n6: Stores the Text File and Text Line of the unable text in Variables\n7: Ends the Mystery Gift process\n8: Ends the Mystery Gift process",
       "variants": [
         {
           "params": [
@@ -8685,8 +8833,10 @@
               "const": "1"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "available_dest_var",
+              "type": "var",
+              "default": "VAR_RESULT",
+              "access": "must_write"
             }
           ],
           "desc": "Checks if there is a Mystery Gift, stores answer in Variable"
@@ -8699,11 +8849,13 @@
               "const": "2"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "type_dest_var",
+              "type": "var",
+              "default": "VAR_RESULT",
+              "access": "must_write"
             }
           ],
-          "desc": "Stores the Mystery Gift ID in Variable"
+          "desc": "Stores the Mystery Gift type in Variable"
         },
         {
           "params": [
@@ -8713,8 +8865,10 @@
               "const": "3"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "can_receive_dest_var",
+              "type": "var",
+              "default": "VAR_RESULT",
+              "access": "must_write"
             }
           ],
           "desc": "Checks if player can receive the Mystery Gift, stores answer in Variable"
@@ -8737,15 +8891,17 @@
               "const": "5"
             },
             {
-              "name": "arg_0",
-              "type": "u16"
+              "name": "bank_dest_var",
+              "type": "var",
+              "access": "must_write"
             },
             {
-              "name": "arg_1",
-              "type": "u16"
+              "name": "message_dest_var",
+              "type": "var",
+              "access": "must_write"
             }
           ],
-          "desc": "Shows the succeed text at Text File file and Text Line slot"
+          "desc": "Stores the Text File and Text Line of the succeed text in Variables"
         },
         {
           "params": [
@@ -8755,15 +8911,17 @@
               "const": "6"
             },
             {
-              "name": "var_0",
-              "type": "var"
+              "name": "bank_dest_var",
+              "type": "var",
+              "access": "must_write"
             },
             {
-              "name": "arg_1",
-              "type": "u16"
+              "name": "message_dest_var",
+              "type": "var",
+              "access": "must_write"
             }
           ],
-          "desc": "Shows the unable text at Text File file and Text Line slot"
+          "desc": "Stores the Text File and Text Line of the unable text in Variables"
         },
         {
           "params": [
@@ -8783,57 +8941,61 @@
               "const": "8"
             }
           ],
-          "desc": "Saves data and ends the Mystery Gift process"
+          "desc": "Ends the Mystery Gift process"
         }
-      ]
+      ],
+      "notes": "Modes 1 through 6 require mode 0 to have loaded the Mystery Gift data first, and modes 3 through 6 require an occupied Mystery Gift slot; with no gift present they index the per-gift handler table out of bounds and call an unpredictable function pointer."
     },
     "Dummy23F": {
       "type": "script_cmd",
       "id": 575,
       "legacy_name": "CMD_575",
-      "description": "nan",
+      "description": "Fails an engine assertion: while the communication manager is initialized, the failed assertion displays the communication-error message and resets the game; otherwise script execution continues with the next command.",
       "params": []
     },
     "Dummy240": {
       "type": "script_cmd",
       "id": 576,
       "legacy_name": "CMD_576",
-      "description": "nan",
+      "description": "Fails an engine assertion: while the communication manager is initialized, the failure displays a network error and resets the game; otherwise script execution continues with the next command.",
       "params": []
     },
     "Dummy241": {
       "type": "script_cmd",
       "id": 577,
       "legacy_name": "CMD_577",
-      "description": "nan",
+      "description": "Nothing",
       "params": []
     },
     "Dummy242": {
       "type": "script_cmd",
       "id": 578,
       "legacy_name": "CMD_578",
-      "description": "nan",
+      "description": "Nothing",
       "params": []
     },
     "ChooseCustomMessageWord": {
       "type": "script_cmd",
       "id": 579,
       "legacy_name": "CMD_579",
-      "description": "nan",
+      "description": "Opens the Easy Chat word picker, then stores the result in Result Var and Dest Var: 1 and the chosen word when the player selects a word, or 0 and WORD_NONE (0xFFFF) when the picker is closed without a new selection.",
       "params": [
         {
-          "name": "arg_0",
-          "type": "u16",
-          "default": "0"
+          "name": "unused",
+          "type": "flex",
+          "default": "0",
+          "access": "none"
         },
         {
-          "name": "arg_1",
+          "name": "result_var",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "destVar",
-          "type": "var"
+          "type": "var",
+          "access": "must_write"
         }
       ]
     },
@@ -8841,25 +9003,29 @@
       "type": "script_cmd",
       "id": 580,
       "legacy_name": "CMD_580",
-      "description": "nan",
+      "description": "Opens the Easy Chat two-word picker, then stores the result in Result Var and the chosen words in Dest Var1 and Dest Var2: 1 and the two chosen words when the player selects words, or 0 and WORD_NONE (0xFFFF) in both destinations when the picker is closed without a new selection.",
       "params": [
         {
-          "name": "arg_0",
-          "type": "u16",
-          "default": "0"
+          "name": "unused",
+          "type": "flex",
+          "default": "0",
+          "access": "none"
         },
         {
-          "name": "arg_1",
+          "name": "result_var",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "destVar1",
-          "type": "var"
+          "type": "var",
+          "access": "must_write"
         },
         {
           "name": "destVar2",
-          "type": "var"
+          "type": "var",
+          "access": "must_write"
         }
       ]
     },
@@ -8867,17 +9033,20 @@
       "type": "script_cmd",
       "id": 581,
       "legacy_name": "CMD_581",
-      "description": "nan",
+      "description": "Buffers the text of Custom Message Word into the message Text Slot at Idx.",
       "params": [
         {
           "name": "idx",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "customMessageWord",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
-      ]
+      ],
+      "notes": "Buffering WORD_NONE (0xFFFF) clears the Text Slot so it expands to an empty string."
     },
     "GetGameVersion": {
       "type": "script_cmd",
@@ -8888,7 +9057,8 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -8900,9 +9070,12 @@
       "params": [
         {
           "name": "partySlot",
-          "type": "u16"
+          "type": "var",
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
-      ]
+      ],
+      "notes": "Stores 0 both when the first non-egg Pok\u00e9mon is in party slot 0 and when the party contains no non-egg Pok\u00e9mon, so the result alone cannot distinguish the two cases."
     },
     "GetPartyMonType": {
       "type": "script_cmd",
@@ -8912,15 +9085,18 @@
       "params": [
         {
           "name": "type1DestVar",
-          "type": "var"
+          "type": "var",
+          "access": "must_write"
         },
         {
           "name": "type2DestVar",
-          "type": "var"
+          "type": "var",
+          "access": "must_write"
         },
         {
           "name": "party_slot",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
       ],
       "notes": "The value of Type1 and Type2 will be the same if the selected Pok\u00e9mon doesn't have two types."
@@ -8929,40 +9105,48 @@
       "type": "script_cmd",
       "id": 585,
       "legacy_name": "CMD_585",
-      "description": "nan",
+      "description": "Unlocks the wallpaper matching four custom message words and returns the outcome to Variable: 0xFF when no password matches, 0 when the matching wallpaper was already unlocked, or one more than the wallpaper index when it is newly unlocked.",
       "params": [
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         },
         {
           "name": "customMessageWord1",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "customMessageWord2",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "customMessageWord3",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "customMessageWord4",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
-      ]
+      ],
+      "notes": "All four words must match entries in the password word bank, and the decoded password must match the current trainer's ID, so only passwords generated for this save unlock a wallpaper."
     },
     "GetCapturedFlagCount": {
       "type": "script_cmd",
       "id": 586,
       "legacy_name": "CMD_586",
-      "description": "nan",
+      "description": "Stores in Variable the number of flags the player has captured in the Underground",
       "params": [
         {
           "name": "destFlagCount",
-          "type": "u16"
+          "type": "var",
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -8970,37 +9154,40 @@
       "type": "script_cmd",
       "id": 587,
       "legacy_name": "LoadPCAnimation",
-      "description": "nan",
+      "description": "Loads the boot-up and shut-down animations for the PC prop on the current map, registering them under Tag.",
       "params": [
         {
           "name": "tag",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "Tag must be nonzero and identifies the loaded animations, which the matching PlayPCBootUpAnimation, PlayPCShutDownAnimation, and UnloadAnimation commands address by that same tag. The command loads nothing when the current map has no PC prop (Pok\u00e9 Center PC or desk laptop model)."
     },
     "PlayPCBootUpAnimation": {
       "type": "script_cmd",
       "id": 588,
       "legacy_name": "PlayPCBootUpAnimation",
-      "description": "nan",
+      "description": "Plays the PC boot-up animation for Tag and continues script execution without waiting for it to finish.",
       "params": [
         {
           "name": "tag",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "The animation for Tag must be loaded first with LoadPCAnimation; playing a Tag that has no loaded animation slot dereferences missing animation data and may crash the game."
     },
     "PlayPCShutDownAnimation": {
       "type": "script_cmd",
       "id": 589,
       "legacy_name": "PlayPCShutDownAnimation",
-      "description": "nan",
+      "description": "Plays the shut-down animation of the PC prop animation set identified by Tag.",
       "params": [
         {
           "name": "tag",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "The Tag must already have an animation set registered by LoadPCAnimation; the animation starts asynchronously and the script does not wait for it to finish."
     },
     "GetJubilifeLotteryTrainerID": {
       "type": "script_cmd",
@@ -9011,7 +9198,8 @@
         {
           "name": "destVarID",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -9019,23 +9207,27 @@
       "type": "script_cmd",
       "id": 591,
       "legacy_name": "CheckWinLotto",
-      "description": "Takes a Winning Number as input and responds as follows.\nIf no matching Pok\u00e9mon could be found or an error occurs: \nMatchPos: 0; Digits: 0; PC: 0.\n\nFor all other cases:\n\nIf the matching Pok\u00e9mon is in the Player's party, PC will be assigned 0.\nOtherwise, if it's in the Player's Storage System, PC will be assigned 1.\n\nMatchPos stores the zero-based position of the winning Pok\u00e9mon (either as Party pos or Storage System pos, depending on the value of PC).\n\nWhen there's a match, the Digits var is assigned the number of matching digits of the Winning Pok\u00e9mon's PID.\nIn case of multiple matches, priority is always given to the one with the most matching digits.",
+      "description": "Takes a Winning Number as input and responds as follows.\nIf no matching Pok\u00e9mon could be found: \nMatchPos: 0; Digits: 0; PC: 0.\n\nFor all other cases:\n\nIf the matching Pok\u00e9mon is in the Player's party, PC will be assigned 0.\nOtherwise, if it's in the Player's Storage System, PC will be assigned 1.\n\nMatchPos stores the zero-based position of the winning Pok\u00e9mon (either as Party pos or Storage System pos, depending on the value of PC).\n\nWhen there's a match, the Digits var is assigned the number of matching trailing digits of the Winning Pok\u00e9mon's Trainer ID.\nIn case of multiple matches, priority is always given to the one with the most matching digits, with the Player's party preferred on a tie.",
       "params": [
         {
           "name": "matchpos",
-          "type": "u16"
+          "type": "var",
+          "access": "must_write"
         },
         {
           "name": "digits",
-          "type": "u16"
+          "type": "var",
+          "access": "must_write"
         },
         {
           "name": "pc",
-          "type": "u16"
+          "type": "var",
+          "access": "must_write"
         },
         {
           "name": "winning_number",
-          "type": "flex"
+          "type": "flex",
+          "access": "read"
         }
       ],
       "notes": "To retrieve the exact position of a winning Pok\u00e9mon in the Storage System, first make sure PC equals 1. \n\nThe zero-based PC Page and Position indices can be calculated:\n\nPC Page index = MatchPos / 30\nPosition in page = MatchPos % 30\n\nwhere % is the modulo operator."
@@ -9044,14 +9236,15 @@
       "type": "script_cmd",
       "id": 592,
       "legacy_name": "InitLotto",
-      "description": "Generates two random numbers and assigns them to two system lottery Variables.",
-      "params": []
+      "description": "Generates two random numbers and assigns them to the same system lottery Variable.",
+      "params": [],
+      "notes": "The low-half lottery trainer ID variable VAR_LOTTERY_TRAINER_ID_LOW_HALF (0x403C) holds the second random number, which is written last; the high-half lottery trainer ID variable VAR_LOTTERY_TRAINER_ID_HIGH_HALF (0x403D) is left unchanged."
     },
     "BufferMonNicknameFromPC": {
       "type": "script_cmd",
       "id": 593,
       "legacy_name": "CMD_593",
-      "description": "nan",
+      "description": "Stores the nickname of the Pok\u00e9mon at Box Slot Index in the Player's Storage System in Template Arg",
       "params": [
         {
           "name": "templateArg",
@@ -9059,9 +9252,11 @@
         },
         {
           "name": "boxSlotIndex",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
-      ]
+      ],
+      "notes": "Box Slot Index identifies a slot across the whole Storage System, not within a single box: the box number times MAX_MONS_PER_BOX (30) plus the position of the slot inside that box."
     },
     "GetPCBoxesFreeSlotCount": {
       "type": "script_cmd",
@@ -9072,7 +9267,8 @@
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -9080,24 +9276,27 @@
       "type": "script_cmd",
       "id": 595,
       "legacy_name": "CMD_595",
-      "description": "nan",
+      "description": "Starts the Pal Park catching show and marks the player as being in Pal Park when the argument is 0; ends the show and clears that state when the argument is 1.",
       "params": [
         {
           "name": "getClear",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         }
-      ]
+      ],
+      "notes": "Only 0 and 1 have an effect; any other value fails a debug assertion in builds that keep assertions enabled and otherwise does nothing."
     },
     "CheckHasEnoughMonForCatchingShow": {
       "type": "script_cmd",
       "id": 596,
       "legacy_name": "CMD_596",
-      "description": "nan",
+      "description": "Stores TRUE (1) in Variable if all six Pal Park transfer slots hold a Pok\u00e9mon, otherwise FALSE (0).",
       "params": [
         {
           "name": "destVar",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "must_write"
         }
       ]
     },
@@ -9105,31 +9304,34 @@
       "type": "script_cmd",
       "id": 597,
       "legacy_name": "CMD_597",
-      "description": "nan",
+      "description": "Moves the Pokemon in the Pal Park transfer data into the PC boxes and empties the transfer slots.",
       "params": []
     },
     "CalcCatchingShowPoints": {
       "type": "script_cmd",
       "id": 598,
       "legacy_name": "CMD_598",
-      "description": "nan",
+      "description": "Stores in Variable the Pal Park catching-show points selected by Points Category: species points, time points, type points, or the total of all three.",
       "params": [
         {
           "name": "pointsCategory",
-          "type": "u16"
+          "type": "flex",
+          "access": "read"
         },
         {
           "name": "destVarID",
           "type": "var",
-          "default": "VAR_RESULT"
+          "default": "VAR_RESULT",
+          "access": "may_write"
         }
-      ]
+      ],
+      "notes": "A Points Category other than the four defined categories leaves Variable unchanged."
     },
     "ShowAccessoryShop": {
       "type": "script_cmd",
       "id": 599,
       "legacy_name": "CMD_599",
-      "description": "nan",
+      "description": "Opens the accessory shop, where the player trades Berries from the Bag for accessories.",
       "params": []
     },
     "ScrCmd_258": {
