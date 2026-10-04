@@ -2,7 +2,9 @@
   "meta": {
     "version": "Platinum",
     "generated_at": "2026-04-12T19:04:03.568583+00:00",
-    "generated_from": "following_platinum_scrcmd_database.json"
+    "generated_from": "following_platinum_scrcmd_database.json",
+    "decomp_repo": "pret/pokeplatinum",
+    "decomp_commit": "c248fb3f8cc9934ded800e489567c5c0eeee92eb"
   },
   "commands": {
     "Noop": {

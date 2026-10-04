@@ -6414,7 +6414,7 @@
         }
       ]
     },
-    "CMD_471": {
+    "OpenPoffinCooking": {
       "type": "script_cmd",
       "id": 471,
       "legacy_name": "CMD_471",
@@ -6439,7 +6439,7 @@
         }
       ]
     },
-    "CMD_473": {
+    "OpenBattleTowerRecordsApp": {
       "type": "script_cmd",
       "id": 473,
       "legacy_name": "CMD_473",

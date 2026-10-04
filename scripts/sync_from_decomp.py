@@ -146,9 +146,58 @@ class RawMacroDefinition:
     description: str | None = None
 
 
+_GITHUB_RAW_URL = re.compile(
+    r"^https://raw\.githubusercontent\.com/([^/]+/[^/]+)/([^/]+)/(.*)$"
+)
+
+
+@lru_cache(maxsize=None)
+def resolve_branch_head(repo_slug: str, ref: str) -> str:
+    """Resolve a branch name to the commit SHA it currently points at."""
+    api_url = f"https://api.github.com/repos/{repo_slug}/commits/{ref}"
+    with urlopen(api_url, timeout=30) as response:
+        return json.loads(response.read())["sha"]
+
+
+def pin_url_to_commit(url: str) -> tuple[str, str, str]:
+    """Pin a raw.githubusercontent.com URL to the commit its branch points at.
+
+    Returns ``(pinned_url, repo_slug, commit)``; URLs that are not GitHub raw
+    file URLs come back unchanged with empty provenance. Pinning keeps every
+    file of one sync run taken from the same commit and tells the caller which
+    decomp revision the data came from.
+    """
+    match = _GITHUB_RAW_URL.match(url)
+    if not match:
+        return url, "", ""
+    repo_slug, ref, path = match.groups()
+    commit = resolve_branch_head(repo_slug, ref)
+    return (
+        f"https://raw.githubusercontent.com/{repo_slug}/{commit}/{path}",
+        repo_slug,
+        commit,
+    )
+
+
+def decomp_provenance(sources: dict[str, str]) -> tuple[str, str]:
+    """Return ``(repo_slug, commit)`` that the given source URLs resolve to.
+
+    All source URLs of one game come from the same decomp repository. The
+    branch resolver is cached per process, so this reports the exact commit
+    that the fetches of this sync run used.
+    """
+    _, repo_slug, commit = pin_url_to_commit(next(iter(sources.values())))
+    return repo_slug, commit
+
+
 @lru_cache(maxsize=None)
 def fetch_url(url: str) -> str | None:
-    """Fetch content from URL, return None on error."""
+    """Fetch content from URL, return None on error.
+
+    GitHub raw URLs are pinned to the current commit of their branch first, so
+    one sync run reads a single consistent decomp revision.
+    """
+    url, _, _ = pin_url_to_commit(url)
     try:
         with urlopen(url, timeout=30) as response:
             return response.read().decode("utf-8")
@@ -3574,6 +3623,15 @@ def import_decomp_data(db_path: Path) -> bool:
     sync_database(db, sources, version, scrcmd_content)
     if scrcmd_content:
         inject_macros_into_db(db, scrcmd_content)
+
+    # Record which decomp revision this database was made from, so consumers
+    # (e.g. rotom's test fixtures) can detect when database and decomp source
+    # drift apart.
+    repo_slug, commit = decomp_provenance(sources)
+    if repo_slug:
+        meta = db.setdefault("meta", {})
+        meta["decomp_repo"] = repo_slug
+        meta["decomp_commit"] = commit
 
     if write_db_if_changed(db_path, db):
         return True

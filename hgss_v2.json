@@ -2,7 +2,9 @@
   "meta": {
     "version": "HeartGold/SoulSilver",
     "generated_at": "2026-04-12T19:04:03.528550+00:00",
-    "generated_from": "hgss_scrcmd_database.json"
+    "generated_from": "hgss_scrcmd_database.json",
+    "decomp_repo": "pret/pokeheartgold",
+    "decomp_commit": "9d8b7591f09b65804da2fb2dfd56f320633e0d36"
   },
   "commands": {
     "Noop": {
@@ -4213,21 +4215,21 @@
       "description": "",
       "params": []
     },
-    "ScrCmd_315": {
+    "BindEcruteakGymCandleToTrainerSprite": {
       "type": "script_cmd",
       "id": 315,
       "legacy_name": "CMD_315",
       "description": "??? Something to do with the Goldenrod Dept. Store Basement, probably moving around blocks or opening access to doors.",
       "params": []
     },
-    "ScrCmd_316": {
+    "UnbindEcruteakGymCandleFromTrainerSprite": {
       "type": "script_cmd",
       "id": 316,
       "legacy_name": "CMD_316",
       "description": "In 953 trainer scripts.",
       "params": []
     },
-    "ScrCmd_317": {
+    "ExtinguishEcruteakGymCandle": {
       "type": "script_cmd",
       "id": 317,
       "legacy_name": "CMD_317",
