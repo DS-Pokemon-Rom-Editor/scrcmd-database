@@ -4817,10 +4817,10 @@
       "type": "script_cmd",
       "id": 362,
       "legacy_name": "GiveLoanPokemon",
-      "description": "Gives you Pok\u00e9mon at Level with Header name on the summary screen. Used for NPC-given Pok\u00e9mon",
+      "description": "Gives you Trade ID's loan Pok\u00e9mon at Level, with Header as where it was met. Used for NPC-given Pok\u00e9mon",
       "params": [
         {
-          "name": "pok\u00e9mon",
+          "name": "trade_id",
           "type": "u8"
         },
         {
@@ -4832,7 +4832,7 @@
           "type": "u16"
         }
       ],
-      "notes": "Pok\u00e9mon:\n1) Rocky the Onix\n2) Muscle the Machop\n3) Billy the Voltorb\n4) Doris the Dodrio\n5) Sprints the Rapidash\n6) Rusty the Steelix\n7) Shuckie the Shuckle\n8) Kenya the Spearow\n9) Maggie the Magneton\n10) Paul the Xatu\n11) Volty the Pikachu\n12) Hornlette the Rhyhorn\n13) Iron the Beldum"
+      "notes": "Trade ID:\n0) Rocky the Onix\n1) Muscle the Machop\n2) Billy the Voltorb\n3) Doris the Dodrio\n4) Sprints the Rapidash\n5) Rusty the Steelix\n6) Shuckie the Shuckle\n7) Kenya the Spearow\n8) Maggie the Magneton\n9) Paul the Xatu\n10) Volty the Pikachu\n11) Hornlette the Rhyhorn\n12) Iron the Beldum"
     },
     "CheckReturnLoanMon": {
       "type": "script_cmd",

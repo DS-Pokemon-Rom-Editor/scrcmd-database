@@ -748,7 +748,7 @@
     "0x0017": {
       "name": "JumpIfObjID",
       "decomp_name": "objectgoto",
-      "parameters": [2, 4],
+      "parameters": [1, 4],
       "parameter_types": ["Overworld", "Function"],
       "parameter_values": ["u8: Event ID", "u32: Relative Jump"],
       "description": "Jumps to a function, Relative Jump bytes forward or backward, if invoking event has Event ID as ID"
@@ -3689,17 +3689,17 @@
       "name": "GiveLoanPokemon",
       "decomp_name": "give_loan_mon",
       "parameters": [1, 1, 2],
-      "parameter_types": ["Pokemon", "Integer", "Flex"],
-      "parameter_values": ["u8: Pokémon", "u8: Level", "u16: Header"],
-      "description": "Gives you Pokémon at Level with Header name on the summary screen. Used for NPC-given Pokémon",
-      "notes": "Pokémon:\n1) Rocky the Onix\n2) Muscle the Machop\n3) Billy the Voltorb\n4) Doris the Dodrio\n5) Sprints the Rapidash\n6) Rusty the Steelix\n7) Shuckie the Shuckle\n8) Kenya the Spearow\n9) Maggie the Magneton\n10) Paul the Xatu\n11) Volty the Pikachu\n12) Hornlette the Rhyhorn\n13) Iron the Beldum"
+      "parameter_types": ["NpcTrade", "Integer", "Flex"],
+      "parameter_values": ["u8: Trade ID", "u8: Level", "u16: Header"],
+      "description": "Gives you Trade ID's loan Pokémon at Level, with Header as where it was met. Used for NPC-given Pokémon",
+      "notes": "Trade ID:\n0) Rocky the Onix\n1) Muscle the Machop\n2) Billy the Voltorb\n3) Doris the Dodrio\n4) Sprints the Rapidash\n5) Rusty the Steelix\n6) Shuckie the Shuckle\n7) Kenya the Spearow\n8) Maggie the Magneton\n9) Paul the Xatu\n10) Volty the Pikachu\n11) Hornlette the Rhyhorn\n12) Iron the Beldum"
     },
     "0x016B": {
       "name": "CheckReturnLoanPokemon",
       "decomp_name": "check_return_loan_mon",
       "parameters": [1, 2, 2],
-      "parameter_types": ["Integer", "Variable", "Variable"],
-      "parameter_values": [],
+      "parameter_types": ["NpcTrade", "Variable", "Variable"],
+      "parameter_values": ["u8: Trade ID", "Var: Party Position", "Var: Result"],
       "description": ""
     },
     "0x016C": {
@@ -4651,7 +4651,7 @@
       "name": "InitTrade",
       "decomp_name": "load_npc_trade",
       "parameters": [1],
-      "parameter_types": ["Integer"],
+      "parameter_types": ["NpcTrade"],
       "parameter_values": ["u8: Trade ID"],
       "description": "Initializes Trade ID trade data"
     },

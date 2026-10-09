@@ -3259,7 +3259,7 @@
           "type": "u8"
         },
         {
-          "name": "trainer",
+          "name": "trainer_class",
           "type": "flex",
           "access": "read"
         }
@@ -9684,7 +9684,16 @@
       "id": 628,
       "legacy_name": "CMD_628",
       "description": "nan",
-      "params": []
+      "params": [
+        {
+          "name": "dest_var",
+          "type": "var"
+        },
+        {
+          "name": "value",
+          "type": "u32"
+        }
+      ]
     },
     "CheckBonusRoundStreak": {
       "type": "script_cmd",
