@@ -2343,8 +2343,8 @@
       "name": "CMD_200",
       "decomp_name": "buffer_trainer_class_name",
       "parameters": [1, 2],
-      "parameter_types": ["Integer", "Variable"],
-      "parameter_values": [],
+      "parameter_types": ["Integer", "TrainerClass"],
+      "parameter_values": ["u8: String Buffer", "Flex: Trainer Class"],
       "description": ""
     },
     "0x00C9": {
@@ -7893,7 +7893,7 @@
       "name": "TextTrainerClass",
       "decomp_name": "buffer_trainer_class_name_indef",
       "parameters": [1, 2],
-      "parameter_types": ["Integer", "Variable"],
+      "parameter_types": ["Integer", "TrainerClass"],
       "parameter_values": ["u8: String Buffer", "Flex: Trainer class"],
       "description": "Stores Trainer class' lowercase noun in String Buffer",
       "notes": "International release exclusive."
