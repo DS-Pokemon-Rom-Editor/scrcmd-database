@@ -2468,8 +2468,8 @@
       "name": "TextTrainer",
       "decomp_name": "BufferTrainerClassName",
       "parameters": [1, 2],
-      "parameter_types": ["Integer", "Trainer"],
-      "parameter_values": ["u8: String Buffer", "Flex: Trainer ID"],
+      "parameter_types": ["Integer", "Flex"],
+      "parameter_values": ["u8: String Buffer", "Flex: Trainer Class"],
       "description": "Stores Trainer's name in String Buffer"
     },
     "0x00D9": {
@@ -5285,7 +5285,7 @@
       "name": "InitTrade",
       "decomp_name": "StartNpcTrade",
       "parameters": [1],
-      "parameter_types": ["Integer"],
+      "parameter_types": ["NpcTrade"],
       "parameter_values": ["u8: Trade ID"],
       "description": "Initializes Trade ID trade data"
     },
@@ -6016,9 +6016,9 @@
     "0x0274": {
       "name": "CMD_628",
       "decomp_name": "HasCoinsFromValue",
-      "parameters": [],
-      "parameter_types": [],
-      "parameter_values": [],
+      "parameters": [2, 4],
+      "parameter_types": ["Variable", "Integer"],
+      "parameter_values": ["Var: Result", "u32: Coins"],
       "description": "nan"
     },
     "0x0275": {
