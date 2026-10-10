@@ -2468,7 +2468,7 @@
       "name": "TextTrainer",
       "decomp_name": "BufferTrainerClassName",
       "parameters": [1, 2],
-      "parameter_types": ["Integer", "Flex"],
+      "parameter_types": ["Integer", "TrainerClass"],
       "parameter_values": ["u8: String Buffer", "Flex: Trainer Class"],
       "description": "Stores Trainer's name in String Buffer"
     },
@@ -6761,7 +6761,7 @@
       "name": "TextTrainerClass",
       "decomp_name": "ScrCmd_Unk02CC",
       "parameters": [1, 2],
-      "parameter_types": ["Integer", "Flex"],
+      "parameter_types": ["Integer", "TrainerClass"],
       "parameter_values": ["u8: String Buffer", "Flex: Trainer Class"],
       "description": "Stores Trainer class' lowercase noun in String Buffer, International release exclusive.",
       "notes": "International release exclusive."
