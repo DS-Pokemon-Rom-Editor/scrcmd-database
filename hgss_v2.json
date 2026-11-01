@@ -2780,14 +2780,14 @@
       "type": "script_cmd",
       "id": 200,
       "legacy_name": "CMD_200",
-      "description": "",
+      "description": "Stores the specified trainer class's ordinary name in the chosen string buffer.",
       "params": [
         {
           "name": "slot",
           "type": "u8"
         },
         {
-          "name": "trcls",
+          "name": "trainerClass",
           "type": "u16"
         }
       ]
@@ -2945,18 +2945,18 @@
       "type": "script_cmd",
       "id": 211,
       "legacy_name": "GetSwarmInfo",
-      "description": "Selects a zone depending on a random seed, then stores the zone ID in Map and the corresponding swarm Pok\u00e9mon of that zone in Pok\u00e9mon",
+      "description": "Stores the current swarm’s map header ID in Header Variable and Pokémon species ID in Species Variable.",
       "params": [
         {
-          "name": "map",
+          "name": "header_variable",
           "type": "u16"
         },
         {
-          "name": "pok\u00e9mon",
+          "name": "species_variable",
           "type": "u16"
         }
       ],
-      "notes": "Predicted. Needs to be checked."
+      "notes": "Uses the saved swarm random value to select a location and reads its land, surfing or fishing swarm species from the encounter data. Does not generate a new swarm or check whether swarms are enabled."
     },
     "GetTrainerNum": {
       "type": "script_cmd",
@@ -3104,17 +3104,18 @@
       "type": "script_cmd",
       "id": 221,
       "legacy_name": "CheckDefeatedPokemon",
-      "description": "Stores 0 in Variable if player defeated or catched the wild Pokemon, stores 1 otherwise",
+      "description": "Stores 0 in Result Variable if the wild Pokémon was defeated or caught, or 1 otherwise.",
       "params": [
         {
-          "name": "variable",
+          "name": "result_variable",
           "type": "u16"
         },
         {
-          "name": "???",
+          "name": "result_source",
           "type": "u8"
         }
-      ]
+      ],
+      "notes": "Result Source: 1 reads VAR_BATTLE_RESULT (0x4013); all other values read the normal script battle result. Use 1 after command 250 (ScrCmd_250)."
     },
     "PartyCheckForDouble": {
       "type": "script_cmd",
@@ -3508,10 +3509,10 @@
       "type": "script_cmd",
       "id": 250,
       "legacy_name": "WildBattleNoButtons",
-      "description": "Starts a first wild battle against a Pok\u00e9mon of level Level",
+      "description": "Starts a wild battle against the specified Pokémon species and level, with the Bag, Run and Pokémon buttons disabled.",
       "params": [
         {
-          "name": "pok\u00e9mon",
+          "name": "species_id",
           "type": "u16"
         },
         {
@@ -3519,7 +3520,7 @@
           "type": "u16"
         }
       ],
-      "notes": "The difference between this and other similar commands is that Bag, Run and Pok\u00e9mon buttons are disabled."
+      "notes": "Battle outcome is stored in VAR_BATTLE_RESULT (0x4013), not the result used by CheckBattleWon. Use StaticWildWonOrCaughtCheck with Result Source 1. Loss/whiteout handling must be performed by the script."
     },
     "CatchingTutorial": {
       "type": "script_cmd",
@@ -5623,148 +5624,155 @@
       "type": "script_cmd",
       "id": 409,
       "legacy_name": "CMD_409",
-      "description": "",
+      "description": "Prepares the Battle Tower before a challenge is initialized. Used before ScrCmd_410, when no challenge is active.",
       "params": []
     },
     "ScrCmd_410": {
       "type": "script_cmd",
       "id": 410,
       "legacy_name": "CMD_410",
-      "description": "",
+      "description": "Initializes a Battle Tower challenge. If resume_previous is 0, starts a new challenge using challenge_mode: 0 = Singles (3 Pokémon), 1 = Doubles (4 Pokémon), 2 = Multi with an NPC partner (2 Pokémon), 3 = Multi with a link partner (2 Pokémon), 4 = Wi-Fi (3 Pokémon), 5 = Wi-Fi practice (3 Pokémon). If resume_previous is nonzero, restores the saved challenge and ignores challenge_mode.",
       "params": [
         {
-          "name": "arg_0",
+          "name": "resume_previous",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "challenge_mode",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Team sizes specify how many Pokémon the player selects. Vanilla scripts resume with ScrCmd_410 1, 65535; the second parameter is ignored when resuming."
     },
     "ScrCmd_411": {
       "type": "script_cmd",
       "id": 411,
       "legacy_name": "CMD_411",
-      "description": "",
+      "description": "Cleans up after leaving a Battle Tower challenge. Does nothing if no challenge is active.",
       "params": []
     },
     "ScrCmd_412": {
       "type": "script_cmd",
       "id": 412,
       "legacy_name": "CMD_412",
-      "description": "",
+      "description": "Performs a Battle Tower operation. Argument and Result depend on Operation. Challenge mode and team size are set by ScrCmd_410.",
       "params": [
         {
-          "name": "arg_0",
+          "name": "operation",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "argument",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "result_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Unused operands may be 0. Party slots and selection positions are zero-based.\n1: Check whether the party contains Argument eligible Pokémon (0 = challenge team size), excluding Eggs and banned species/forms and disallowing duplicate species or held items. Result: 1 eligible, 0 otherwise.\n2: Reset game.\n3: Clear saved challenge.\n4: Check saved challenge can resume.\n5/6: Set return location/clear return flag.\n8: Get saved streak for mode Argument.\n9: Apply Wi-Fi rank demotion; Result: 1 if demoted.\n10: Get Wi-Fi rank.\n11: Set pending-upload flag to Argument (0 off, nonzero on).\n12: Get pending-upload flag.\n14: Clear interrupted challenge state; return its mode.\n15: Check downloaded Wi-Fi room data exists.\n16: Nintendo WFC: Argument 0 download opponents, 1 upload results, 2 download leader history. Result variable is input/output.\n30: Open team selection using the initialized team size.\n31: Accept selection and free menu data; Result: 1 accepted, 0 cancelled/rejected.\n32: Check selected team; Result: 0 valid, 1 duplicate species, 2 duplicate held item.\n35: Check seven-battle set complete.\n37/38: Record partial/completed set progress.\n39: Store challenge for resumption; save game separately.\n41: Get opponent overworld graphic; Argument: opponent index.\n43: Get challenge mode.\n45: Get Palmer-defeat state; Result: 0 none, 1 Silver battle, 2 Gold battle.\n47: Performs a streak-threshold check but does not return its result.\n48/49: Award Palmer/other Tower ribbons; Result: 1 if any newly awarded.\n50/51: Set partner ID to Argument/get partner ID. IDs: 0–4 NPC partners, 5 male link partner, 6 female link partner.\n52: Generate opponent trainers.\n53: Get party slot at selection position Argument.\n54: Increase Wi-Fi rank; Result: 1 if increased.\n55: Get graphic/ID; Argument: 0 player graphic, 1 partner graphic, 2 partner ID.\n56: Generate NPC partner teams.\n57: Initialize/restore Tower RNG; return derived value.\n58: Unknown.\n100: Check no Tower challenge is initialized."
     },
     "ScrCmd_413": {
       "type": "script_cmd",
       "id": 413,
       "legacy_name": "CMD_413",
-      "description": "",
+      "description": "Gets the species and first move of the specified Pokémon in an NPC Tower partner's generated team.",
       "params": [
         {
-          "name": "var_0",
+          "name": "partner_id",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "pokemon_index",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "species_variable",
           "type": "u16"
         },
         {
-          "name": "var_3",
+          "name": "move_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Partner IDs are 0–4. Pokémon indices are 0–1."
     },
     "ScrCmd_414": {
       "type": "script_cmd",
       "id": 414,
       "legacy_name": "CMD_414",
-      "description": "",
+      "description": "Marks the next earned Battle Tower Singles trophy as claimed and stores its ID in Result Variable: 0 none, 1 Bronze (20-win streak), 2 Silver (50-win streak), 3 Gold (100-win streak).",
       "params": [
         {
-          "name": "result",
+          "name": "result_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Claims at most one trophy per call, in Bronze/Silver/Gold order. The vanilla script separately enables the trophy in the player's room."
     },
     "ScrCmd_415": {
       "type": "script_cmd",
       "id": 415,
       "legacy_name": "CMD_415",
-      "description": "",
+      "description": "Checks for the next unclaimed Battle Tower Singles trophy and stores its ID in Result Variable: 0 none, 1 Bronze (20-win streak), 2 Silver (50-win streak), 3 Gold (100-win streak).",
       "params": [
         {
-          "name": "result",
+          "name": "result_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Does not claim the trophy. Checks in Bronze/Silver/Gold order. Results 4–6: meaning unknown. Vanilla scripts use any nonzero result to show the trophy attendant."
     },
     "ScrCmd_416": {
       "type": "script_cmd",
       "id": 416,
       "legacy_name": "CMD_416",
-      "description": "",
+      "description": "Sends Battle Tower Multi Battle data to the linked player. Stores 1 in Result Variable if the send request was accepted, or 0 if it must be retried.",
       "params": [
         {
-          "name": "arg_0",
+          "name": "operation",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "argument",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "result_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Operation: 0 = send player gender, selected Pokémon species and round progress; 1 = send opponent trainer list; 2 = send the status value in Argument. Argument is unused for operations 0/1. Used with command 417 to wait for and process partner data."
     },
     "ScrCmd_417": {
       "type": "script_cmd",
       "id": 417,
       "legacy_name": "CMD_417",
-      "description": "",
+      "description": "Waits for and processes the linked player’s Battle Tower Multi Battle data. Stores the operation’s result in Result Variable.",
       "params": [
         {
-          "name": "arg_0",
+          "name": "operation",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "result_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Operation 0: receive partner gender, team species and round progress; Result: 0 no duplicate species, 1 first selected Pokémon matches a partner species, 2 second matches, 3 both match. Operation 1: receive opponent trainer list; Result has no consistent meaning and is ignored by vanilla scripts. Operation 2: receive status; Result: 1 if either player’s status is set, otherwise 0. Used with ScrCmd_416."
     },
     "ScrCmd_418": {
       "type": "script_cmd",
       "id": 418,
       "legacy_name": "CMD_418",
-      "description": "",
+      "description": "Stores the downloaded Wi-Fi past leader history’s rank in Rank Variable and Battle Room number in Room Variable.",
       "params": [
         {
-          "name": "var_0",
+          "name": "rank_variable",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "room_variable",
           "type": "u16"
         }
       ]
@@ -5773,10 +5781,10 @@
       "type": "script_cmd",
       "id": 419,
       "legacy_name": "CMD_419",
-      "description": "",
+      "description": "Stores 1 in Result Variable if downloaded Wi-Fi Battle Room past leader history is available, or 0 otherwise.",
       "params": [
         {
-          "name": "result",
+          "name": "result_variable",
           "type": "u16"
         }
       ]
@@ -6416,9 +6424,8 @@
       "type": "script_cmd",
       "id": 463,
       "legacy_name": "EnableMassOutbreaks",
-      "description": "",
-      "params": [],
-      "notes": "Supposed"
+      "description": "Enables wild Pokémon swarms (mass outbreaks).",
+      "params": []
     },
     "CreateRoamer": {
       "type": "script_cmd",
@@ -8503,9 +8510,9 @@
       "type": "script_cmd",
       "id": 597,
       "legacy_name": "CMD_597",
-      "description": "???",
+      "description": "Draws a heart emote/icon above the following Pok\u00e9mon.",
       "params": [],
-      "notes": "Draws a heart icon above the following Pok\u00e9mon. Maybe a dummy command?"
+      "notes": "Appears twice in unreachable blocks of vanilla follower-interaction script163. Normal follower interactions invoke the native emote code directly. Waits for the emote to finish. Requires an active following-Pok\u00e9mon object."
     },
     "ScrCmd_598": {
       "type": "script_cmd",
@@ -8950,34 +8957,35 @@
       "type": "script_cmd",
       "id": 633,
       "legacy_name": "CMD_633",
-      "description": "",
+      "description": "Performs a Battle Hall operation. Argument and Result depend on Operation.",
       "params": [
         {
-          "name": "arg_0",
+          "name": "operation",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "argument",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "result_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Modes: 0 Singles (1 Pokémon), 1 Doubles (2 Pokémon), 2 Multi (1 Pokémon per player).\n0: Check eligibility for Argument Pokémon; Result: 1 eligible, 0 otherwise. Requires level 30 or higher; a two-Pokémon team must have matching species.\n1: Check whether mode Argument has an ongoing saved streak.\n2: Store the species associated with mode Argument’s saved streak in Result Variable.\n3: Clear the ongoing streak for mode Argument; Result unused.\n4: Open team selection for mode Argument; Result unused. Command 635 reads the selection."
     },
     "ScrCmd_634": {
       "type": "script_cmd",
       "id": 634,
       "legacy_name": "CMD_634",
-      "description": "",
+      "description": "Exchanges the supplied Pokémon species ID with the linked player and waits for their selection. Stores 0 in Result Variable if the species match, or 1 if they differ.",
       "params": [
         {
-          "name": "var_0",
+          "name": "species_id",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "result_variable",
           "type": "u16"
         }
       ]
@@ -8986,66 +8994,69 @@
       "type": "script_cmd",
       "id": 635,
       "legacy_name": "CMD_635",
-      "description": "",
+      "description": "Stores the selected Pokémon’s party slots in First Variable and Second Variable, using 0 for the first party slot. Stores 255 in First Variable if selection was cancelled.",
       "params": [
         {
-          "name": "var_0",
+          "name": "first_slot_variable",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "second_slot_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Used after ScrCmd_633 operation 4. Singles/Multi select one Pokémon and set Second Variable to 0. On cancellation, Second Variable is unchanged. Consumes the selection result; it cannot be read again."
     },
     "ScrCmd_636": {
       "type": "script_cmd",
       "id": 636,
       "legacy_name": "CMD_636",
-      "description": "",
+      "description": "Clears the ongoing Battle Hall winning streak for the specified challenge mode: 0 Singles, 1 Doubles, 2 Multi.",
       "params": [
         {
-          "name": "result",
+          "name": "challenge_mode",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Equivalent to ScrCmd_633 operation 3. Used by the vanilla script after resuming a challenge that was quit without saving."
     },
     "ScrCmd_637": {
       "type": "script_cmd",
       "id": 637,
       "legacy_name": "CMD_637",
-      "description": "",
+      "description": "Performs a Battle Castle operation. Argument and Result depend on Operation.",
       "params": [
         {
-          "name": "arg_0",
+          "name": "operation",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "argument",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "result_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Modes: 0 Singles (3 Pokémon), 1 Doubles (3 Pokémon), 2 Multi (2 Pokémon per player).\n0: Check eligibility for Argument Pokémon; Result: 1 eligible, 0 otherwise. This check ignores duplicate held items.\n1: Check whether mode Argument has an ongoing saved streak.\n3: Clear the ongoing streak and reset Castle challenge progress for mode Argument; Result unused.\n4: Open team selection for mode Argument; Result unused. Command 639 reads the selection."
     },
     "ScrCmd_638": {
       "type": "script_cmd",
       "id": 638,
       "legacy_name": "CMD_638",
-      "description": "",
+      "description": "Exchanges the two supplied Pokémon species IDs with the linked player and waits for their selection. Stores the comparison result in Result Variable: 0 no matching species, 1 the first species matches either partner Pokémon, 2 the second matches, 3 both match.",
       "params": [
         {
-          "name": "var_0",
+          "name": "first_species_id",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "second_species_id",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "result_variable",
           "type": "u16"
         }
       ]
@@ -9054,33 +9065,35 @@
       "type": "script_cmd",
       "id": 639,
       "legacy_name": "CMD_639",
-      "description": "",
+      "description": "Stores the selected Pokémon’s party slots in First Variable, Second Variable and Third Variable, using 0 for the first party slot. Stores 255 in First Variable if selection was cancelled.",
       "params": [
         {
-          "name": "var_0",
+          "name": "first_slot_variable",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "second_slot_variable",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "third_slot_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Used after ScrCmd_637 operation 4. Multi selects two Pokémon and sets Third Variable to 0. On cancellation, Second Variable and Third Variable are unchanged. Consumes the selection result; it cannot be read again."
     },
     "ScrCmd_640": {
       "type": "script_cmd",
       "id": 640,
       "legacy_name": "CMD_640",
-      "description": "",
+      "description": "Clears the ongoing Battle Castle winning streak and resets Castle challenge progress for the specified mode: 0 Singles, 1 Doubles, 2 Multi.",
       "params": [
         {
-          "name": "result",
+          "name": "challenge_mode",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Equivalent to ScrCmd_637 operation 3. Used by the vanilla script after resuming a challenge that was quit without saving."
     },
     "SaveWipeExtraChunks": {
       "type": "script_cmd",
@@ -9105,38 +9118,39 @@
       "type": "script_cmd",
       "id": 643,
       "legacy_name": "CMD_643",
-      "description": "",
+      "description": "Performs a Battle Arcade operation. Argument and Result depend on Operation.",
       "params": [
         {
-          "name": "arg_0",
+          "name": "operation",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "argument",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "result_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Modes: 0 Singles (3 Pokémon), 1 Doubles (3 Pokémon), 2 Multi (2 Pokémon per player).\n0: Check eligibility for Argument Pokémon; Result: 1 eligible, 0 otherwise. This check ignores duplicate held items.\n1: Check whether mode Argument has an ongoing saved streak.\n3: Clear the ongoing streak for mode Argument; Result unused.\n4: Open team selection for mode Argument; Result unused. Command 645 reads the selection."
     },
     "ScrCmd_644": {
       "type": "script_cmd",
       "id": 644,
       "legacy_name": "CMD_644",
-      "description": "",
+      "description": "Exchanges the two supplied Pokémon species IDs with the linked player and waits for their selection. Stores the comparison result in Result Variable: 0 no matching species, 1 the first species matches either partner Pokémon, 2 the second matches, 3 both match.",
       "params": [
         {
-          "name": "var_0",
+          "name": "first_species_id",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "second_species_id",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "result_variable",
           "type": "u16"
         }
       ]
@@ -9145,33 +9159,35 @@
       "type": "script_cmd",
       "id": 645,
       "legacy_name": "CMD_645",
-      "description": "",
+      "description": "Stores the selected Pokémon’s party slots in First Variable, Second Variable and Third Variable, using 0 for the first party slot. Stores 255 in First Variable if selection was cancelled.",
       "params": [
         {
-          "name": "var_0",
+          "name": "first_slot_variable",
           "type": "u16"
         },
         {
-          "name": "var_1",
+          "name": "second_slot_variable",
           "type": "u16"
         },
         {
-          "name": "var_2",
+          "name": "third_slot_variable",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Used after ScrCmd_643 operation 4. Multi selects two Pokémon and sets Third Variable to 0. On cancellation, Second Variable and Third Variable are unchanged. Consumes the selection result; it cannot be read again."
     },
     "ScrCmd_646": {
       "type": "script_cmd",
       "id": 646,
       "legacy_name": "CMD_646",
-      "description": "",
+      "description": "Clears the ongoing Battle Arcade winning streak for the specified challenge mode: 0 Singles, 1 Doubles, 2 Multi.",
       "params": [
         {
-          "name": "result",
+          "name": "challenge_mode",
           "type": "u16"
         }
-      ]
+      ],
+      "notes": "Equivalent to ScrCmd_643 operation 3. Used by the vanilla script after resuming a challenge that was quit without saving."
     },
     "GetPartySlotWithSpecies": {
       "type": "script_cmd",
@@ -9804,14 +9820,14 @@
       "type": "script_cmd",
       "id": 686,
       "legacy_name": "WildBattleFateful",
-      "description": "",
+      "description": "Starts a wild battle against the specified Pokémon species and level. The generated Pokémon has the fateful-encounter flag set.",
       "params": [
         {
-          "name": "arg_0",
+          "name": "species_id",
           "type": "u16"
         },
         {
-          "name": "arg_1",
+          "name": "level",
           "type": "u16"
         }
       ]
@@ -11824,7 +11840,7 @@
       "type": "script_cmd",
       "id": 849,
       "legacy_name": "TextTrainerClass",
-      "description": "Stores Trainer class' lowercase noun in String Buffer",
+      "description": "Stores the specified trainer class name with an indefinite article in String Buffer, such as “a Youngster”.",
       "params": [
         {
           "name": "string_buffer",
@@ -11835,7 +11851,7 @@
           "type": "u16"
         }
       ],
-      "notes": "International release exclusive."
+      "notes": "Reads text bank 731, separate from the ordinary trainer class names in bank 730. International release exclusive."
     },
     "BufferSealNamePlural": {
       "type": "script_cmd",
